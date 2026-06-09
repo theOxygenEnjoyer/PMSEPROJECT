@@ -1,20 +1,16 @@
 <!doctype html>
-
 <html class="scroll-smooth" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Discover Malaysia - Jom Teroka</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
     <script id="tailwind-config">
@@ -151,7 +147,6 @@
   <body
     class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed"
   >
-    <!-- TopNavBar -->
     <header
       class="fixed top-0 left-0 w-full z-50 bg-surface shadow-sm h-20 transition-all duration-300"
       id="main-nav"
@@ -161,31 +156,36 @@
       >
         <div class="flex items-center gap-8">
           <a
-            class="text-headline-md font-headline-md font-bold text-primary"
-            href="#"
-            >Jom Teroka</a
+            class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
+            href="landingpage.html"
           >
+            Jom Teroka
+          </a>
           <nav class="hidden md:flex items-center gap-6">
             <a
-              class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
-              href="#"
-              >Discover</a
+              class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md transition-colors hover:text-primary duration-150"
+              href="homepage.html"
             >
+              Discover
+            </a>
             <a
               class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
-              href="#"
-              >My Bookings</a
+              href="tourpage.html"
             >
+              My Bookings
+            </a>
             <a
               class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
-              href="#"
-              >Dashboard</a
+              href="landingpage.html"
             >
+              Dashboard
+            </a>
             <a
               class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
-              href="#"
-              >AI Helper</a
+              href="aiassistant.html"
             >
+              AI Helper
+            </a>
           </nav>
         </div>
         <div class="flex items-center gap-4">
@@ -208,27 +208,24 @@
         </div>
       </div>
     </header>
+
     <main>
-      <!-- Hero Section -->
       <section
         class="relative h-screen min-h-[700px] w-full flex flex-col justify-center items-center overflow-hidden"
       >
-        <!-- Hero Image Background -->
         <div class="absolute inset-0 z-0">
           <img
             alt="Malaysian Landscape"
             class="w-full h-full object-cover"
-            data-alt="A breathtaking wide-angle landscape of the Malaysian Mossy Forest in Cameron Highlands at dawn. Ethereal mist weaves between ancient, moss-covered trees and vibrant green ferns under a soft, golden morning light. The composition highlights the lush, emerald green palette and the serene, mystical atmosphere of the tropical highlands. The lighting is soft and atmospheric, emphasizing the rich textures of the Malaysian heritage environment."
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvYS91Tmwqrwj7xgwqGWuUPnDoJie0qyw-ZjHlpaO3UOJRM30iyYRyNkR8N63oEtqgFCCxkarZg5mFjIVbs6ehYmS6y3alsU-rk6YMuG95xFbeNEFuItrzagAHnVNarPZnL0S54r6vOSnve5i9bssT_bjHBaEPMTbImDmrBTCnz091IIyGCTuFwjCuIizUzc8uw8bFaChrvSFvEq3ytTin_HKQqXMdA7Q5rG2Uw0VCEKp77kl-9ZJLD5dZ_k-ZmbJ_NhszgQ7rI-qJ"
           />
           <div class="absolute inset-0 hero-gradient"></div>
         </div>
-        <!-- Hero Content -->
         <div
           class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center md:text-left"
         >
           <div
-            class="inline-flex items-center px-4 py-1.5 mb-6 bg-secondary-container rounded-full shadow-lg animate-fade-in"
+            class="inline-flex items-center px-4 py-1.5 mb-6 bg-secondary-container rounded-full shadow-lg"
           >
             <span
               class="text-white font-label-md text-label-md uppercase tracking-wider"
@@ -240,8 +237,10 @@
           >
             Unveil the Mystique of Modern Malaysia
           </h1>
-          <!-- Search Panel -->
-          <div
+
+          <form
+            action="tourpage.html"
+            method="GET"
             class="glass-panel p-2 md:p-4 rounded-2xl shadow-2xl max-w-5xl flex flex-col md:flex-row items-stretch gap-4 md:gap-2"
           >
             <div
@@ -256,7 +255,7 @@
                   >location_on</span
                 >
                 <input
-                  class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 placeholder:text-outline"
+                  class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 placeholder:text-outline focus:outline-none focus:border-transparent focus:placeholder-transparent"
                   placeholder="Search destinations..."
                   type="text"
                 />
@@ -272,13 +271,13 @@
               <div class="flex items-center gap-2">
                 <span class="material-symbols-outlined text-primary">map</span>
                 <select
-                  class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 appearance-none"
+                  class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 appearance-none cursor-pointer focus:outline-none"
                 >
+                  <option>Melaka</option>
                   <option>Selangor</option>
                   <option>Penang</option>
                   <option>Sabah</option>
                   <option>Sarawak</option>
-                  <option>Melaka</option>
                   <option>Pahang</option>
                 </select>
               </div>
@@ -293,16 +292,17 @@
                   >category</span
                 >
                 <select
-                  class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 appearance-none"
+                  class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 appearance-none cursor-pointer focus:outline-none"
                 >
+                  <option>Heritage Tours</option>
                   <option>Rainforest Adventures</option>
                   <option>City Escapes</option>
-                  <option>Heritage Tours</option>
                   <option>Island Getaways</option>
                 </select>
               </div>
             </div>
             <button
+              type="submit"
               class="bg-secondary-container hover:bg-secondary transition-all duration-300 text-white px-10 py-4 rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-2 group active:scale-95 shadow-lg"
             >
               <span>Search</span>
@@ -311,9 +311,8 @@
                 >arrow_forward</span
               >
             </button>
-          </div>
+          </form>
         </div>
-        <!-- Scroll Indicator -->
         <div
           class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 animate-bounce"
         >
@@ -323,7 +322,7 @@
           <span class="material-symbols-outlined">expand_more</span>
         </div>
       </section>
-      <!-- Featured Section (Bento Grid) -->
+
       <section
         class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-background"
       >
@@ -336,18 +335,18 @@
               >Handpicked Experiences</span
             >
             <h2 class="font-headline-lg text-headline-lg text-primary mb-4">
-              Curated Journeys Across the Peninsula &amp; Borneo
+              Curated Journeys Across the Peninsula & Borneo
             </h2>
             <p
               class="text-body-lg text-on-surface-variant font-body-lg leading-relaxed"
             >
-              From the rhythmic buzz of Kuala Lumpur to the ancient whispers of
-              the Royal Belum rainforest, discover Malaysia like never before.
+              From the rhythmic buzz of Kuala Lumpur to the historic whispers of
+              Melaka, discover Malaysia like never before.
             </p>
           </div>
           <a
             class="text-primary font-label-md text-label-md flex items-center gap-2 group pb-1 border-b-2 border-transparent hover:border-primary transition-all"
-            href="#"
+            href="tourpage.html"
           >
             View All Destinations
             <span
@@ -356,16 +355,17 @@
             >
           </a>
         </div>
+
         <div
           class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-gutter h-[800px]"
         >
           <div
-            class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group shadow-md"
+            onclick="window.location.href = 'tourpage.html'"
+            class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group shadow-md cursor-pointer"
           >
             <img
-              alt="Penang Heritage"
+              alt="Melaka Heritage"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="A cinematic, detailed shot of a narrow colonial street in George Town, Penang, Malaysia. The scene features colorful heritage shophouses with ornate shutters and intricate tile work under a warm, afternoon sun. Street food stalls with rising steam add life to the background. The lighting is golden and warm, emphasizing the rich historical textures and the vibrant, multicultural spirit of Malaysian heritage sites."
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSZrLLO42RvHAi_Dda7QerKLlPn0z7nk-B74H-j7SwxG69ZJAdgQ48dPY6hUzcrbov9KNSpN4yQYwISacxlIClXCskO83OsDKDt3dnbpS21N5wv6YasQjMJVAK8QDnkqYCNI0DJyyuanlWTTyaf1AxL_bU283D4oRohmzQZGadBGV3IopncVBOcAWaGbEPw6S1YLl1lM4daEZjzLQwil_gIOPj1lRIyIWVDzQMC2DwN4KJP13K76m8yHrs-LGCNYidF0KVbjlIqTEG"
             />
             <div
@@ -374,10 +374,10 @@
             <div class="absolute bottom-0 left-0 p-8">
               <span
                 class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-label-sm font-label-sm mb-3"
-                >Heritage &amp; Culture</span
+                >Heritage & Culture</span
               >
               <h3 class="text-white text-3xl font-headline-lg mb-2">
-                The Soul of George Town
+                The Soul of Melaka Town
               </h3>
               <p class="text-white/80 text-body-md line-clamp-2">
                 A sensory journey through UNESCO World Heritage streets, tasting
@@ -386,12 +386,12 @@
             </div>
           </div>
           <div
-            class="md:col-span-2 md:row-span-1 relative rounded-3xl overflow-hidden group shadow-md"
+            onclick="window.location.href = 'tourpage.html'"
+            class="md:col-span-2 md:row-span-1 relative rounded-3xl overflow-hidden group shadow-md cursor-pointer"
           >
             <img
               alt="KL Cityscape"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="A majestic night view of the Kuala Lumpur skyline featuring the illuminated Petronas Twin Towers. The skyscrapers are set against a deep indigo sky with a soft city glow. The foreground shows a sleek, modern infinity pool reflecting the city lights. The overall aesthetic is premium, modern, and vibrant, using the primary forest green and orange accents to highlight the technological and urban advancement of Malaysia."
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIR6sxoyk0Etsm1yh266cy0elLv4TwBqewEHCTXgZ2QE6IUn2CaHeosKIx_tzZy6ie3qhjqkvXiK6CsybVgWqIS8itubH32MxDMdnsxYZdyGtY-CgZ_JBr8SiX3H1nNDTavF8Uq2hWKKeqsN_af-2pUdF0QP_xAfavd0DXcQqSH71ychk2vseAt2eR9aCpBFo-8dte-FNjkVWQX7n91iecLz9G47c0zTEeY5V_hZUdNT16sbtogtVmCf6kClPpEp3myPK9OeABk01X"
             />
             <div
@@ -413,12 +413,12 @@
             </div>
           </div>
           <div
-            class="md:col-span-1 md:row-span-1 relative rounded-3xl overflow-hidden group shadow-md"
+            onclick="window.location.href = 'tourpage.html'"
+            class="md:col-span-1 md:row-span-1 relative rounded-3xl overflow-hidden group shadow-md cursor-pointer"
           >
             <img
               alt="Langkawi"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="An aerial drone perspective of a pristine tropical island in Langkawi, Malaysia. Crystal clear turquoise waters meet white sandy beaches fringed by dense, emerald green tropical rainforest. A traditional wooden boat is anchored peacefully near the shore. The lighting is bright and high-key, creating a tropical paradise aesthetic that feels fresh, clean, and inviting for high-end island travelers."
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmeLAYX43-JGx6IohfS7YiyPZ4kuvb9-dzjBgsM9-ve0jXwmCu7Rg-PI6mG9otkNV3jt_g9TbaibgylvZNbG6AgQDsPdIkQUOQ6xGtQG14o97MTKd8uV1LoBx3PUjang5uLQbFBgRs5Ttm9syeVOtiy0qkKEt_rv0y3nvpRVHcXmvTlh5lVU6l_gWPDywS_goO4BlBA0n3IYJ9T3B0SM3WppCScelvi83g3nzOoMvSHMC_tkIAd16JI3AdsiitCImhg3nsSumEAd1t"
             />
             <div
@@ -429,12 +429,12 @@
             </div>
           </div>
           <div
-            class="md:col-span-1 md:row-span-1 relative rounded-3xl overflow-hidden group shadow-md"
+            onclick="window.location.href = 'tourpage.html'"
+            class="md:col-span-1 md:row-span-1 relative rounded-3xl overflow-hidden group shadow-md cursor-pointer"
           >
             <img
               alt="Kinabalu Park"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="A grand view of Mount Kinabalu in Sabah, Malaysia, towering over a sea of white clouds at sunrise. The rugged granite peaks are touched with orange and pink morning light, while the lower slopes are covered in deep green prehistoric jungle. The atmosphere is adventurous and awe-inspiring, perfectly capturing the majestic natural heritage of Borneo for an international audience."
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8meuMGm_mHc5nbhIEQlbFdMWAVZBCYcC3-5iOboqVIlOxFVQOgsOBsc__ltHxwEpTzOiqq_2xPg45v8jdtSzsTGmFjeXizVffcSFoJpEUqfX2IohuIgx3gScQNcPLlotIATMkewl3NUPWCK4KL4M1VHO0iNe7FsnB_SW_tr_cp2MMf3r3IutuZk51_GHugD1aPw4LKP7rADmWbTGUL5Ty6ro2Hd5nf5BTUdODCGlfPNayVnhEYndHjA9NNio0z1uHlnhTB3riVmYp"
             />
             <div
@@ -448,7 +448,7 @@
           </div>
         </div>
       </section>
-      <!-- Why Choose Us / Value Proposition -->
+
       <section class="bg-surface-container-low py-24">
         <div
           class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-12"
@@ -485,15 +485,20 @@
               rainforests and marine life.
             </p>
           </div>
-          <div class="flex flex-col items-center text-center">
+          <div
+            onclick="window.location.href = 'aiassistant.html'"
+            class="flex flex-col items-center text-center cursor-pointer group"
+          >
             <div
-              class="w-16 h-16 rounded-full bg-on-primary-container flex items-center justify-center mb-6"
+              class="w-16 h-16 rounded-full bg-on-primary-container flex items-center justify-center mb-6 group-hover:scale-105 transition-transform"
             >
               <span class="material-symbols-outlined text-primary text-3xl"
                 >psychology</span
               >
             </div>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">
+            <h4
+              class="font-headline-md text-headline-md text-primary mb-3 group-hover:text-secondary-container transition-colors"
+            >
               AI Travel Helper
             </h4>
             <p class="text-on-surface-variant font-body-md">
@@ -504,15 +509,17 @@
         </div>
       </section>
     </main>
-    <!-- Floating Action Button -->
+
     <button
+      onclick="window.location.href = 'aiassistant.html'"
       class="fixed bottom-8 right-8 w-16 h-16 bg-secondary-container text-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all group overflow-hidden"
     >
       <span
         class="material-symbols-outlined text-3xl transition-transform group-hover:rotate-12"
         style="font-variation-settings: &quot;FILL&quot; 1"
-        >location_searching</span
       >
+        location_searching
+      </span>
       <div class="absolute -top-1 -right-1 flex h-4 w-4">
         <span
           class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"
@@ -522,7 +529,7 @@
         ></span>
       </div>
     </button>
-    <!-- Footer -->
+
     <footer class="bg-tertiary-fixed text-on-tertiary-fixed">
       <div
         class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
@@ -588,6 +595,11 @@
             >
             <a
               class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
+              href="tourpage.html"
+              >Melaka</a
+            >
+            <a
+              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
               href="#"
               >Kuala Lumpur</a
             >
@@ -600,11 +612,6 @@
               class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
               href="#"
               >Sabah</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Langkawi</a
             >
           </div>
           <div class="flex flex-col gap-3">
@@ -638,8 +645,8 @@
         </p>
       </div>
     </footer>
+
     <script>
-      // Micro-interaction for Navigation transparency on scroll
       const nav = document.getElementById("main-nav");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
@@ -651,7 +658,6 @@
         }
       });
 
-      // Search Panel Interaction
       const searchInputs = document.querySelectorAll("input, select");
       searchInputs.forEach((input) => {
         input.addEventListener("focus", () => {

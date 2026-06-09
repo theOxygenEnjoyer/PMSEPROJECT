@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html class="light" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -7,15 +6,11 @@
     <title>Payment | Jom Teroka</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
     <script id="tailwind-config">
@@ -143,36 +138,42 @@
       }
     </style>
   </head>
-  <body class="bg-background text-on-background font-body-md">
-    <!-- TopNavBar -->
+  <body class="bg-background text-on-surface font-body-md">
     <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
       <div
         class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto"
       >
-        <div class="text-headline-md font-headline-md font-bold text-primary">
+        <a
+          href="landingpage.html"
+          class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
+        >
           Jom Teroka
-        </div>
+        </a>
         <div class="hidden md:flex items-center gap-8">
           <a
             class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
-            href="#"
-            >Discover</a
+            href="homepage.html"
           >
+            Discover
+          </a>
           <a
             class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
-            href="#"
-            >My Bookings</a
+            href="tourpage.html"
           >
+            My Bookings
+          </a>
           <a
             class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
-            href="#"
-            >Dashboard</a
+            href="landingpage.html"
           >
+            Dashboard
+          </a>
           <a
             class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
-            href="#"
-            >AI Helper</a
+            href="aiassistant.html"
           >
+            AI Helper
+          </a>
         </div>
         <div class="flex items-center gap-4">
           <span class="text-label-md font-label-md text-on-surface-variant"
@@ -184,19 +185,19 @@
           <span
             class="material-symbols-outlined text-primary cursor-pointer"
             data-icon="account_circle"
-            >account_circle</span
           >
+            account_circle
+          </span>
         </div>
       </div>
     </nav>
+
     <main class="max-w-container-max mx-auto px-margin-desktop py-12">
-      <!-- 3-Step Progress Bar -->
       <div class="mb-16">
         <div class="flex justify-between max-w-2xl mx-auto relative">
           <div
             class="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -z-10 -translate-y-1/2"
           ></div>
-          <!-- Step 1 -->
           <div class="flex flex-col items-center gap-2 bg-background px-4">
             <div
               class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold"
@@ -204,7 +205,6 @@
               <span
                 class="material-symbols-outlined text-[20px]"
                 data-icon="check"
-                data-weight="fill"
                 >check</span
               >
             </div>
@@ -212,7 +212,6 @@
               >Details</span
             >
           </div>
-          <!-- Step 2 -->
           <div class="flex flex-col items-center gap-2 bg-background px-4">
             <div
               class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg ring-4 ring-primary-fixed/30"
@@ -223,33 +222,40 @@
               >Payment</span
             >
           </div>
-          <!-- Step 3 -->
-          <div class="flex flex-col items-center gap-2 bg-background px-4">
+          <div
+            id="step-3-circle"
+            class="flex flex-col items-center gap-2 bg-background px-4"
+          >
             <div
-              class="w-10 h-10 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-bold"
+              class="step-icon w-10 h-10 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-bold transition-all"
             >
               3
             </div>
-            <span class="font-label-sm text-label-sm text-on-surface-variant"
+            <span
+              class="step-text font-label-sm text-label-sm text-on-surface-variant transition-all"
               >Confirmation</span
             >
           </div>
         </div>
       </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-        <!-- LEFT COLUMN: Payment & Billing -->
         <div class="lg:col-span-7 space-y-10">
-          <!-- Payment Method Section -->
           <section>
             <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
               Payment Method
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- Radio Card: TNG -->
               <label
                 class="relative flex items-center p-4 rounded-xl border-2 border-primary bg-surface cursor-pointer shadow-sm transition-all hover:scale-[1.02]"
               >
-                <input checked="" class="hidden" name="payment" type="radio" />
+                <input
+                  checked=""
+                  class="hidden"
+                  name="payment"
+                  type="radio"
+                  value="tng"
+                />
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
                     <span class="font-label-md text-label-md text-primary"
@@ -263,17 +269,15 @@
                   </div>
                   <img
                     alt="TNG Logo"
-                    class="h-8 object-contain self-start grayscale-0"
-                    data-alt="Official Touch 'n Go eWallet logo with its distinctive blue and white branding, displayed clearly on a clean professional background for a payment interface. The logo is sharp and high-resolution to ensure trust and brand recognition for Malaysian users."
+                    class="h-8 object-contain self-start"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVHShBLWLUMGlVPT46NHQxxxQRx1c_8QNsGbIp9zYQfc0_QG5T-ONSLaQQOH6MI8sZLd2-zY5s_NZuodPBaCXTJh4T8zMcrd0SgBftlEkjb9dam_IAlC5CgVu6RKPDoDsc3IjOs5GWTksTnTwwngT1M7frLHA9BI7SpMrTsafW0zx610zHPSiNbyKCpZhzGuWln-RVdv4GLCMVJgvn3SXpQkoEd7N2Lt-jpd83IO10YSldVkwJPrai2ONoAFQFkHcrd1lMzytfnGyi"
                   />
                 </div>
               </label>
-              <!-- Radio Card: FPX -->
               <label
                 class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
               >
-                <input class="hidden" name="payment" type="radio" />
+                <input class="hidden" name="payment" type="radio" value="fpx" />
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
                     <span
@@ -294,17 +298,22 @@
                       >FPX</span
                     >
                     <div class="w-px h-4 bg-outline-variant"></div>
-                    <span class="text-[10px] text-outline leading-tight"
-                      >All Major Banks</span
+                    <span
+                      class="text-white bg-[#1a5c3a] px-1.5 py-0.5 rounded text-[9px]"
+                      >All Banks</span
                     >
                   </div>
                 </div>
               </label>
-              <!-- Radio Card: GrabPay -->
               <label
                 class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
               >
-                <input class="hidden" name="payment" type="radio" />
+                <input
+                  class="hidden"
+                  name="payment"
+                  type="radio"
+                  value="grabpay"
+                />
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
                     <span
@@ -320,17 +329,22 @@
                   <div class="h-8 flex items-center">
                     <span class="text-green-600 font-extrabold italic text-xl"
                       >Grab</span
-                    ><span class="text-green-600 font-bold text-sm ml-1"
+                    >
+                    <span class="text-green-600 font-bold text-sm ml-1"
                       >Pay</span
                     >
                   </div>
                 </div>
               </label>
-              <!-- Radio Card: Credit Card -->
               <label
                 class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
               >
-                <input class="hidden" name="payment" type="radio" />
+                <input
+                  class="hidden"
+                  name="payment"
+                  type="radio"
+                  value="card"
+                />
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
                     <span
@@ -358,14 +372,12 @@
                 </div>
               </label>
             </div>
-            <!-- Security Note -->
             <div
               class="mt-6 flex items-center gap-3 p-4 bg-primary-container/10 rounded-lg border border-primary/20"
             >
               <span
                 class="material-symbols-outlined text-primary"
                 data-icon="lock"
-                data-weight="fill"
                 >lock</span
               >
               <p class="text-label-sm text-on-surface-variant">
@@ -374,7 +386,7 @@
               </p>
             </div>
           </section>
-          <!-- Billing Details Section -->
+
           <section>
             <h2 class="font-headline-md text-headline-md text-primary mb-6">
               Billing Details
@@ -388,7 +400,7 @@
                   <input
                     class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                     type="text"
-                    value="Ahmad Zaki"
+                    value="Muhammad Amirul"
                   />
                 </div>
                 <div class="space-y-1.5">
@@ -398,7 +410,7 @@
                   <input
                     class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                     type="email"
-                    value="ahmad.zaki@email.com"
+                    value="amirul.haziq@email.com"
                   />
                 </div>
               </div>
@@ -422,7 +434,7 @@
             </div>
           </section>
         </div>
-        <!-- RIGHT COLUMN: Order Summary -->
+
         <div class="lg:col-span-5 space-y-gutter">
           <div
             class="bg-surface-container-lowest rounded-2xl shadow-xl p-6 border border-outline-variant/30 sticky top-24"
@@ -430,18 +442,17 @@
             <h3 class="font-headline-md text-headline-md text-primary mb-6">
               Order Summary
             </h3>
-            <!-- Trip Info -->
             <div class="flex gap-4 mb-8">
               <img
                 class="w-24 h-24 rounded-xl object-cover shrink-0"
-                data-alt="A misty, ethereal view of the Mossy Forest in Cameron Highlands, Malaysia. Ancient trees covered in lush green moss and ferns are shrouded in a soft white morning fog, creating a mystical and adventurous atmosphere. The lighting is diffused and cool, emphasizing the damp, tropical highland environment with vibrant green textures."
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM3slRsa6aFxrbUX2d5bI69VKyRuYB68ou25M0lH5f7xAsxwkJCa30pMPDONdbZ4LdMDB7qxPYhxEIqqmxN3Gat_qViWfnjDcy7EDsgjgDnYlSYXoOEHtJ3ZjSZr4Yxt2MXmKVYKEVwri4JJ5DxsGLk25reVmVgq05n3IghgvPguB4tAzKPemcHKem9svnJxo3b5IILxRRMdDXgy7BH0iPXx3ECUUxRx0W39Ei0mRc98I7JDwCgrPwYx28gBQYapS7ufmIqn-YuXA6"
+                alt="Melaka Walk Site Picture"
               />
               <div class="space-y-1">
                 <h4
                   class="font-headline-md text-headline-md leading-tight text-primary"
                 >
-                  Mossy Forest Misty Morning Expedition
+                  Heritage Walk in Melaka: A Journey Through Time
                 </h4>
                 <div class="flex items-center gap-1 text-on-surface-variant">
                   <span
@@ -449,43 +460,42 @@
                     data-icon="location_on"
                     >location_on</span
                   >
-                  <span class="text-label-sm">Cameron Highlands</span>
+                  <span class="text-label-sm">Melaka City</span>
                 </div>
               </div>
             </div>
-            <!-- Details List -->
             <div class="space-y-3 mb-8">
               <div class="flex justify-between items-center text-body-md">
-                <span class="text-on-surface-variant flex items-center gap-2"
-                  ><span
+                <span class="text-on-surface-variant flex items-center gap-2">
+                  <span
                     class="material-symbols-outlined text-[18px]"
                     data-icon="calendar_today"
                     >calendar_today</span
                   >
-                  Date</span
-                >
-                <span class="font-semibold">23 Nov 2024</span>
+                  Date
+                </span>
+                <span class="font-semibold">Current Available Session</span>
               </div>
               <div class="flex justify-between items-center text-body-md">
-                <span class="text-on-surface-variant flex items-center gap-2"
-                  ><span
+                <span class="text-on-surface-variant flex items-center gap-2">
+                  <span
                     class="material-symbols-outlined text-[18px]"
                     data-icon="group"
                     >group</span
                   >
-                  Guests</span
-                >
-                <span class="font-semibold">2 Adults, 1 Child</span>
+                  Guests
+                </span>
+                <span class="font-semibold">2 Pax</span>
               </div>
               <div class="flex justify-between items-center text-body-md">
-                <span class="text-on-surface-variant flex items-center gap-2"
-                  ><span
+                <span class="text-on-surface-variant flex items-center gap-2">
+                  <span
                     class="material-symbols-outlined text-[18px]"
                     data-icon="confirmation_number"
                     >confirmation_number</span
                   >
-                  Booking ID</span
-                >
+                  Booking ID
+                </span>
                 <span
                   class="font-label-sm bg-surface-container px-2 py-0.5 rounded"
                   >JT-77821-MY</span
@@ -493,21 +503,14 @@
               </div>
             </div>
             <div class="h-px bg-outline-variant/30 mb-8"></div>
-            <!-- Receipt Preview -->
             <div
               class="dashed-border rounded-xl p-4 mb-8 bg-surface-container-low/30"
             >
-              <div class="flex justify-between mb-2">
-                <span class="text-label-sm text-on-surface-variant"
-                  >Adult (x2)</span
-                >
-                <span class="text-label-sm font-semibold">MYR 360.00</span>
-              </div>
               <div class="flex justify-between mb-4">
-                <span class="text-label-sm text-on-surface-variant"
-                  >Child (x1)</span
+                <span class="text-label-md text-on-surface-variant"
+                  >Heritage Walk Entry (x2)</span
                 >
-                <span class="text-label-sm font-semibold">MYR 90.00</span>
+                <span class="text-label-md font-semibold">MYR 240.00</span>
               </div>
               <div
                 class="flex justify-between items-end border-t border-outline-variant pt-4"
@@ -517,28 +520,28 @@
                   >Total Payable</span
                 >
                 <span class="text-headline-lg font-headline-lg text-secondary"
-                  >MYR 450.00</span
+                  >MYR 240.00</span
                 >
               </div>
             </div>
-            <!-- CTA Button -->
             <button
+              onclick="processPayment()"
               class="w-full bg-secondary-container hover:bg-secondary text-white py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 shadow-lg shadow-secondary/20 transition-all active:scale-[0.98]"
             >
-              Confirm &amp; Pay MYR 450.00
+              <span>Confirm & Pay MYR 240.00</span>
               <span class="material-symbols-outlined" data-icon="arrow_forward"
                 >arrow_forward</span
               >
             </button>
             <p class="text-center text-label-sm text-on-surface-variant mt-4">
-              By clicking "Confirm &amp; Pay", you agree to the
+              By clicking "Confirm & Pay", you agree to the
               <a class="underline" href="#">Terms of Service</a>.
             </p>
           </div>
         </div>
       </div>
     </main>
-    <!-- Footer -->
+
     <footer class="bg-tertiary-fixed mt-20">
       <div
         class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
@@ -604,48 +607,59 @@
         class="w-full border-t border-outline-variant/30 py-6 px-margin-desktop max-w-container-max mx-auto text-center md:text-left"
       >
         <p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant">
-          © 2024 Jom Teroka. Malaysian Hospitality Redefined.
+          © 2026 Jom Teroka. Malaysian Hospitality Redefined.
         </p>
       </div>
     </footer>
-    <script>
-      // Simple Interaction for Radio Cards
-      const radioCards = document.querySelectorAll(
-        'label[name="payment_label"]',
-      );
-      const radioInputs = document.querySelectorAll('input[name="payment"]');
 
-      radioInputs.forEach((input, index) => {
+    <script>
+      // Active Selection Handling for Payment Option Radio Labels
+      const radioInputs = document.querySelectorAll('input[name="payment"]');
+      radioInputs.forEach((input) => {
         input.closest("label").addEventListener("click", function () {
-          // Reset all
-          document.querySelectorAll('input[name="payment"]').forEach((i) => {
+          radioInputs.forEach((i) => {
             const label = i.closest("label");
-            label.classList.remove("border-primary", "bg-surface");
-            label.classList.add("border-outline-variant", "bg-white");
+            label.className =
+              "relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all";
             const icon = label.querySelector(".material-symbols-outlined");
             icon.innerText = "radio_button_unchecked";
-            icon.classList.remove("text-primary");
-            icon.classList.add("text-outline");
+            icon.className = "material-symbols-outlined text-outline";
             const text = label.querySelector(".font-label-md");
-            text.classList.remove("text-primary");
-            text.classList.add("text-on-surface-variant");
+            text.className =
+              "font-label-md text-label-md text-on-surface-variant";
           });
 
-          // Set active
-          const activeLabel = this;
-          activeLabel.classList.add("border-primary", "bg-surface");
-          activeLabel.classList.remove("border-outline-variant", "bg-white");
-          const activeIcon = activeLabel.querySelector(
-            ".material-symbols-outlined",
-          );
+          this.className =
+            "relative flex items-center p-4 rounded-xl border-2 border-primary bg-surface cursor-pointer shadow-sm transition-all hover:scale-[1.02]";
+          const activeIcon = this.querySelector(".material-symbols-outlined");
           activeIcon.innerText = "radio_button_checked";
-          activeIcon.classList.add("text-primary");
-          activeIcon.classList.remove("text-outline");
-          const activeText = activeLabel.querySelector(".font-label-md");
-          activeText.classList.add("text-primary");
-          activeText.classList.remove("text-on-surface-variant");
+          activeIcon.className = "material-symbols-outlined text-primary";
+          const activeText = this.querySelector(".font-label-md");
+          activeText.className = "font-label-md text-label-md text-primary";
+          this.querySelector('input[name="payment"]').checked = true;
         });
       });
+
+      // Simulation handler confirming execution details step-by-step
+      function processPayment() {
+        const step3Circle = document.querySelector("#step-3-circle .step-icon");
+        const step3Text = document.querySelector("#step-3-circle .step-text");
+
+        // Update to visually complete Step 3
+        step3Circle.className =
+          "w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg ring-4 ring-primary-fixed/30";
+        step3Circle.innerHTML =
+          '<span class="material-symbols-outlined text-[20px]">check</span>';
+        step3Text.className =
+          "font-label-sm text-label-sm text-primary font-bold";
+
+        setTimeout(() => {
+          alert(
+            "Pembayaran Berjaya! Your booking has been secured. Redirecting to your Dashboard.",
+          );
+          window.location.href = "landingpage.html";
+        }, 400);
+      }
     </script>
   </body>
 </html>
