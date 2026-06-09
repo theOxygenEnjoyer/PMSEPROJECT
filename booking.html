@@ -1,0 +1,1186 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Bookings | Jom Teroka</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#e4e2de",
+              "outline-variant": "#c0c9bf",
+              "on-primary-fixed-variant": "#0b5131",
+              background: "#f4fafd",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              "primary-container": "#1a5c3a",
+              "on-secondary-container": "#5c1f00",
+              "on-surface-variant": "#404942",
+              "surface-bright": "#f4fafd",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-background": "#161d1f",
+              "secondary-fixed": "#ffdbcd",
+              "on-primary-fixed": "#002110",
+              "on-surface": "#161d1f",
+              "surface-container-highest": "#dde4e6",
+              "on-error-container": "#93000a",
+              "surface-tint": "#2a6a47",
+              "surface-container": "#e8eff1",
+              "secondary-fixed-dim": "#ffb596",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#93d5aa",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d4dbdd",
+              tertiary: "#3a3a38",
+              "primary-fixed-dim": "#93d5aa",
+              "surface-container-low": "#eef5f7",
+              "primary-fixed": "#aff2c4",
+              "on-tertiary-container": "#c5c4c0",
+              surface: "#f4fafd",
+              "on-secondary-fixed": "#360f00",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#ebf2f4",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "on-tertiary-fixed": "#1b1c1a",
+              outline: "#707971",
+              "inverse-surface": "#2b3234",
+              "on-primary-container": "#91d2a7",
+              secondary: "#a43e00",
+              "surface-container-high": "#e2e9ec",
+              "tertiary-container": "#51514e",
+              "surface-variant": "#dde4e6",
+              primary: "#004326",
+              "secondary-container": "#fd712a",
+              "on-secondary": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              "3xl": "1.5rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              gutter: "24px",
+              base: "8px",
+              "margin-desktop": "40px",
+            },
+            fontFamily: {
+              "display-lg": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "1.2", fontWeight: "700" },
+              ],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+
+      .hero-pattern {
+        background:
+          radial-gradient(circle at top left, rgba(175, 242, 196, 0.45), transparent 35%),
+          radial-gradient(circle at bottom right, rgba(253, 113, 42, 0.18), transparent 35%),
+          linear-gradient(135deg, #f4fafd 0%, #eef5f7 100%);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+
+      .booking-card {
+        transition: all 0.25s ease;
+      }
+
+      .booking-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 40px rgba(0, 67, 38, 0.12);
+      }
+
+      .tab-active {
+        background: #004326;
+        color: white;
+        box-shadow: 0 8px 20px rgba(0, 67, 38, 0.2);
+      }
+
+      .timeline-line {
+        position: absolute;
+        left: 19px;
+        top: 38px;
+        bottom: -18px;
+        width: 2px;
+        background: #c0c9bf;
+      }
+    </style>
+  </head>
+
+  <body class="bg-background text-on-surface font-body-md">
+    <!-- Navbar -->
+    <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
+      >
+        <div class="flex items-center gap-8">
+          <a
+            href="landingpage.html"
+            class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
+          >
+            Jom Teroka
+          </a>
+
+          <div class="hidden md:flex gap-6 items-center">
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="homepage.html"
+            >
+              Discover
+            </a>
+
+            <a
+              class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md"
+              href="tourpage.html"
+            >
+              My Bookings
+            </a>
+
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="landingpage.html"
+            >
+              Destinations
+            </a>
+
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="aiAssistant.html"
+            >
+              AI Helper
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div
+            class="hidden sm:flex items-center gap-2 text-on-surface-variant font-label-md text-label-md"
+          >
+            <span>EN | BM</span>
+            <span class="mx-2 opacity-30">|</span>
+            <span>MYR</span>
+          </div>
+
+          <button
+            class="p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
+          >
+            <span class="material-symbols-outlined text-primary text-3xl">
+              account_circle
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-pattern border-b border-outline-variant/50">
+        <div class="max-w-container-max mx-auto px-margin-desktop py-12">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <div class="lg:col-span-7">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-primary-fixed text-primary rounded-full font-label-md text-label-md mb-5"
+              >
+                <span class="material-symbols-outlined text-[18px]">travel_explore</span>
+                <span>Manage your Malaysian experiences</span>
+              </div>
+
+              <h1 class="font-display-lg text-display-lg text-primary mb-4">
+                My Bookings
+              </h1>
+
+              <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                View your upcoming tours, check payment status, contact your local
+                guide, and manage your Jom Teroka travel plans in one place.
+              </p>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div
+                class="glass-card rounded-3xl border border-white/70 shadow-xl p-6"
+              >
+                <div class="flex items-start justify-between mb-5">
+                  <div>
+                    <p class="text-label-sm font-label-sm text-on-surface-variant mb-1">
+                      Next Trip
+                    </p>
+                    <h2 class="font-headline-md text-headline-md text-primary">
+                      Melaka Heritage Walk
+                    </h2>
+                  </div>
+
+                  <span
+                    class="px-3 py-1 bg-primary text-white rounded-full text-label-sm font-label-sm"
+                  >
+                    Confirmed
+                  </span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-5">
+                  <div class="p-4 rounded-2xl bg-white border border-outline-variant/40">
+                    <span class="material-symbols-outlined text-primary mb-2">
+                      calendar_month
+                    </span>
+                    <p class="text-label-sm text-on-surface-variant">Date</p>
+                    <p class="font-label-md text-label-md text-on-surface">
+                      18 June 2026
+                    </p>
+                  </div>
+
+                  <div class="p-4 rounded-2xl bg-white border border-outline-variant/40">
+                    <span class="material-symbols-outlined text-primary mb-2">
+                      schedule
+                    </span>
+                    <p class="text-label-sm text-on-surface-variant">Time</p>
+                    <p class="font-label-md text-label-md text-on-surface">
+                      9:00 AM
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onclick="scrollToBooking('booking-melaka')"
+                  class="w-full h-12 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95 flex items-center justify-center gap-2"
+                >
+                  View Booking Details
+                  <span class="material-symbols-outlined">arrow_downward</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking Overview -->
+      <section class="max-w-container-max mx-auto px-margin-desktop py-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-label-sm text-on-surface-variant mb-1">
+                  Total Bookings
+                </p>
+                <h3 class="font-headline-lg text-headline-lg text-primary">4</h3>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">
+                  confirmation_number
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-label-sm text-on-surface-variant mb-1">
+                  Active Tours
+                </p>
+                <h3 class="font-headline-lg text-headline-lg text-primary">2</h3>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">
+                  hiking
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-label-sm text-on-surface-variant mb-1">
+                  Pending Payment
+                </p>
+                <h3 class="font-headline-lg text-headline-lg text-primary">1</h3>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary">
+                  payments
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-label-sm text-on-surface-variant mb-1">
+                  Completed
+                </p>
+                <h3 class="font-headline-lg text-headline-lg text-primary">1</h3>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">
+                  task_alt
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <section class="max-w-container-max mx-auto px-margin-desktop pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+          <!-- Left Content -->
+          <div class="lg:col-span-8">
+            <!-- Search and Tabs -->
+            <div
+              class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-5 mb-6"
+            >
+              <div class="flex flex-col md:flex-row gap-4 justify-between">
+                <div
+                  class="relative flex-1 bg-surface-container-low rounded-2xl border border-outline-variant/40"
+                >
+                  <span
+                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant"
+                  >
+                    search
+                  </span>
+                  <input
+                    id="bookingSearch"
+                    oninput="searchBookings()"
+                    type="text"
+                    placeholder="Search booking, destination, or guide..."
+                    class="w-full h-12 pl-12 pr-4 bg-transparent border-none focus:ring-0 text-body-md placeholder:text-on-surface-variant"
+                  />
+                </div>
+
+                <button
+                  onclick="window.location.href='homepage.html'"
+                  class="h-12 px-6 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined">add</span>
+                  New Booking
+                </button>
+              </div>
+
+              <div class="flex flex-wrap gap-3 mt-5">
+                <button
+                  onclick="filterBookings('all', this)"
+                  class="booking-tab tab-active px-5 py-2.5 rounded-full font-label-md text-label-md transition-all"
+                >
+                  All
+                </button>
+
+                <button
+                  onclick="filterBookings('active', this)"
+                  class="booking-tab px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-all"
+                >
+                  Active
+                </button>
+
+                <button
+                  onclick="filterBookings('pending', this)"
+                  class="booking-tab px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-all"
+                >
+                  Pending
+                </button>
+
+                <button
+                  onclick="filterBookings('completed', this)"
+                  class="booking-tab px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-all"
+                >
+                  Completed
+                </button>
+
+                <button
+                  onclick="filterBookings('cancelled', this)"
+                  class="booking-tab px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-all"
+                >
+                  Cancelled
+                </button>
+              </div>
+            </div>
+
+            <!-- Booking Card 1 -->
+            <article
+              id="booking-melaka"
+              class="booking-card booking-item bg-white rounded-3xl border border-outline-variant/40 shadow-sm overflow-hidden mb-6"
+              data-status="active"
+              data-search="melaka heritage walk ariff rahman confirmed jonker street"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-4 relative min-h-[260px]">
+                  <img
+                    src="picture/melaka.jpg"
+                    alt="Melaka Heritage Walk"
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div
+                    class="absolute top-4 left-4 px-3 py-1 bg-primary text-white rounded-full text-label-sm font-label-sm"
+                  >
+                    Confirmed
+                  </div>
+                </div>
+
+                <div class="md:col-span-8 p-6">
+                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+                    <div>
+                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2">
+                        Heritage Tour
+                      </p>
+                      <h2 class="font-headline-lg text-headline-lg text-primary mb-2">
+                        Melaka Heritage Walk Session
+                      </h2>
+                      <p class="text-body-md text-on-surface-variant">
+                        Explore Jonker Street, Dutch Square, A Famosa, and
+                        traditional Peranakan stories with a certified local guide.
+                      </p>
+                    </div>
+
+                    <div class="text-left md:text-right">
+                      <p class="text-label-sm text-on-surface-variant">Booking ID</p>
+                      <p class="font-label-md text-label-md text-primary">
+                        JT-MEL-24018
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[20px]">
+                          calendar_month
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Date</p>
+                        <p class="font-label-md text-label-md">18 June 2026</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[20px]">
+                          schedule
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Time</p>
+                        <p class="font-label-md text-label-md">9:00 AM - 1:00 PM</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[20px]">
+                          group
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Guests</p>
+                        <p class="font-label-md text-label-md">2 Adults</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40 mb-6"
+                  >
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="picture/random.jpg"
+                        alt="Guide Ariff"
+                        class="w-12 h-12 rounded-full object-cover"
+                      />
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">
+                          Ariff Rahman
+                        </p>
+                        <div class="flex items-center gap-1 text-secondary">
+                          <span
+                            class="material-symbols-outlined text-[16px]"
+                            style="font-variation-settings: 'FILL' 1"
+                          >
+                            star
+                          </span>
+                          <span class="text-label-sm font-label-sm">
+                            4.9 • Licensed Guide
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      onclick="window.location.href='aiAssistant.html'"
+                      class="px-4 py-2 rounded-xl border border-primary text-primary font-label-md text-label-md hover:bg-primary-fixed transition-all"
+                    >
+                      Chat Guide
+                    </button>
+                  </div>
+
+                  <div class="flex flex-wrap gap-3">
+                    <button
+                      onclick="toggleDetails('details-melaka')"
+                      class="px-5 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95"
+                    >
+                      View Details
+                    </button>
+
+                    <button
+                      onclick="window.location.href='paymentinterface.html'"
+                      class="px-5 py-3 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95"
+                    >
+                      Receipt
+                    </button>
+
+                    <button
+                      onclick="cancelBooking(this)"
+                      class="px-5 py-3 border border-error text-error rounded-xl font-label-md text-label-md hover:bg-error-container transition-all active:scale-95"
+                    >
+                      Cancel Booking
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="details-melaka"
+                class="hidden border-t border-outline-variant/40 bg-surface-container-low p-6"
+              >
+                <h3 class="font-headline-md text-headline-md text-primary mb-5">
+                  Tour Itinerary
+                </h3>
+
+                <div class="space-y-5">
+                  <div class="relative flex gap-4">
+                    <div class="timeline-line"></div>
+                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10">
+                      <span class="material-symbols-outlined text-[20px]">flag</span>
+                    </div>
+                    <div>
+                      <p class="font-label-md text-label-md">9:00 AM — Meet at Dutch Square</p>
+                      <p class="text-label-sm text-on-surface-variant">
+                        Meet your guide and receive a short safety briefing.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="relative flex gap-4">
+                    <div class="timeline-line"></div>
+                    <div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center z-10">
+                      <span class="material-symbols-outlined text-[20px]">museum</span>
+                    </div>
+                    <div>
+                      <p class="font-label-md text-label-md">10:00 AM — A Famosa & St. Paul Hill</p>
+                      <p class="text-label-sm text-on-surface-variant">
+                        Learn about Portuguese and Dutch historical influence.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="relative flex gap-4">
+                    <div class="timeline-line"></div>
+                    <div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center z-10">
+                      <span class="material-symbols-outlined text-[20px]">restaurant</span>
+                    </div>
+                    <div>
+                      <p class="font-label-md text-label-md">12:00 PM — Local Food Stop</p>
+                      <p class="text-label-sm text-on-surface-variant">
+                        Try chicken rice balls and local kuih around Jonker Street.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="relative flex gap-4">
+                    <div class="w-10 h-10 rounded-full bg-secondary-container text-white flex items-center justify-center z-10">
+                      <span class="material-symbols-outlined text-[20px]">check</span>
+                    </div>
+                    <div>
+                      <p class="font-label-md text-label-md">1:00 PM — Tour Ends</p>
+                      <p class="text-label-sm text-on-surface-variant">
+                        End point near Jonker Walk entrance.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Booking Card 2 -->
+            <article
+              class="booking-card booking-item bg-white rounded-3xl border border-outline-variant/40 shadow-sm overflow-hidden mb-6"
+              data-status="pending"
+              data-search="kuala lumpur city night tour pending payment klcc"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-4 relative min-h-[240px]">
+                  <img
+                    src="picture/KLCC2.jpg"
+                    alt="KL City Night Tour"
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div
+                    class="absolute top-4 left-4 px-3 py-1 bg-secondary-container text-white rounded-full text-label-sm font-label-sm"
+                  >
+                    Payment Pending
+                  </div>
+                </div>
+
+                <div class="md:col-span-8 p-6">
+                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+                    <div>
+                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2">
+                        City Escape
+                      </p>
+                      <h2 class="font-headline-md text-headline-md text-primary mb-2">
+                        Kuala Lumpur City Night Tour
+                      </h2>
+                      <p class="text-body-md text-on-surface-variant">
+                        Visit KLCC, Merdeka Square, Saloma Bridge, and local night
+                        market attractions.
+                      </p>
+                    </div>
+
+                    <div class="text-left md:text-right">
+                      <p class="text-label-sm text-on-surface-variant">Booking ID</p>
+                      <p class="font-label-md text-label-md text-primary">
+                        JT-KUL-24021
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[20px]">
+                          calendar_month
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Date</p>
+                        <p class="font-label-md text-label-md">24 June 2026</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[20px]">
+                          schedule
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Time</p>
+                        <p class="font-label-md text-label-md">7:30 PM</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">
+                          payments
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Balance</p>
+                        <p class="font-label-md text-label-md">RM 168.00</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-3">
+                    <button
+                      onclick="window.location.href='paymentinterface.html'"
+                      class="px-5 py-3 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95"
+                    >
+                      Complete Payment
+                    </button>
+
+                    <button
+                      onclick="window.location.href='aiAssistant.html'"
+                      class="px-5 py-3 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all active:scale-95"
+                    >
+                      Ask AI Helper
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Booking Card 3 -->
+            <article
+              class="booking-card booking-item bg-white rounded-3xl border border-outline-variant/40 shadow-sm overflow-hidden mb-6"
+              data-status="completed"
+              data-search="penang george town food trail completed review"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-4 relative min-h-[240px]">
+                  <img
+                    src="picture/penang.jpg"
+                    alt="Penang Food Trail"
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div
+                    class="absolute top-4 left-4 px-3 py-1 bg-primary text-white rounded-full text-label-sm font-label-sm"
+                  >
+                    Completed
+                  </div>
+                </div>
+
+                <div class="md:col-span-8 p-6">
+                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+                    <div>
+                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2">
+                        Food Experience
+                      </p>
+                      <h2 class="font-headline-md text-headline-md text-primary mb-2">
+                        George Town Food Trail
+                      </h2>
+                      <p class="text-body-md text-on-surface-variant">
+                        A completed food walking tour around Penang street food,
+                        murals, and heritage lanes.
+                      </p>
+                    </div>
+
+                    <div class="text-left md:text-right">
+                      <p class="text-label-sm text-on-surface-variant">Booking ID</p>
+                      <p class="font-label-md text-label-md text-primary">
+                        JT-PEN-23980
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[20px]">
+                          event_available
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Visited</p>
+                        <p class="font-label-md text-label-md">2 May 2026</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[20px]">
+                          group
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Guests</p>
+                        <p class="font-label-md text-label-md">4 Guests</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center">
+                        <span
+                          class="material-symbols-outlined text-secondary text-[20px]"
+                          style="font-variation-settings: 'FILL' 1"
+                        >
+                          star
+                        </span>
+                      </div>
+                      <div>
+                        <p class="text-label-sm text-on-surface-variant">Rating</p>
+                        <p class="font-label-md text-label-md">Not reviewed</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-3">
+                    <button
+                      onclick="openReviewBox()"
+                      class="px-5 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95"
+                    >
+                      Leave Review
+                    </button>
+
+                    <button
+                      onclick="window.location.href='homepage.html'"
+                      class="px-5 py-3 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all active:scale-95"
+                    >
+                      Book Again
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Empty State -->
+            <div
+              id="emptyState"
+              class="hidden bg-white rounded-3xl border border-outline-variant/40 p-10 text-center"
+            >
+              <div
+                class="w-16 h-16 rounded-full bg-primary-fixed mx-auto flex items-center justify-center mb-4"
+              >
+                <span class="material-symbols-outlined text-primary text-3xl">
+                  search_off
+                </span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-primary mb-2">
+                No bookings found
+              </h3>
+              <p class="text-on-surface-variant mb-6">
+                Try another keyword or choose a different booking status.
+              </p>
+              <button
+                onclick="resetBookings()"
+                class="px-6 py-3 bg-primary text-white rounded-xl font-label-md text-label-md"
+              >
+                Show All Bookings
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Sidebar -->
+          <aside class="lg:col-span-4 space-y-gutter">
+            <!-- Profile Summary -->
+            <div
+              class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-6"
+            >
+              <div class="flex items-center gap-4 mb-6">
+                <div
+                  class="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-3xl">
+                    account_circle
+                  </span>
+                </div>
+
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-primary">
+                    Traveller Profile
+                  </h3>
+                  <p class="text-label-sm text-on-surface-variant">
+                    Muhammad Amirul
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4 mb-6">
+                <div class="flex justify-between gap-4">
+                  <span class="text-on-surface-variant text-label-md">Email</span>
+                  <span class="font-label-md text-label-md text-right">
+                    amirul.haziq@email.com
+                  </span>
+                </div>
+
+                <div class="flex justify-between gap-4">
+                  <span class="text-on-surface-variant text-label-md">Phone</span>
+                  <span class="font-label-md text-label-md text-right">
+                    +60 12-345 6789
+                  </span>
+                </div>
+
+                <div class="flex justify-between gap-4">
+                  <span class="text-on-surface-variant text-label-md">Currency</span>
+                  <span class="font-label-md text-label-md text-right">MYR</span>
+                </div>
+              </div>
+
+              <button
+                class="w-full h-12 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all"
+              >
+                Edit Profile
+              </button>
+            </div>
+
+            <!-- Payment Summary -->
+            <div class="bg-primary text-white rounded-3xl shadow-xl p-6">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="font-headline-md text-headline-md">
+                  Payment Summary
+                </h3>
+                <span class="material-symbols-outlined">receipt_long</span>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex justify-between">
+                  <span class="text-white/75">Paid Tours</span>
+                  <span class="font-bold">RM 496.00</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <span class="text-white/75">Pending Payment</span>
+                  <span class="font-bold">RM 168.00</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <span class="text-white/75">Discount Used</span>
+                  <span class="font-bold">RM 25.00</span>
+                </div>
+
+                <div class="border-t border-white/20 pt-4 flex justify-between">
+                  <span class="font-bold">Total Value</span>
+                  <span class="font-bold text-secondary-fixed">RM 664.00</span>
+                </div>
+              </div>
+
+              <button
+                onclick="window.location.href='paymentinterface.html'"
+                class="w-full h-12 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95 mt-6"
+              >
+                Pay Pending Booking
+              </button>
+            </div>
+
+            <!-- Help Card -->
+            <div
+              class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-6"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center mb-4"
+              >
+                <span class="material-symbols-outlined text-primary">
+                  support_agent
+                </span>
+              </div>
+
+              <h3 class="font-headline-md text-headline-md text-primary mb-2">
+                Need help with your trip?
+              </h3>
+
+              <p class="text-body-md text-on-surface-variant mb-5">
+                Ask the AI Helper for itinerary changes, food suggestions,
+                transport tips, or guide-related questions.
+              </p>
+
+              <button
+                onclick="window.location.href='aiAssistant.html'"
+                class="w-full h-12 bg-primary-fixed text-primary rounded-xl font-label-md text-label-md hover:bg-primary hover:text-white transition-all active:scale-95"
+              >
+                Open AI Helper
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- Review Modal -->
+    <div
+      id="reviewModal"
+      class="hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+    >
+      <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6">
+        <div class="flex items-start justify-between mb-5">
+          <div>
+            <h3 class="font-headline-md text-headline-md text-primary">
+              Leave a Review
+            </h3>
+            <p class="text-on-surface-variant text-label-md">
+              Share your experience with other travellers.
+            </p>
+          </div>
+
+          <button
+            onclick="closeReviewBox()"
+            class="w-10 h-10 rounded-full hover:bg-surface-container transition-colors"
+          >
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+
+        <div class="flex gap-2 text-secondary mb-5">
+          <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-3xl">star</span>
+        </div>
+
+        <textarea
+          class="w-full min-h-32 rounded-2xl border-outline-variant focus:border-primary focus:ring-primary"
+          placeholder="Write your review here..."
+        ></textarea>
+
+        <button
+          onclick="closeReviewBox()"
+          class="w-full h-12 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all mt-5"
+        >
+          Submit Review
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let currentFilter = "all";
+
+      function filterBookings(status, button) {
+        currentFilter = status;
+
+        document.querySelectorAll(".booking-tab").forEach((tab) => {
+          tab.classList.remove("tab-active");
+          tab.classList.add(
+            "bg-surface-container",
+            "text-on-surface-variant",
+            "hover:bg-primary-fixed",
+            "hover:text-primary"
+          );
+        });
+
+        button.classList.add("tab-active");
+        button.classList.remove(
+          "bg-surface-container",
+          "text-on-surface-variant",
+          "hover:bg-primary-fixed",
+          "hover:text-primary"
+        );
+
+        applyFilters();
+      }
+
+      function searchBookings() {
+        applyFilters();
+      }
+
+      function applyFilters() {
+        const keyword = document
+          .getElementById("bookingSearch")
+          .value.toLowerCase()
+          .trim();
+
+        const cards = document.querySelectorAll(".booking-item");
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const status = card.dataset.status;
+          const searchText = card.dataset.search.toLowerCase();
+
+          const matchStatus = currentFilter === "all" || status === currentFilter;
+          const matchKeyword = searchText.includes(keyword);
+
+          if (matchStatus && matchKeyword) {
+            card.classList.remove("hidden");
+            visibleCount++;
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+
+        const emptyState = document.getElementById("emptyState");
+        if (visibleCount === 0) {
+          emptyState.classList.remove("hidden");
+        } else {
+          emptyState.classList.add("hidden");
+        }
+      }
+
+      function resetBookings() {
+        document.getElementById("bookingSearch").value = "";
+        currentFilter = "all";
+
+        const firstTab = document.querySelector(".booking-tab");
+        filterBookings("all", firstTab);
+      }
+
+      function toggleDetails(id) {
+        const detailBox = document.getElementById(id);
+        detailBox.classList.toggle("hidden");
+      }
+
+      function scrollToBooking(id) {
+        document.getElementById(id).scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      function cancelBooking(button) {
+        const confirmCancel = confirm(
+          "Are you sure you want to cancel this booking?"
+        );
+
+        if (!confirmCancel) return;
+
+        const card = button.closest(".booking-item");
+        card.dataset.status = "cancelled";
+
+        const badge = card.querySelector(".absolute.top-4.left-4");
+        badge.textContent = "Cancelled";
+        badge.className =
+          "absolute top-4 left-4 px-3 py-1 bg-error text-white rounded-full text-label-sm font-label-sm";
+
+        button.remove();
+
+        alert("Your booking has been cancelled.");
+        applyFilters();
+      }
+
+      function openReviewBox() {
+        document.getElementById("reviewModal").classList.remove("hidden");
+      }
+
+      function closeReviewBox() {
+        document.getElementById("reviewModal").classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>
