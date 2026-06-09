@@ -1,0 +1,614 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Jom Teroka | AI Assistant &amp; Chat</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @keyframes pulse-green {
+        0% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+        }
+      }
+      .status-pulse {
+        animation: pulse-green 2s infinite;
+      }
+      .chat-container {
+        height: calc(100vh - 80px);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #dde4e6;
+        border-radius: 10px;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#e4e2de",
+              "outline-variant": "#c0c9bf",
+              "on-primary-fixed-variant": "#0b5131",
+              background: "#f4fafd",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              "primary-container": "#1a5c3a",
+              "on-secondary-container": "#5c1f00",
+              "on-surface-variant": "#404942",
+              "surface-bright": "#f4fafd",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-background": "#161d1f",
+              "secondary-fixed": "#ffdbcd",
+              "on-primary-fixed": "#002110",
+              "on-surface": "#161d1f",
+              "surface-container-highest": "#dde4e6",
+              "on-error-container": "#93000a",
+              "surface-tint": "#2a6a47",
+              "surface-container": "#e8eff1",
+              "secondary-fixed-dim": "#ffb596",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#93d5aa",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d4dbdd",
+              tertiary: "#3a3a38",
+              "primary-fixed-dim": "#93d5aa",
+              "surface-container-low": "#eef5f7",
+              "primary-fixed": "#aff2c4",
+              "on-tertiary-container": "#c5c4c0",
+              surface: "#f4fafd",
+              "on-secondary-fixed": "#360f00",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#ebf2f4",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "on-tertiary-fixed": "#1b1c1a",
+              outline: "#707971",
+              "inverse-surface": "#2b3234",
+              "on-primary-container": "#91d2a7",
+              secondary: "#a43e00",
+              "surface-container-high": "#e2e9ec",
+              "tertiary-container": "#51514e",
+              "surface-variant": "#dde4e6",
+              primary: "#004326",
+              "secondary-container": "#fd712a",
+              "on-secondary": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              gutter: "24px",
+              base: "8px",
+              "margin-desktop": "40px",
+            },
+            fontFamily: {
+              "display-lg": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "1.2", fontWeight: "700" },
+              ],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-surface text-on-surface font-body-md overflow-hidden">
+    <!-- TopNavBar -->
+    <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20">
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
+      >
+        <div class="flex items-center gap-8">
+          <span class="text-headline-md font-headline-md font-bold text-primary"
+            >Jom Teroka</span
+          >
+          <div class="hidden md:flex gap-6 items-center">
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="#"
+              >Discover</a
+            >
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="#"
+              >My Bookings</a
+            >
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="#"
+              >Dashboard</a
+            >
+            <a
+              class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md"
+              href="#"
+              >AI Helper</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md"
+          >
+            <span>EN | BM</span>
+            <span class="mx-2 opacity-30">|</span>
+            <span>MYR</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span
+              class="material-symbols-outlined text-primary"
+              data-icon="account_circle"
+              >account_circle</span
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main
+      class="flex flex-col md:flex-row chat-container w-full max-w-container-max mx-auto"
+    >
+      <!-- LEFT: AI Assistant -->
+      <section
+        class="flex-1 flex flex-col border-r border-outline-variant bg-surface-container-low overflow-hidden relative"
+      >
+        <!-- Header -->
+        <div
+          class="p-6 border-b border-outline-variant bg-surface flex items-center justify-between"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container"
+            >
+              <span class="material-symbols-outlined" data-icon="smart_toy"
+                >smart_toy</span
+              >
+            </div>
+            <div>
+              <h2 class="font-headline-md text-headline-md leading-none mb-1">
+                AI Assistant
+              </h2>
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-2 h-2 rounded-full bg-green-500 status-pulse"
+                ></span>
+                <span
+                  class="text-label-sm font-label-sm text-on-surface-variant"
+                  >Online</span
+                >
+              </div>
+            </div>
+          </div>
+          <button
+            class="p-2 hover:bg-surface-container rounded-full transition-colors"
+          >
+            <span class="material-symbols-outlined" data-icon="more_vert"
+              >more_vert</span
+            >
+          </button>
+        </div>
+        <!-- Chat Area -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-6">
+          <!-- Welcome Message -->
+          <div class="flex gap-3">
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex-shrink-0 flex items-center justify-center text-white mt-1"
+            >
+              <span class="material-symbols-outlined text-sm" data-icon="bolt"
+                >bolt</span
+              >
+            </div>
+            <div class="max-w-[80%]">
+              <div
+                class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm text-body-md text-on-surface"
+              >
+                Selamat Datang! I'm your Jom Teroka AI. Ready to make your
+                Melaka adventure unforgettable. What's on your mind?
+              </div>
+              <span class="text-[10px] text-on-surface-variant mt-1 block"
+                >09:41 AM</span
+              >
+            </div>
+          </div>
+          <!-- Quick Action Pills -->
+          <div class="flex flex-wrap gap-2 ml-11">
+            <button
+              class="px-4 py-2 bg-surface-container-high hover:bg-primary-fixed border border-outline-variant rounded-full text-label-md font-label-md text-primary transition-all active:scale-95"
+            >
+              Plan my itinerary
+            </button>
+            <button
+              class="px-4 py-2 bg-surface-container-high hover:bg-primary-fixed border border-outline-variant rounded-full text-label-md font-label-md text-primary transition-all active:scale-95"
+            >
+              Suggest food
+            </button>
+            <button
+              class="px-4 py-2 bg-surface-container-high hover:bg-primary-fixed border border-outline-variant rounded-full text-label-md font-label-md text-primary transition-all active:scale-95"
+            >
+              Weather in Melaka
+            </button>
+          </div>
+          <!-- AI Response with Linked Card -->
+          <div class="flex gap-3">
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex-shrink-0 flex items-center justify-center text-white mt-1"
+            >
+              <span class="material-symbols-outlined text-sm" data-icon="bolt"
+                >bolt</span
+              >
+            </div>
+            <div class="max-w-[80%] space-y-3">
+              <div
+                class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm text-body-md text-on-surface"
+              >
+                Based on your love for heritage, you definitely shouldn't miss
+                the famous Chicken Rice Balls. I recommend Hoe Kee for an
+                authentic taste!
+              </div>
+              <!-- Linked Recommendation Card -->
+              <div
+                class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden group cursor-pointer hover:shadow-md transition-shadow"
+              >
+                <div class="relative h-32 overflow-hidden">
+                  <img
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    data-alt="A close-up high-quality food photography shot of traditional Malaysian Hainanese chicken rice balls served on a rustic ceramic plate. The scene is brightly lit with soft, warm morning light, highlighting the glistening texture of the succulent poached chicken and the perfectly shaped rice spheres. The background features a blurred heritage shop-house interior with warm wood tones and vibrant green tropical plants, evoking a premium yet authentic culinary experience in Melaka."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeKERP8sngI_zjY7gfj4t87p9uuMEgccBmyr12qjpq3MoHmzJBuHAPQbUvoXX772X0l7EwhwD08dnu9FoKx_MrwT8UJ8eVcn2R_-UG-xZ_l8JYQ2Z0VBF4spN9FR7XW8q7UQtWMnQloDo6hofgKu1nlGxEaqclgqgrg9dAGX8EQZuCMmBVDLOBMgtRDLzVj9OV8EvJ_-hfjxK0Cnt_7OzxJRNps23liKRvDtj9CXvDXYmTEl3VWokGd-4N3pkmV-p8ha9Oo6U9G6IX"
+                  />
+                  <div
+                    class="absolute top-2 right-2 px-2 py-1 bg-secondary-container text-on-secondary font-label-sm text-label-sm rounded"
+                  >
+                    Top Rated
+                  </div>
+                </div>
+                <div class="p-3">
+                  <h4 class="font-headline-md text-[18px] mb-1">
+                    Hoe Kee Chicken Rice
+                  </h4>
+                  <div class="flex items-center gap-1 text-secondary">
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-label-md font-label-md"
+                      >4.8 (1.2k reviews)</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center gap-2 mt-2 text-on-surface-variant font-label-sm text-label-sm"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px]"
+                      data-icon="location_on"
+                      >location_on</span
+                    >
+                    <span>Jonker St, Melaka</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Input Area -->
+        <div class="p-6 bg-surface border-t border-outline-variant">
+          <div
+            class="relative flex items-center bg-surface-container rounded-2xl px-4 py-3 border border-transparent focus-within:border-primary transition-all"
+          >
+            <input
+              class="flex-1 bg-transparent border-none focus:ring-0 text-body-md placeholder:text-on-surface-variant"
+              placeholder="Ask me anything..."
+              type="text"
+            />
+            <div class="flex items-center gap-2 ml-2">
+              <button class="p-1 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined" data-icon="mic"
+                  >mic</span
+                >
+              </button>
+              <button
+                class="p-2 bg-primary text-white rounded-lg hover:bg-primary-container transition-all active:scale-95"
+              >
+                <span class="material-symbols-outlined" data-icon="send"
+                  >send</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- RIGHT: In-App Chat with Guide -->
+      <section class="flex-1 flex flex-col bg-surface overflow-hidden relative">
+        <!-- Header -->
+        <div
+          class="p-6 border-b border-outline-variant bg-surface-container-lowest"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-4">
+              <div class="relative">
+                <img
+                  class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                  data-alt="A professional headshot of a friendly Malaysian man in his early 30s with a warm and approachable expression. He is wearing a minimalist linen shirt in a soft earthy green, reflecting the brand's tropical modernist aesthetic. The background is a soft-focus Malaysian heritage wall with subtle textures and warm, natural sunlight casting gentle shadows. The lighting is clean and bright, conveying hospitality and reliability."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHu8rBV33FnlLMtY-ElQ_nrljbFHwyKmzTukH3eosQsNbRHpON49CKxsPZWTScygdNIk34p6fAA1K9LaYEQYwUHPAs5PAGp7z1uAtUCjrRMdDbcL686crKup62sEjGt4wfhjfJlk4dj00aLF_w6TYYanO5fWwARYdWdoAfdZwXEDkW3MO4CvxPIn4SfIFMAs149UYPnqPe8hC-2zeem5HFiLjDc7NmKgt4MewseVSkmIMFTChk3P0nDgEhpY_SyefNd5uQdAEDbJm_"
+                />
+                <span
+                  class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"
+                ></span>
+              </div>
+              <div>
+                <h3 class="font-headline-md text-[18px] leading-tight">
+                  Ariff Rahman
+                </h3>
+                <p class="text-on-surface-variant font-label-sm text-label-sm">
+                  Guide • Melaka Heritage Walk
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="w-10 h-10 flex items-center justify-center rounded-full border border-outline-variant hover:bg-surface-container transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="call"
+                  >call</span
+                >
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center rounded-full border border-outline-variant hover:bg-surface-container transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="videocam"
+                  >videocam</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Confirmed Banner -->
+          <div
+            class="flex items-center gap-3 bg-primary/10 border border-primary/20 p-3 rounded-xl"
+          >
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white"
+            >
+              <span
+                class="material-symbols-outlined text-[18px]"
+                data-icon="check_circle"
+                >check_circle</span
+              >
+            </div>
+            <div class="flex-1">
+              <p class="font-label-md text-label-md text-primary leading-tight">
+                Booking Confirmed
+              </p>
+              <p class="text-[12px] text-on-primary-fixed-variant">
+                June 24, 2024 • 09:00 AM
+              </p>
+            </div>
+            <button
+              class="text-label-sm font-bold text-primary hover:underline"
+            >
+              Details
+            </button>
+          </div>
+        </div>
+        <!-- Chat Content -->
+        <div
+          class="flex-1 overflow-y-auto p-6 space-y-6 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-opacity-5"
+        >
+          <!-- System Notification -->
+          <div class="flex justify-center">
+            <div
+              class="bg-surface-container-highest px-4 py-2 rounded-lg text-[11px] font-bold tracking-wider text-on-surface-variant uppercase"
+            >
+              Meeting Point Reminder
+            </div>
+          </div>
+          <!-- Guide Message -->
+          <div class="flex gap-3">
+            <div class="max-w-[80%]">
+              <div
+                class="bg-surface-container-high p-4 rounded-2xl rounded-tl-none shadow-sm text-body-md"
+              >
+                Hi there! I'm Ariff. Looking forward to our walk tomorrow. Just
+                a reminder that we will meet at the Dutch Square Fountain. See
+                you soon!
+              </div>
+              <span class="text-[10px] text-on-surface-variant mt-1 block"
+                >10:15 AM</span
+              >
+            </div>
+          </div>
+          <!-- Attached File Card -->
+          <div class="flex gap-3">
+            <div class="max-w-[80%]">
+              <div
+                class="bg-surface-container-high p-3 rounded-2xl rounded-tl-none shadow-sm flex items-center gap-4 border border-outline-variant"
+              >
+                <div
+                  class="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    data-icon="description"
+                    >description</span
+                  >
+                </div>
+                <div class="flex-1">
+                  <p
+                    class="text-label-md font-label-md text-on-surface truncate"
+                  >
+                    Full_Itinerary_Melaka.pdf
+                  </p>
+                  <p class="text-[11px] text-on-surface-variant">
+                    1.2 MB • PDF Document
+                  </p>
+                </div>
+                <button
+                  class="material-symbols-outlined text-primary p-1"
+                  data-icon="download"
+                >
+                  download
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Tourist Message (Right) -->
+          <div class="flex flex-row-reverse gap-3">
+            <div class="max-w-[80%]">
+              <div
+                class="bg-primary text-on-primary p-4 rounded-2xl rounded-tr-none shadow-sm text-body-md"
+              >
+                Perfect, thanks Ariff! Should I bring an umbrella? The forecast
+                says it might rain.
+              </div>
+              <div class="flex justify-end items-center gap-1 mt-1">
+                <span class="text-[10px] text-on-surface-variant"
+                  >10:20 AM</span
+                >
+                <span
+                  class="material-symbols-outlined text-[12px] text-primary"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >done_all</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Guide Typing... -->
+          <div
+            class="flex items-center gap-2 text-on-surface-variant font-label-sm"
+          >
+            <div class="flex gap-1">
+              <span
+                class="w-1 h-1 bg-on-surface-variant rounded-full animate-bounce"
+              ></span>
+              <span
+                class="w-1 h-1 bg-on-surface-variant rounded-full animate-bounce [animation-delay:0.2s]"
+              ></span>
+              <span
+                class="w-1 h-1 bg-on-surface-variant rounded-full animate-bounce [animation-delay:0.4s]"
+              ></span>
+            </div>
+            <span>Ariff is typing...</span>
+          </div>
+        </div>
+        <!-- Input Area -->
+        <div class="p-6 bg-surface border-t border-outline-variant">
+          <div class="flex items-center gap-3">
+            <button
+              class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors"
+            >
+              <span class="material-symbols-outlined" data-icon="add_circle"
+                >add_circle</span
+              >
+            </button>
+            <div
+              class="relative flex-1 flex items-center bg-surface-container rounded-2xl px-4 py-3 border border-transparent focus-within:border-primary transition-all"
+            >
+              <input
+                class="flex-1 bg-transparent border-none focus:ring-0 text-body-md"
+                placeholder="Type a message to Ariff..."
+                type="text"
+              />
+              <button
+                class="p-1 text-on-surface-variant hover:text-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="sentiment_satisfied"
+                  >sentiment_satisfied</span
+                >
+              </button>
+            </div>
+            <button
+              class="w-12 h-12 bg-secondary text-on-secondary rounded-full flex items-center justify-center hover:bg-on-secondary-container transition-all active:scale-95 shadow-md shadow-secondary/20"
+            >
+              <span class="material-symbols-outlined" data-icon="send"
+                >send</span
+              >
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      // Micro-interaction for input pulsing
+      document.querySelectorAll("input").forEach((input) => {
+        input.addEventListener("focus", () => {
+          input.parentElement.classList.add("shadow-lg", "scale-[1.01]");
+        });
+        input.addEventListener("blur", () => {
+          input.parentElement.classList.remove("shadow-lg", "scale-[1.01]");
+        });
+      });
+    </script>
+  </body>
+</html>

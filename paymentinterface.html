@@ -1,0 +1,651 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Payment | Jom Teroka</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#e4e2de",
+              "outline-variant": "#c0c9bf",
+              "on-primary-fixed-variant": "#0b5131",
+              background: "#f4fafd",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              "primary-container": "#1a5c3a",
+              "on-secondary-container": "#5c1f00",
+              "on-surface-variant": "#404942",
+              "surface-bright": "#f4fafd",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-background": "#161d1f",
+              "secondary-fixed": "#ffdbcd",
+              "on-primary-fixed": "#002110",
+              "on-surface": "#161d1f",
+              "surface-container-highest": "#dde4e6",
+              "on-error-container": "#93000a",
+              "surface-tint": "#2a6a47",
+              "surface-container": "#e8eff1",
+              "secondary-fixed-dim": "#ffb596",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#93d5aa",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d4dbdd",
+              tertiary: "#3a3a38",
+              "primary-fixed-dim": "#93d5aa",
+              "surface-container-low": "#eef5f7",
+              "primary-fixed": "#aff2c4",
+              "on-tertiary-container": "#c5c4c0",
+              surface: "#f4fafd",
+              "on-secondary-fixed": "#360f00",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#ebf2f4",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "on-tertiary-fixed": "#1b1c1a",
+              outline: "#707971",
+              "inverse-surface": "#2b3234",
+              "on-primary-container": "#91d2a7",
+              secondary: "#a43e00",
+              "surface-container-high": "#e2e9ec",
+              "tertiary-container": "#51514e",
+              "surface-variant": "#dde4e6",
+              primary: "#004326",
+              "secondary-container": "#fd712a",
+              "on-secondary": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              gutter: "24px",
+              base: "8px",
+              "margin-desktop": "40px",
+            },
+            fontFamily: {
+              "display-lg": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "1.2", fontWeight: "700" },
+              ],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      .step-active {
+        color: var(--tw-color-primary);
+      }
+      .dashed-border {
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23C0C9BF' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background font-body-md">
+    <!-- TopNavBar -->
+    <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto"
+      >
+        <div class="text-headline-md font-headline-md font-bold text-primary">
+          Jom Teroka
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+            href="#"
+            >Discover</a
+          >
+          <a
+            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+            href="#"
+            >My Bookings</a
+          >
+          <a
+            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+            href="#"
+            >Dashboard</a
+          >
+          <a
+            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+            href="#"
+            >AI Helper</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-label-md font-label-md text-on-surface-variant"
+            >EN | BM</span
+          >
+          <span class="text-label-md font-label-md text-on-surface-variant"
+            >MYR</span
+          >
+          <span
+            class="material-symbols-outlined text-primary cursor-pointer"
+            data-icon="account_circle"
+            >account_circle</span
+          >
+        </div>
+      </div>
+    </nav>
+    <main class="max-w-container-max mx-auto px-margin-desktop py-12">
+      <!-- 3-Step Progress Bar -->
+      <div class="mb-16">
+        <div class="flex justify-between max-w-2xl mx-auto relative">
+          <div
+            class="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -z-10 -translate-y-1/2"
+          ></div>
+          <!-- Step 1 -->
+          <div class="flex flex-col items-center gap-2 bg-background px-4">
+            <div
+              class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold"
+            >
+              <span
+                class="material-symbols-outlined text-[20px]"
+                data-icon="check"
+                data-weight="fill"
+                >check</span
+              >
+            </div>
+            <span class="font-label-sm text-label-sm text-primary"
+              >Details</span
+            >
+          </div>
+          <!-- Step 2 -->
+          <div class="flex flex-col items-center gap-2 bg-background px-4">
+            <div
+              class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg ring-4 ring-primary-fixed/30"
+            >
+              2
+            </div>
+            <span class="font-label-sm text-label-sm text-primary font-bold"
+              >Payment</span
+            >
+          </div>
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center gap-2 bg-background px-4">
+            <div
+              class="w-10 h-10 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-bold"
+            >
+              3
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface-variant"
+              >Confirmation</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+        <!-- LEFT COLUMN: Payment & Billing -->
+        <div class="lg:col-span-7 space-y-10">
+          <!-- Payment Method Section -->
+          <section>
+            <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+              Payment Method
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Radio Card: TNG -->
+              <label
+                class="relative flex items-center p-4 rounded-xl border-2 border-primary bg-surface cursor-pointer shadow-sm transition-all hover:scale-[1.02]"
+              >
+                <input checked="" class="hidden" name="payment" type="radio" />
+                <div class="flex flex-col gap-2 w-full">
+                  <div class="flex justify-between items-center">
+                    <span class="font-label-md text-label-md text-primary"
+                      >Touch 'n Go eWallet</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="radio_button_checked"
+                      >radio_button_checked</span
+                    >
+                  </div>
+                  <img
+                    alt="TNG Logo"
+                    class="h-8 object-contain self-start grayscale-0"
+                    data-alt="Official Touch 'n Go eWallet logo with its distinctive blue and white branding, displayed clearly on a clean professional background for a payment interface. The logo is sharp and high-resolution to ensure trust and brand recognition for Malaysian users."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVHShBLWLUMGlVPT46NHQxxxQRx1c_8QNsGbIp9zYQfc0_QG5T-ONSLaQQOH6MI8sZLd2-zY5s_NZuodPBaCXTJh4T8zMcrd0SgBftlEkjb9dam_IAlC5CgVu6RKPDoDsc3IjOs5GWTksTnTwwngT1M7frLHA9BI7SpMrTsafW0zx610zHPSiNbyKCpZhzGuWln-RVdv4GLCMVJgvn3SXpQkoEd7N2Lt-jpd83IO10YSldVkwJPrai2ONoAFQFkHcrd1lMzytfnGyi"
+                  />
+                </div>
+              </label>
+              <!-- Radio Card: FPX -->
+              <label
+                class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
+              >
+                <input class="hidden" name="payment" type="radio" />
+                <div class="flex flex-col gap-2 w-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="font-label-md text-label-md text-on-surface-variant"
+                      >FPX Online Banking</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-outline"
+                      data-icon="radio_button_unchecked"
+                      >radio_button_unchecked</span
+                    >
+                  </div>
+                  <div
+                    class="h-8 flex gap-2 overflow-hidden items-center opacity-70"
+                  >
+                    <span
+                      class="font-bold text-sm tracking-tighter text-outline italic"
+                      >FPX</span
+                    >
+                    <div class="w-px h-4 bg-outline-variant"></div>
+                    <span class="text-[10px] text-outline leading-tight"
+                      >All Major Banks</span
+                    >
+                  </div>
+                </div>
+              </label>
+              <!-- Radio Card: GrabPay -->
+              <label
+                class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
+              >
+                <input class="hidden" name="payment" type="radio" />
+                <div class="flex flex-col gap-2 w-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="font-label-md text-label-md text-on-surface-variant"
+                      >GrabPay</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-outline"
+                      data-icon="radio_button_unchecked"
+                      >radio_button_unchecked</span
+                    >
+                  </div>
+                  <div class="h-8 flex items-center">
+                    <span class="text-green-600 font-extrabold italic text-xl"
+                      >Grab</span
+                    ><span class="text-green-600 font-bold text-sm ml-1"
+                      >Pay</span
+                    >
+                  </div>
+                </div>
+              </label>
+              <!-- Radio Card: Credit Card -->
+              <label
+                class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
+              >
+                <input class="hidden" name="payment" type="radio" />
+                <div class="flex flex-col gap-2 w-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="font-label-md text-label-md text-on-surface-variant"
+                      >Credit / Debit Card</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-outline"
+                      data-icon="radio_button_unchecked"
+                      >radio_button_unchecked</span
+                    >
+                  </div>
+                  <div class="flex gap-2">
+                    <span
+                      class="material-symbols-outlined text-on-surface-variant"
+                      data-icon="credit_card"
+                      >credit_card</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-on-surface-variant"
+                      data-icon="contactless"
+                      >contactless</span
+                    >
+                  </div>
+                </div>
+              </label>
+            </div>
+            <!-- Security Note -->
+            <div
+              class="mt-6 flex items-center gap-3 p-4 bg-primary-container/10 rounded-lg border border-primary/20"
+            >
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="lock"
+                data-weight="fill"
+                >lock</span
+              >
+              <p class="text-label-sm text-on-surface-variant">
+                Your transaction is secured with 256-bit SSL encryption. We do
+                not store your sensitive payment details on our servers.
+              </p>
+            </div>
+          </section>
+          <!-- Billing Details Section -->
+          <section>
+            <h2 class="font-headline-md text-headline-md text-primary mb-6">
+              Billing Details
+            </h2>
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label class="font-label-sm text-on-surface-variant"
+                    >Full Name</label
+                  >
+                  <input
+                    class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                    type="text"
+                    value="Ahmad Zaki"
+                  />
+                </div>
+                <div class="space-y-1.5">
+                  <label class="font-label-sm text-on-surface-variant"
+                    >Email Address</label
+                  >
+                  <input
+                    class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                    type="email"
+                    value="ahmad.zaki@email.com"
+                  />
+                </div>
+              </div>
+              <div class="space-y-1.5">
+                <label class="font-label-sm text-on-surface-variant"
+                  >Phone Number</label
+                >
+                <div class="flex gap-2">
+                  <div
+                    class="w-20 h-12 flex items-center justify-center bg-surface-container rounded-lg border border-outline-variant font-label-md text-on-surface"
+                  >
+                    +60
+                  </div>
+                  <input
+                    class="flex-1 h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                    type="tel"
+                    value="12-345 6789"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- RIGHT COLUMN: Order Summary -->
+        <div class="lg:col-span-5 space-y-gutter">
+          <div
+            class="bg-surface-container-lowest rounded-2xl shadow-xl p-6 border border-outline-variant/30 sticky top-24"
+          >
+            <h3 class="font-headline-md text-headline-md text-primary mb-6">
+              Order Summary
+            </h3>
+            <!-- Trip Info -->
+            <div class="flex gap-4 mb-8">
+              <img
+                class="w-24 h-24 rounded-xl object-cover shrink-0"
+                data-alt="A misty, ethereal view of the Mossy Forest in Cameron Highlands, Malaysia. Ancient trees covered in lush green moss and ferns are shrouded in a soft white morning fog, creating a mystical and adventurous atmosphere. The lighting is diffused and cool, emphasizing the damp, tropical highland environment with vibrant green textures."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM3slRsa6aFxrbUX2d5bI69VKyRuYB68ou25M0lH5f7xAsxwkJCa30pMPDONdbZ4LdMDB7qxPYhxEIqqmxN3Gat_qViWfnjDcy7EDsgjgDnYlSYXoOEHtJ3ZjSZr4Yxt2MXmKVYKEVwri4JJ5DxsGLk25reVmVgq05n3IghgvPguB4tAzKPemcHKem9svnJxo3b5IILxRRMdDXgy7BH0iPXx3ECUUxRx0W39Ei0mRc98I7JDwCgrPwYx28gBQYapS7ufmIqn-YuXA6"
+              />
+              <div class="space-y-1">
+                <h4
+                  class="font-headline-md text-headline-md leading-tight text-primary"
+                >
+                  Mossy Forest Misty Morning Expedition
+                </h4>
+                <div class="flex items-center gap-1 text-on-surface-variant">
+                  <span
+                    class="material-symbols-outlined text-[16px]"
+                    data-icon="location_on"
+                    >location_on</span
+                  >
+                  <span class="text-label-sm">Cameron Highlands</span>
+                </div>
+              </div>
+            </div>
+            <!-- Details List -->
+            <div class="space-y-3 mb-8">
+              <div class="flex justify-between items-center text-body-md">
+                <span class="text-on-surface-variant flex items-center gap-2"
+                  ><span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="calendar_today"
+                    >calendar_today</span
+                  >
+                  Date</span
+                >
+                <span class="font-semibold">23 Nov 2024</span>
+              </div>
+              <div class="flex justify-between items-center text-body-md">
+                <span class="text-on-surface-variant flex items-center gap-2"
+                  ><span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="group"
+                    >group</span
+                  >
+                  Guests</span
+                >
+                <span class="font-semibold">2 Adults, 1 Child</span>
+              </div>
+              <div class="flex justify-between items-center text-body-md">
+                <span class="text-on-surface-variant flex items-center gap-2"
+                  ><span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="confirmation_number"
+                    >confirmation_number</span
+                  >
+                  Booking ID</span
+                >
+                <span
+                  class="font-label-sm bg-surface-container px-2 py-0.5 rounded"
+                  >JT-77821-MY</span
+                >
+              </div>
+            </div>
+            <div class="h-px bg-outline-variant/30 mb-8"></div>
+            <!-- Receipt Preview -->
+            <div
+              class="dashed-border rounded-xl p-4 mb-8 bg-surface-container-low/30"
+            >
+              <div class="flex justify-between mb-2">
+                <span class="text-label-sm text-on-surface-variant"
+                  >Adult (x2)</span
+                >
+                <span class="text-label-sm font-semibold">MYR 360.00</span>
+              </div>
+              <div class="flex justify-between mb-4">
+                <span class="text-label-sm text-on-surface-variant"
+                  >Child (x1)</span
+                >
+                <span class="text-label-sm font-semibold">MYR 90.00</span>
+              </div>
+              <div
+                class="flex justify-between items-end border-t border-outline-variant pt-4"
+              >
+                <span
+                  class="text-label-md font-bold text-primary uppercase tracking-wider"
+                  >Total Payable</span
+                >
+                <span class="text-headline-lg font-headline-lg text-secondary"
+                  >MYR 450.00</span
+                >
+              </div>
+            </div>
+            <!-- CTA Button -->
+            <button
+              class="w-full bg-secondary-container hover:bg-secondary text-white py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 shadow-lg shadow-secondary/20 transition-all active:scale-[0.98]"
+            >
+              Confirm &amp; Pay MYR 450.00
+              <span class="material-symbols-outlined" data-icon="arrow_forward"
+                >arrow_forward</span
+              >
+            </button>
+            <p class="text-center text-label-sm text-on-surface-variant mt-4">
+              By clicking "Confirm &amp; Pay", you agree to the
+              <a class="underline" href="#">Terms of Service</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-tertiary-fixed mt-20">
+      <div
+        class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
+      >
+        <div class="space-y-4">
+          <div class="font-headline-md text-headline-md text-primary font-bold">
+            Jom Teroka
+          </div>
+          <p
+            class="font-body-md text-body-md text-on-tertiary-fixed-variant max-w-xs"
+          >
+            Connecting explorers with the soul of Malaysia through authentic,
+            curated experiences.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-8 md:gap-16">
+          <div class="space-y-4">
+            <h5
+              class="font-label-md text-label-md text-on-tertiary-fixed font-bold uppercase tracking-widest"
+            >
+              Company
+            </h5>
+            <div class="flex flex-col gap-2">
+              <a
+                class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
+                href="#"
+                >About Us</a
+              >
+              <a
+                class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
+                href="#"
+                >Contact</a
+              >
+            </div>
+          </div>
+          <div class="space-y-4">
+            <h5
+              class="font-label-md text-label-md text-on-tertiary-fixed font-bold uppercase tracking-widest"
+            >
+              Support
+            </h5>
+            <div class="flex flex-col gap-2">
+              <a
+                class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
+                href="#"
+                >Terms</a
+              >
+              <a
+                class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
+                href="#"
+                >Privacy</a
+              >
+              <a
+                class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
+                href="#"
+                >Help Center</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full border-t border-outline-variant/30 py-6 px-margin-desktop max-w-container-max mx-auto text-center md:text-left"
+      >
+        <p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant">
+          © 2024 Jom Teroka. Malaysian Hospitality Redefined.
+        </p>
+      </div>
+    </footer>
+    <script>
+      // Simple Interaction for Radio Cards
+      const radioCards = document.querySelectorAll(
+        'label[name="payment_label"]',
+      );
+      const radioInputs = document.querySelectorAll('input[name="payment"]');
+
+      radioInputs.forEach((input, index) => {
+        input.closest("label").addEventListener("click", function () {
+          // Reset all
+          document.querySelectorAll('input[name="payment"]').forEach((i) => {
+            const label = i.closest("label");
+            label.classList.remove("border-primary", "bg-surface");
+            label.classList.add("border-outline-variant", "bg-white");
+            const icon = label.querySelector(".material-symbols-outlined");
+            icon.innerText = "radio_button_unchecked";
+            icon.classList.remove("text-primary");
+            icon.classList.add("text-outline");
+            const text = label.querySelector(".font-label-md");
+            text.classList.remove("text-primary");
+            text.classList.add("text-on-surface-variant");
+          });
+
+          // Set active
+          const activeLabel = this;
+          activeLabel.classList.add("border-primary", "bg-surface");
+          activeLabel.classList.remove("border-outline-variant", "bg-white");
+          const activeIcon = activeLabel.querySelector(
+            ".material-symbols-outlined",
+          );
+          activeIcon.innerText = "radio_button_checked";
+          activeIcon.classList.add("text-primary");
+          activeIcon.classList.remove("text-outline");
+          const activeText = activeLabel.querySelector(".font-label-md");
+          activeText.classList.add("text-primary");
+          activeText.classList.remove("text-on-surface-variant");
+        });
+      });
+    </script>
+  </body>
+</html>
