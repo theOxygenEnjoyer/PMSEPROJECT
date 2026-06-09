@@ -6,15 +6,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
     <script id="tailwind-config">
@@ -149,33 +145,32 @@
     </style>
   </head>
   <script>
-  function toggleProfileMenu() {
-    const menu = document.getElementById("profileMenu");
-    menu.classList.toggle("hidden");
-  }
-
-  document.addEventListener("click", function (event) {
-    const menu = document.getElementById("profileMenu");
-    const profileButton = event.target.closest(".relative");
-
-    if (!profileButton && menu && !menu.classList.contains("hidden")) {
-      menu.classList.add("hidden");
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.classList.toggle("hidden");
     }
-  });
 
-  function logoutUser() {
-    const confirmLogout = confirm("Are you sure you want to log out?");
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("profileMenu");
+      const profileButton = event.target.closest(".relative");
 
-    if (confirmLogout) {
-      alert("You have successfully logged out.");
-      window.location.href = "landingpage.html";
+      if (!profileButton && menu && !menu.classList.contains("hidden")) {
+        menu.classList.add("hidden");
+      }
+    });
+
+    function logoutUser() {
+      const confirmLogout = confirm("Are you sure you want to log out?");
+
+      if (confirmLogout) {
+        alert("You have successfully logged out.");
+        window.location.href = "landingpage.html";
+      }
     }
-  }
-</script>
+  </script>
   <body
     class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed"
   >
-    <!-- TopNavBar -->
     <header
       class="fixed top-0 left-0 w-full z-50 bg-surface shadow-sm h-20 transition-all duration-300"
       id="main-nav"
@@ -187,28 +182,32 @@
           <a
             class="text-headline-md font-headline-md font-bold text-primary"
             href="homepage.html"
+            data-i18n="brand"
             >Jom Teroka</a
           >
           <nav class="hidden md:flex items-center gap-6">
             <a
               class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
               href="#"
+              data-i18n="discover"
               >Discover</a
-            >  
+            >
             <a
               class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
               href="landingpage.html"
+              data-i18n="destinationsNav"
               >Destinations</a
             >
             <a
               class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
               href="booking.html"
+              data-i18n="bookingsNav"
               >My Bookings</a
             >
-
             <a
               class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
               href="aiAssistant.html"
+              data-i18n="aiHelperNav"
               >AI Helper</a
             >
           </nav>
@@ -217,162 +216,158 @@
           <div
             class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant"
           >
-            <button class="hover:text-primary transition-colors">
+            <button
+              onclick="toggleLanguage()"
+              class="lang-switcher-btn hover:text-primary font-bold"
+              data-i18n="langToggle"
+            >
               EN | BM
             </button>
             <span class="text-outline-variant">|</span>
-            <button class="hover:text-primary transition-colors">MYR</button>
+            <button
+              class="hover:text-primary transition-colors"
+              data-i18n="currency"
+            >
+              MYR
+            </button>
           </div>
-          <!-- Mini Profile Dropdown -->
-<div class="relative">
-  <button
-    onclick="toggleProfileMenu()"
-    class="flex items-center gap-2 p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
-  >
-    <span class="material-symbols-outlined text-primary text-3xl">
-      account_circle
-    </span>
+          <div class="relative">
+            <button
+              onclick="toggleProfileMenu()"
+              class="flex items-center gap-2 p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl">
+                account_circle
+              </span>
+              <span
+                class="hidden lg:block text-sm font-semibold text-on-surface-variant"
+              >
+                Amirul
+              </span>
+              <span class="material-symbols-outlined text-primary text-xl">
+                expand_more
+              </span>
+            </button>
 
-    <span class="hidden lg:block text-sm font-semibold text-on-surface-variant">
-      Amirul
-    </span>
+            <div
+              id="profileMenu"
+              class="hidden absolute right-0 top-14 w-72 bg-white rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden z-[999]"
+            >
+              <div class="p-5 bg-primary text-white">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-white text-3xl">
+                      account_circle
+                    </span>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-base leading-tight">
+                      Muhammad Amirul
+                    </h3>
+                    <p class="text-xs text-white/80" data-i18n="travelerAcc">
+                      Traveller Account
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-    <span class="material-symbols-outlined text-primary text-xl">
-      expand_more
-    </span>
-  </button>
+              <div class="p-4 space-y-3">
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    mail
+                  </span>
+                  <span>amirul.haziq@email.com</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    phone
+                  </span>
+                  <span>+60 12-345 6789</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    payments
+                  </span>
+                  <span data-i18n="currencyStatus">MYR Currency</span>
+                </div>
+              </div>
 
-  <!-- Dropdown Menu -->
-  <div
-    id="profileMenu"
-    class="hidden absolute right-0 top-14 w-72 bg-white rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden z-[999]"
-  >
-    <!-- Profile Header -->
-    <div class="p-5 bg-primary text-white">
-      <div class="flex items-center gap-3">
-        <div
-          class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"
-        >
-          <span class="material-symbols-outlined text-white text-3xl">
-            account_circle
-          </span>
-        </div>
+              <div class="h-px bg-outline-variant/40"></div>
 
-        <div>
-          <h3 class="font-bold text-base leading-tight">
-            Muhammad Amirul
-          </h3>
-          <p class="text-xs text-white/80">
-            Traveller Account
-          </p>
-        </div>
-      </div>
-    </div>
+              <div class="p-2">
+                <a
+                  href="booking.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="dropdownBookings"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    confirmation_number
+                  </span>
+                  My Bookings
+                </a>
+                <a
+                  href="paymentinterface.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="dropdownPayments"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    receipt_long
+                  </span>
+                  Payment History
+                </a>
+                <a
+                  href="landingpage.html#interactive-map"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="dropdownMap"
+                >
+                  <span class="material-symbols-outlined text-xl"> map </span>
+                  Explore Map
+                </a>
+                <a
+                  href="aiAssistant.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="dropdownAi"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    smart_toy
+                  </span>
+                  AI Helper
+                </a>
+              </div>
 
-    <!-- Profile Details -->
-    <div class="p-4 space-y-3">
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          mail
-        </span>
-        <span>amirul.haziq@email.com</span>
-      </div>
+              <div class="h-px bg-outline-variant/40"></div>
 
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          phone
-        </span>
-        <span>+60 12-345 6789</span>
-      </div>
-
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          payments
-        </span>
-        <span>MYR Currency</span>
-      </div>
-    </div>
-
-    <div class="h-px bg-outline-variant/40"></div>
-
-    <!-- Menu Links -->
-    <div class="p-2">
-      <a
-        href="booking.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          confirmation_number
-        </span>
-        My Bookings
-      </a>
-
-      <a
-        href="paymentinterface.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          receipt_long
-        </span>
-        Payment History
-      </a>
-
-      <a
-        href="landingpage.html#interactive-map"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          map
-        </span>
-        Explore Map
-      </a>
-
-      <a
-        href="aiAssistant.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          smart_toy
-        </span>
-        AI Helper
-      </a>
-    </div>
-
-    <div class="h-px bg-outline-variant/40"></div>
-
-    <!-- Logout -->
-    <div class="p-2">
-      <button
-        onclick="logoutUser()"
-        class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          logout
-        </span>
-        Log Out
-      </button>
-    </div>
-  </div>
-</div>
+              <div class="p-2">
+                <button
+                  onclick="logoutUser()"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all"
+                  data-i18n="dropdownLogout"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    logout
+                  </span>
+                  Log Out
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
     <main>
-      <!-- Hero Section -->
       <section
         class="relative h-screen min-h-[700px] w-full flex flex-col justify-center items-center overflow-hidden"
       >
-        <!-- Hero Image Background -->
         <div class="absolute inset-0 z-0">
           <img
             alt="Malaysian Landscape"
             class="w-full h-full object-cover"
-            data-alt="A breathtaking wide-angle landscape of the Malaysian Mossy Forest in Cameron Highlands at dawn. Ethereal mist weaves between ancient, moss-covered trees and vibrant green ferns under a soft, golden morning light. The composition highlights the lush, emerald green palette and the serene, mystical atmosphere of the tropical highlands. The lighting is soft and atmospheric, emphasizing the rich textures of the Malaysian heritage environment."
-            src="picture/malay.jpg" alt="malaysian landscape"
+            src="picture/malay.jpg"
           />
           <div class="absolute inset-0 hero-gradient"></div>
         </div>
-        <!-- Hero Content -->
         <div
           class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center md:text-left"
         >
@@ -381,15 +376,16 @@
           >
             <span
               class="text-white font-label-md text-label-md uppercase tracking-wider"
+              data-i18n="heroBadge"
               >DISCOVER THE HEART OF ASIA</span
             >
           </div>
           <h1
             class="text-white font-display-lg text-display-lg mb-8 max-w-3xl leading-tight"
+            data-i18n="heroTitle"
           >
             Unveil the Mystique of Modern Malaysia
           </h1>
-          <!-- Search Panel -->
           <div
             class="glass-panel p-2 md:p-4 rounded-2xl shadow-2xl max-w-5xl flex flex-col md:flex-row items-stretch gap-4 md:gap-2"
           >
@@ -398,6 +394,7 @@
             >
               <label
                 class="text-label-sm font-label-sm text-on-surface-variant mb-1"
+                data-i18n="labelWhere"
                 >Where to?</label
               >
               <div class="flex items-center gap-2">
@@ -405,6 +402,7 @@
                   >location_on</span
                 >
                 <input
+                  id="destInput"
                   class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 placeholder:text-outline"
                   placeholder="Search destinations..."
                   type="text"
@@ -416,6 +414,7 @@
             >
               <label
                 class="text-label-sm font-label-sm text-on-surface-variant mb-1"
+                data-i18n="labelStates"
                 >All States</label
               >
               <div class="flex items-center gap-2">
@@ -423,18 +422,19 @@
                 <select
                   class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 appearance-none"
                 >
-                  <option>Selangor</option>
-                  <option>Penang</option>
-                  <option>Sabah</option>
-                  <option>Sarawak</option>
-                  <option>Melaka</option>
-                  <option>Pahang</option>
+                  <option data-i18n="selangor">Selangor</option>
+                  <option data-i18n="penang">Penang</option>
+                  <option data-i18n="sabah">Sabah</option>
+                  <option data-i18n="sarawak">Sarawak</option>
+                  <option data-i18n="melaka">Melaka</option>
+                  <option data-i18n="pahang">Pahang</option>
                 </select>
               </div>
             </div>
             <div class="flex-1 flex flex-col px-4 py-2">
               <label
                 class="text-label-sm font-label-sm text-on-surface-variant mb-1"
+                data-i18n="labelCategory"
                 >Everything</label
               >
               <div class="flex items-center gap-2">
@@ -444,17 +444,19 @@
                 <select
                   class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface p-0 appearance-none"
                 >
-                  <option>Rainforest Adventures</option>
-                  <option>City Escapes</option>
-                  <option>Heritage Tours</option>
-                  <option>Island Getaways</option>
+                  <option data-i18n="catRainforest">
+                    Rainforest Adventures
+                  </option>
+                  <option data-i18n="catCity">City Escapes</option>
+                  <option data-i18n="catHeritage">Heritage Tours</option>
+                  <option data-i18n="catIsland">Island Getaways</option>
                 </select>
               </div>
             </div>
             <button
               class="bg-secondary-container hover:bg-secondary transition-all duration-300 text-white px-10 py-4 rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-2 group active:scale-95 shadow-lg"
             >
-              <span>Search</span>
+              <span data-i18n="searchBtn">Search</span>
               <span
                 class="material-symbols-outlined transition-transform group-hover:translate-x-1"
                 >arrow_forward</span
@@ -462,17 +464,18 @@
             </button>
           </div>
         </div>
-        <!-- Scroll Indicator -->
         <div
           class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 animate-bounce"
         >
-          <span class="text-label-sm font-label-sm uppercase tracking-widest"
+          <span
+            class="text-label-sm font-label-sm uppercase tracking-widest"
+            data-i18n="scrollExplore"
             >Scroll to Explore</span
           >
           <span class="material-symbols-outlined">expand_more</span>
         </div>
       </section>
-      <!-- Featured Section (Bento Grid) -->
+
       <section
         class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-background"
       >
@@ -482,13 +485,18 @@
           <div class="max-w-2xl">
             <span
               class="text-secondary font-label-md text-label-md uppercase tracking-widest mb-4 block"
+              data-i18n="bentoSectionBadge"
               >Handpicked Experiences</span
             >
-            <h2 class="font-headline-lg text-headline-lg text-primary mb-4">
-              Curated Journeys Across the Peninsula &amp; Borneo
+            <h2
+              class="font-headline-lg text-headline-lg text-primary mb-4"
+              data-i18n="bentoSectionTitle"
+            >
+              Curated Journeys Across the Peninsula & Borneo
             </h2>
             <p
               class="text-body-lg text-on-surface-variant font-body-lg leading-relaxed"
+              data-i18n="bentoSectionDesc"
             >
               From the rhythmic buzz of Kuala Lumpur to the ancient whispers of
               the Royal Belum rainforest, discover Malaysia like never before.
@@ -496,9 +504,9 @@
           </div>
           <a
             class="text-primary font-label-md text-label-md flex items-center gap-2 group pb-1 border-b-2 border-transparent hover:border-primary transition-all"
-            href="#"
+            href="landingpage.html"
           >
-            View All Destinations
+            <span data-i18n="bentoViewAll">View All Destinations</span>
             <span
               class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
               >east</span
@@ -514,8 +522,7 @@
             <img
               alt="Penang Heritage"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="A cinematic, detailed shot of a narrow colonial street in George Town, Penang, Malaysia. The scene features colorful heritage shophouses with ornate shutters and intricate tile work under a warm, afternoon sun. Street food stalls with rising steam add life to the background. The lighting is golden and warm, emphasizing the rich historical textures and the vibrant, multicultural spirit of Malaysian heritage sites."
-              src="picture/george2.jpg" alt="george town"
+              src="picture/george2.jpg"
             />
             <div
               class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"
@@ -523,12 +530,19 @@
             <div class="absolute bottom-0 left-0 p-8">
               <span
                 class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-label-sm font-label-sm mb-3"
-                >Heritage &amp; Culture</span
+                data-i18n="card1Badge"
+                >Heritage & Culture</span
               >
-              <h3 class="text-white text-3xl font-headline-lg mb-2">
+              <h3
+                class="text-white text-3xl font-headline-lg mb-2"
+                data-i18n="card1Title"
+              >
                 The Soul of George Town
               </h3>
-              <p class="text-white/80 text-body-md line-clamp-2">
+              <p
+                class="text-white/80 text-body-md line-clamp-2"
+                data-i18n="card1Desc"
+              >
                 A sensory journey through UNESCO World Heritage streets, tasting
                 centuries-old recipes and street art.
               </p>
@@ -540,14 +554,16 @@
             <img
               alt="KL Cityscape"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="A majestic night view of the Kuala Lumpur skyline featuring the illuminated Petronas Twin Towers. The skyscrapers are set against a deep indigo sky with a soft city glow. The foreground shows a sleek, modern infinity pool reflecting the city lights. The overall aesthetic is premium, modern, and vibrant, using the primary forest green and orange accents to highlight the technological and urban advancement of Malaysia."
-              src="picture/KLCC2.jpg" alt="klcc"
+              src="picture/KLCC2.jpg"
             />
             <div
               class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"
             ></div>
             <div class="absolute bottom-0 left-0 p-6">
-              <h3 class="text-white text-xl font-headline-md">
+              <h3
+                class="text-white text-xl font-headline-md"
+                data-i18n="card2Title"
+              >
                 Skyline Serenity
               </h3>
               <div class="flex items-center gap-2 mt-2">
@@ -555,7 +571,9 @@
                   class="material-symbols-outlined text-secondary-fixed text-sm"
                   >star</span
                 >
-                <span class="text-white/90 text-label-md"
+                <span
+                  class="text-white/90 text-label-md"
+                  data-i18n="card2Reviews"
                   >4.9 (1.2k Reviews)</span
                 >
               </div>
@@ -567,14 +585,18 @@
             <img
               alt="Langkawi"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="An aerial drone perspective of a pristine tropical island in Langkawi, Malaysia. Crystal clear turquoise waters meet white sandy beaches fringed by dense, emerald green tropical rainforest. A traditional wooden boat is anchored peacefully near the shore. The lighting is bright and high-key, creating a tropical paradise aesthetic that feels fresh, clean, and inviting for high-end island travelers."
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmeLAYX43-JGx6IohfS7YiyPZ4kuvb9-dzjBgsM9-ve0jXwmCu7Rg-PI6mG9otkNV3jt_g9TbaibgylvZNbG6AgQDsPdIkQUOQ6xGtQG14o97MTKd8uV1LoBx3PUjang5uLQbFBgRs5Ttm9syeVOtiy0qkKEt_rv0y3nvpRVHcXmvTlh5lVU6l_gWPDywS_goO4BlBA0n3IYJ9T3B0SM3WppCScelvi83g3nzOoMvSHMC_tkIAd16JI3AdsiitCImhg3nsSumEAd1t"
             />
             <div
               class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"
             ></div>
             <div class="absolute bottom-0 left-0 p-6">
-              <h3 class="text-white text-lg font-headline-md">Azure Islands</h3>
+              <h3
+                class="text-white text-lg font-headline-md"
+                data-i18n="card3Title"
+              >
+                Azure Islands
+              </h3>
             </div>
           </div>
           <div
@@ -583,21 +605,23 @@
             <img
               alt="Kinabalu Park"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="A grand view of Mount Kinabalu in Sabah, Malaysia, towering over a sea of white clouds at sunrise. The rugged granite peaks are touched with orange and pink morning light, while the lower slopes are covered in deep green prehistoric jungle. The atmosphere is adventurous and awe-inspiring, perfectly capturing the majestic natural heritage of Borneo for an international audience."
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8meuMGm_mHc5nbhIEQlbFdMWAVZBCYcC3-5iOboqVIlOxFVQOgsOBsc__ltHxwEpTzOiqq_2xPg45v8jdtSzsTGmFjeXizVffcSFoJpEUqfX2IohuIgx3gScQNcPLlotIATMkewl3NUPWCK4KL4M1VHO0iNe7FsnB_SW_tr_cp2MMf3r3IutuZk51_GHugD1aPw4LKP7rADmWbTGUL5Ty6ro2Hd5nf5BTUdODCGlfPNayVnhEYndHjA9NNio0z1uHlnhTB3riVmYp"
             />
             <div
               class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"
             ></div>
             <div class="absolute bottom-0 left-0 p-6">
-              <h3 class="text-white text-lg font-headline-md">
+              <h3
+                class="text-white text-lg font-headline-md"
+                data-i18n="card4Title"
+              >
                 Borneo Heights
               </h3>
             </div>
           </div>
         </div>
       </section>
-      <!-- Why Choose Us / Value Proposition -->
+
       <section class="bg-surface-container-low py-24">
         <div
           class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-12"
@@ -610,10 +634,16 @@
                 >verified_user</span
               >
             </div>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">
+            <h4
+              class="font-headline-md text-headline-md text-primary mb-3"
+              data-i18n="val1Title"
+            >
               Authentic Hospitality
             </h4>
-            <p class="text-on-surface-variant font-body-md">
+            <p
+              class="text-on-surface-variant font-body-md"
+              data-i18n="val1Desc"
+            >
               Every host is verified to ensure you receive the genuine warmth of
               Malaysian 'Selamat Datang'.
             </p>
@@ -626,10 +656,16 @@
                 >eco</span
               >
             </div>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">
+            <h4
+              class="font-headline-md text-headline-md text-primary mb-3"
+              data-i18n="val2Title"
+            >
               Sustainable Travel
             </h4>
-            <p class="text-on-surface-variant font-body-md">
+            <p
+              class="text-on-surface-variant font-body-md"
+              data-i18n="val2Desc"
+            >
               We partner with local conservation efforts to protect our precious
               rainforests and marine life.
             </p>
@@ -642,10 +678,16 @@
                 >psychology</span
               >
             </div>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">
+            <h4
+              class="font-headline-md text-headline-md text-primary mb-3"
+              data-i18n="val3Title"
+            >
               AI Travel Helper
             </h4>
-            <p class="text-on-surface-variant font-body-md">
+            <p
+              class="text-on-surface-variant font-body-md"
+              data-i18n="val3Desc"
+            >
               Smart itineraries tailored to your pace, preferences, and local
               weather patterns in real-time.
             </p>
@@ -653,9 +695,9 @@
         </div>
       </section>
     </main>
-    <!-- Floating Action Button -->
+
     <button
-       onclick="window.location.href = 'landingpage.html#interactive-map'"
+      onclick="window.location.href = 'landingpage.html#interactive-map'"
       title="Go to Interactive Map"
       class="fixed bottom-8 right-8 w-16 h-16 bg-secondary-container text-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all group overflow-hidden"
     >
@@ -673,7 +715,7 @@
         ></span>
       </div>
     </button>
-    <!-- Footer -->
+
     <footer class="bg-tertiary-fixed text-on-tertiary-fixed">
       <div
         class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
@@ -681,114 +723,30 @@
         <div class="max-w-sm">
           <span
             class="font-headline-md text-headline-md text-primary font-bold block mb-4"
+            data-i18n="brand"
             >Jom Teroka</span
           >
-          <p class="text-on-tertiary-fixed-variant font-body-md mb-6">
+          <p
+            class="text-on-tertiary-fixed-variant font-body-md mb-6"
+            data-i18n="footerDesc"
+          >
             Bridging the world to the heart of Malaysia. Experience adventure
             with a soul.
           </p>
-          <div class="flex gap-4">
-            <a
-              class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-primary hover:text-white"
-              href="#"
-            >
-              <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-primary hover:text-white"
-              href="#"
-            >
-              <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.981 1.28.058 1.688.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
-          <div class="flex flex-col gap-3">
-            <span
-              class="font-label-md text-label-md text-primary uppercase mb-2"
-              >Platform</span
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >About Us</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >How it Works</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Careers</a
-            >
-          </div>
-          <div class="flex flex-col gap-3">
-            <span
-              class="font-label-md text-label-md text-primary uppercase mb-2"
-              >Destinations</span
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Kuala Lumpur</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Penang</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Sabah</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Langkawi</a
-            >
-          </div>
-          <div class="flex flex-col gap-3">
-            <span
-              class="font-label-md text-label-md text-primary uppercase mb-2"
-              >Support</span
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Contact</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Terms</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-label-sm"
-              href="#"
-              >Privacy Policy</a
-            >
-          </div>
         </div>
       </div>
       <div
         class="w-full py-6 px-margin-desktop border-t border-outline-variant/30 text-center"
       >
-        <p class="text-on-tertiary-fixed-variant font-label-sm">
+        <p
+          class="text-on-tertiary-fixed-variant font-label-sm"
+          data-i18n="footerCopy"
+        >
           © 2024 Jom Teroka. Malaysian Hospitality Redefined.
         </p>
       </div>
     </footer>
+
     <script>
       // Micro-interaction for Navigation transparency on scroll
       const nav = document.getElementById("main-nav");
@@ -811,6 +769,139 @@
         input.addEventListener("blur", () => {
           input.closest(".flex-col").classList.remove("bg-white/20");
         });
+      });
+
+      // Page-Specific String Translations Dictionary
+      const translations = {
+        en: {
+          brand: "Jom Teroka",
+          discover: "Discover",
+          destinationsNav: "Destinations",
+          bookingsNav: "My Bookings",
+          aiHelperNav: "AI Helper",
+          langToggle: "EN | BM",
+          currency: "MYR",
+          travelerAcc: "Traveller Account",
+          currencyStatus: "MYR Currency",
+          dropdownBookings: "My Bookings",
+          dropdownPayments: "Payment History",
+          dropdownMap: "Explore Map",
+          dropdownAi: "AI Helper",
+          dropdownLogout: "Log Out",
+          heroBadge: "DISCOVER THE HEART OF ASIA",
+          heroTitle: "Unveil the Mystique of Modern Malaysia",
+          labelWhere: "Where to?",
+          labelStates: "All States",
+          labelCategory: "Everything",
+          searchBtn: "Search",
+          scrollExplore: "Scroll to Explore",
+          bentoSectionBadge: "Handpicked Experiences",
+          bentoSectionTitle: "Curated Journeys Across the Peninsula & Borneo",
+          bentoSectionDesc:
+            "From the rhythmic buzz of Kuala Lumpur to the ancient whispers of the Royal Belum rainforest, discover Malaysia like never before.",
+          bentoViewAll: "View All Destinations",
+          card1Badge: "Heritage & Culture",
+          card1Title: "The Soul of George Town",
+          card1Desc:
+            "A sensory journey through UNESCO World Heritage streets, tasting centuries-old recipes and street art.",
+          card2Title: "Skyline Serenity",
+          card2Reviews: "4.9 (1.2k Reviews)",
+          card3Title: "Azure Islands",
+          card4Title: "Borneo Heights",
+          val1Title: "Authentic Hospitality",
+          val1Desc:
+            "Every host is verified to ensure you receive the genuine warmth of Malaysian 'Selamat Datang'.",
+          val2Title: "Sustainable Travel",
+          val2Desc:
+            "We partner with local conservation efforts to protect our precious rainforests and marine life.",
+          val3Title: "AI Travel Helper",
+          val3Desc:
+            "Smart itineraries tailored to your pace, preferences, and local weather patterns in real-time.",
+          footerDesc:
+            "Bridging the world to the heart of Malaysia. Experience adventure with a soul.",
+          footerCopy: "© 2024 Jom Teroka. Malaysian Hospitality Redefined.",
+          searchPlaceholder: "Search destinations...",
+        },
+        bm: {
+          brand: "Jom Teroka",
+          discover: "Teroka",
+          destinationsNav: "Destinations",
+          bookingsNav: "Tempahan Saya",
+          aiHelperNav: "Pembantu AI",
+          langToggle: "BM | EN",
+          currency: "MYR",
+          travelerAcc: "Akaun Pengembara",
+          currencyStatus: "Mata Wang MYR",
+          dropdownBookings: "Tempahan Saya",
+          dropdownPayments: "Sejarah Pembayaran",
+          dropdownMap: "Teroka Peta",
+          dropdownAi: "Pembantu AI",
+          dropdownLogout: "Log Keluar",
+          heroBadge: "TEMUI JANTUNG ASIA",
+          heroTitle: "Singkap Keunikan Malaysia Moden",
+          labelWhere: "Destinasi pilihan?",
+          labelStates: "Semua Negeri",
+          labelCategory: "Semua Kategori",
+          searchBtn: "Cari",
+          scrollExplore: "Skrol untuk Teroka",
+          bentoSectionBadge: "Pengalaman Pilihan",
+          bentoSectionTitle:
+            "Perjalanan Terpilih Di Seluruh Semenanjung & Borneo",
+          bentoSectionDesc:
+            "Daripada kesibukan Kuala Lumpur yang berirama hinggalah kepada bisikan purba hutan hujan Royal Belum, kenali Malaysia dengan cara baharu.",
+          bentoViewAll: "Lihat Semua Destinasi",
+          card1Badge: "Warisan & Budaya",
+          card1Title: "Keunikan George Town",
+          card1Desc:
+            "Perjalanan menyeronokkan merentasi jalan-jalan Warisan Dunia UNESCO, menikmati resipi berabad lamanya dan seni jalanan.",
+          card2Title: "Ketenangan Ruang Udara",
+          card2Reviews: "4.9 (1.2k Ulasan)",
+          card3Title: "Pulau Kebiruan",
+          card4Title: "Tanah Tinggi Borneo",
+          val1Title: "Hospitaliti Autentik",
+          val1Desc:
+            "Setiap hos disahkan bagi memastikan anda merasai kemesraan sejati 'Selamat Datang' masyarakat Malaysia.",
+          val2Title: "Pelancongan Lestari",
+          val2Desc:
+            "Kami bekerjasama dengan usaha pemuliharaan tempatan untuk melindungi hutan hujan dan hidupan marin kita.",
+          val3Title: "Pembantu Perjalanan AI",
+          val3Desc:
+            "Jadual perjalanan pintar yang disesuaikan mengikut masa, pilihan, dan corak cuaca tempatan anda secara masa nyata.",
+          footerDesc:
+            "Menghubungkan dunia dengan keunikan Malaysia. Alami pengembaraan yang menyentuh jiwa.",
+          footerCopy:
+            "© 2024 Jom Teroka. Hospitaliti Malaysia Ditakrif Semula.",
+          searchPlaceholder: "Cari destinasi...",
+        },
+      };
+
+      function toggleLanguage() {
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        let nextLang = currentLang === "en" ? "bm" : "en";
+        localStorage.setItem("selectedLang", nextLang);
+        applyTranslations(nextLang);
+      }
+
+      function applyTranslations(lang) {
+        const t = translations[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t && t[key]) {
+            el.innerText = t[key];
+          }
+        });
+
+        // Translate the input placeholder value context
+        const inputField = document.getElementById("destInput");
+        if (inputField) {
+          inputField.placeholder = t.searchPlaceholder;
+        }
+      }
+
+      // Detect and update local state right during initialization
+      document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem("selectedLang") || "en";
+        applyTranslations(savedLang);
       });
     </script>
   </body>

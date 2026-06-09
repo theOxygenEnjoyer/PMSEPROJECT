@@ -17,7 +17,6 @@
       rel="stylesheet"
     />
 
-    <!-- Leaflet Map CSS -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -28,7 +27,6 @@
       rel="stylesheet"
     />
 
-    <!-- Leaflet Map JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
@@ -159,45 +157,43 @@
         },
       };
     </script>
-    
   </head>
 
   <script>
-  function toggleProfileMenu() {
-    const menu = document.getElementById("profileMenu");
-    menu.classList.toggle("hidden");
-  }
-
-  document.addEventListener("click", function (event) {
-    const menu = document.getElementById("profileMenu");
-    const profileButton = event.target.closest(".relative");
-
-    if (!profileButton && menu && !menu.classList.contains("hidden")) {
-      menu.classList.add("hidden");
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.classList.toggle("hidden");
     }
-  });
 
-  function logoutUser() {
-    const confirmLogout = confirm("Are you sure you want to log out?");
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("profileMenu");
+      const profileButton = event.target.closest(".relative");
 
-    if (confirmLogout) {
-      alert("You have successfully logged out.");
-      window.location.href = "landingpage.html";
+      if (!profileButton && menu && !menu.classList.contains("hidden")) {
+        menu.classList.add("hidden");
+      }
+    });
+
+    // Modified fallback for clean simulation
+    function logoutUser() {
+      const confirmLogout = confirm("Are you sure you want to log out?");
+      if (confirmLogout) {
+        alert("You have successfully logged out.");
+        window.location.href = "landingpage.html";
+      }
     }
-  }
-</script>
+  </script>
 
   <body class="bg-white text-on-surface font-sans">
-    <!-- Navbar -->
     <header class="bg-white sticky top-0 z-50 border-b border-gray-100">
       <nav
         class="flex justify-between items-center w-full px-6 md:px-12 max-w-7xl mx-auto h-20"
       >
-        <!-- LEFT SIDE: Logo + Main Navigation -->
         <div class="flex items-center gap-8">
           <a
             href="landingpage.html"
             class="text-2xl font-display font-extrabold text-primary tracking-tight hover:opacity-90 transition-opacity"
+            data-i18n="brand"
           >
             Jom Teroka
           </a>
@@ -206,13 +202,15 @@
             <a
               class="text-gray-500 font-medium hover:text-primary transition-colors text-sm"
               href="homepage.html"
+              data-i18n="discover"
             >
               Discover
-            </a>            
-            
+            </a>
+
             <a
               class="text-primary font-bold border-b-2 border-primary pb-1 text-sm tracking-wide"
               href="landingpage.html"
+              data-i18n="destinations"
             >
               Destinations
             </a>
@@ -220,6 +218,7 @@
             <a
               class="text-gray-500 font-medium hover:text-primary transition-colors text-sm"
               href="booking.html"
+              data-i18n="bookings"
             >
               My Bookings
             </a>
@@ -227,159 +226,163 @@
             <a
               class="text-gray-500 font-medium hover:text-primary transition-colors text-sm"
               href="aiAssistant.html"
+              data-i18n="aiHelper"
             >
               AI Helper
             </a>
           </div>
         </div>
 
-        <!-- RIGHT SIDE: Language + Currency + Profile -->
         <div class="flex items-center gap-4">
           <div
             class="hidden sm:flex items-center gap-3 text-sm font-semibold text-gray-600"
           >
-            <span>EN | BM</span>
+            <button
+              onclick="toggleLanguage()"
+              class="lang-switcher-btn hover:text-primary transition-colors font-bold"
+              data-i18n="langToggle"
+            >
+              EN | BM
+            </button>
             <span class="w-px h-4 bg-gray-300"></span>
-            <span>MYR</span>
+            <span data-i18n="currency">MYR</span>
           </div>
 
-<!-- Mini Profile Dropdown -->
-<div class="relative">
-  <button
-    onclick="toggleProfileMenu()"
-    class="flex items-center gap-2 p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
-  >
-    <span class="material-symbols-outlined text-primary text-3xl">
-      account_circle
-    </span>
+          <div class="relative">
+            <button
+              onclick="toggleProfileMenu()"
+              class="flex items-center gap-2 p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl">
+                account_circle
+              </span>
 
-    <span class="hidden lg:block text-sm font-semibold text-on-surface-variant">
-      Amirul
-    </span>
+              <span
+                class="hidden lg:block text-sm font-semibold text-on-surface-variant"
+              >
+                Amirul
+              </span>
 
-    <span class="material-symbols-outlined text-primary text-xl">
-      expand_more
-    </span>
-  </button>
+              <span class="material-symbols-outlined text-primary text-xl">
+                expand_more
+              </span>
+            </button>
 
-  <!-- Dropdown Menu -->
-  <div
-    id="profileMenu"
-    class="hidden absolute right-0 top-14 w-72 bg-white rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden z-[999]"
-  >
-    <!-- Profile Header -->
-    <div class="p-5 bg-primary text-white">
-      <div class="flex items-center gap-3">
-        <div
-          class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"
-        >
-          <span class="material-symbols-outlined text-white text-3xl">
-            account_circle
-          </span>
-        </div>
+            <div
+              id="profileMenu"
+              class="hidden absolute right-0 top-14 w-72 bg-white rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden z-[999]"
+            >
+              <div class="p-5 bg-primary text-white">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-white text-3xl">
+                      account_circle
+                    </span>
+                  </div>
 
-        <div>
-          <h3 class="font-bold text-base leading-tight">
-            Muhammad Amirul
-          </h3>
-          <p class="text-xs text-white/80">
-            Traveller Account
-          </p>
-        </div>
-      </div>
-    </div>
+                  <div>
+                    <h3 class="font-bold text-base leading-tight">
+                      Muhammad Amirul
+                    </h3>
+                    <p class="text-xs text-white/80" data-i18n="travelerAcc">
+                      Traveller Account
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-    <!-- Profile Details -->
-    <div class="p-4 space-y-3">
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          mail
-        </span>
-        <span>amirul.haziq@email.com</span>
-      </div>
+              <div class="p-4 space-y-3">
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    mail
+                  </span>
+                  <span>amirul.haziq@email.com</span>
+                </div>
 
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          phone
-        </span>
-        <span>+60 12-345 6789</span>
-      </div>
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    phone
+                  </span>
+                  <span>+60 12-345 6789</span>
+                </div>
 
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          payments
-        </span>
-        <span>MYR Currency</span>
-      </div>
-    </div>
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    payments
+                  </span>
+                  <span data-i18n="myrCurrency">MYR Currency</span>
+                </div>
+              </div>
 
-    <div class="h-px bg-outline-variant/40"></div>
+              <div class="h-px bg-outline-variant/40"></div>
 
-    <!-- Menu Links -->
-    <div class="p-2">
-      <a
-        href="booking.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          confirmation_number
-        </span>
-        My Bookings
-      </a>
+              <div class="p-2">
+                <a
+                  href="booking.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="menuBookings"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    confirmation_number
+                  </span>
+                  My Bookings
+                </a>
 
-      <a
-        href="paymentinterface.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          receipt_long
-        </span>
-        Payment History
-      </a>
+                <a
+                  href="paymentinterface.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="menuPayments"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    receipt_long
+                  </span>
+                  Payment History
+                </a>
 
-      <a
-        href="landingpage.html#interactive-map"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          map
-        </span>
-        Explore Map
-      </a>
+                <a
+                  href="landingpage.html#interactive-map"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="menuExplore"
+                >
+                  <span class="material-symbols-outlined text-xl"> map </span>
+                  Explore Map
+                </a>
 
-      <a
-        href="aiAssistant.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          smart_toy
-        </span>
-        AI Helper
-      </a>
-    </div>
+                <a
+                  href="aiAssistant.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="menuAi"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    smart_toy
+                  </span>
+                  AI Helper
+                </a>
+              </div>
 
-    <div class="h-px bg-outline-variant/40"></div>
+              <div class="h-px bg-outline-variant/40"></div>
 
-    <!-- Logout -->
-    <div class="p-2">
-      <button
-        onclick="logoutUser()"
-        class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          logout
-        </span>
-        Log Out
-      </button>
-    </div>
-  </div>
-</div>
+              <div class="p-2">
+                <button
+                  onclick="logoutUser()"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all"
+                  data-i18n="menuLogout"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    logout
+                  </span>
+                  Log Out
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
 
     <main class="min-h-screen pb-24">
-      <!-- Category Navigation -->
       <section class="py-6 bg-gray-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
           <div
@@ -390,7 +393,7 @@
               class="flex items-center gap-2 px-5 py-2.5 bg-gray-200/70 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200 transition-all text-sm font-medium"
             >
               <span class="material-icons-outlined text-sm">forest</span>
-              <span>Nature</span>
+              <span data-i18n="catNature">Nature</span>
             </button>
 
             <button
@@ -400,7 +403,7 @@
               <span class="material-icons-outlined text-sm">
                 account_balance
               </span>
-              <span>Heritage</span>
+              <span data-i18n="catHeritage">Heritage</span>
             </button>
 
             <button
@@ -408,7 +411,7 @@
               class="flex items-center gap-2 px-5 py-2.5 bg-gray-200/70 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200 transition-all text-sm font-medium"
             >
               <span class="material-icons-outlined text-sm">restaurant</span>
-              <span>Food</span>
+              <span data-i18n="catFood">Food</span>
             </button>
 
             <button
@@ -418,7 +421,7 @@
               <span class="material-icons-outlined text-sm">
                 theater_comedy
               </span>
-              <span>Culture</span>
+              <span data-i18n="catCulture">Culture</span>
             </button>
 
             <button
@@ -426,7 +429,7 @@
               class="flex items-center gap-2 px-5 py-2.5 bg-gray-200/70 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200 transition-all text-sm font-medium"
             >
               <span class="material-icons-outlined text-sm">beach_access</span>
-              <span>Island</span>
+              <span data-i18n="catIsland">Island</span>
             </button>
 
             <button
@@ -434,7 +437,7 @@
               class="flex items-center gap-2 px-5 py-2.5 bg-gray-200/70 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200 transition-all text-sm font-medium"
             >
               <span class="material-icons-outlined text-sm">apartment</span>
-              <span>City</span>
+              <span data-i18n="catCity">City</span>
             </button>
 
             <button
@@ -442,7 +445,7 @@
               class="flex items-center gap-2 px-5 py-2.5 bg-gray-200/70 text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-200 transition-all text-sm font-medium"
             >
               <span class="material-icons-outlined text-sm">hiking</span>
-              <span>Adventure</span>
+              <span data-i18n="catAdventure">Adventure</span>
             </button>
 
             <button
@@ -452,13 +455,12 @@
               <span class="material-icons-outlined text-sm">
                 family_restroom
               </span>
-              <span>Family</span>
+              <span data-i18n="catFamily">Family</span>
             </button>
           </div>
         </div>
       </section>
 
-      <!-- State Cards Section -->
       <section class="py-16">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
           <div
@@ -467,11 +469,15 @@
             <div>
               <h2
                 class="font-display text-3xl md:text-4xl font-bold text-primary mb-2 tracking-tight"
+                data-i18n="exploreStateTitle"
               >
                 Jelajah Mengikut Negeri
               </h2>
 
-              <p class="text-base text-gray-500 max-w-2xl">
+              <p
+                class="text-base text-gray-500 max-w-2xl"
+                data-i18n="exploreStateDesc"
+              >
                 From the peaks of Kinabalu to the street art of Penang, find
                 your next adventure by exploring our states.
               </p>
@@ -481,7 +487,7 @@
               class="flex items-center gap-1 text-orange-700 font-bold text-sm hover:underline transition-all whitespace-nowrap"
               href="#interactive-map"
             >
-              View Interactive Map
+              <span data-i18n="lnkInteractiveMap">View Interactive Map</span>
               <span class="material-icons-outlined text-sm">arrow_forward</span>
             </a>
           </div>
@@ -502,7 +508,7 @@
               <div
                 class="absolute top-4 right-4 bg-orange-700 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md"
               >
-                146 Tours
+                <span data-i18n="toursCount1">146 Tours</span>
               </div>
 
               <div class="absolute bottom-0 left-0 p-6 w-full">
@@ -510,7 +516,7 @@
                   Selangor
                 </h3>
 
-                <p class="text-white/80 text-sm">
+                <p class="text-white/80 text-sm" data-i18n="cardSelangorDesc">
                   Urban Adventures & Heritage
                 </p>
               </div>
@@ -531,7 +537,7 @@
               <div
                 class="absolute top-4 right-4 bg-orange-700 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md"
               >
-                98 Tours
+                <span data-i18n="toursCount2">98 Tours</span>
               </div>
 
               <div class="absolute bottom-0 left-0 p-6 w-full">
@@ -539,7 +545,7 @@
                   Penang
                 </h3>
 
-                <p class="text-white/80 text-sm">
+                <p class="text-white/80 text-sm" data-i18n="cardPenangDesc">
                   Food Paradise & Street Art
                 </p>
               </div>
@@ -560,7 +566,7 @@
               <div
                 class="absolute top-4 right-4 bg-orange-700 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md"
               >
-                122 Tours
+                <span data-i18n="toursCount3">122 Tours</span>
               </div>
 
               <div class="absolute bottom-0 left-0 p-6 w-full">
@@ -568,7 +574,7 @@
                   Melaka
                 </h3>
 
-                <p class="text-white/80 text-sm">
+                <p class="text-white/80 text-sm" data-i18n="cardMelakaDesc">
                   Majestic History & Peranakan Walks
                 </p>
               </div>
@@ -577,7 +583,6 @@
         </div>
       </section>
 
-      <!-- Interactive Malaysia Famous Places Map -->
       <section id="interactive-map" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
           <div
@@ -586,17 +591,22 @@
             <div>
               <span
                 class="text-orange-700 font-bold text-sm uppercase tracking-widest mb-3 block"
+                data-i18n="mapMiniBadge"
               >
                 Interactive Map
               </span>
 
               <h2
                 class="font-display text-3xl md:text-4xl font-bold text-primary mb-2 tracking-tight"
+                data-i18n="mapHeadline"
               >
                 Famous Places in Malaysia
               </h2>
 
-              <p class="text-base text-gray-500 max-w-2xl">
+              <p
+                class="text-base text-gray-500 max-w-2xl"
+                data-i18n="mapSubhead"
+              >
                 Explore famous Malaysian attractions from heritage cities and
                 islands to mountains, caves, and cultural landmarks.
               </p>
@@ -607,19 +617,19 @@
                 location_on
               </span>
 
-              <span>Click a marker to view place details</span>
+              <span data-i18n="mapInstruction text-sm"
+                >Click a marker to view place details</span
+              >
             </div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <!-- Map -->
             <div
               class="lg:col-span-8 bg-white rounded-3xl shadow-md border border-gray-100 p-3"
             >
               <div id="malaysiaMap"></div>
             </div>
 
-            <!-- Side Info -->
             <div class="lg:col-span-4 space-y-4">
               <div
                 class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6"
@@ -632,11 +642,17 @@
                   </span>
                 </div>
 
-                <h3 class="font-display text-xl font-bold text-primary mb-2">
+                <h3
+                  class="font-display text-xl font-bold text-primary mb-2"
+                  data-i18n="sideMapTitle"
+                >
                   Discover Malaysia
                 </h3>
 
-                <p class="text-sm text-gray-500 leading-relaxed">
+                <p
+                  class="text-sm text-gray-500 leading-relaxed"
+                  data-i18n="sideMapDesc"
+                >
                   This map highlights famous tourist attractions across
                   Malaysia, including Kuala Lumpur, Selangor, Penang, Melaka,
                   Pahang, Kedah, Sabah, Sarawak, Terengganu, and Johor.
@@ -646,7 +662,10 @@
               <div
                 class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6"
               >
-                <h3 class="font-display text-xl font-bold text-primary mb-4">
+                <h3
+                  class="font-display text-xl font-bold text-primary mb-4"
+                  data-i18n="sideFeaturedTitle"
+                >
                   Featured Places
                 </h3>
 
@@ -662,11 +681,19 @@
                     </span>
 
                     <div>
-                      <p class="font-bold text-sm text-primary">
+                      <p
+                        class="font-bold text-sm text-primary"
+                        data-i18n="mapItemTitle1"
+                      >
                         Petronas Twin Towers
                       </p>
 
-                      <p class="text-xs text-gray-500">Kuala Lumpur</p>
+                      <p
+                        class="text-xs text-gray-500"
+                        data-i18n="mapItemState1"
+                      >
+                        Kuala Lumpur
+                      </p>
                     </div>
                   </button>
 
@@ -681,8 +708,18 @@
                     </span>
 
                     <div>
-                      <p class="font-bold text-sm text-primary">A Famosa</p>
-                      <p class="text-xs text-gray-500">Melaka</p>
+                      <p
+                        class="font-bold text-sm text-primary"
+                        data-i18n="mapItemTitle2"
+                      >
+                        A Famosa
+                      </p>
+                      <p
+                        class="text-xs text-gray-500"
+                        data-i18n="mapItemState2"
+                      >
+                        Melaka
+                      </p>
                     </div>
                   </button>
 
@@ -697,13 +734,23 @@
                     </span>
 
                     <div>
-                      <p class="font-bold text-sm text-primary">George Town</p>
-                      <p class="text-xs text-gray-500">Penang</p>
+                      <p
+                        class="font-bold text-sm text-primary"
+                        data-i18n="mapItemTitle3"
+                      >
+                        George Town
+                      </p>
+                      <p
+                        class="text-xs text-gray-500"
+                        data-i18n="mapItemState3"
+                      >
+                        Penang
+                      </p>
                     </div>
                   </button>
 
                   <button
-                    onclick="focusPlace(6.3500, 99.8000, 11)"
+                    onclick="focusPlace(6.35, 99.8, 11)"
                     class="w-full text-left flex items-center gap-3 p-3 rounded-2xl hover:bg-gray-50 transition-all"
                   >
                     <span
@@ -713,16 +760,24 @@
                     </span>
 
                     <div>
-                      <p class="font-bold text-sm text-primary">
+                      <p
+                        class="font-bold text-sm text-primary"
+                        data-i18n="mapItemTitle4"
+                      >
                         Langkawi Island
                       </p>
 
-                      <p class="text-xs text-gray-500">Kedah</p>
+                      <p
+                        class="text-xs text-gray-500"
+                        data-i18n="mapItemState4"
+                      >
+                        Kedah
+                      </p>
                     </div>
                   </button>
 
                   <button
-                    onclick="focusPlace(6.0750, 116.5580, 10)"
+                    onclick="focusPlace(6.075, 116.558, 10)"
                     class="w-full text-left flex items-center gap-3 p-3 rounded-2xl hover:bg-gray-50 transition-all"
                   >
                     <span
@@ -732,11 +787,19 @@
                     </span>
 
                     <div>
-                      <p class="font-bold text-sm text-primary">
+                      <p
+                        class="font-bold text-sm text-primary"
+                        data-i18n="mapItemTitle5"
+                      >
                         Mount Kinabalu
                       </p>
 
-                      <p class="text-xs text-gray-500">Sabah</p>
+                      <p
+                        class="text-xs text-gray-500"
+                        data-i18n="mapItemState5"
+                      >
+                        Sabah
+                      </p>
                     </div>
                   </button>
                 </div>
@@ -746,7 +809,6 @@
         </div>
       </section>
 
-      <!-- AI Helper Section -->
       <section class="max-w-7xl mx-auto px-6 md:px-12 my-6">
         <div
           class="bg-primary-container rounded-3xl p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8"
@@ -754,11 +816,15 @@
           <div class="z-10 text-center md:text-left">
             <h2
               class="font-display text-2xl md:text-3xl text-white font-bold mb-3"
+              data-i18n="aiTitle"
             >
               Can't decide where to go?
             </h2>
 
-            <p class="text-white/80 text-sm md:text-base mb-6 max-w-md">
+            <p
+              class="text-white/80 text-sm md:text-base mb-6 max-w-md"
+              data-i18n="aiDesc"
+            >
               Let our AI travel assistant curate the perfect Malaysian itinerary
               based on your preferences.
             </p>
@@ -766,6 +832,7 @@
             <button
               onclick="window.location.href = 'aiassistant.html'"
               class="bg-orange-700 text-white px-6 py-3.5 rounded-xl font-bold text-sm hover:bg-orange-600 transition-all shadow-md active:scale-95 duration-100"
+              data-i18n="aiBtnText"
             >
               Ask AI Helper
             </button>
@@ -788,17 +855,19 @@
       </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-[#e4e2de] w-full py-12 px-6 md:px-12">
       <div
         class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8"
       >
         <div class="flex flex-col gap-3">
-          <div class="text-xl font-display font-extrabold text-primary">
+          <div
+            class="text-xl font-display font-extrabold text-primary"
+            data-i18n="brand"
+          >
             Jom Teroka
           </div>
 
-          <p class="text-xs text-gray-600">
+          <p class="text-xs text-gray-600" data-i18n="footerCopy">
             © 2026 Jom Teroka. Malaysian Hospitality Redefined.
           </p>
         </div>
@@ -809,6 +878,7 @@
           <div class="flex flex-col gap-3">
             <span
               class="text-xs font-bold text-gray-800 tracking-wider uppercase"
+              data-i18n="footColTitle1"
             >
               Explore
             </span>
@@ -816,6 +886,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="#"
+              data-i18n="footCol1Link1"
             >
               About Us
             </a>
@@ -823,6 +894,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="homepage.html"
+              data-i18n="destinations"
             >
               Destinations
             </a>
@@ -830,6 +902,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="tourpage.html"
+              data-i18n="footCol1Link3"
             >
               Featured Tours
             </a>
@@ -838,6 +911,7 @@
           <div class="flex flex-col gap-3">
             <span
               class="text-xs font-bold text-gray-800 tracking-wider uppercase"
+              data-i18n="footColTitle2"
             >
               Support
             </span>
@@ -845,6 +919,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="#"
+              data-i18n="footerContact"
             >
               Contact
             </a>
@@ -852,6 +927,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="#"
+              data-i18n="footerHelp"
             >
               Help Center
             </a>
@@ -859,6 +935,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="#"
+              data-i18n="footerFaqs"
             >
               FAQs
             </a>
@@ -867,6 +944,7 @@
           <div class="flex flex-col gap-3">
             <span
               class="text-xs font-bold text-gray-800 tracking-wider uppercase"
+              data-i18n="footColTitle3"
             >
               Legal
             </span>
@@ -874,6 +952,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="#"
+              data-i18n="footerTerms"
             >
               Terms
             </a>
@@ -881,6 +960,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="#"
+              data-i18n="footerPrivacy"
             >
               Privacy
             </a>
@@ -888,6 +968,7 @@
             <a
               class="text-xs text-gray-600 hover:text-primary font-medium"
               href="#"
+              data-i18n="footerCookies"
             >
               Cookie Policy
             </a>
@@ -896,6 +977,7 @@
           <div class="flex flex-col gap-3">
             <span
               class="text-xs font-bold text-gray-800 tracking-wider uppercase"
+              data-i18n="footColTitle4"
             >
               Social
             </span>
@@ -918,7 +1000,174 @@
       </div>
     </footer>
 
-    <!-- Map JavaScript -->
+    <script>
+      const translations = {
+        en: {
+          brand: "Jom Teroka",
+          discover: "Discover",
+          destinations: "Destinations",
+          bookings: "My Bookings",
+          aiHelper: "AI Helper",
+          langToggle: "EN | BM",
+          currency: "MYR",
+          travelerAcc: "Traveller Account",
+          myrCurrency: "MYR Currency",
+          menuBookings: "My Bookings",
+          menuPayments: "Payment History",
+          menuExplore: "Explore Map",
+          menuAi: "AI Helper",
+          menuLogout: "Log Out",
+          catNature: "Nature",
+          catHeritage: "Heritage",
+          catFood: "Food",
+          catCulture: "Culture",
+          catIsland: "Island",
+          catCity: "City",
+          catAdventure: "Adventure",
+          catFamily: "Family",
+          exploreStateTitle: "Jelajah Mengikut Negeri",
+          exploreStateDesc:
+            "From the peaks of Kinabalu to the street art of Penang, find your next adventure by exploring our states.",
+          lnkInteractiveMap: "View Interactive Map",
+          toursCount1: "146 Tours",
+          toursCount2: "98 Tours",
+          toursCount3: "122 Tours",
+          cardSelangorDesc: "Urban Adventures & Heritage",
+          cardPenangDesc: "Food Paradise & Street Art",
+          cardMelakaDesc: "Majestic History & Peranakan Walks",
+          mapMiniBadge: "Interactive Map",
+          mapHeadline: "Famous Places in Malaysia",
+          mapSubhead:
+            "Explore famous Malaysian attractions from heritage cities and islands to mountains, caves, and cultural landmarks.",
+          mapInstruction: "Click a marker to view place details",
+          sideMapTitle: "Discover Malaysia",
+          sideMapDesc:
+            "This map highlights famous tourist attractions across Malaysia, including Kuala Lumpur, Selangor, Penang, Melaka, Pahang, Kedah, Sabah, Sarawak, Terengganu, and Johor.",
+          sideFeaturedTitle: "Featured Places",
+          mapItemTitle1: "Petronas Twin Towers",
+          mapItemState1: "Kuala Lumpur",
+          mapItemTitle2: "A Famosa",
+          mapItemState2: "Melaka",
+          mapItemTitle3: "George Town",
+          mapItemState3: "Penang",
+          mapItemTitle4: "Langkawi Island",
+          mapItemState4: "Kedah",
+          mapItemTitle5: "Mount Kinabalu",
+          mapItemState5: "Sabah",
+          aiTitle: "Can't decide where to go?",
+          aiDesc:
+            "Let our AI travel assistant curate the perfect Malaysian itinerary based on your preferences.",
+          aiBtnText: "Ask AI Helper",
+          footColTitle1: "Explore",
+          footCol1Link1: "About Us",
+          footCol1Link3: "Featured Tours",
+          footColTitle2: "Support",
+          footerContact: "Contact",
+          footerHelp: "Help Center",
+          footerFaqs: "FAQs",
+          footColTitle3: "Legal",
+          footerTerms: "Terms",
+          footerPrivacy: "Privacy",
+          footerCookies: "Cookie Policy",
+          footColTitle4: "Social",
+          footerCopy: "© 2026 Jom Teroka. Malaysian Hospitality Redefined.",
+        },
+        bm: {
+          brand: "Jom Teroka",
+          discover: "Teroka",
+          destinations: "Destinations",
+          bookings: "Tempahan Saya",
+          aiHelper: "Pembantu AI",
+          langToggle: "BM | EN",
+          currency: "MYR",
+          travelerAcc: "Akaun Pengembara",
+          myrCurrency: "Mata Wang MYR",
+          menuBookings: "Tempahan Saya",
+          menuPayments: "Sejarah Pembayaran",
+          menuExplore: "Teroka Peta",
+          menuAi: "Pembantu AI",
+          menuLogout: "Log Keluar",
+          catNature: "Alam Semula Jadi",
+          catHeritage: "Warisan",
+          catFood: "Makanan",
+          catCulture: "Budaya",
+          catIsland: "Pulau",
+          catCity: "Bandar",
+          catAdventure: "Pengembaraan",
+          catFamily: "Keluarga",
+          exploreStateTitle: "Jelajah Mengikut Negeri",
+          exploreStateDesc:
+            "Daripada puncak Gunung Kinabalu hingga ke seni jalanan di Pulau Pinang, temui pengembaraan anda seterusnya dengan meneroka negeri kami.",
+          lnkInteractiveMap: "Lihat Peta Interaktif",
+          toursCount1: "146 Lawatan",
+          toursCount2: "98 Lawatan",
+          toursCount3: "122 Lawatan",
+          cardSelangorDesc: "Pengembaraan Bandar & Warisan",
+          cardPenangDesc: "Syurga Makanan & Seni Jalanan",
+          cardMelakaDesc: "Sejarah Hebat & Jejak Peranakan",
+          mapMiniBadge: "Peta Interaktif",
+          mapHeadline: "Tempat Terkenal di Malaysia",
+          mapSubhead:
+            "Terokai tarikan terkenal Malaysia daripada bandar warisan dan pulau hingga ke gunung, gua, dan mercu tanda budaya.",
+          mapInstruction: "Klik pada penanda peta untuk melihat butiran tempat",
+          sideMapTitle: "Kenali Malaysia",
+          sideMapDesc:
+            "Peta ini memaparkan tarikan pelancongan terkenal di seluruh Malaysia, termasuk Kuala Lumpur, Selangor, Pulau Pinang, Melaka, Pahang, Kedah, Sabah, Sarawak, Terengganu, dan Johor.",
+          sideFeaturedTitle: "Tempat Pilihan",
+          mapItemTitle1: "Menara Berkembar Petronas",
+          mapItemState1: "Kuala Lumpur",
+          mapItemTitle2: "A Famosa",
+          mapItemState2: "Melaka",
+          mapItemTitle3: "George Town",
+          mapItemState3: "Pulau Pinang",
+          mapItemTitle4: "Pulau Langkawi",
+          mapItemState4: "Kedah",
+          mapItemTitle5: "Gunung Kinabalu",
+          mapItemState5: "Sabah",
+          aiTitle: "Buntu memilih tempat percutian?",
+          aiDesc:
+            "Biar pembantu perjalanan AI kami merancang jadual perjalanan Malaysia yang sempurna berdasarkan pilihan anda.",
+          aiBtnText: "Tanya Pembantu AI",
+          footColTitle1: "Teroka",
+          footCol1Link1: "Tentang Kami",
+          footCol1Link3: "Lawatan Pilihan",
+          footColTitle2: "Sokongan",
+          footerContact: "Hubungi Kami",
+          footerHelp: "Pusat Bantuan",
+          footerFaqs: "Soalan Lazim",
+          footColTitle3: "Urusan Legal",
+          footerTerms: "Syarat Perkhidmatan",
+          footerPrivacy: "Privasi",
+          footerCookies: "Dasar Kuki",
+          footColTitle4: "Media Sosial",
+          footerCopy:
+            "© 2026 Jom Teroka. Hospitaliti Malaysia Ditakrif Semula.",
+        },
+      };
+
+      function toggleLanguage() {
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        let nextLang = currentLang === "en" ? "bm" : "en";
+        localStorage.setItem("selectedLang", nextLang);
+        applyTranslations(nextLang);
+      }
+
+      function applyTranslations(lang) {
+        const t = translations[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t && t[key]) {
+            el.innerText = t[key];
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem("selectedLang") || "en";
+        applyTranslations(savedLang);
+      });
+    </script>
+
     <script>
       const map = L.map("malaysiaMap").setView([4.2105, 101.9758], 6);
 
@@ -927,125 +1176,191 @@
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
+      // Dynamic text dictionary explicitly optimized for localized markers inside Leaflet context
+      const markerTranslations = {
+        en: { btnLabel: "View Tours" },
+        bm: { btnLabel: "Lihat Lawatan" },
+      };
+
       const famousPlaces = [
         {
-          name: "Petronas Twin Towers",
-          state: "Kuala Lumpur",
-          category: "City Landmark",
+          nameEn: "Petronas Twin Towers",
+          nameBm: "Menara Berkembar Petronas",
+          stateEn: "Kuala Lumpur",
+          stateBm: "Kuala Lumpur",
+          categoryEn: "City Landmark",
+          categoryBm: "Mercu Tanda Bandar",
           lat: 3.1579,
           lng: 101.7116,
-          description:
+          descEn:
             "Malaysia's iconic twin skyscrapers and one of the most famous landmarks in Kuala Lumpur.",
+          descBm:
+            "Menara berkembar ikonik Malaysia dan salah satu mercu tanda paling terkenal di Kuala Lumpur.",
           link: "homepage.html",
         },
         {
-          name: "Batu Caves",
-          state: "Selangor",
-          category: "Culture & Heritage",
+          nameEn: "Batu Caves",
+          nameBm: "Batu Caves",
+          stateEn: "Selangor",
+          stateBm: "Selangor",
+          categoryEn: "Culture & Heritage",
+          categoryBm: "Budaya & Warisan",
           lat: 3.2379,
           lng: 101.684,
-          description:
+          descEn:
             "A famous limestone hill with Hindu temples and the colourful rainbow staircase.",
+          descBm:
+            "Bukit batu kapur yang terkenal dengan kuil Hindu dan tangga pelangi yang berwarna-warni.",
           link: "homepage.html",
         },
         {
-          name: "George Town",
-          state: "Penang",
-          category: "Food & Heritage",
+          nameEn: "George Town",
+          nameBm: "George Town",
+          stateEn: "Penang",
+          stateBm: "Pulau Pinang",
+          categoryEn: "Food & Heritage",
+          categoryBm: "Makanan & Warisan",
           lat: 5.4164,
           lng: 100.3327,
-          description:
+          descEn:
             "UNESCO heritage city known for street art, colonial buildings, and local food.",
+          descBm:
+            "Bandar warisan UNESCO yang terkenal dengan seni jalanan, bangunan kolonial, dan makanan tempatan.",
           link: "homepage.html",
         },
         {
-          name: "A Famosa",
-          state: "Melaka",
-          category: "Historical Site",
+          nameEn: "A Famosa",
+          nameBm: "A Famosa",
+          stateEn: "Melaka",
+          stateBm: "Melaka",
+          categoryEn: "Historical Site",
+          categoryBm: "Tapak Bersejarah",
           lat: 2.1912,
           lng: 102.2501,
-          description:
+          descEn:
             "Historic Portuguese fortress and one of Melaka's most visited heritage attractions.",
+          descBm:
+            "Kubu bersejarah Portugis dan salah satu tarikan warisan Melaka yang paling ramai dikunjungi.",
           link: "tourpage.html",
         },
         {
-          name: "Langkawi Island",
-          state: "Kedah",
-          category: "Island",
+          nameEn: "Langkawi Island",
+          nameBm: "Pulau Langkawi",
+          stateEn: "Kedah",
+          stateBm: "Kedah",
+          categoryEn: "Island",
+          categoryBm: "Pulau",
           lat: 6.35,
           lng: 99.8,
-          description:
+          descEn:
             "Popular island destination known for beaches, cable car, duty-free shopping, and nature.",
+          descBm:
+            "Destinasi pulau popular yang terkenal dengan pantai, kereta kabel, membeli-belah bebas cukai, dan alam semula jadi.",
           link: "homepage.html",
         },
         {
-          name: "Cameron Highlands",
-          state: "Pahang",
-          category: "Nature",
+          nameEn: "Cameron Highlands",
+          nameBm: "Cameron Highlands",
+          stateEn: "Pahang",
+          stateBm: "Pahang",
+          categoryEn: "Nature",
+          categoryBm: "Alam Semula Jadi",
           lat: 4.47,
           lng: 101.38,
-          description:
+          descEn:
             "Cool highland destination famous for tea plantations, farms, and mountain scenery.",
+          descBm:
+            "Destinasi tanah tinggi yang nyaman, terkenal dengan ladang teh, kebun, dan pemandangan gunung.",
           link: "homepage.html",
         },
         {
-          name: "Mount Kinabalu",
-          state: "Sabah",
-          category: "Adventure",
+          nameEn: "Mount Kinabalu",
+          nameBm: "Gunung Kinabalu",
+          stateEn: "Sabah",
+          stateBm: "Sabah",
+          categoryEn: "Adventure",
+          categoryBm: "Pengembaraan",
           lat: 6.075,
           lng: 116.558,
-          description:
+          descEn:
             "Malaysia's highest mountain and one of Sabah's most iconic natural attractions.",
+          descBm:
+            "Gunung tertinggi di Malaysia dan salah satu tarikan semula jadi Sabah yang paling ikonik.",
           link: "homepage.html",
         },
         {
-          name: "Kuching Waterfront",
-          state: "Sarawak",
-          category: "Culture",
+          nameEn: "Kuching Waterfront",
+          nameBm: "Tebingan Kuching",
+          stateEn: "Sarawak",
+          stateBm: "Sarawak",
+          categoryEn: "Culture",
+          categoryBm: "Budaya",
           lat: 1.5583,
           lng: 110.3446,
-          description:
+          descEn:
             "Scenic riverside area in Kuching with views of heritage buildings and Sarawak culture.",
+          descBm:
+            "Kawasan tebing sungai yang indah di Kuching dengan pemandangan bangunan warisan dan budaya Sarawak.",
           link: "homepage.html",
         },
         {
-          name: "Taman Negara",
-          state: "Pahang",
-          category: "Rainforest Adventure",
+          nameEn: "Taman Negara",
+          nameBm: "Taman Negara",
+          stateEn: "Pahang",
+          stateBm: "Pahang",
+          categoryEn: "Rainforest Adventure",
+          categoryBm: "Pengembaraan Hutan Hujan",
           lat: 4.3823,
           lng: 102.4016,
-          description:
+          descEn:
             "One of the world's oldest rainforests, popular for jungle trekking and canopy walks.",
+          descBm:
+            "Salah satu hutan hujan tertua di dunia, popular untuk aktiviti merentas hutan dan laluan kanopi.",
           link: "homepage.html",
         },
         {
-          name: "Perhentian Islands",
-          state: "Terengganu",
-          category: "Island",
+          nameEn: "Perhentian Islands",
+          nameBm: "Pulau Perhentian",
+          stateEn: "Terengganu",
+          stateBm: "Terengganu",
+          categoryEn: "Island",
+          categoryBm: "Pulau",
           lat: 5.9167,
           lng: 102.7333,
-          description:
+          descEn:
             "Beautiful island destination famous for clear water, snorkelling, and diving.",
+          descBm:
+            "Destinasi pulau yang indah terkenal dengan air yang jernih, snorkeling, dan selam skuba.",
           link: "homepage.html",
         },
         {
-          name: "Legoland Malaysia",
-          state: "Johor",
-          category: "Family Attraction",
+          nameEn: "Legoland Malaysia",
+          nameBm: "Legoland Malaysia",
+          stateEn: "Johor",
+          stateBm: "Johor",
+          categoryEn: "Family Attraction",
+          categoryBm: "Tarikan Keluarga",
           lat: 1.4265,
           lng: 103.6319,
-          description:
+          descEn:
             "A popular family theme park in Johor with rides, shows, and water attractions.",
+          descBm:
+            "Taman tema keluarga yang popular di Johor dengan permainan, persembahan, dan tarikan air.",
           link: "homepage.html",
         },
         {
-          name: "Mulu Caves",
-          state: "Sarawak",
-          category: "Nature & Cave",
+          nameEn: "Mulu Caves",
+          nameBm: "Gua Mulu",
+          stateEn: "Sarawak",
+          stateBm: "Sarawak",
+          categoryEn: "Nature & Cave",
+          categoryBm: "Alam Semula Jadi & Gua",
           lat: 4.0483,
           lng: 114.8127,
-          description:
+          descEn:
             "A famous cave system in Sarawak known for limestone formations and rainforest scenery.",
+          descBm:
+            "Sistem gua yang terkenal di Sarawak yang dikenali dengan formasi batu kapur dan pemandangan hutan hujan.",
           link: "homepage.html",
         },
       ];
@@ -1077,25 +1392,51 @@
         iconAnchor: [17, 17],
       });
 
-      famousPlaces.forEach((place) => {
-        L.marker([place.lat, place.lng], { icon: orangeIcon })
-          .addTo(map)
-          .bindPopup(`
-            <div>
-              <div class="map-popup-title">${place.name}</div>
+      // Render markers dynamically checking active global storage language configurations
+      function updateMapMarkers() {
+        // Clear old open layers if any before rendering to avoid memory leaks
+        map.eachLayer((layer) => {
+          if (layer instanceof L.Marker) {
+            map.removeLayer(layer);
+          }
+        });
 
-              <div class="map-popup-text">
-                <strong>${place.state}</strong> • ${place.category}
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        const labelText = markerTranslations[currentLang].btnLabel;
+
+        famousPlaces.forEach((place) => {
+          const name = currentLang === "en" ? place.nameEn : place.nameBm;
+          const state = currentLang === "en" ? place.stateEn : place.stateBm;
+          const category =
+            currentLang === "en" ? place.categoryEn : place.categoryBm;
+          const description =
+            currentLang === "en" ? place.descEn : place.descBm;
+
+          L.marker([place.lat, place.lng], { icon: orangeIcon }).addTo(map)
+            .bindPopup(`
+              <div>
+                <div class="map-popup-title">${name}</div>
+                <div class="map-popup-text">
+                  <strong>${state}</strong> • ${category}
+                </div>
+                <div class="map-popup-text">${description}</div>
+                <a class="map-popup-link" href="${place.link}">
+                  ${labelText}
+                </a>
               </div>
+            `);
+        });
+      }
 
-              <div class="map-popup-text">${place.description}</div>
+      // Intercept translation function to refresh Leaflet content maps seamlessly
+      const originalToggleLanguage = toggleLanguage;
+      toggleLanguage = function () {
+        originalToggleLanguage();
+        updateMapMarkers();
+      };
 
-              <a class="map-popup-link" href="${place.link}">
-                View Tours
-              </a>
-            </div>
-          `);
-      });
+      // Initial execution cycle setup hooks
+      updateMapMarkers();
 
       function focusPlace(lat, lng, zoom) {
         map.setView([lat, lng], zoom);

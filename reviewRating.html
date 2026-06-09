@@ -1,0 +1,920 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Review & Rating - Jom Teroka</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#2a6a47",
+              "outline-variant": "#c0c9bf",
+              "on-primary-container": "#91d2a7",
+              tertiary: "#3a3a38",
+              primary: "#004326",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "surface-container-highest": "#dde4e6",
+              "tertiary-container": "#51514e",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb596",
+              "surface-container-low": "#eef5f7",
+              "on-secondary-fixed": "#360f00",
+              "inverse-primary": "#93d5aa",
+              secondary: "#a43e00",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed": "#1b1c1a",
+              "on-primary-fixed": "#002110",
+              "on-error-container": "#93000a",
+              surface: "#f4fafd",
+              "on-primary-fixed-variant": "#0b5131",
+              "primary-fixed": "#aff2c4",
+              "on-background": "#161d1f",
+              outline: "#707971",
+              "tertiary-fixed": "#e4e2de",
+              background: "#f4fafd",
+              "surface-container": "#e8eff1",
+              "on-primary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#fd712a",
+              "on-secondary-container": "#5c1f00",
+              "secondary-fixed": "#ffdbcd",
+              "primary-fixed-dim": "#93d5aa",
+              error: "#ba1a1a",
+              "on-surface-variant": "#404942",
+              "surface-bright": "#f4fafd",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "on-tertiary-container": "#c5c4c0",
+              "on-surface": "#161d1f",
+              "surface-variant": "#dde4e6",
+              "on-error": "#ffffff",
+              "primary-container": "#1a5c3a",
+              "inverse-surface": "#2b3234",
+              "inverse-on-surface": "#ebf2f4",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d4dbdd",
+              "surface-container-high": "#e2e9ec",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-desktop": "40px",
+              base: "8px",
+              gutter: "24px",
+              "margin-mobile": "16px",
+            },
+            fontFamily: {
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "display-lg": ["Plus Jakarta Sans"],
+              "body-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "label-md": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "1.2", fontWeight: "700" },
+              ],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .star-filled {
+        font-variation-settings: "FILL" 1;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .bento-shadow {
+        box-shadow: 0 4px 20px -2px rgba(26, 92, 58, 0.04);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed"
+  >
+    <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto"
+      >
+        <a
+          href="homepage.html"
+          class="font-headline-md text-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
+          data-i18n="brand"
+        >
+          Jom Teroka
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+            href="homepage.html"
+            data-i18n="discover"
+            >Discover</a
+          >
+          <a
+            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+            href="landingpage.html"
+            data-i18n="destinations"
+            >Destinations</a
+          >
+          <a
+            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+            href="booking.html"
+            data-i18n="bookings"
+            >My Bookings</a
+          >
+          <a
+            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+            href="aiAssistant.html"
+            data-i18n="aiHelper"
+            >AI Helper</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant"
+          >
+            <button
+              onclick="toggleLanguage()"
+              class="lang-switcher-btn hover:text-primary font-bold transition-colors"
+              data-i18n="langToggle"
+            >
+              EN | BM
+            </button>
+            <span class="opacity-30">|</span>
+            <span data-i18n="currency">MYR</span>
+          </div>
+          <span
+            class="material-symbols-outlined text-primary cursor-pointer"
+            data-icon="account_circle"
+            >account_circle</span
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main class="max-w-container-max mx-auto px-margin-desktop py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+        <section
+          class="lg:col-span-7 bg-surface-container-lowest p-8 rounded-xl bento-shadow"
+        >
+          <div class="mb-8">
+            <h1
+              class="font-headline-lg text-headline-lg text-primary mb-2"
+              data-i18n="formTitle"
+            >
+              How was your experience?
+            </h1>
+            <p class="text-on-surface-variant font-body-md">
+              <span data-i18n="formSubtitlePre"
+                >Sharing your feedback for
+              </span>
+              <span class="font-semibold text-on-surface">Lim Wei Jian</span>
+              <span data-i18n="formSubtitleMid"> on the </span>
+              <span class="font-semibold text-on-surface" data-i18n="tourName"
+                >Penang Street Art tour</span
+              >.
+            </p>
+          </div>
+          <form class="space-y-8">
+            <div class="space-y-3">
+              <label
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+                data-i18n="labelOverall"
+                >Overall Rating</label
+              >
+              <div id="starContainer" class="flex gap-2 text-secondary">
+                <span
+                  class="material-symbols-outlined text-4xl cursor-pointer star-filled"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-4xl cursor-pointer star-filled"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-4xl cursor-pointer star-filled"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-4xl cursor-pointer star-filled"
+                  >star</span
+                >
+                <span class="material-symbols-outlined text-4xl cursor-pointer"
+                  >star</span
+                >
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-label-md text-label-md"
+                    data-i18n="catKnowledge"
+                    >Guide Knowledge</span
+                  >
+                  <span class="font-label-md text-label-md text-primary"
+                    >4/5</span
+                  >
+                </div>
+                <div
+                  class="h-2 w-full bg-surface-container rounded-full overflow-hidden"
+                >
+                  <div class="h-full bg-primary rounded-full w-[80%]"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-label-md text-label-md"
+                    data-i18n="catPunctuality"
+                    >Punctuality</span
+                  >
+                  <span class="font-label-md text-label-md text-primary"
+                    >5/5</span
+                  >
+                </div>
+                <div
+                  class="h-2 w-full bg-surface-container rounded-full overflow-hidden"
+                >
+                  <div class="h-full bg-primary rounded-full w-full"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-label-md text-label-md"
+                    data-i18n="catCommunication"
+                    >Communication</span
+                  >
+                  <span class="font-label-md text-label-md text-primary"
+                    >4/5</span
+                  >
+                </div>
+                <div
+                  class="h-2 w-full bg-surface-container rounded-full overflow-hidden"
+                >
+                  <div class="h-full bg-primary rounded-full w-[80%]"></div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-label-md text-label-md" data-i18n="catValue"
+                    >Value for Money</span
+                  >
+                  <span class="font-label-md text-label-md text-primary"
+                    >5/5</span
+                  >
+                </div>
+                <div
+                  class="h-2 w-full bg-surface-container rounded-full overflow-hidden"
+                >
+                  <div class="h-full bg-primary rounded-full w-full"></div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+                data-i18n="labelStory"
+                >Your Story</label
+              >
+              <textarea
+                id="storyTextArea"
+                class="w-full min-h-[160px] p-4 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none"
+                placeholder="What made this tour special? Share your favorite mural or local snack Lim Wei Jian introduced you to..."
+              ></textarea>
+            </div>
+            <div class="space-y-4">
+              <label
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+                data-i18n="labelPhotos"
+                >Add Photos</label
+              >
+              <div class="flex flex-wrap gap-4">
+                <div
+                  class="relative w-24 h-24 rounded-xl overflow-hidden group"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMSEZV6oNXibL4VXSpBEqxOu9pmrfa6B4a4Ii-Y9OOtviiG31yhi2Gr_1vyNZiw1EC_ayD_D96W3_NIOIMaXJJWIj27FFH1uuOU0H5XsWOJI4IN2bUwMHFxY7t-NkGGRTaAzBx1UqTtUvKnvX1cIUa60E_acLvCANl_h7YCdYNUgcKPWzL5r88GrumQ9j-gVv2ZJK0eKvGv9KQVR1DO2l7bntSGF5WVp_5gNShz7aswQkfNPDo1BW7DH99LRThsfc0pFlY2l4nf5E1"
+                    alt="Mural photo"
+                  />
+                  <button
+                    type="button"
+                    class="absolute top-1 right-1 bg-black/50 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <span class="material-symbols-outlined text-sm">close</span>
+                  </button>
+                </div>
+                <div
+                  class="relative w-24 h-24 rounded-xl overflow-hidden group"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuASFYCUV0qh0Je2S1nC0hnn60JEuEXKmC88Hxz6NpoOfXdCO7ve8PQtbBO-6EDP3nva9gBsaibwqTTySZNLOyv3VAI1zsETPbLos8xr7MY_GDX6i09lw0d87A54oHIZrNMjKq8pdEym6Otuy--FNC4yzf9qt00meTbPRONO1MEnh0BE4yk829DVaUI5-VG9pniQvvEAgvl-QtbB6nMfOvljIIqxlL2uxWmJeBB8hzg7eQl4lK-t9kp0Yat4-S025VJA0tXoWjK6RyI6"
+                    alt="Food photo"
+                  />
+                  <button
+                    type="button"
+                    class="absolute top-1 right-1 bg-black/50 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <span class="material-symbols-outlined text-sm">close</span>
+                  </button>
+                </div>
+                <label
+                  class="w-24 h-24 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all"
+                >
+                  <span class="material-symbols-outlined text-primary mb-1"
+                    >add_a_photo</span
+                  >
+                  <span
+                    class="text-[10px] font-bold text-primary"
+                    data-i18n="btnUpload"
+                    >UPLOAD</span
+                  >
+                  <input class="hidden" type="file" />
+                </label>
+              </div>
+            </div>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <div class="relative flex items-center">
+                <input
+                  class="peer h-6 w-6 rounded border-outline-variant text-secondary focus:ring-secondary transition-all cursor-pointer"
+                  type="checkbox"
+                />
+              </div>
+              <span
+                class="font-body-md text-on-surface-variant group-hover:text-on-surface transition-colors"
+                data-i18n="recommendText"
+                >I would recommend this guide to other travelers.</span
+              >
+            </label>
+            <button
+              id="submitBtn"
+              type="submit"
+              class="w-full md:w-auto px-12 py-4 bg-secondary text-white font-label-md text-label-md rounded-full shadow-lg shadow-secondary/20 hover:bg-secondary-container hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest font-bold"
+              data-i18n="btnSubmitReview"
+            >
+              Submit Review
+            </button>
+          </form>
+        </section>
+
+        <aside class="lg:col-span-5 space-y-gutter">
+          <div
+            class="bg-primary text-white p-8 rounded-xl bento-shadow relative overflow-hidden"
+          >
+            <div
+              class="relative z-10 flex flex-col md:flex-row items-center gap-8"
+            >
+              <div class="text-center">
+                <div class="text-6xl font-bold font-display-lg leading-none">
+                  4.8
+                </div>
+                <div
+                  class="flex gap-1 text-secondary-fixed mt-2 justify-center"
+                >
+                  <span class="material-symbols-outlined star-filled"
+                    >star</span
+                  >
+                  <span class="material-symbols-outlined star-filled"
+                    >star</span
+                  >
+                  <span class="material-symbols-outlined star-filled"
+                    >star</span
+                  >
+                  <span class="material-symbols-outlined star-filled"
+                    >star</span
+                  >
+                  <span class="material-symbols-outlined star-filled"
+                    >star_half</span
+                  >
+                </div>
+                <p
+                  class="text-primary-fixed text-sm mt-2 opacity-80"
+                  data-i18n="totalReviewsCount"
+                >
+                  Based on 124 reviews
+                </p>
+              </div>
+              <div class="flex-1 w-full space-y-2">
+                <div class="flex items-center gap-3">
+                  <span class="font-label-sm w-4">5</span>
+                  <div
+                    class="flex-1 h-1.5 bg-on-primary-fixed-variant/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-secondary-fixed rounded-full w-[85%]"
+                    ></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="font-label-sm w-4">4</span>
+                  <div
+                    class="flex-1 h-1.5 bg-on-primary-fixed-variant/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-secondary-fixed rounded-full w-[10%]"
+                    ></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="font-label-sm w-4">3</span>
+                  <div
+                    class="flex-1 h-1.5 bg-on-primary-fixed-variant/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-secondary-fixed rounded-full w-[3%]"
+                    ></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="font-label-sm w-4">2</span>
+                  <div
+                    class="flex-1 h-1.5 bg-on-primary-fixed-variant/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-secondary-fixed rounded-full w-[2%]"
+                    ></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="font-label-sm w-4">1</span>
+                  <div
+                    class="flex-1 h-1.5 bg-on-primary-fixed-variant/30 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-secondary-fixed rounded-full w-[0%]"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="absolute -bottom-8 -right-8 w-32 h-32 bg-white/5 rounded-full blur-2xl"
+            ></div>
+          </div>
+
+          <div class="space-y-6">
+            <h2
+              class="font-headline-md text-headline-md text-primary"
+              data-i18n="feedHeading"
+            >
+              Reviews for Lim Wei Jian
+            </h2>
+            <div
+              class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 hover:shadow-md transition-shadow"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-on-primary-fixed"
+                >
+                  AM
+                </div>
+                <div>
+                  <h4 class="font-label-md text-label-md">Ahmad Mazlan</h4>
+                  <div class="flex text-secondary text-sm">
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                  </div>
+                </div>
+                <span
+                  class="ml-auto text-on-surface-variant text-sm"
+                  data-i18n="reviewTime1"
+                  >2 days ago</span
+                >
+              </div>
+              <p
+                class="text-on-surface-variant font-body-md italic leading-relaxed"
+                data-i18n="reviewText1"
+              >
+                "Wei Jian was an incredible guide! His knowledge of the secret
+                alleys and the stories behind each mural made the walk so much
+                more meaningful."
+              </p>
+            </div>
+            <div
+              class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 hover:shadow-md transition-shadow"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-on-secondary-fixed"
+                >
+                  SR
+                </div>
+                <div>
+                  <h4 class="font-label-md text-label-md">Suria Rahim</h4>
+                  <div class="flex text-secondary text-sm">
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined">star</span>
+                  </div>
+                </div>
+                <span
+                  class="ml-auto text-on-surface-variant text-sm"
+                  data-i18n="reviewTime2"
+                  >1 week ago</span
+                >
+              </div>
+              <p
+                class="text-on-surface-variant font-body-md mb-4"
+                data-i18n="reviewText2"
+              >
+                "Great tour! Very informative. It was a bit hot, maybe we could
+                have taken a longer break in the shade."
+              </p>
+              <div
+                class="mt-4 p-4 bg-surface-container-low rounded-lg border-l-4 border-primary"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="material-symbols-outlined text-primary text-sm"
+                    >reply</span
+                  >
+                  <span
+                    class="font-label-sm text-primary uppercase"
+                    data-i18n="replyBadge"
+                    >Guide Reply</span
+                  >
+                </div>
+                <p
+                  class="text-on-surface-variant text-sm leading-relaxed"
+                  data-i18n="replyText"
+                >
+                  "Thank you for the feedback, Suria! I'll definitely adjust the
+                  itinerary to include a cool-down session at the heritage cafe
+                  next time."
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 hover:shadow-md transition-shadow"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center font-bold text-on-tertiary-fixed"
+                >
+                  CK
+                </div>
+                <div>
+                  <h4 class="font-label-md text-label-md">Chong Kai Wen</h4>
+                  <div class="flex text-secondary text-sm">
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                    <span class="material-symbols-outlined star-filled"
+                      >star</span
+                    >
+                  </div>
+                </div>
+                <span
+                  class="ml-auto text-on-surface-variant text-sm"
+                  data-i18n="reviewTime3"
+                  >2 weeks ago</span
+                >
+              </div>
+              <p
+                class="text-on-surface-variant font-body-md"
+                data-i18n="reviewText3"
+              >
+                "Best street art tour ever. Wei Jian even showed us where to get
+                the best Chendol after the tour ended. 10/10 recommendation!"
+              </p>
+            </div>
+            <button
+              class="w-full py-3 text-primary font-bold font-label-md text-label-md hover:bg-primary/5 rounded-xl transition-all"
+              data-i18n="btnViewAllReviews"
+            >
+              View All 124 Reviews
+            </button>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="bg-tertiary-fixed mt-24">
+      <div
+        class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
+      >
+        <div class="space-y-4">
+          <div
+            class="font-headline-md text-headline-md font-bold text-primary"
+            data-i18n="brand"
+          >
+            Jom Teroka
+          </div>
+          <p
+            class="text-on-tertiary-fixed-variant max-w-xs font-body-md"
+            data-i18n="footerDesc"
+          >
+            Redefining Malaysian hospitality through authentic cultural
+            experiences and sustainable tourism.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-12">
+          <div class="flex flex-col gap-3">
+            <span
+              class="font-label-md text-label-md text-primary uppercase tracking-wider mb-2"
+              data-i18n="footerCompany"
+              >Company</span
+            >
+            <a
+              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md"
+              href="#"
+              data-i18n="footerAbout"
+              >About Us</a
+            >
+            <a
+              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md"
+              href="#"
+              data-i18n="footerContact"
+              >Contact</a
+            >
+          </div>
+          <div class="flex flex-col gap-3">
+            <span
+              class="font-label-md text-label-md text-primary uppercase tracking-wider mb-2"
+              data-i18n="footerLegal"
+              >Legal</span
+            >
+            <a
+              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md"
+              href="#"
+              data-i18n="footerTerms"
+              >Terms</a
+            >
+            <a
+              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md"
+              href="#"
+              data-i18n="footerPrivacy"
+              >Privacy</a
+            >
+          </div>
+        </div>
+        <div
+          class="w-full md:w-auto pt-8 md:pt-0 border-t border-outline-variant/30 md:border-none"
+        >
+          <p
+            class="text-on-tertiary-fixed-variant font-label-sm text-label-sm"
+            data-i18n="footerCopy"
+          >
+            © 2024 Jom Teroka. Malaysian Hospitality Redefined.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Fixed Working Micro-interactions for Star Rating Selector
+      const stars = Array.from(
+        document.querySelectorAll("#starContainer .material-symbols-outlined"),
+      );
+      stars.forEach((star, index) => {
+        star.addEventListener("click", () => {
+          stars.forEach((s, i) => {
+            if (i <= index) {
+              s.classList.add("star-filled");
+            } else {
+              s.classList.remove("star-filled");
+            }
+          });
+        });
+      });
+
+      // Form submit execution flow with smooth redirection loop back to booking.html
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const btn = document.getElementById("submitBtn");
+        const currentLang = localStorage.getItem("selectedLang") || "en";
+
+        btn.innerHTML = currentLang === "bm" ? "Menghantar..." : "Sending...";
+        btn.disabled = true;
+        btn.classList.add("opacity-80");
+
+        setTimeout(() => {
+          btn.innerHTML =
+            currentLang === "bm" ? "Ulasan Dihantar!" : "Review Submitted!";
+          btn.classList.remove("bg-secondary");
+          btn.classList.add("bg-primary");
+
+          setTimeout(() => {
+            window.location.href = "booking.html";
+          }, 1000);
+        }, 1000);
+      });
+
+      // Page-Specific Dynamic Translation Layer Map Object
+      const translations = {
+        en: {
+          brand: "Jom Teroka",
+          discover: "Discover",
+          destinations: "Destinations",
+          bookings: "My Bookings",
+          aiHelper: "AI Helper",
+          langToggle: "EN | BM",
+          currency: "MYR",
+          formTitle: "How was your experience?",
+          formSubtitlePre: "Sharing your feedback for ",
+          formSubtitleMid: " on the ",
+          tourName: "Penang Street Art tour",
+          labelOverall: "Overall Rating",
+          catKnowledge: "Guide Knowledge",
+          catPunctuality: "Punctuality",
+          catCommunication: "Communication",
+          catValue: "Value for Money",
+          labelStory: "Your Story",
+          labelPhotos: "Add Photos",
+          btnUpload: "UPLOAD",
+          recommendText: "I would recommend this guide to other travelers.",
+          btnSubmitReview: "Submit Review",
+          totalReviewsCount: "Based on 124 reviews",
+          feedHeading: "Reviews for Lim Wei Jian",
+          reviewTime1: "2 days ago",
+          reviewText1:
+            '"Wei Jian was an incredible guide! His knowledge of the secret alleys and the stories behind each mural made the walk so much more meaningful."',
+          reviewTime2: "1 week ago",
+          reviewText2:
+            '"Great tour! Very informative. It was a bit hot, maybe we could have taken a longer break in the shade."',
+          replyBadge: "Guide Reply",
+          replyText:
+            '"Thank you for the feedback, Suria! I\'ll definitely adjust the itinerary to include a cool-down session at the heritage cafe next time."',
+          reviewTime3: "2 weeks ago",
+          reviewText3:
+            '"Best street art tour ever. Wei Jian even showed us where to get the best Chendol after the tour ended. 10/10 recommendation!"',
+          btnViewAllReviews: "View All 124 Reviews",
+          footerCompany: "Company",
+          footerAbout: "About Us",
+          footerContact: "Contact",
+          footerLegal: "Legal",
+          footerTerms: "Terms",
+          footerPrivacy: "Privacy",
+          footerDesc:
+            "Redefining Malaysian hospitality through authentic cultural experiences and sustainable tourism.",
+          footerCopy: "© 2024 Jom Teroka. Malaysian Hospitality Redefined.",
+          storyPlaceholder:
+            "What made this tour special? Share your favorite mural or local snack Lim Wei Jian introduced you to...",
+        },
+        bm: {
+          brand: "Jom Teroka",
+          discover: "Teroka",
+          destinations: "Destinations",
+          bookings: "Tempahan Saya",
+          aiHelper: "Pembantu AI",
+          langToggle: "BM | EN",
+          currency: "MYR",
+          formTitle: "Bagaimanakah pengalaman anda?",
+          formSubtitlePre: "Berkongsi maklum balas anda untuk ",
+          formSubtitleMid: " bagi lawatan ",
+          tourName: "Seni Jalanan Pulau Pinang",
+          labelOverall: "Penilaian Keseluruhan",
+          catKnowledge: "Pengetahuan Pemandu",
+          catPunctuality: "Ketepatan Masa",
+          catCommunication: "Komunikasi",
+          catValue: "Nilai untuk Wang",
+          labelStory: "Cerita Anda",
+          labelPhotos: "Tambah Gambar",
+          btnUpload: "MUAT NAIK",
+          recommendText:
+            "Saya akan mengesyorkan pemandu pelancong ini kepada pengembara lain.",
+          btnSubmitReview: "Hantar Ulasan",
+          totalReviewsCount: "Berdasarkan 124 ulasan",
+          feedHeading: "Ulasan untuk Lim Wei Jian",
+          reviewTime1: "2 hari lepas",
+          reviewText1:
+            '"Wei Jian adalah pemandu yang hebat! Pengetahuannya tentang lorong rahsia dan kisah di sebalik setiap lukisan dinding menjadikan perjalanan ini jauh lebih bermakna."',
+          reviewTime2: "1 minggu lepas",
+          reviewText2:
+            '"Lawatan yang bagus! Sangat bermaklumat. Cuaca agak panas, mungkin kami boleh mengambil masa rehat yang lebih lama di tempat teduh."',
+          replyBadge: "Balasan Pemandu",
+          replyText:
+            '"Terima kasih atas maklum balas, Suria! Saya pasti akan melaraskan jadual perjalanan untuk memasukkan sesi menyejuk badan di kafe warisan pada masa akan datang."',
+          reviewTime3: "2 minggu lepas",
+          reviewText3:
+            '"Lawatan seni jalanan terbaik yang pernah ada. Wei Jian malah menunjukkan kepada kami tempat untuk mendapatkan Chendol terbaik selepas lawatan tamat. Syor 10/10!"',
+          btnViewAllReviews: "Lihat Semua 124 Ulasan",
+          footerCompany: "Syarikat",
+          footerAbout: "Tentang Kami",
+          footerContact: "Hubungi Kami",
+          footerLegal: "Urusan Legal",
+          footerTerms: "Syarat Perkhidmatan",
+          footerPrivacy: "Privasi",
+          footerDesc:
+            "Mentakrifkan semula hospitaliti Malaysia melalui pengalaman budaya tulen dan pelancongan mampan.",
+          footerCopy:
+            "© 2024 Jom Teroka. Hospitaliti Malaysia Ditakrif Semula.",
+          storyPlaceholder:
+            "Apakah yang membuatkan lawatan ini istimewa? Kongsi lukisan dinding kegemaran anda atau snek tempatan yang diperkenalkan oleh Lim Wei Jian...",
+        },
+      };
+
+      function toggleLanguage() {
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        let nextLang = currentLang === "en" ? "bm" : "en";
+        localStorage.setItem("selectedLang", nextLang);
+        applyTranslations(nextLang);
+      }
+
+      function applyTranslations(lang) {
+        const t = translations[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t && t[key]) {
+            el.innerText = t[key];
+          }
+        });
+
+        const storyArea = document.getElementById("storyTextArea");
+        if (storyArea) {
+          storyArea.placeholder = t.storyPlaceholder;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem("selectedLang") || "en";
+        applyTranslations(savedLang);
+      });
+    </script>
+  </body>
+</html>

@@ -178,32 +178,31 @@
   </head>
 
   <script>
-  function toggleProfileMenu() {
-    const menu = document.getElementById("profileMenu");
-    menu.classList.toggle("hidden");
-  }
-
-  document.addEventListener("click", function (event) {
-    const menu = document.getElementById("profileMenu");
-    const profileButton = event.target.closest(".relative");
-
-    if (!profileButton && menu && !menu.classList.contains("hidden")) {
-      menu.classList.add("hidden");
+    function toggleProfileMenu() {
+      const menu = document.getElementById("profileMenu");
+      menu.classList.toggle("hidden");
     }
-  });
 
-  function logoutUser() {
-    const confirmLogout = confirm("Are you sure you want to log out?");
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("profileMenu");
+      const profileButton = event.target.closest(".relative");
 
-    if (confirmLogout) {
-      alert("You have successfully logged out.");
-      window.location.href = "landingpage.html";
+      if (!profileButton && menu && !menu.classList.contains("hidden")) {
+        menu.classList.add("hidden");
+      }
+    });
+
+    function logoutUser() {
+      const confirmLogout = confirm("Are you sure you want to log out?");
+
+      if (confirmLogout) {
+        alert("You have successfully logged out.");
+        window.location.href = "landingpage.html";
+      }
     }
-  }
-</script>
+  </script>
 
   <body class="bg-background text-on-surface font-body-md">
-    <!-- Navbar -->
     <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
       <div
         class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
@@ -212,6 +211,7 @@
           <a
             href="homepage.html"
             class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
+            data-i18n="brand"
           >
             Jom Teroka
           </a>
@@ -220,6 +220,7 @@
             <a
               class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
               href="homepage.html"
+              data-i18n="discover"
             >
               Discover
             </a>            
@@ -227,13 +228,15 @@
             <a
               class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
               href="landingpage.html"
+              data-i18n="destinations"
             >
               Destinations
             </a>
 
             <a
               class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md"
-              href="tourpage.html"
+              href="booking.html"
+              data-i18n="bookings"
             >
               My Bookings
             </a>
@@ -241,6 +244,7 @@
             <a
               class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
               href="aiAssistant.html"
+              data-i18n="aiHelper"
             >
               AI Helper
             </a>
@@ -251,148 +255,152 @@
           <div
             class="hidden sm:flex items-center gap-2 text-on-surface-variant font-label-md text-label-md"
           >
-            <span>EN | BM</span>
+            <button
+              onclick="toggleLanguage()"
+              class="lang-switcher-btn hover:text-primary transition-colors font-bold"
+              data-i18n="langToggle"
+            >
+              EN | BM
+            </button>
             <span class="mx-2 opacity-30">|</span>
-            <span>MYR</span>
+            <span data-i18n="currency">MYR</span>
           </div>
 
-<!-- Mini Profile Dropdown -->
-<div class="relative">
-  <button
-    onclick="toggleProfileMenu()"
-    class="flex items-center gap-2 p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
-  >
-    <span class="material-symbols-outlined text-primary text-3xl">
-      account_circle
-    </span>
+          <div class="relative">
+            <button
+              onclick="toggleProfileMenu()"
+              class="flex items-center gap-2 p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl">
+                account_circle
+              </span>
 
-    <span class="hidden lg:block text-sm font-semibold text-on-surface-variant">
-      Amirul
-    </span>
+              <span class="hidden lg:block text-sm font-semibold text-on-surface-variant">
+                Amirul
+              </span>
 
-    <span class="material-symbols-outlined text-primary text-xl">
-      expand_more
-    </span>
-  </button>
+              <span class="material-symbols-outlined text-primary text-xl">
+                expand_more
+              </span>
+            </button>
 
-  <!-- Dropdown Menu -->
-  <div
-    id="profileMenu"
-    class="hidden absolute right-0 top-14 w-72 bg-white rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden z-[999]"
-  >
-    <!-- Profile Header -->
-    <div class="p-5 bg-primary text-white">
-      <div class="flex items-center gap-3">
-        <div
-          class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"
-        >
-          <span class="material-symbols-outlined text-white text-3xl">
-            account_circle
-          </span>
-        </div>
+            <div
+              id="profileMenu"
+              class="hidden absolute right-0 top-14 w-72 bg-white rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden z-[999]"
+            >
+              <div class="p-5 bg-primary text-white">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-white text-3xl">
+                      account_circle
+                    </span>
+                  </div>
 
-        <div>
-          <h3 class="font-bold text-base leading-tight">
-            Muhammad Amirul
-          </h3>
-          <p class="text-xs text-white/80">
-            Traveller Account
-          </p>
-        </div>
-      </div>
-    </div>
+                  <div>
+                    <h3 class="font-bold text-base leading-tight">
+                      Muhammad Amirul
+                    </h3>
+                    <p class="text-xs text-white/80" data-i18n="travelerAcc">
+                      Traveller Account
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-    <!-- Profile Details -->
-    <div class="p-4 space-y-3">
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          mail
-        </span>
-        <span>amirul.haziq@email.com</span>
-      </div>
+              <div class="p-4 space-y-3">
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    mail
+                  </span>
+                  <span>amirul.haziq@email.com</span>
+                </div>
 
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          phone
-        </span>
-        <span>+60 12-345 6789</span>
-      </div>
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    phone
+                  </span>
+                  <span>+60 12-345 6789</span>
+                </div>
 
-      <div class="flex items-center gap-3 text-sm text-gray-600">
-        <span class="material-symbols-outlined text-primary text-xl">
-          payments
-        </span>
-        <span>MYR Currency</span>
-      </div>
-    </div>
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    payments
+                  </span>
+                  <span data-i18n="myrCurrency">MYR Currency</span>
+                </div>
+              </div>
 
-    <div class="h-px bg-outline-variant/40"></div>
+              <div class="h-px bg-outline-variant/40"></div>
 
-    <!-- Menu Links -->
-    <div class="p-2">
-      <a
-        href="booking.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          confirmation_number
-        </span>
-        My Bookings
-      </a>
+              <div class="p-2">
+                <a
+                  href="booking.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="menuBookings"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    confirmation_number
+                  </span>
+                  My Bookings
+                </a>
 
-      <a
-        href="paymentinterface.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          receipt_long
-        </span>
-        Payment History
-      </a>
+                <a
+                  href="paymentinterface.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="menuPayments"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    receipt_long
+                  </span>
+                  Payment History
+                </a>
 
-      <a
-        href="landingpage.html#interactive-map"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          map
-        </span>
-        Explore Map
-      </a>
+                <a
+                  href="landingpage.html#interactive-map"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="menuExplore"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    map
+                  </span>
+                  Explore Map
+                </a>
 
-      <a
-        href="aiAssistant.html"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          smart_toy
-        </span>
-        AI Helper
-      </a>
-    </div>
+                <a
+                  href="aiAssistant.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                  data-i18n="menuAi"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    smart_toy
+                  </span>
+                  AI Helper
+                </a>
+              </div>
 
-    <div class="h-px bg-outline-variant/40"></div>
+              <div class="h-px bg-outline-variant/40"></div>
 
-    <!-- Logout -->
-    <div class="p-2">
-      <button
-        onclick="logoutUser()"
-        class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all"
-      >
-        <span class="material-symbols-outlined text-xl">
-          logout
-        </span>
-        Log Out
-      </button>
-    </div>
-  </div>
-</div>
+              <div class="p-2">
+                <button
+                  onclick="logoutUser()"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all"
+                  data-i18n="menuLogout"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    logout
+                  </span>
+                  Log Out
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
 
     <main>
-      <!-- Hero Section -->
       <section class="hero-pattern border-b border-outline-variant/50">
         <div class="max-w-container-max mx-auto px-margin-desktop py-12">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
@@ -401,14 +409,14 @@
                 class="inline-flex items-center gap-2 px-4 py-2 bg-primary-fixed text-primary rounded-full font-label-md text-label-md mb-5"
               >
                 <span class="material-symbols-outlined text-[18px]">travel_explore</span>
-                <span>Manage your Malaysian experiences</span>
+                <span data-i18n="heroBadge">Manage your Malaysian experiences</span>
               </div>
 
-              <h1 class="font-display-lg text-display-lg text-primary mb-4">
+              <h1 class="font-display-lg text-display-lg text-primary mb-4" data-i18n="heroTitle">
                 My Bookings
               </h1>
 
-              <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+              <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl" data-i18n="heroDesc">
                 View your upcoming tours, check payment status, contact your local
                 guide, and manage your Jom Teroka travel plans in one place.
               </p>
@@ -420,16 +428,17 @@
               >
                 <div class="flex items-start justify-between mb-5">
                   <div>
-                    <p class="text-label-sm font-label-sm text-on-surface-variant mb-1">
+                    <p class="text-label-sm font-label-sm text-on-surface-variant mb-1" data-i18n="nextTripLabel">
                       Next Trip
                     </p>
-                    <h2 class="font-headline-md text-headline-md text-primary">
+                    <h2 class="font-headline-md text-headline-md text-primary" data-i18n="nextTripTitle">
                       Melaka Heritage Walk
                     </h2>
                   </div>
 
                   <span
                     class="px-3 py-1 bg-primary text-white rounded-full text-label-sm font-label-sm"
+                    data-i18n="statusConfirmed"
                   >
                     Confirmed
                   </span>
@@ -440,8 +449,8 @@
                     <span class="material-symbols-outlined text-primary mb-2">
                       calendar_month
                     </span>
-                    <p class="text-label-sm text-on-surface-variant">Date</p>
-                    <p class="font-label-md text-label-md text-on-surface">
+                    <p class="text-label-sm text-on-surface-variant" data-i18n="dateLabel">Date</p>
+                    <p class="font-label-md text-label-md text-on-surface" data-i18n="nextTripDate">
                       18 June 2026
                     </p>
                   </div>
@@ -450,8 +459,8 @@
                     <span class="material-symbols-outlined text-primary mb-2">
                       schedule
                     </span>
-                    <p class="text-label-sm text-on-surface-variant">Time</p>
-                    <p class="font-label-md text-label-md text-on-surface">
+                    <p class="text-label-sm text-on-surface-variant" data-i18n="timeLabel">Time</p>
+                    <p class="font-label-md text-label-md text-on-surface" data-i18n="nextTripTime">
                       9:00 AM
                     </p>
                   </div>
@@ -460,6 +469,7 @@
                 <button
                   onclick="scrollToBooking('booking-melaka')"
                   class="w-full h-12 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95 flex items-center justify-center gap-2"
+                  data-i18n="viewDetailsBtn"
                 >
                   View Booking Details
                   <span class="material-symbols-outlined">arrow_downward</span>
@@ -470,13 +480,12 @@
         </div>
       </section>
 
-      <!-- Booking Overview -->
       <section class="max-w-container-max mx-auto px-margin-desktop py-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
           <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-label-sm text-on-surface-variant mb-1">
+                <p class="text-label-sm text-on-surface-variant mb-1" data-i18n="statTotal">
                   Total Bookings
                 </p>
                 <h3 class="font-headline-lg text-headline-lg text-primary">4</h3>
@@ -492,7 +501,7 @@
           <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-label-sm text-on-surface-variant mb-1">
+                <p class="text-label-sm text-on-surface-variant mb-1" data-i18n="statActive">
                   Active Tours
                 </p>
                 <h3 class="font-headline-lg text-headline-lg text-primary">2</h3>
@@ -508,7 +517,7 @@
           <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-label-sm text-on-surface-variant mb-1">
+                <p class="text-label-sm text-on-surface-variant mb-1" data-i18n="statPending">
                   Pending Payment
                 </p>
                 <h3 class="font-headline-lg text-headline-lg text-primary">1</h3>
@@ -524,7 +533,7 @@
           <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-label-sm text-on-surface-variant mb-1">
+                <p class="text-label-sm text-on-surface-variant mb-1" data-i18n="statCompleted">
                   Completed
                 </p>
                 <h3 class="font-headline-lg text-headline-lg text-primary">1</h3>
@@ -539,12 +548,9 @@
         </div>
       </section>
 
-      <!-- Main Content -->
       <section class="max-w-container-max mx-auto px-margin-desktop pb-20">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-          <!-- Left Content -->
           <div class="lg:col-span-8">
-            <!-- Search and Tabs -->
             <div
               class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-5 mb-6"
             >
@@ -567,8 +573,9 @@
                 </div>
 
                 <button
-                  onclick="window.location.href='homepage.html'"
+                  onclick="window.location.href='tourpage.html'"
                   class="h-12 px-6 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2"
+                  data-i18n="newBookingBtn"
                 >
                   <span class="material-symbols-outlined">add</span>
                   New Booking
@@ -579,6 +586,7 @@
                 <button
                   onclick="filterBookings('all', this)"
                   class="booking-tab tab-active px-5 py-2.5 rounded-full font-label-md text-label-md transition-all"
+                  data-i18n="tabAll"
                 >
                   All
                 </button>
@@ -586,6 +594,7 @@
                 <button
                   onclick="filterBookings('active', this)"
                   class="booking-tab px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-all"
+                  data-i18n="tabActive"
                 >
                   Active
                 </button>
@@ -593,6 +602,7 @@
                 <button
                   onclick="filterBookings('pending', this)"
                   class="booking-tab px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-all"
+                  data-i18n="tabPending"
                 >
                   Pending
                 </button>
@@ -600,6 +610,7 @@
                 <button
                   onclick="filterBookings('completed', this)"
                   class="booking-tab px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-all"
+                  data-i18n="tabCompleted"
                 >
                   Completed
                 </button>
@@ -607,13 +618,13 @@
                 <button
                   onclick="filterBookings('cancelled', this)"
                   class="booking-tab px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-all"
+                  data-i18n="tabCancelled"
                 >
                   Cancelled
                 </button>
               </div>
             </div>
 
-            <!-- Booking Card 1 -->
             <article
               id="booking-melaka"
               class="booking-card booking-item bg-white rounded-3xl border border-outline-variant/40 shadow-sm overflow-hidden mb-6"
@@ -629,6 +640,7 @@
                   />
                   <div
                     class="absolute top-4 left-4 px-3 py-1 bg-primary text-white rounded-full text-label-sm font-label-sm"
+                    data-i18n="statusConfirmed"
                   >
                     Confirmed
                   </div>
@@ -637,20 +649,20 @@
                 <div class="md:col-span-8 p-6">
                   <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
                     <div>
-                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2">
+                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2" data-i18n="card1Badge">
                         Heritage Tour
                       </p>
-                      <h2 class="font-headline-lg text-headline-lg text-primary mb-2">
+                      <h2 class="font-headline-lg text-headline-lg text-primary mb-2" data-i18n="card1Title">
                         Melaka Heritage Walk Session
                       </h2>
-                      <p class="text-body-md text-on-surface-variant">
+                      <p class="text-body-md text-on-surface-variant" data-i18n="card1Desc">
                         Explore Jonker Street, Dutch Square, A Famosa, and
                         traditional Peranakan stories with a certified local guide.
                       </p>
                     </div>
 
                     <div class="text-left md:text-right">
-                      <p class="text-label-sm text-on-surface-variant">Booking ID</p>
+                      <p class="text-label-sm text-on-surface-variant" data-i18n="bookingIdLabel">Booking ID</p>
                       <p class="font-label-md text-label-md text-primary">
                         JT-MEL-24018
                       </p>
@@ -665,8 +677,8 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Date</p>
-                        <p class="font-label-md text-label-md">18 June 2026</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="dateLabel">Date</p>
+                        <p class="font-label-md text-label-md" data-i18n="nextTripDate">18 June 2026</p>
                       </div>
                     </div>
 
@@ -677,7 +689,7 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Time</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="timeLabel">Time</p>
                         <p class="font-label-md text-label-md">9:00 AM - 1:00 PM</p>
                       </div>
                     </div>
@@ -689,8 +701,8 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Guests</p>
-                        <p class="font-label-md text-label-md">2 Adults</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="guestsLabel">Guests</p>
+                        <p class="font-label-md text-label-md" data-i18n="guestsCount1">2 Adults</p>
                       </div>
                     </div>
                   </div>
@@ -715,7 +727,7 @@
                           >
                             star
                           </span>
-                          <span class="text-label-sm font-label-sm">
+                          <span class="text-label-sm font-label-sm" data-i18n="guideBadge">
                             4.9 • Licensed Guide
                           </span>
                         </div>
@@ -725,6 +737,7 @@
                     <button
                       onclick="window.location.href='aiAssistant.html'"
                       class="px-4 py-2 rounded-xl border border-primary text-primary font-label-md text-label-md hover:bg-primary-fixed transition-all"
+                      data-i18n="chatGuideBtn"
                     >
                       Chat Guide
                     </button>
@@ -734,6 +747,7 @@
                     <button
                       onclick="toggleDetails('details-melaka')"
                       class="px-5 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95"
+                      data-i18n="btnDetails"
                     >
                       View Details
                     </button>
@@ -741,6 +755,7 @@
                     <button
                       onclick="window.location.href='paymentinterface.html'"
                       class="px-5 py-3 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95"
+                      data-i18n="btnReceipt"
                     >
                       Receipt
                     </button>
@@ -748,6 +763,7 @@
                     <button
                       onclick="cancelBooking(this)"
                       class="px-5 py-3 border border-error text-error rounded-xl font-label-md text-label-md hover:bg-error-container transition-all active:scale-95"
+                      data-i18n="btnCancel"
                     >
                       Cancel Booking
                     </button>
@@ -759,7 +775,7 @@
                 id="details-melaka"
                 class="hidden border-t border-outline-variant/40 bg-surface-container-low p-6"
               >
-                <h3 class="font-headline-md text-headline-md text-primary mb-5">
+                <h3 class="font-headline-md text-headline-md text-primary mb-5" data-i18n="itineraryTitle">
                   Tour Itinerary
                 </h3>
 
@@ -770,8 +786,8 @@
                       <span class="material-symbols-outlined text-[20px]">flag</span>
                     </div>
                     <div>
-                      <p class="font-label-md text-label-md">9:00 AM — Meet at Dutch Square</p>
-                      <p class="text-label-sm text-on-surface-variant">
+                      <p class="font-label-md text-label-md" data-i18n="itin1Time">9:00 AM — Meet at Dutch Square</p>
+                      <p class="text-label-sm text-on-surface-variant" data-i18n="itin1Desc">
                         Meet your guide and receive a short safety briefing.
                       </p>
                     </div>
@@ -783,8 +799,8 @@
                       <span class="material-symbols-outlined text-[20px]">museum</span>
                     </div>
                     <div>
-                      <p class="font-label-md text-label-md">10:00 AM — A Famosa & St. Paul Hill</p>
-                      <p class="text-label-sm text-on-surface-variant">
+                      <p class="font-label-md text-label-md" data-i18n="itin2Time">10:00 AM — A Famosa & St. Paul Hill</p>
+                      <p class="text-label-sm text-on-surface-variant" data-i18n="itin2Desc">
                         Learn about Portuguese and Dutch historical influence.
                       </p>
                     </div>
@@ -796,8 +812,8 @@
                       <span class="material-symbols-outlined text-[20px]">restaurant</span>
                     </div>
                     <div>
-                      <p class="font-label-md text-label-md">12:00 PM — Local Food Stop</p>
-                      <p class="text-label-sm text-on-surface-variant">
+                      <p class="font-label-md text-label-md" data-i18n="itin3Time">12:00 PM — Local Food Stop</p>
+                      <p class="text-label-sm text-on-surface-variant" data-i18n="itin3Desc">
                         Try chicken rice balls and local kuih around Jonker Street.
                       </p>
                     </div>
@@ -808,8 +824,8 @@
                       <span class="material-symbols-outlined text-[20px]">check</span>
                     </div>
                     <div>
-                      <p class="font-label-md text-label-md">1:00 PM — Tour Ends</p>
-                      <p class="text-label-sm text-on-surface-variant">
+                      <p class="font-label-md text-label-md" data-i18n="itin4Time">1:00 PM — Tour Ends</p>
+                      <p class="text-label-sm text-on-surface-variant" data-i18n="itin4Desc">
                         End point near Jonker Walk entrance.
                       </p>
                     </div>
@@ -818,7 +834,6 @@
               </div>
             </article>
 
-            <!-- Booking Card 2 -->
             <article
               class="booking-card booking-item bg-white rounded-3xl border border-outline-variant/40 shadow-sm overflow-hidden mb-6"
               data-status="pending"
@@ -833,6 +848,7 @@
                   />
                   <div
                     class="absolute top-4 left-4 px-3 py-1 bg-secondary-container text-white rounded-full text-label-sm font-label-sm"
+                    data-i18n="statusPending"
                   >
                     Payment Pending
                   </div>
@@ -841,20 +857,20 @@
                 <div class="md:col-span-8 p-6">
                   <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
                     <div>
-                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2">
+                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2" data-i18n="card2Badge">
                         City Escape
                       </p>
-                      <h2 class="font-headline-md text-headline-md text-primary mb-2">
+                      <h2 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="card2Title">
                         Kuala Lumpur City Night Tour
                       </h2>
-                      <p class="text-body-md text-on-surface-variant">
+                      <p class="text-body-md text-on-surface-variant" data-i18n="card2Desc">
                         Visit KLCC, Merdeka Square, Saloma Bridge, and local night
                         market attractions.
                       </p>
                     </div>
 
                     <div class="text-left md:text-right">
-                      <p class="text-label-sm text-on-surface-variant">Booking ID</p>
+                      <p class="text-label-sm text-on-surface-variant" data-i18n="bookingIdLabel">Booking ID</p>
                       <p class="font-label-md text-label-md text-primary">
                         JT-KUL-24021
                       </p>
@@ -869,7 +885,7 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Date</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="dateLabel">Date</p>
                         <p class="font-label-md text-label-md">24 June 2026</p>
                       </div>
                     </div>
@@ -881,7 +897,7 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Time</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="timeLabel">Time</p>
                         <p class="font-label-md text-label-md">7:30 PM</p>
                       </div>
                     </div>
@@ -893,7 +909,7 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Balance</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="balanceLabel">Balance</p>
                         <p class="font-label-md text-label-md">RM 168.00</p>
                       </div>
                     </div>
@@ -903,6 +919,7 @@
                     <button
                       onclick="window.location.href='paymentinterface.html'"
                       class="px-5 py-3 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95"
+                      data-i18n="btnCompletePay"
                     >
                       Complete Payment
                     </button>
@@ -910,6 +927,7 @@
                     <button
                       onclick="window.location.href='aiAssistant.html'"
                       class="px-5 py-3 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all active:scale-95"
+                      data-i18n="btnAskAi"
                     >
                       Ask AI Helper
                     </button>
@@ -918,7 +936,6 @@
               </div>
             </article>
 
-            <!-- Booking Card 3 -->
             <article
               class="booking-card booking-item bg-white rounded-3xl border border-outline-variant/40 shadow-sm overflow-hidden mb-6"
               data-status="completed"
@@ -933,6 +950,7 @@
                   />
                   <div
                     class="absolute top-4 left-4 px-3 py-1 bg-primary text-white rounded-full text-label-sm font-label-sm"
+                    data-i18n="statusCompleted"
                   >
                     Completed
                   </div>
@@ -941,20 +959,20 @@
                 <div class="md:col-span-8 p-6">
                   <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
                     <div>
-                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2">
+                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2" data-i18n="card3Badge">
                         Food Experience
                       </p>
-                      <h2 class="font-headline-md text-headline-md text-primary mb-2">
+                      <h2 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="card3Title">
                         George Town Food Trail
                       </h2>
-                      <p class="text-body-md text-on-surface-variant">
+                      <p class="text-body-md text-on-surface-variant" data-i18n="card3Desc">
                         A completed food walking tour around Penang street food,
                         murals, and heritage lanes.
                       </p>
                     </div>
 
                     <div class="text-left md:text-right">
-                      <p class="text-label-sm text-on-surface-variant">Booking ID</p>
+                      <p class="text-label-sm text-on-surface-variant" data-i18n="bookingIdLabel">Booking ID</p>
                       <p class="font-label-md text-label-md text-primary">
                         JT-PEN-23980
                       </p>
@@ -969,7 +987,7 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Visited</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="visitedLabel">Visited</p>
                         <p class="font-label-md text-label-md">2 May 2026</p>
                       </div>
                     </div>
@@ -981,8 +999,8 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Guests</p>
-                        <p class="font-label-md text-label-md">4 Guests</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="guestsLabel">Guests</p>
+                        <p class="font-label-md text-label-md" data-i18n="guestsCount2">4 Guests</p>
                       </div>
                     </div>
 
@@ -996,23 +1014,25 @@
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant">Rating</p>
-                        <p class="font-label-md text-label-md">Not reviewed</p>
+                        <p class="text-label-sm text-on-surface-variant" data-i18n="ratingLabel">Rating</p>
+                        <p class="font-label-md text-label-md" data-i18n="noReviewText">Not reviewed</p>
                       </div>
                     </div>
                   </div>
 
                   <div class="flex flex-wrap gap-3">
                     <button
-                      onclick="openReviewBox()"
-                      class="px-5 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95"
-                    >
-                      Leave Review
-                    </button>
+  onclick="window.location.href='reviewRating.html'"
+  class="px-5 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95"
+  data-i18n="btnReview"
+>
+  Leave Review
+</button>
 
                     <button
                       onclick="window.location.href='homepage.html'"
                       class="px-5 py-3 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all active:scale-95"
+                      data-i18n="btnBookAgain"
                     >
                       Book Again
                     </button>
@@ -1021,7 +1041,6 @@
               </div>
             </article>
 
-            <!-- Empty State -->
             <div
               id="emptyState"
               class="hidden bg-white rounded-3xl border border-outline-variant/40 p-10 text-center"
@@ -1033,24 +1052,23 @@
                   search_off
                 </span>
               </div>
-              <h3 class="font-headline-md text-headline-md text-primary mb-2">
+              <h3 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="emptyTitle">
                 No bookings found
               </h3>
-              <p class="text-on-surface-variant mb-6">
+              <p class="text-on-surface-variant mb-6" data-i18n="emptyDesc">
                 Try another keyword or choose a different booking status.
               </p>
               <button
                 onclick="resetBookings()"
                 class="px-6 py-3 bg-primary text-white rounded-xl font-label-md text-label-md"
+                data-i18n="emptyBtn"
               >
                 Show All Bookings
               </button>
             </div>
           </div>
 
-          <!-- Right Sidebar -->
           <aside class="lg:col-span-4 space-y-gutter">
-            <!-- Profile Summary -->
             <div
               class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-6"
             >
@@ -1064,7 +1082,7 @@
                 </div>
 
                 <div>
-                  <h3 class="font-headline-md text-headline-md text-primary">
+                  <h3 class="font-headline-md text-headline-md text-primary" data-i18n="sideProfileTitle">
                     Traveller Profile
                   </h3>
                   <p class="text-label-sm text-on-surface-variant">
@@ -1075,36 +1093,36 @@
 
               <div class="space-y-4 mb-6">
                 <div class="flex justify-between gap-4">
-                  <span class="text-on-surface-variant text-label-md">Email</span>
+                  <span class="text-on-surface-variant text-label-md" data-i18n="sideEmail">Email</span>
                   <span class="font-label-md text-label-md text-right">
                     amirul.haziq@email.com
                   </span>
                 </div>
 
                 <div class="flex justify-between gap-4">
-                  <span class="text-on-surface-variant text-label-md">Phone</span>
+                  <span class="text-on-surface-variant text-label-md" data-i18n="sidePhone">Phone</span>
                   <span class="font-label-md text-label-md text-right">
                     +60 12-345 6789
                   </span>
                 </div>
 
                 <div class="flex justify-between gap-4">
-                  <span class="text-on-surface-variant text-label-md">Currency</span>
+                  <span class="text-on-surface-variant text-label-md" data-i18n="sideCurrency">Currency</span>
                   <span class="font-label-md text-label-md text-right">MYR</span>
                 </div>
               </div>
 
               <button
                 class="w-full h-12 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all"
+                data-i18n="sideEditBtn"
               >
                 Edit Profile
               </button>
             </div>
 
-            <!-- Payment Summary -->
             <div class="bg-primary text-white rounded-3xl shadow-xl p-6">
               <div class="flex items-center justify-between mb-6">
-                <h3 class="font-headline-md text-headline-md">
+                <h3 class="font-headline-md text-headline-md" data-i18n="sidePayTitle">
                   Payment Summary
                 </h3>
                 <span class="material-symbols-outlined">receipt_long</span>
@@ -1112,22 +1130,22 @@
 
               <div class="space-y-4">
                 <div class="flex justify-between">
-                  <span class="text-white/75">Paid Tours</span>
+                  <span class="text-white/75" data-i18n="sidePayPaid">Paid Tours</span>
                   <span class="font-bold">RM 496.00</span>
                 </div>
 
                 <div class="flex justify-between">
-                  <span class="text-white/75">Pending Payment</span>
+                  <span class="text-white/75" data-i18n="sidePayPending">Pending Payment</span>
                   <span class="font-bold">RM 168.00</span>
                 </div>
 
                 <div class="flex justify-between">
-                  <span class="text-white/75">Discount Used</span>
+                  <span class="text-white/75" data-i18n="sidePayDiscount">Discount Used</span>
                   <span class="font-bold">RM 25.00</span>
                 </div>
 
                 <div class="border-t border-white/20 pt-4 flex justify-between">
-                  <span class="font-bold">Total Value</span>
+                  <span class="font-bold" data-i18n="sidePayTotal">Total Value</span>
                   <span class="font-bold text-secondary-fixed">RM 664.00</span>
                 </div>
               </div>
@@ -1135,12 +1153,12 @@
               <button
                 onclick="window.location.href='paymentinterface.html'"
                 class="w-full h-12 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95 mt-6"
+                data-i18n="sidePayBtn"
               >
                 Pay Pending Booking
               </button>
             </div>
 
-            <!-- Help Card -->
             <div
               class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-6"
             >
@@ -1152,11 +1170,11 @@
                 </span>
               </div>
 
-              <h3 class="font-headline-md text-headline-md text-primary mb-2">
+              <h3 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="sideHelpTitle">
                 Need help with your trip?
               </h3>
 
-              <p class="text-body-md text-on-surface-variant mb-5">
+              <p class="text-body-md text-on-surface-variant mb-5" data-i18n="sideHelpDesc">
                 Ask the AI Helper for itinerary changes, food suggestions,
                 transport tips, or guide-related questions.
               </p>
@@ -1164,6 +1182,7 @@
               <button
                 onclick="window.location.href='aiAssistant.html'"
                 class="w-full h-12 bg-primary-fixed text-primary rounded-xl font-label-md text-label-md hover:bg-primary hover:text-white transition-all active:scale-95"
+                data-i18n="sideHelpBtn"
               >
                 Open AI Helper
               </button>
@@ -1173,7 +1192,6 @@
       </section>
     </main>
 
-    <!-- Review Modal -->
     <div
       id="reviewModal"
       class="hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
@@ -1181,10 +1199,10 @@
       <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6">
         <div class="flex items-start justify-between mb-5">
           <div>
-            <h3 class="font-headline-md text-headline-md text-primary">
+            <h3 class="font-headline-md text-headline-md text-primary" data-i18n="modalTitle">
               Leave a Review
             </h3>
-            <p class="text-on-surface-variant text-label-md">
+            <p class="text-on-surface-variant text-label-md" data-i18n="modalDesc">
               Share your experience with other travellers.
             </p>
           </div>
@@ -1208,16 +1226,241 @@
         <textarea
           class="w-full min-h-32 rounded-2xl border-outline-variant focus:border-primary focus:ring-primary"
           placeholder="Write your review here..."
+          id="reviewTextArea"
         ></textarea>
 
         <button
           onclick="closeReviewBox()"
           class="w-full h-12 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all mt-5"
+          data-i18n="modalBtn"
         >
           Submit Review
         </button>
       </div>
     </div>
+
+    <script>
+      const translations = {
+        en: {
+          brand: "Jom Teroka",
+          discover: "Discover",
+          destinations: "Destinations",
+          bookings: "My Bookings",
+          aiHelper: "AI Helper",
+          langToggle: "EN | BM",
+          currency: "MYR",
+          travelerAcc: "Traveller Account",
+          myrCurrency: "MYR Currency",
+          menuBookings: "My Bookings",
+          menuPayments: "Payment History",
+          menuExplore: "Explore Map",
+          menuAi: "AI Helper",
+          menuLogout: "Log Out",
+          heroBadge: "Manage your Malaysian experiences",
+          heroTitle: "My Bookings",
+          heroDesc: "View your upcoming tours, check payment status, contact your local guide, and manage your Jom Teroka travel plans in one place.",
+          nextTripLabel: "Next Trip",
+          nextTripTitle: "Melaka Heritage Walk",
+          statusConfirmed: "Confirmed",
+          statusPending: "Payment Pending",
+          statusCompleted: "Completed",
+          dateLabel: "Date",
+          nextTripDate: "18 June 2026",
+          timeLabel: "Time",
+          nextTripTime: "9:00 AM",
+          viewDetailsBtn: "View Booking Details",
+          statTotal: "Total Bookings",
+          statActive: "Active Tours",
+          statPending: "Pending Payment",
+          statCompleted: "Completed",
+          newBookingBtn: "New Booking",
+          tabAll: "All",
+          tabActive: "Active",
+          tabPending: "Pending",
+          tabCompleted: "Completed",
+          tabCancelled: "Cancelled",
+          card1Badge: "Heritage Tour",
+          card1Title: "Melaka Heritage Walk Session",
+          card1Desc: "Explore Jonker Street, Dutch Square, A Famosa, and traditional Peranakan stories with a certified local guide.",
+          bookingIdLabel: "Booking ID",
+          guestsLabel: "Guests",
+          guestsCount1: "2 Adults",
+          guestsCount2: "4 Guests",
+          guideBadge: "4.9 • Licensed Guide",
+          chatGuideBtn: "Chat Guide",
+          btnDetails: "View Details",
+          btnReceipt: "Receipt",
+          btnCancel: "Cancel Booking",
+          itineraryTitle: "Tour Itinerary",
+          itin1Time: "9:00 AM — Meet at Dutch Square",
+          itin1Desc: "Meet your guide and receive a short safety briefing.",
+          itin2Time: "10:00 AM — A Famosa & St. Paul Hill",
+          itin2Desc: "Learn about Portuguese and Dutch historical influence.",
+          itin3Time: "12:00 PM — Local Food Stop",
+          itin3Desc: "Try chicken rice balls and local kuih around Jonker Street.",
+          itin4Time: "1:00 PM — Tour Ends",
+          itin4Desc: "End point near Jonker Walk entrance.",
+          card2Badge: "City Escape",
+          card2Title: "Kuala Lumpur City Night Tour",
+          card2Desc: "Visit KLCC, Merdeka Square, Saloma Bridge, and local night market attractions.",
+          balanceLabel: "Balance",
+          btnCompletePay: "Complete Payment",
+          btnAskAi: "Ask AI Helper",
+          card3Badge: "Food Experience",
+          card3Title: "George Town Food Trail",
+          card3Desc: "A completed food walking tour around Penang street food, murals, and heritage lanes.",
+          visitedLabel: "Visited",
+          ratingLabel: "Rating",
+          noReviewText: "Not reviewed",
+          btnReview: "Leave Review",
+          btnBookAgain: "Book Again",
+          emptyTitle: "No bookings found",
+          emptyDesc: "Try another keyword or choose a different booking status.",
+          emptyBtn: "Show All Bookings",
+          sideProfileTitle: "Traveller Profile",
+          sideEmail: "Email",
+          sidePhone: "Phone",
+          sideCurrency: "Currency",
+          sideEditBtn: "Edit Profile",
+          sidePayTitle: "Payment Summary",
+          sidePayPaid: "Paid Tours",
+          sidePayPending: "Pending Payment",
+          sidePayDiscount: "Discount Used",
+          sidePayTotal: "Total Value",
+          sidePayBtn: "Pay Pending Booking",
+          sideHelpTitle: "Need help with your trip?",
+          sideHelpDesc: "Ask the AI Helper for itinerary changes, food suggestions, transport tips, or guide-related questions.",
+          sideHelpBtn: "Open AI Helper",
+          modalTitle: "Leave a Review",
+          modalDesc: "Share your experience with other travellers.",
+          modalBtn: "Submit Review",
+          reviewPlaceholder: "Write your review here..."
+        },
+        bm: {
+          brand: "Jom Teroka",
+          discover: "Teroka",
+          destinations: "Destinations",
+          bookings: "Tempahan Saya",
+          aiHelper: "Pembantu AI",
+          langToggle: "BM | EN",
+          currency: "MYR",
+          travelerAcc: "Akaun Pengembara",
+          myrCurrency: "Mata Wang MYR",
+          menuBookings: "Tempahan Saya",
+          menuPayments: "Sejarah Pembayaran",
+          menuExplore: "Teroka Peta",
+          menuAi: "Pembantu AI",
+          menuLogout: "Log Keluar",
+          heroBadge: "Uruskan pengalaman percutian Malaysia anda",
+          heroTitle: "Tempahan Saya",
+          heroDesc: "Lihat lawatan akan datang, semak status pembayaran, hubungi pemandu pelancong tempatan anda, dan urus pelan percutian Jom Teroka anda di satu tempat.",
+          nextTripLabel: "Trip Seterusnya",
+          nextTripTitle: "Jejak Warisan Melaka",
+          statusConfirmed: "Disahkan",
+          statusPending: "Pembayaran Belum Selesai",
+          statusCompleted: "Selesai",
+          dateLabel: "Tarikh",
+          nextTripDate: "18 Jun 2026",
+          timeLabel: "Masa",
+          nextTripTime: "9:00 Pagi",
+          viewDetailsBtn: "Lihat Butiran Tempahan",
+          statTotal: "Jumlah Tempahan",
+          statActive: "Lawatan Aktif",
+          statPending: "Belum Bayar",
+          statCompleted: "Selesai",
+          newBookingBtn: "Tempahan Baru",
+          tabAll: "Semua",
+          tabActive: "Aktif",
+          tabPending: "Belum Selesai",
+          tabCompleted: "Selesai",
+          tabCancelled: "Dibatalkan",
+          card1Badge: "Lawatan Warisan",
+          card1Title: "Sesi Jejak Warisan Melaka",
+          card1Desc: "Terokai Jonker Street, Dutch Square, A Famosa, dan kisah tradisional Peranakan bersama pemandu pelancong tempatan berlesen.",
+          bookingIdLabel: "ID Tempahan",
+          guestsLabel: "Pelawat",
+          guestsCount1: "2 Dewasa",
+          guestsCount2: "4 Pelawat",
+          guideBadge: "4.9 • Pemandu Berlesen",
+          chatGuideBtn: "Hubungi Pemandu",
+          btnDetails: "Lihat Butiran",
+          btnReceipt: "Resit",
+          btnCancel: "Batalkan Tempahan",
+          itineraryTitle: "Tentatif Lawatan",
+          itin1Time: "9:00 AM — Berkumpul di Dutch Square",
+          itin1Desc: "Berjumpa dengan pemandu pelancong anda dan dengar taklimat keselamatan ringkas.",
+          itin2Time: "10:00 AM — A Famosa & Bukit St. Paul",
+          itin2Desc: "Pelajari pengaruh sejarah Portugis dan Belanda.",
+          itin3Time: "12:00 PM — Hentian Makanan Tempatan",
+          itin3Desc: "Cuba nasi ayam bebola dan kuih-muih tempatan di sekitar Jonker Street.",
+          itin4Time: "1:00 PM — Lawatan Tamat",
+          itin4Desc: "Titik penamat berhampiran pintu masuk Jonker Walk.",
+          card2Badge: " some escape",
+          card2Title: "Lawatan Malam Bandar Raya Kuala Lumpur",
+          card2Desc: "Melawat KLCC, Dataran Merdeka, Pintasan Saloma, dan tarikan pasar malam tempatan.",
+          balanceLabel: "Baki",
+          btnCompletePay: "Selesaikan Pembayaran",
+          btnAskAi: "Tanya Pembantu AI",
+          card3Badge: "Pengalaman Makanan",
+          card3Title: "Jejak Makanan George Town",
+          card3Desc: "Sesi jalan-jalan makan di sekitar makanan jalanan Pulau Pinang, lukisan dinding, dan lorong warisan.",
+          visitedLabel: "Dilawati",
+          ratingLabel: "Penilaian",
+          noReviewText: "Belum dinilai",
+          btnReview: "Tinggalkan Ulasan",
+          btnBookAgain: "Tempah Lagi",
+          emptyTitle: "Tiada tempahan ditemui",
+          emptyDesc: "Cuba kata kunci lain atau pilih status tempahan yang berbeza.",
+          emptyBtn: "Tunjukkan Semua Tempahan",
+          sideProfileTitle: "Profil Pengembara",
+          sideEmail: "E-mel",
+          sidePhone: "No. Telefon",
+          sideCurrency: "Mata Wang",
+          sideEditBtn: "Sunting Profil",
+          sidePayTitle: "Ringkasan Pembayaran",
+          sidePayPaid: "Trip Dibayar",
+          sidePayPending: "Bayaran Tertunggak",
+          sidePayDiscount: "Diskaun Diguna",
+          sidePayTotal: "Jumlah Nilai",
+          sidePayBtn: "Bayar Tempahan Tertunggak",
+          sideHelpTitle: "Perlukan bantuan trip?",
+          sideHelpDesc: "Tanya Pembantu AI untuk perubahan jadual, cadangan makanan, tip pengangkutan, atau soalan pemandu pelancong.",
+          sideHelpBtn: "Buka Pembantu AI",
+          modalTitle: "Tinggalkan Ulasan",
+          modalDesc: "Kongsi pengalaman anda bersama pengembara yang lain.",
+          modalBtn: "Hantar Ulasan",
+          reviewPlaceholder: "Tulis ulasan anda di sini..."
+        }
+      };
+
+      function toggleLanguage() {
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        let nextLang = currentLang === "en" ? "bm" : "en";
+        localStorage.setItem("selectedLang", nextLang);
+        applyTranslations(nextLang);
+      }
+
+      function applyTranslations(lang) {
+        const t = translations[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t && t[key]) {
+            el.innerText = t[key];
+          }
+        });
+        
+        // Handle unique properties like text placeholders separately
+        const textArea = document.getElementById("reviewTextArea");
+        if(textArea) {
+          textArea.placeholder = t.reviewPlaceholder;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem("selectedLang") || "en";
+        applyTranslations(savedLang);
+      });
+    </script>
 
     <script>
       let currentFilter = "all";

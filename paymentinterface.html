@@ -147,16 +147,15 @@
   </head>
 
   <body class="bg-background text-on-surface font-body-md">
-    <!-- Fixed Header -->
     <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
       <div
         class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
       >
-        <!-- LEFT SIDE: Logo + Navigation -->
         <div class="flex items-center gap-8">
           <a
             href="homepage.html"
             class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
+            data-i18n="brand"
           >
             Jom Teroka
           </a>
@@ -165,6 +164,7 @@
             <a
               class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
               href="homepage.html"
+              data-i18n="discover"
             >
               Discover
             </a>
@@ -172,6 +172,7 @@
             <a
               class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
               href="landingpage.html"
+              data-i18n="destinations"
             >
               Destinations
             </a>
@@ -179,6 +180,7 @@
             <a
               class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
               href="booking.html"
+              data-i18n="bookings"
             >
               My Bookings
             </a>
@@ -186,20 +188,26 @@
             <a
               class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
               href="aiassistant.html"
+              data-i18n="aiHelper"
             >
               AI Helper
             </a>
           </div>
         </div>
 
-        <!-- RIGHT SIDE: Language + Currency + Profile -->
         <div class="flex items-center gap-4">
           <div
             class="hidden sm:flex items-center gap-3 text-label-md font-label-md text-on-surface-variant"
           >
-            <span>EN | BM</span>
+            <button
+              onclick="toggleLanguage()"
+              class="lang-switcher-btn hover:text-primary transition-colors font-bold"
+              data-i18n="langToggle"
+            >
+              EN | BM
+            </button>
             <span class="w-px h-4 bg-outline-variant"></span>
-            <span>MYR</span>
+            <span data-i18n="currency">MYR</span>
           </div>
 
           <button
@@ -234,7 +242,10 @@
                 check
               </span>
             </div>
-            <span class="font-label-sm text-label-sm text-primary">
+            <span
+              class="font-label-sm text-label-sm text-primary"
+              data-i18n="stepDetails"
+            >
               Details
             </span>
           </div>
@@ -245,7 +256,10 @@
             >
               2
             </div>
-            <span class="font-label-sm text-label-sm text-primary font-bold">
+            <span
+              class="font-label-sm text-label-sm text-primary font-bold"
+              data-i18n="stepPayment"
+            >
               Payment
             </span>
           </div>
@@ -261,6 +275,7 @@
             </div>
             <span
               class="step-text font-label-sm text-label-sm text-on-surface-variant transition-all"
+              data-i18n="stepConfirm"
             >
               Confirmation
             </span>
@@ -271,7 +286,10 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
         <div class="lg:col-span-7 space-y-10">
           <section>
-            <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+            <h2
+              class="font-headline-lg text-headline-lg text-primary mb-6"
+              data-i18n="titleMethod"
+            >
               Payment Method
             </h2>
 
@@ -289,7 +307,10 @@
 
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
-                    <span class="font-label-md text-label-md text-primary">
+                    <span
+                      class="font-label-md text-label-md text-primary"
+                      data-i18n="methodTng"
+                    >
                       Touch 'n Go eWallet
                     </span>
                     <span
@@ -317,6 +338,7 @@
                   <div class="flex justify-between items-center">
                     <span
                       class="font-label-md text-label-md text-on-surface-variant"
+                      data-i18n="methodFpx"
                     >
                       FPX Online Banking
                     </span>
@@ -339,6 +361,7 @@
                     <div class="w-px h-4 bg-outline-variant"></div>
                     <span
                       class="text-white bg-[#1a5c3a] px-1.5 py-0.5 rounded text-[9px]"
+                      data-i18n="fpxAll"
                     >
                       All Banks
                     </span>
@@ -360,6 +383,7 @@
                   <div class="flex justify-between items-center">
                     <span
                       class="font-label-md text-label-md text-on-surface-variant"
+                      data-i18n="methodGrab"
                     >
                       GrabPay
                     </span>
@@ -396,6 +420,7 @@
                   <div class="flex justify-between items-center">
                     <span
                       class="font-label-md text-label-md text-on-surface-variant"
+                      data-i18n="methodCard"
                     >
                       Credit / Debit Card
                     </span>
@@ -435,7 +460,10 @@
                 lock
               </span>
 
-              <p class="text-label-sm text-on-surface-variant">
+              <p
+                class="text-label-sm text-on-surface-variant"
+                data-i18n="securityNotice"
+              >
                 Your transaction is secured with 256-bit SSL encryption. We do
                 not store your sensitive payment details on our servers.
               </p>
@@ -443,14 +471,20 @@
           </section>
 
           <section>
-            <h2 class="font-headline-md text-headline-md text-primary mb-6">
+            <h2
+              class="font-headline-md text-headline-md text-primary mb-6"
+              data-i18n="titleBilling"
+            >
               Billing Details
             </h2>
 
             <div class="space-y-4">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="space-y-1.5">
-                  <label class="font-label-sm text-on-surface-variant">
+                  <label
+                    class="font-label-sm text-on-surface-variant"
+                    data-i18n="labelName"
+                  >
                     Full Name
                   </label>
                   <input
@@ -461,7 +495,10 @@
                 </div>
 
                 <div class="space-y-1.5">
-                  <label class="font-label-sm text-on-surface-variant">
+                  <label
+                    class="font-label-sm text-on-surface-variant"
+                    data-i18n="labelEmail"
+                  >
                     Email Address
                   </label>
                   <input
@@ -473,7 +510,10 @@
               </div>
 
               <div class="space-y-1.5">
-                <label class="font-label-sm text-on-surface-variant">
+                <label
+                  class="font-label-sm text-on-surface-variant"
+                  data-i18n="labelPhone"
+                >
                   Phone Number
                 </label>
 
@@ -499,7 +539,10 @@
           <div
             class="bg-surface-container-lowest rounded-2xl shadow-xl p-6 border border-outline-variant/30 sticky top-24"
           >
-            <h3 class="font-headline-md text-headline-md text-primary mb-6">
+            <h3
+              class="font-headline-md text-headline-md text-primary mb-6"
+              data-i18n="titleSummary"
+            >
               Order Summary
             </h3>
 
@@ -513,6 +556,7 @@
               <div class="space-y-1">
                 <h4
                   class="font-headline-md text-headline-md leading-tight text-primary"
+                  data-i18n="itemTitle"
                 >
                   Heritage Walk in Melaka: A Journey Through Time
                 </h4>
@@ -524,7 +568,9 @@
                   >
                     location_on
                   </span>
-                  <span class="text-label-sm">Melaka City</span>
+                  <span class="text-label-sm" data-i18n="itemCity"
+                    >Melaka City</span
+                  >
                 </div>
               </div>
             </div>
@@ -538,9 +584,11 @@
                   >
                     calendar_today
                   </span>
-                  Date
+                  <span data-i18n="summaryDate">Date</span>
                 </span>
-                <span class="font-semibold">Current Available Session</span>
+                <span class="font-semibold" data-i18n="summarySession"
+                  >Current Available Session</span
+                >
               </div>
 
               <div class="flex justify-between items-center text-body-md">
@@ -551,9 +599,9 @@
                   >
                     group
                   </span>
-                  Guests
+                  <span data-i18n="summaryGuests">Guests</span>
                 </span>
-                <span class="font-semibold">2 Pax</span>
+                <span class="font-semibold" data-i18n="summaryPax">2 Pax</span>
               </div>
 
               <div class="flex justify-between items-center text-body-md">
@@ -564,7 +612,7 @@
                   >
                     confirmation_number
                   </span>
-                  Booking ID
+                  <span data-i18n="summaryId">Booking ID</span>
                 </span>
                 <span
                   class="font-label-sm bg-surface-container px-2 py-0.5 rounded"
@@ -580,7 +628,10 @@
               class="dashed-border rounded-xl p-4 mb-8 bg-surface-container-low/30"
             >
               <div class="flex justify-between mb-4">
-                <span class="text-label-md text-on-surface-variant">
+                <span
+                  class="text-label-md text-on-surface-variant"
+                  data-i18n="breakdownLabel"
+                >
                   Heritage Walk Entry (x2)
                 </span>
                 <span class="text-label-md font-semibold">MYR 240.00</span>
@@ -591,6 +642,7 @@
               >
                 <span
                   class="text-label-md font-bold text-primary uppercase tracking-wider"
+                  data-i18n="payableLabel"
                 >
                   Total Payable
                 </span>
@@ -603,14 +655,18 @@
             <button
               onclick="processPayment()"
               class="w-full bg-secondary-container hover:bg-secondary text-white py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 shadow-lg shadow-secondary/20 transition-all active:scale-[0.98]"
+              id="payButton"
             >
-              <span>Confirm & Pay MYR 240.00</span>
+              <span data-i18n="payButtonText">Confirm & Pay MYR 240.00</span>
               <span class="material-symbols-outlined" data-icon="arrow_forward">
                 arrow_forward
               </span>
             </button>
 
-            <p class="text-center text-label-sm text-on-surface-variant mt-4">
+            <p
+              class="text-center text-label-sm text-on-surface-variant mt-4"
+              data-i18n="termsNotice"
+            >
               By clicking "Confirm & Pay", you agree to the
               <a class="underline" href="#">Terms of Service</a>.
             </p>
@@ -624,12 +680,16 @@
         class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
       >
         <div class="space-y-4">
-          <div class="font-headline-md text-headline-md text-primary font-bold">
+          <div
+            class="font-headline-md text-headline-md text-primary font-bold"
+            data-i18n="brand"
+          >
             Jom Teroka
           </div>
 
           <p
             class="font-body-md text-body-md text-on-tertiary-fixed-variant max-w-xs"
+            data-i18n="footerDesc"
           >
             Connecting explorers with the soul of Malaysia through authentic,
             curated experiences.
@@ -640,6 +700,7 @@
           <div class="space-y-4">
             <h5
               class="font-label-md text-label-md text-on-tertiary-fixed font-bold uppercase tracking-widest"
+              data-i18n="footerCompany"
             >
               Company
             </h5>
@@ -648,12 +709,14 @@
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
+                data-i18n="footerAbout"
               >
                 About Us
               </a>
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
+                data-i18n="footerContact"
               >
                 Contact
               </a>
@@ -663,6 +726,7 @@
           <div class="space-y-4">
             <h5
               class="font-label-md text-label-md text-on-tertiary-fixed font-bold uppercase tracking-widest"
+              data-i18n="footerSupport"
             >
               Support
             </h5>
@@ -671,18 +735,21 @@
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
+                data-i18n="footerTerms"
               >
                 Terms
               </a>
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
+                data-i18n="footerPrivacy"
               >
                 Privacy
               </a>
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
+                data-i18n="footerHelp"
               >
                 Help Center
               </a>
@@ -694,7 +761,10 @@
       <div
         class="w-full border-t border-outline-variant/30 py-6 px-margin-desktop max-w-container-max mx-auto text-center md:text-left"
       >
-        <p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant">
+        <p
+          class="font-label-sm text-label-sm text-on-tertiary-fixed-variant"
+          data-i18n="footerCopy"
+        >
           © 2026 Jom Teroka. Malaysian Hospitality Redefined.
         </p>
       </div>
@@ -731,6 +801,10 @@
           activeText.className = "font-label-md text-label-md text-primary";
 
           this.querySelector('input[name="payment"]').checked = true;
+
+          // Re-trigger language layer update specifically on click layout refresh states
+          let savedLang = localStorage.getItem("selectedLang") || "en";
+          applyTranslations(savedLang);
         });
       });
 
@@ -747,13 +821,142 @@
         step3Text.className =
           "font-label-sm text-label-sm text-primary font-bold";
 
+        let currentLang = localStorage.getItem("selectedLang") || "en";
         setTimeout(() => {
-          alert(
-            "Pembayaran Berjaya! Your booking has been secured. Redirecting to your booking page."
-          );
+          if (currentLang === "bm") {
+            alert(
+              "Pembayaran Berjaya! Tempahan anda telah disahkan. Menghala ke laman tempahan.",
+            );
+          } else {
+            alert(
+              "Payment Successful! Your booking has been secured. Redirecting to your booking page.",
+            );
+          }
           window.location.href = "booking.html";
         }, 400);
       }
+
+      // Page-Specific String Translations Dictionary
+      const translations = {
+        en: {
+          brand: "Jom Teroka",
+          discover: "Discover",
+          destinations: "Destinations",
+          bookings: "My Bookings",
+          aiHelper: "AI Helper",
+          langToggle: "EN | BM",
+          currency: "MYR",
+          stepDetails: "Details",
+          stepPayment: "Payment",
+          stepConfirm: "Confirmation",
+          titleMethod: "Payment Method",
+          methodTng: "Touch 'n Go eWallet",
+          methodFpx: "FPX Online Banking",
+          fpxAll: "All Banks",
+          methodGrab: "GrabPay",
+          methodCard: "Credit / Debit Card",
+          securityNotice:
+            "Your transaction is secured with 256-bit SSL encryption. We do not store your sensitive payment details on our servers.",
+          titleBilling: "Billing Details",
+          labelName: "Full Name",
+          labelEmail: "Email Address",
+          labelPhone: "Phone Number",
+          titleSummary: "Order Summary",
+          itemTitle: "Heritage Walk in Melaka: A Journey Through Time",
+          itemCity: "Melaka City",
+          summaryDate: "Date",
+          summarySession: "Current Available Session",
+          summaryGuests: "Guests",
+          summaryPax: "2 Pax",
+          summaryId: "Booking ID",
+          breakdownLabel: "Heritage Walk Entry (x2)",
+          payableLabel: "Total Payable",
+          payButtonText: "Confirm & Pay MYR 240.00",
+          termsNotice:
+            'By clicking "Confirm & Pay", you agree to the Terms of Service.',
+          footerDesc:
+            "Connecting explorers with the soul of Malaysia through authentic, curated experiences.",
+          footerCompany: "Company",
+          footerAbout: "About Us",
+          footerContact: "Contact",
+          footerSupport: "Support",
+          footerTerms: "Terms",
+          footerPrivacy: "Privacy",
+          footerHelp: "Help Center",
+          footerCopy: "© 2026 Jom Teroka. Malaysian Hospitality Redefined.",
+        },
+        bm: {
+          brand: "Jom Teroka",
+          discover: "Teroka",
+          destinations: "Destinations",
+          bookings: "Tempahan Saya",
+          aiHelper: "Pembantu AI",
+          langToggle: "BM | EN",
+          currency: "MYR",
+          stepDetails: "Butiran",
+          stepPayment: "Pembayaran",
+          stepConfirm: "Pengesahan",
+          titleMethod: "Kaedah Pembayaran",
+          methodTng: "E-Dompet Touch 'n Go",
+          methodFpx: "Perbankan Dalam Talian FPX",
+          fpxAll: "Semua Bank",
+          methodGrab: "GrabPay",
+          methodCard: "Kad Kredit / Debit",
+          securityNotice:
+            "Transaksi anda dilindungi dengan enkripsi SSL 256-bit. Kami tidak menyimpan butiran pembayaran sensitif anda di pelayan kami.",
+          titleBilling: "Butiran Pengebilan",
+          labelName: "Nama Penuh",
+          labelEmail: "Alamat E-mel",
+          labelPhone: "Nombor Telefon",
+          titleSummary: "Ringkasan Pesanan",
+          itemTitle: "Jejak Warisan Melaka: Perjalanan Merentasi Masa",
+          itemCity: "Bandar Melaka",
+          summaryDate: "Tarikh",
+          summarySession: "Sesi Sedia Ada Semasa",
+          summaryGuests: "Pelawat",
+          summaryPax: "2 Orang",
+          summaryId: "ID Tempahan",
+          breakdownLabel: "Tiket Masuk Jejak Warisan (x2)",
+          payableLabel: "Jumlah Bayaran",
+          payButtonText: "Sahkan & Bayar MYR 240.00",
+          termsNotice:
+            'Dengan menekan "Sahkan & Bayar", anda bersetuju dengan Syarat Perkhidmatan.',
+          footerDesc:
+            "Menghubungkan pengembara dengan keunikan Malaysia melalui pengalaman terpilih yang tulen.",
+          footerCompany: "Syarikat",
+          footerAbout: "Tentang Kami",
+          footerContact: "Hubungi Kami",
+          footerSupport: "Sokongan",
+          footerTerms: "Syarat-syarat",
+          footerPrivacy: "Privasi",
+          footerHelp: "Pusat Bantuan",
+          footerCopy:
+            "© 2026 Jom Teroka. Hospitaliti Malaysia Ditakrif Semula.",
+        },
+      };
+
+      function toggleLanguage() {
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        let nextLang = currentLang === "en" ? "bm" : "en";
+        localStorage.setItem("selectedLang", nextLang);
+        applyTranslations(nextLang);
+      }
+
+      function applyTranslations(lang) {
+        const t = translations[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t && t[key]) {
+            el.innerText = t[key];
+          }
+        });
+      }
+
+      // Detect and update local state right during initialization
+      document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem("selectedLang") || "en";
+        applyTranslations(savedLang);
+      });
     </script>
   </body>
 </html>
