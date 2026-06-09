@@ -148,6 +148,30 @@
       }
     </style>
   </head>
+  <script>
+  function toggleProfileMenu() {
+    const menu = document.getElementById("profileMenu");
+    menu.classList.toggle("hidden");
+  }
+
+  document.addEventListener("click", function (event) {
+    const menu = document.getElementById("profileMenu");
+    const profileButton = event.target.closest(".relative");
+
+    if (!profileButton && menu && !menu.classList.contains("hidden")) {
+      menu.classList.add("hidden");
+    }
+  });
+
+  function logoutUser() {
+    const confirmLogout = confirm("Are you sure you want to log out?");
+
+    if (confirmLogout) {
+      alert("You have successfully logged out.");
+      window.location.href = "landingpage.html";
+    }
+  }
+</script>
   <body
     class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed"
   >
@@ -162,7 +186,7 @@
         <div class="flex items-center gap-8">
           <a
             class="text-headline-md font-headline-md font-bold text-primary"
-            href="#"
+            href="homepage.html"
             >Jom Teroka</a
           >
           <nav class="hidden md:flex items-center gap-6">
@@ -170,17 +194,18 @@
               class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
               href="#"
               >Discover</a
+            >  
+            <a
+              class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
+              href="landingpage.html"
+              >Destinations</a
             >
             <a
               class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
               href="booking.html"
               >My Bookings</a
             >
-            <a
-              class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
-              href="landingpage.html"
-              >Destinations</a
-            >
+
             <a
               class="text-on-surface-variant font-medium font-label-md text-label-md transition-colors hover:text-primary active:scale-95 duration-150"
               href="aiAssistant.html"
@@ -198,13 +223,137 @@
             <span class="text-outline-variant">|</span>
             <button class="hover:text-primary transition-colors">MYR</button>
           </div>
-          <button
-            class="p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
-          >
-            <span class="material-symbols-outlined text-primary text-2xl"
-              >account_circle</span
-            >
-          </button>
+          <!-- Mini Profile Dropdown -->
+<div class="relative">
+  <button
+    onclick="toggleProfileMenu()"
+    class="flex items-center gap-2 p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
+  >
+    <span class="material-symbols-outlined text-primary text-3xl">
+      account_circle
+    </span>
+
+    <span class="hidden lg:block text-sm font-semibold text-on-surface-variant">
+      Amirul
+    </span>
+
+    <span class="material-symbols-outlined text-primary text-xl">
+      expand_more
+    </span>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div
+    id="profileMenu"
+    class="hidden absolute right-0 top-14 w-72 bg-white rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden z-[999]"
+  >
+    <!-- Profile Header -->
+    <div class="p-5 bg-primary text-white">
+      <div class="flex items-center gap-3">
+        <div
+          class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"
+        >
+          <span class="material-symbols-outlined text-white text-3xl">
+            account_circle
+          </span>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-base leading-tight">
+            Muhammad Amirul
+          </h3>
+          <p class="text-xs text-white/80">
+            Traveller Account
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Details -->
+    <div class="p-4 space-y-3">
+      <div class="flex items-center gap-3 text-sm text-gray-600">
+        <span class="material-symbols-outlined text-primary text-xl">
+          mail
+        </span>
+        <span>amirul.haziq@email.com</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-gray-600">
+        <span class="material-symbols-outlined text-primary text-xl">
+          phone
+        </span>
+        <span>+60 12-345 6789</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm text-gray-600">
+        <span class="material-symbols-outlined text-primary text-xl">
+          payments
+        </span>
+        <span>MYR Currency</span>
+      </div>
+    </div>
+
+    <div class="h-px bg-outline-variant/40"></div>
+
+    <!-- Menu Links -->
+    <div class="p-2">
+      <a
+        href="booking.html"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+      >
+        <span class="material-symbols-outlined text-xl">
+          confirmation_number
+        </span>
+        My Bookings
+      </a>
+
+      <a
+        href="paymentinterface.html"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+      >
+        <span class="material-symbols-outlined text-xl">
+          receipt_long
+        </span>
+        Payment History
+      </a>
+
+      <a
+        href="landingpage.html#interactive-map"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+      >
+        <span class="material-symbols-outlined text-xl">
+          map
+        </span>
+        Explore Map
+      </a>
+
+      <a
+        href="aiAssistant.html"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+      >
+        <span class="material-symbols-outlined text-xl">
+          smart_toy
+        </span>
+        AI Helper
+      </a>
+    </div>
+
+    <div class="h-px bg-outline-variant/40"></div>
+
+    <!-- Logout -->
+    <div class="p-2">
+      <button
+        onclick="logoutUser()"
+        class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all"
+      >
+        <span class="material-symbols-outlined text-xl">
+          logout
+        </span>
+        Log Out
+      </button>
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </header>
@@ -506,6 +655,8 @@
     </main>
     <!-- Floating Action Button -->
     <button
+       onclick="window.location.href = 'landingpage.html#interactive-map'"
+      title="Go to Interactive Map"
       class="fixed bottom-8 right-8 w-16 h-16 bg-secondary-container text-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.2)] flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all group overflow-hidden"
     >
       <span

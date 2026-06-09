@@ -4,15 +4,19 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Payment | Jom Teroka</title>
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
+
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -121,6 +125,7 @@
         },
       };
     </script>
+
     <style>
       .material-symbols-outlined {
         font-variation-settings:
@@ -130,64 +135,83 @@
           "opsz" 24;
         vertical-align: middle;
       }
+
       .step-active {
         color: var(--tw-color-primary);
       }
+
       .dashed-border {
         background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23C0C9BF' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
       }
     </style>
   </head>
+
   <body class="bg-background text-on-surface font-body-md">
+    <!-- Fixed Header -->
     <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
       <div
-        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto"
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
       >
-        <a
-          href="landingpage.html"
-          class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
-        >
-          Jom Teroka
-        </a>
-        <div class="hidden md:flex items-center gap-8">
+        <!-- LEFT SIDE: Logo + Navigation -->
+        <div class="flex items-center gap-8">
           <a
-            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
             href="homepage.html"
+            class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
           >
-            Discover
+            Jom Teroka
           </a>
-          <a
-            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
-            href="tourpage.html"
-          >
-            My Bookings
-          </a>
-          <a
-            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
-            href="landingpage.html"
-          >
-            Dashboard
-          </a>
-          <a
-            class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
-            href="aiassistant.html"
-          >
-            AI Helper
-          </a>
+
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="homepage.html"
+            >
+              Discover
+            </a>
+
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="landingpage.html"
+            >
+              Destinations
+            </a>
+
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="booking.html"
+            >
+              My Bookings
+            </a>
+
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="aiassistant.html"
+            >
+              AI Helper
+            </a>
+          </div>
         </div>
+
+        <!-- RIGHT SIDE: Language + Currency + Profile -->
         <div class="flex items-center gap-4">
-          <span class="text-label-md font-label-md text-on-surface-variant"
-            >EN | BM</span
+          <div
+            class="hidden sm:flex items-center gap-3 text-label-md font-label-md text-on-surface-variant"
           >
-          <span class="text-label-md font-label-md text-on-surface-variant"
-            >MYR</span
+            <span>EN | BM</span>
+            <span class="w-px h-4 bg-outline-variant"></span>
+            <span>MYR</span>
+          </div>
+
+          <button
+            class="p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
           >
-          <span
-            class="material-symbols-outlined text-primary cursor-pointer"
-            data-icon="account_circle"
-          >
-            account_circle
-          </span>
+            <span
+              class="material-symbols-outlined text-primary text-3xl cursor-pointer"
+              data-icon="account_circle"
+            >
+              account_circle
+            </span>
+          </button>
         </div>
       </div>
     </nav>
@@ -198,6 +222,7 @@
           <div
             class="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -z-10 -translate-y-1/2"
           ></div>
+
           <div class="flex flex-col items-center gap-2 bg-background px-4">
             <div
               class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold"
@@ -205,23 +230,26 @@
               <span
                 class="material-symbols-outlined text-[20px]"
                 data-icon="check"
-                >check</span
               >
+                check
+              </span>
             </div>
-            <span class="font-label-sm text-label-sm text-primary"
-              >Details</span
-            >
+            <span class="font-label-sm text-label-sm text-primary">
+              Details
+            </span>
           </div>
+
           <div class="flex flex-col items-center gap-2 bg-background px-4">
             <div
               class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg ring-4 ring-primary-fixed/30"
             >
               2
             </div>
-            <span class="font-label-sm text-label-sm text-primary font-bold"
-              >Payment</span
-            >
+            <span class="font-label-sm text-label-sm text-primary font-bold">
+              Payment
+            </span>
           </div>
+
           <div
             id="step-3-circle"
             class="flex flex-col items-center gap-2 bg-background px-4"
@@ -233,8 +261,9 @@
             </div>
             <span
               class="step-text font-label-sm text-label-sm text-on-surface-variant transition-all"
-              >Confirmation</span
             >
+              Confirmation
+            </span>
           </div>
         </div>
       </div>
@@ -245,6 +274,7 @@
             <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
               Payment Method
             </h2>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <label
                 class="relative flex items-center p-4 rounded-xl border-2 border-primary bg-surface cursor-pointer shadow-sm transition-all hover:scale-[1.02]"
@@ -256,17 +286,20 @@
                   type="radio"
                   value="tng"
                 />
+
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
-                    <span class="font-label-md text-label-md text-primary"
-                      >Touch 'n Go eWallet</span
-                    >
+                    <span class="font-label-md text-label-md text-primary">
+                      Touch 'n Go eWallet
+                    </span>
                     <span
                       class="material-symbols-outlined text-primary"
                       data-icon="radio_button_checked"
-                      >radio_button_checked</span
                     >
+                      radio_button_checked
+                    </span>
                   </div>
+
                   <img
                     alt="TNG Logo"
                     class="h-8 object-contain self-start"
@@ -274,37 +307,45 @@
                   />
                 </div>
               </label>
+
               <label
                 class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
               >
                 <input class="hidden" name="payment" type="radio" value="fpx" />
+
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
                     <span
                       class="font-label-md text-label-md text-on-surface-variant"
-                      >FPX Online Banking</span
                     >
+                      FPX Online Banking
+                    </span>
                     <span
                       class="material-symbols-outlined text-outline"
                       data-icon="radio_button_unchecked"
-                      >radio_button_unchecked</span
                     >
+                      radio_button_unchecked
+                    </span>
                   </div>
+
                   <div
                     class="h-8 flex gap-2 overflow-hidden items-center opacity-70"
                   >
                     <span
                       class="font-bold text-sm tracking-tighter text-outline italic"
-                      >FPX</span
                     >
+                      FPX
+                    </span>
                     <div class="w-px h-4 bg-outline-variant"></div>
                     <span
                       class="text-white bg-[#1a5c3a] px-1.5 py-0.5 rounded text-[9px]"
-                      >All Banks</span
                     >
+                      All Banks
+                    </span>
                   </div>
                 </div>
               </label>
+
               <label
                 class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
               >
@@ -314,28 +355,33 @@
                   type="radio"
                   value="grabpay"
                 />
+
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
                     <span
                       class="font-label-md text-label-md text-on-surface-variant"
-                      >GrabPay</span
                     >
+                      GrabPay
+                    </span>
                     <span
                       class="material-symbols-outlined text-outline"
                       data-icon="radio_button_unchecked"
-                      >radio_button_unchecked</span
                     >
+                      radio_button_unchecked
+                    </span>
                   </div>
+
                   <div class="h-8 flex items-center">
-                    <span class="text-green-600 font-extrabold italic text-xl"
-                      >Grab</span
-                    >
-                    <span class="text-green-600 font-bold text-sm ml-1"
-                      >Pay</span
-                    >
+                    <span class="text-green-600 font-extrabold italic text-xl">
+                      Grab
+                    </span>
+                    <span class="text-green-600 font-bold text-sm ml-1">
+                      Pay
+                    </span>
                   </div>
                 </div>
               </label>
+
               <label
                 class="relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all"
               >
@@ -345,41 +391,50 @@
                   type="radio"
                   value="card"
                 />
+
                 <div class="flex flex-col gap-2 w-full">
                   <div class="flex justify-between items-center">
                     <span
                       class="font-label-md text-label-md text-on-surface-variant"
-                      >Credit / Debit Card</span
                     >
+                      Credit / Debit Card
+                    </span>
                     <span
                       class="material-symbols-outlined text-outline"
                       data-icon="radio_button_unchecked"
-                      >radio_button_unchecked</span
                     >
+                      radio_button_unchecked
+                    </span>
                   </div>
+
                   <div class="flex gap-2">
                     <span
                       class="material-symbols-outlined text-on-surface-variant"
                       data-icon="credit_card"
-                      >credit_card</span
                     >
+                      credit_card
+                    </span>
                     <span
                       class="material-symbols-outlined text-on-surface-variant"
                       data-icon="contactless"
-                      >contactless</span
                     >
+                      contactless
+                    </span>
                   </div>
                 </div>
               </label>
             </div>
+
             <div
               class="mt-6 flex items-center gap-3 p-4 bg-primary-container/10 rounded-lg border border-primary/20"
             >
               <span
                 class="material-symbols-outlined text-primary"
                 data-icon="lock"
-                >lock</span
               >
+                lock
+              </span>
+
               <p class="text-label-sm text-on-surface-variant">
                 Your transaction is secured with 256-bit SSL encryption. We do
                 not store your sensitive payment details on our servers.
@@ -391,22 +446,24 @@
             <h2 class="font-headline-md text-headline-md text-primary mb-6">
               Billing Details
             </h2>
+
             <div class="space-y-4">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="space-y-1.5">
-                  <label class="font-label-sm text-on-surface-variant"
-                    >Full Name</label
-                  >
+                  <label class="font-label-sm text-on-surface-variant">
+                    Full Name
+                  </label>
                   <input
                     class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                     type="text"
                     value="Muhammad Amirul"
                   />
                 </div>
+
                 <div class="space-y-1.5">
-                  <label class="font-label-sm text-on-surface-variant"
-                    >Email Address</label
-                  >
+                  <label class="font-label-sm text-on-surface-variant">
+                    Email Address
+                  </label>
                   <input
                     class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                     type="email"
@@ -414,16 +471,19 @@
                   />
                 </div>
               </div>
+
               <div class="space-y-1.5">
-                <label class="font-label-sm text-on-surface-variant"
-                  >Phone Number</label
-                >
+                <label class="font-label-sm text-on-surface-variant">
+                  Phone Number
+                </label>
+
                 <div class="flex gap-2">
                   <div
                     class="w-20 h-12 flex items-center justify-center bg-surface-container rounded-lg border border-outline-variant font-label-md text-on-surface"
                   >
                     +60
                   </div>
+
                   <input
                     class="flex-1 h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                     type="tel"
@@ -442,96 +502,114 @@
             <h3 class="font-headline-md text-headline-md text-primary mb-6">
               Order Summary
             </h3>
+
             <div class="flex gap-4 mb-8">
               <img
                 class="w-24 h-24 rounded-xl object-cover shrink-0"
-                src="picture/melaka.jpg" alt="melaka tour"
+                src="picture/melaka.jpg"
+                alt="melaka tour"
               />
+
               <div class="space-y-1">
                 <h4
                   class="font-headline-md text-headline-md leading-tight text-primary"
                 >
                   Heritage Walk in Melaka: A Journey Through Time
                 </h4>
+
                 <div class="flex items-center gap-1 text-on-surface-variant">
                   <span
                     class="material-symbols-outlined text-[16px]"
                     data-icon="location_on"
-                    >location_on</span
                   >
+                    location_on
+                  </span>
                   <span class="text-label-sm">Melaka City</span>
                 </div>
               </div>
             </div>
+
             <div class="space-y-3 mb-8">
               <div class="flex justify-between items-center text-body-md">
                 <span class="text-on-surface-variant flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-[18px]"
                     data-icon="calendar_today"
-                    >calendar_today</span
                   >
+                    calendar_today
+                  </span>
                   Date
                 </span>
                 <span class="font-semibold">Current Available Session</span>
               </div>
+
               <div class="flex justify-between items-center text-body-md">
                 <span class="text-on-surface-variant flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-[18px]"
                     data-icon="group"
-                    >group</span
                   >
+                    group
+                  </span>
                   Guests
                 </span>
                 <span class="font-semibold">2 Pax</span>
               </div>
+
               <div class="flex justify-between items-center text-body-md">
                 <span class="text-on-surface-variant flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-[18px]"
                     data-icon="confirmation_number"
-                    >confirmation_number</span
                   >
+                    confirmation_number
+                  </span>
                   Booking ID
                 </span>
                 <span
                   class="font-label-sm bg-surface-container px-2 py-0.5 rounded"
-                  >JT-77821-MY</span
                 >
+                  JT-77821-MY
+                </span>
               </div>
             </div>
+
             <div class="h-px bg-outline-variant/30 mb-8"></div>
+
             <div
               class="dashed-border rounded-xl p-4 mb-8 bg-surface-container-low/30"
             >
               <div class="flex justify-between mb-4">
-                <span class="text-label-md text-on-surface-variant"
-                  >Heritage Walk Entry (x2)</span
-                >
+                <span class="text-label-md text-on-surface-variant">
+                  Heritage Walk Entry (x2)
+                </span>
                 <span class="text-label-md font-semibold">MYR 240.00</span>
               </div>
+
               <div
                 class="flex justify-between items-end border-t border-outline-variant pt-4"
               >
                 <span
                   class="text-label-md font-bold text-primary uppercase tracking-wider"
-                  >Total Payable</span
                 >
-                <span class="text-headline-lg font-headline-lg text-secondary"
-                  >MYR 240.00</span
-                >
+                  Total Payable
+                </span>
+                <span class="text-headline-lg font-headline-lg text-secondary">
+                  MYR 240.00
+                </span>
               </div>
             </div>
+
             <button
               onclick="processPayment()"
               class="w-full bg-secondary-container hover:bg-secondary text-white py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 shadow-lg shadow-secondary/20 transition-all active:scale-[0.98]"
             >
               <span>Confirm & Pay MYR 240.00</span>
-              <span class="material-symbols-outlined" data-icon="arrow_forward"
-                >arrow_forward</span
-              >
+              <span class="material-symbols-outlined" data-icon="arrow_forward">
+                arrow_forward
+              </span>
             </button>
+
             <p class="text-center text-label-sm text-on-surface-variant mt-4">
               By clicking "Confirm & Pay", you agree to the
               <a class="underline" href="#">Terms of Service</a>.
@@ -549,6 +627,7 @@
           <div class="font-headline-md text-headline-md text-primary font-bold">
             Jom Teroka
           </div>
+
           <p
             class="font-body-md text-body-md text-on-tertiary-fixed-variant max-w-xs"
           >
@@ -556,6 +635,7 @@
             curated experiences.
           </p>
         </div>
+
         <div class="flex flex-wrap gap-8 md:gap-16">
           <div class="space-y-4">
             <h5
@@ -563,45 +643,54 @@
             >
               Company
             </h5>
+
             <div class="flex flex-col gap-2">
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
-                >About Us</a
               >
+                About Us
+              </a>
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
-                >Contact</a
               >
+                Contact
+              </a>
             </div>
           </div>
+
           <div class="space-y-4">
             <h5
               class="font-label-md text-label-md text-on-tertiary-fixed font-bold uppercase tracking-widest"
             >
               Support
             </h5>
+
             <div class="flex flex-col gap-2">
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
-                >Terms</a
               >
+                Terms
+              </a>
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
-                >Privacy</a
               >
+                Privacy
+              </a>
               <a
                 class="text-on-tertiary-fixed-variant hover:text-primary transition-all"
                 href="#"
-                >Help Center</a
               >
+                Help Center
+              </a>
             </div>
           </div>
         </div>
       </div>
+
       <div
         class="w-full border-t border-outline-variant/30 py-6 px-margin-desktop max-w-container-max mx-auto text-center md:text-left"
       >
@@ -612,17 +701,20 @@
     </footer>
 
     <script>
-      // Active Selection Handling for Payment Option Radio Labels
       const radioInputs = document.querySelectorAll('input[name="payment"]');
+
       radioInputs.forEach((input) => {
         input.closest("label").addEventListener("click", function () {
           radioInputs.forEach((i) => {
             const label = i.closest("label");
+
             label.className =
               "relative flex items-center p-4 rounded-xl border-2 border-outline-variant bg-white cursor-pointer hover:border-primary/50 transition-all";
+
             const icon = label.querySelector(".material-symbols-outlined");
             icon.innerText = "radio_button_unchecked";
             icon.className = "material-symbols-outlined text-outline";
+
             const text = label.querySelector(".font-label-md");
             text.className =
               "font-label-md text-label-md text-on-surface-variant";
@@ -630,31 +722,34 @@
 
           this.className =
             "relative flex items-center p-4 rounded-xl border-2 border-primary bg-surface cursor-pointer shadow-sm transition-all hover:scale-[1.02]";
+
           const activeIcon = this.querySelector(".material-symbols-outlined");
           activeIcon.innerText = "radio_button_checked";
           activeIcon.className = "material-symbols-outlined text-primary";
+
           const activeText = this.querySelector(".font-label-md");
           activeText.className = "font-label-md text-label-md text-primary";
+
           this.querySelector('input[name="payment"]').checked = true;
         });
       });
 
-      // Simulation handler confirming execution details step-by-step
       function processPayment() {
         const step3Circle = document.querySelector("#step-3-circle .step-icon");
         const step3Text = document.querySelector("#step-3-circle .step-text");
 
-        // Update to visually complete Step 3
         step3Circle.className =
           "w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg ring-4 ring-primary-fixed/30";
+
         step3Circle.innerHTML =
           '<span class="material-symbols-outlined text-[20px]">check</span>';
+
         step3Text.className =
           "font-label-sm text-label-sm text-primary font-bold";
 
         setTimeout(() => {
           alert(
-            "Pembayaran Berjaya! Your booking has been secured. Redirecting to your Dashboard.",
+            "Pembayaran Berjaya! Your booking has been secured. Redirecting to your booking page."
           );
           window.location.href = "booking.html";
         }, 400);
