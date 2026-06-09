@@ -1,0 +1,622 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Heritage Walk in Melaka - Jom Teroka</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#e4e2de",
+              "outline-variant": "#c0c9bf",
+              "on-primary-fixed-variant": "#0b5131",
+              background: "#f4fafd",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              "primary-container": "#1a5c3a",
+              "on-secondary-container": "#5c1f00",
+              "on-surface-variant": "#404942",
+              "surface-bright": "#f4fafd",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-background": "#161d1f",
+              "secondary-fixed": "#ffdbcd",
+              "on-primary-fixed": "#002110",
+              "on-surface": "#161d1f",
+              "surface-container-highest": "#dde4e6",
+              "on-error-container": "#93000a",
+              "surface-tint": "#2a6a47",
+              "surface-container": "#e8eff1",
+              "secondary-fixed-dim": "#ffb596",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#93d5aa",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d4dbdd",
+              tertiary: "#3a3a38",
+              "primary-fixed-dim": "#93d5aa",
+              "surface-container-low": "#eef5f7",
+              "primary-fixed": "#aff2c4",
+              "on-tertiary-container": "#c5c4c0",
+              surface: "#f4fafd",
+              "on-secondary-fixed": "#360f00",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#ebf2f4",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "on-tertiary-fixed": "#1b1c1a",
+              outline: "#707971",
+              "inverse-surface": "#2b3234",
+              "on-primary-container": "#91d2a7",
+              secondary: "#a43e00",
+              "surface-container-high": "#e2e9ec",
+              "tertiary-container": "#51514e",
+              "surface-variant": "#dde4e6",
+              primary: "#004326",
+              "secondary-container": "#fd712a",
+              "on-secondary": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              gutter: "24px",
+              base: "8px",
+              "margin-desktop": "40px",
+            },
+            fontFamily: {
+              "display-lg": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "1.2", fontWeight: "700" },
+              ],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #f4fafd; /* Using surface from theme */
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      .bento-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: repeat(2, 200px);
+        gap: 12px;
+      }
+      .bento-main {
+        grid-row: span 2;
+      }
+      @media (max-width: 768px) {
+        .bento-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: 300px repeat(4, 150px);
+        }
+        .bento-main {
+          grid-row: span 1;
+        }
+      }
+      .sticky-card {
+        position: sticky;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body class="text-on-surface">
+    <!-- TopNavBar -->
+    <nav class="bg-surface shadow-sm sticky top-0 z-50 transition-all">
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20"
+      >
+        <div class="text-headline-md font-headline-md font-bold text-primary">
+          Jom Teroka
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+          <a
+            class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors"
+            href="#"
+            >Discover</a
+          >
+          <a
+            class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md"
+            href="#"
+            >My Bookings</a
+          >
+          <a
+            class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors"
+            href="#"
+            >Dashboard</a
+          >
+          <a
+            class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors"
+            href="#"
+            >AI Helper</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="font-label-md text-label-md text-on-surface-variant"
+            >EN | BM</span
+          >
+          <span class="font-label-md text-label-md text-on-surface-variant"
+            >MYR</span
+          >
+          <span
+            class="material-symbols-outlined text-primary text-2xl"
+            data-icon="account_circle"
+            >account_circle</span
+          >
+        </div>
+      </div>
+    </nav>
+    <main class="max-w-container-max mx-auto px-margin-desktop py-8">
+      <!-- Image Gallery Grid -->
+      <section class="mb-12">
+        <div class="bento-grid rounded-xl overflow-hidden shadow-sm">
+          <!-- Large Photo Left -->
+          <div class="bento-main relative group overflow-hidden">
+            <img
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="A grand, high-angle panoramic view of Melaka's historic Red Square at sunrise. The Dutch-era Christ Church stands prominently with its iconic terracotta-red facade, surrounded by vintage trishaws decorated with vibrant flowers. The warm, golden light of the early morning mist creates a nostalgic and heritage-focused atmosphere. The shot is captured in a cinematic, travel-photography style with rich textures and earth-toned colors reflecting Malaysian hospitality."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_MNyFjcBnQRUUwdHJQ-ZoUUsUd2sRzkWHBZzvWjBIbf4qU_kHjrQVyJHvpjwatoCjgIptsNRrWuyfw_SA_g2jD6upzn47FM5guRnVB1gbsjRUIF-h0BU97cZxFkE5G-dYBcJFsAq0Yd2jJ0ovxb--zeC2DLO-JcLe_v5JrvSv2Q-EZCK_fKhJetxdhPnKcXJ7VmyZVoTpxfKWHWfXT-coIy3UlzInS-qRKODKna1_5ci5z8r1BD9ALyEqKcxKNjBFoblaqHe_Mb6a"
+            />
+            <div
+              class="absolute bottom-4 left-4 bg-primary text-white font-label-md text-label-md px-4 py-2 rounded-lg"
+            >
+              Main Heritage Site
+            </div>
+          </div>
+          <!-- Top Right 1 -->
+          <div class="overflow-hidden group">
+            <img
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="A close-up shot of the intricate architectural details on a historical Shophouse in Melaka's Heeren Street. The image highlights the colorful Peranakan tiles and weathered wooden shutters in vibrant turquoise and ochre. Soft sunlight filters through the narrow street, casting elegant shadows. The visual style is refined and artistic, emphasizing the rich cultural tapestry and meticulous preservation of Malaysian heritage sites."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKiioMPBnW_pLqN00Qost8fIqfew6Cj96wP5b2OwZpJf4iQ6wljJjChnmDUpvXgtZ3W9AK5ZEzeCpjFaeKomKDRaa_uS770YQnXPVNWXugSD1VDtnNvf6--HKM4curMznD3T5-L8CVWsR-AgOHy70V6EiWaKlFGhDzCRGcktdFlVxGa-bSL6sZX05SBjyuijkolBtR2PDWWToynFqkC0q4APXbkzDGAPrHXRV8af6XNAk-3ZyubL1zDYOKND9euBKah5YHWfhLjtkS"
+            />
+          </div>
+          <!-- Top Right 2 -->
+          <div class="overflow-hidden group">
+            <img
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="A lush green view of St. Paul's Hill in Melaka, featuring the ancient stone ruins of the St. Paul's Church against a clear blue tropical sky. Tall trees and tropical foliage frame the historic site, with tourists walking along the stone pathways. The lighting is bright and airy, conveying an adventurous yet serene energy. The palette uses deep forest greens and sun-bleached stone greys, staying true to the brand's natural, warm modernist aesthetic."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8UBp0ciCZuRAdCN6pOiiPQVPZmjesIN99LJIhA5V1HrgQwXz3lvbZh_j1Ajki09blRHl4nglunk-wwSZkeHv00hjzdX0vcbYS6F7tYub3qZTEvnbfqhCUii4wYM_ivK6H5EMpPn3TUIPyFOELng8LteW1ixtwje9n_59P6JELavnZHCSFXkuSBc1TLNj3ES34F16pb3CU3_jryRZxjE3b_AEZ3_KFqDqx7NKiOM7MLssV9PMZJsw45nAC_gOoL3_IY5eZpoKAk0jB"
+            />
+          </div>
+          <!-- Bottom Right 1 -->
+          <div class="overflow-hidden group">
+            <img
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="An authentic Nyonya lunch spread on a traditional wooden table in a Melaka heritage building. The image showcases Ayam Pongteh, Sambal Udang, and blue pea flower rice served in classic porcelain bowls. Warm, ambient lighting from a nearby window illuminates the textures of the food and the dark wood of the table. The mood is welcoming and vibrant, celebrating the culinary heritage and hospitality of the Malaysian region with high-quality food photography."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyOCsQJiBiVCKZYCq3UnL76Q-IWcs9248YwM97Q3k2ZDBiwbhEqtl3Rg3dnN8S4iLCbDWqN_pAKVNE1KZpQerb_o4_HuIvbGimJCDKlLD9M13_RwFvnbKCaC7VkcXbjtqUm2RXW9fUZX43wSnUo5OrcJwxRdW_AHSfGm2gSDW4mKkev8pjf_OpLDwfS2CGIwxviUfBProMFFqs8tqsIiKO56o16L5-6lo_qW85af8Qm7uDU-mjl0bEG5KVoiPCffQhMhsDGSd-0OcZ"
+            />
+          </div>
+          <!-- Bottom Right 2 -->
+          <div class="overflow-hidden group">
+            <img
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="A candid, vibrant street scene from Melaka's Jonker Walk during the day. Local artisans are seen working on traditional crafts inside their open-air shops. The street is bustling with life, featuring hanging lanterns and decorative banners. The sunlight is warm and direct, highlighting the vivid colors of the tropical environment. This high-end travel imagery captures the soul of the city with a balance of energetic exploration and cultural depth."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnRWc_3BpdYJVLE-Oq2lWOVDhPmB1aeJy8byJRB7kf5XVIEyvrs-lwbXBaxF_GRZDJqlJMKN7hHT-RABY24Ooc_xQ6iWUjKsv8TwfjR3jKLBJPssW2tXg40bpfDwMSOFjax7AvQMKLwzuS2Jnm3GdjZ7JKHN0tscp5h3ZPUuLXIZtAr2kx3wtPBt6EwKYWcrhV9EPN-pqccexwzj3T7brY2uLYmGwuL2biVBsOIFsV2tp--1SI-Jg11manD0XBPpb9LHlToGAD_E98"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Two Column Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Content: Tour Details -->
+        <div class="lg:col-span-8">
+          <div class="mb-8">
+            <span
+              class="inline-block bg-secondary-container text-on-secondary-container font-label-md text-label-md px-3 py-1 rounded-full mb-4"
+              >MELAKA CITY</span
+            >
+            <h1
+              class="font-display-lg text-headline-lg md:text-display-lg mb-6 text-primary"
+            >
+              Heritage Walk in Melaka: A Journey Through Time
+            </h1>
+            <div
+              class="flex flex-wrap gap-6 items-center border-y border-outline-variant py-6"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-secondary"
+                  data-icon="schedule"
+                  >schedule</span
+                >
+                <span class="font-body-md text-body-md">4 Hours</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-secondary"
+                  data-icon="groups"
+                  >groups</span
+                >
+                <span class="font-body-md text-body-md">Up to 10 pax</span>
+              </div>
+              <div
+                class="flex items-center gap-2 border-r pr-6 border-outline-variant"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary"
+                  data-icon="star"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >star</span
+                >
+                <span class="font-label-md text-label-md"
+                  >4.9 (128 reviews)</span
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-secondary"
+                  data-icon="language"
+                  >language</span
+                >
+                <span class="font-body-md text-body-md"
+                  >English, Malay, Mandarin</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Itinerary Section -->
+          <section class="mb-12">
+            <h2 class="font-headline-lg text-headline-lg text-primary mb-8">
+              Tour Itinerary
+            </h2>
+            <div
+              class="relative space-y-12 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant"
+            >
+              <!-- Timeline Item 1 -->
+              <div class="relative pl-10">
+                <div
+                  class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface"
+                ></div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center gap-2 mb-2"
+                >
+                  <span class="font-label-md text-label-md text-secondary"
+                    >09:00 AM</span
+                  >
+                  <h3 class="font-headline-md text-headline-md">
+                    Christ Church
+                  </h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Start the morning at the iconic Red Square. Learn about the
+                  Dutch architecture and the early colonial history of the
+                  Straits.
+                </p>
+              </div>
+              <!-- Timeline Item 2 -->
+              <div class="relative pl-10">
+                <div
+                  class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface"
+                ></div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center gap-2 mb-2"
+                >
+                  <span class="font-label-md text-label-md text-secondary"
+                    >10:30 AM</span
+                  >
+                  <h3 class="font-headline-md text-headline-md">
+                    St. Paul's Hill
+                  </h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  A light hike up the hill to visit the ruins of St. Paul's
+                  Church and the A'Famosa fort, offering panoramic views of the
+                  city coastline.
+                </p>
+              </div>
+              <!-- Timeline Item 3 -->
+              <div class="relative pl-10">
+                <div
+                  class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface"
+                ></div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center gap-2 mb-2"
+                >
+                  <span class="font-label-md text-label-md text-secondary"
+                    >11:45 AM</span
+                  >
+                  <h3 class="font-headline-md text-headline-md">
+                    Heeren Street
+                  </h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Walk through the 'Millionaire's Row' and discover the stunning
+                  residential architecture of the Baba Nyonya community.
+                </p>
+              </div>
+              <!-- Timeline Item 4 -->
+              <div class="relative pl-10">
+                <div
+                  class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface"
+                ></div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center gap-2 mb-2"
+                >
+                  <span class="font-label-md text-label-md text-secondary"
+                    >01:00 PM</span
+                  >
+                  <h3 class="font-headline-md text-headline-md">
+                    Nyonya Lunch
+                  </h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Conclude the journey with a curated lunch experience featuring
+                  authentic Peranakan dishes in a restored heritage home.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Right Content: Sticky Booking Card -->
+        <div class="lg:col-span-4">
+          <div
+            class="sticky-card bg-surface-container-lowest p-8 rounded-2xl shadow-lg border border-outline-variant"
+          >
+            <div class="mb-6">
+              <span
+                class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider"
+                >STARTING FROM</span
+              >
+              <div
+                class="bg-primary-container text-on-primary-container p-4 rounded-xl mt-2 flex justify-between items-end"
+              >
+                <div>
+                  <span
+                    class="font-display-lg text-headline-lg text-on-primary-container"
+                    >MYR 120</span
+                  >
+                  <span
+                    class="font-body-md text-body-md text-on-primary-container opacity-80"
+                    >/ person</span
+                  >
+                </div>
+                <span
+                  class="material-symbols-outlined text-on-primary-container mb-1"
+                  data-icon="info"
+                  >info</span
+                >
+              </div>
+            </div>
+            <!-- Toggles -->
+            <div class="flex bg-surface-container-high p-1 rounded-xl mb-6">
+              <button
+                class="flex-1 py-2 rounded-lg font-label-md text-label-md bg-white shadow-sm text-primary"
+              >
+                Budget
+              </button>
+              <button
+                class="flex-1 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all"
+              >
+                Private
+              </button>
+            </div>
+            <!-- Date Picker -->
+            <div class="mb-6">
+              <label
+                class="block font-label-md text-label-md text-on-surface-variant mb-2"
+                >Select Date</label
+              >
+              <div
+                class="flex items-center justify-between border border-outline p-3 rounded-xl cursor-pointer hover:border-primary transition-all"
+              >
+                <span class="font-body-md text-body-md">Oct 24, 2024</span>
+                <span
+                  class="material-symbols-outlined text-on-surface-variant"
+                  data-icon="calendar_today"
+                  >calendar_today</span
+                >
+              </div>
+            </div>
+            <!-- Participants Counter -->
+            <div class="mb-8">
+              <label
+                class="block font-label-md text-label-md text-on-surface-variant mb-2"
+                >Participants</label
+              >
+              <div
+                class="flex items-center justify-between bg-surface-container-low p-3 rounded-xl"
+              >
+                <button
+                  class="w-10 h-10 rounded-full flex items-center justify-center bg-white text-primary border border-outline-variant hover:bg-surface-container-high transition-all"
+                  onclick="decrement()"
+                >
+                  -
+                </button>
+                <span class="font-headline-md text-headline-md" id="counter"
+                  >2</span
+                >
+                <button
+                  class="w-10 h-10 rounded-full flex items-center justify-center bg-white text-primary border border-outline-variant hover:bg-surface-container-high transition-all"
+                  onclick="increment()"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="flex justify-between items-center mb-8 pt-6 border-t border-outline-variant"
+            >
+              <span class="font-headline-md text-headline-md text-on-surface"
+                >Total</span
+              >
+              <span
+                class="font-headline-lg text-headline-lg text-primary"
+                id="total-price"
+                >MYR 240</span
+              >
+            </div>
+            <button
+              class="w-full bg-secondary-container hover:bg-secondary text-white py-4 rounded-xl font-headline-md text-headline-md transition-all active:scale-95 shadow-md mb-4"
+            >
+              Book Heritage Walk
+            </button>
+            <button
+              class="w-full flex items-center justify-center gap-2 border-2 border-primary text-primary py-3 rounded-xl font-label-md text-label-md hover:bg-primary-fixed-dim transition-all"
+            >
+              <span class="material-symbols-outlined" data-icon="smart_toy"
+                >smart_toy</span
+              >
+              Ask AI Assistant
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-tertiary-fixed text-on-tertiary-fixed mt-24">
+      <div
+        class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
+      >
+        <div class="max-w-xs">
+          <div
+            class="font-headline-md text-headline-md text-primary font-bold mb-4"
+          >
+            Jom Teroka
+          </div>
+          <p class="font-body-md text-body-md opacity-80">
+            Discover the soul of Malaysia through curated heritage walks and
+            cultural adventures.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-x-12 gap-y-4">
+          <a
+            class="font-label-md text-label-md text-on-tertiary-fixed-variant hover:text-primary transition-colors"
+            href="#"
+            >About Us</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-tertiary-fixed-variant hover:text-primary transition-colors"
+            href="#"
+            >Contact</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-tertiary-fixed-variant hover:text-primary transition-colors"
+            href="#"
+            >Terms</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-tertiary-fixed-variant hover:text-primary transition-colors"
+            href="#"
+            >Privacy</a
+          >
+        </div>
+        <div class="text-right">
+          <p class="font-label-sm text-label-sm mb-2 opacity-60">
+            © 2024 Jom Teroka. Malaysian Hospitality Redefined.
+          </p>
+          <div class="flex gap-4 justify-end">
+            <span
+              class="material-symbols-outlined opacity-60 hover:opacity-100 cursor-pointer"
+              data-icon="share"
+              >share</span
+            >
+            <span
+              class="material-symbols-outlined opacity-60 hover:opacity-100 cursor-pointer"
+              data-icon="public"
+              >public</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      let count = 2;
+      const pricePerPerson = 120;
+      const counterEl = document.getElementById("counter");
+      const totalEl = document.getElementById("total-price");
+
+      function increment() {
+        count++;
+        updateDisplay();
+      }
+
+      function decrement() {
+        if (count > 1) {
+          count--;
+          updateDisplay();
+        }
+      }
+
+      function updateDisplay() {
+        counterEl.innerText = count;
+        totalEl.innerText = `MYR ${count * pricePerPerson}`;
+      }
+
+      // Micro-interaction for scroll depth on TopNavBar
+      window.onscroll = function () {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 20) {
+          nav.classList.add("shadow-md", "h-16");
+          nav.classList.remove("h-20");
+        } else {
+          nav.classList.remove("shadow-md", "h-16");
+          nav.classList.add("h-20");
+        }
+      };
+    </script>
+  </body>
+</html>
