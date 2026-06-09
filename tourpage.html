@@ -159,55 +159,62 @@
     </style>
   </head>
   <body class="text-on-surface">
-    <nav class="bg-surface shadow-sm sticky top-0 z-50 transition-all">
+    <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
       <div
-        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20"
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
       >
-        <a
-          href="landingpage.html"
-          class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
-        >
-          Jom Teroka
-        </a>
-        <div class="hidden md:flex gap-8 items-center">
+        <div class="flex items-center gap-8">
           <a
-            class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors"
-            href="homepage.html"
-          >
-            Discover
-          </a>
-          <a
-            class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md"
-            href="#"
-          >
-            My Bookings
-          </a>
-          <a
-            class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors"
             href="landingpage.html"
+            class="text-headline-md font-headline-md font-bold text-primary"
+            data-i18n="brand"
           >
-            Dashboard
+            Jom Teroka
           </a>
-          <a
-            class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors"
-            href="aiassistant.html"
-          >
-            AI Helper
-          </a>
+          <div class="hidden md:flex gap-6 items-center">
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors text-sm"
+              href="homepage.html"
+              data-i18n="discover"
+              >Discover</a
+            >
+            <a
+              class="text-primary font-bold border-b-2 border-primary pb-1 text-sm"
+              href="tourpage.html"
+              data-i18n="bookings"
+              >My Bookings</a
+            >
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors text-sm"
+              href="landingpage.html"
+              data-i18n="dashboard"
+              >Dashboard</a
+            >
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors text-sm"
+              href="aiassistant.html"
+              data-i18n="aiHelper"
+              >AI Helper</a
+            >
+          </div>
         </div>
         <div class="flex items-center gap-4">
-          <span class="font-label-md text-label-md text-on-surface-variant"
-            >EN | BM</span
+          <div
+            class="flex items-center gap-2 text-on-surface-variant font-semibold text-sm"
           >
-          <span class="font-label-md text-label-md text-on-surface-variant"
-            >MYR</span
+            <button
+              onclick="toggleLanguage()"
+              class="lang-switcher-btn hover:text-primary transition-colors font-bold"
+              data-i18n="langToggle"
+            >
+              EN | BM
+            </button>
+            <span class="opacity-30">|</span>
+            <span data-i18n="currency">MYR</span>
+          </div>
+          <span class="material-symbols-outlined text-primary cursor-pointer"
+            >account_circle</span
           >
-          <span
-            class="material-symbols-outlined text-primary text-2xl cursor-pointer"
-            data-icon="account_circle"
-          >
-            account_circle
-          </span>
         </div>
       </div>
     </nav>
@@ -223,6 +230,7 @@
             />
             <div
               class="absolute bottom-4 left-4 bg-primary text-white font-label-md text-label-md px-4 py-2 rounded-lg"
+              data-i18n="galleryBadge"
             >
               Main Heritage Site
             </div>
@@ -263,11 +271,13 @@
           <div class="mb-8">
             <span
               class="inline-block bg-secondary-container text-on-secondary-container font-label-md text-label-md px-3 py-1 rounded-full mb-4"
+              data-i18n="cityBadge"
             >
               MELAKA CITY
             </span>
             <h1
               class="font-display-lg text-headline-lg md:text-display-lg mb-6 text-primary"
+              data-i18n="tourTitle"
             >
               Heritage Walk in Melaka: A Journey Through Time
             </h1>
@@ -280,7 +290,9 @@
                   data-icon="schedule"
                   >schedule</span
                 >
-                <span class="font-body-md text-body-md">4 Hours</span>
+                <span class="font-body-md text-body-md" data-i18n="duration"
+                  >4 Hours</span
+                >
               </div>
               <div class="flex items-center gap-2">
                 <span
@@ -288,7 +300,9 @@
                   data-icon="groups"
                   >groups</span
                 >
-                <span class="font-body-md text-body-md">Up to 10 pax</span>
+                <span class="font-body-md text-body-md" data-i18n="pax"
+                  >Up to 10 pax</span
+                >
               </div>
               <div
                 class="flex items-center gap-2 border-r pr-6 border-outline-variant"
@@ -297,9 +311,8 @@
                   class="material-symbols-outlined text-secondary"
                   data-icon="star"
                   style="font-variation-settings: &quot;FILL&quot; 1"
+                  >star</span
                 >
-                  star
-                </span>
                 <span class="font-label-md text-label-md"
                   >4.9 (128 reviews)</span
                 >
@@ -310,7 +323,7 @@
                   data-icon="language"
                   >language</span
                 >
-                <span class="font-body-md text-body-md"
+                <span class="font-body-md text-body-md" data-i18n="languages"
                   >English, Malay, Mandarin</span
                 >
               </div>
@@ -318,7 +331,10 @@
           </div>
 
           <section class="mb-12">
-            <h2 class="font-headline-lg text-headline-lg text-primary mb-8">
+            <h2
+              class="font-headline-lg text-headline-lg text-primary mb-8"
+              data-i18n="itineraryTitle"
+            >
               Tour Itinerary
             </h2>
             <div
@@ -338,7 +354,10 @@
                     Christ Church
                   </h3>
                 </div>
-                <p class="font-body-md text-body-md text-on-surface-variant">
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant"
+                  data-i18n="item1Desc"
+                >
                   Start the morning at the iconic Red Square. Learn about the
                   Dutch architecture and the early colonial history of the
                   Straits.
@@ -358,7 +377,10 @@
                     St. Paul's Hill
                   </h3>
                 </div>
-                <p class="font-body-md text-body-md text-on-surface-variant">
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant"
+                  data-i18n="item2Desc"
+                >
                   A light hike up the hill to visit the ruins of St. Paul's
                   Church and the A'Famosa fort, offering panoramic views of the
                   city coastline.
@@ -378,28 +400,12 @@
                     Heeren Street
                   </h3>
                 </div>
-                <p class="font-body-md text-body-md text-on-surface-variant">
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant"
+                  data-i18n="item3Desc"
+                >
                   Walk through the 'Millionaire's Row' and discover the stunning
                   residential architecture of the Baba Nyonya community.
-                </p>
-              </div>
-              <div class="relative pl-10">
-                <div
-                  class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface"
-                ></div>
-                <div
-                  class="flex flex-col md:flex-row md:items-center gap-2 mb-2"
-                >
-                  <span class="font-label-md text-label-md text-secondary"
-                    >01:00 PM</span
-                  >
-                  <h3 class="font-headline-md text-headline-md">
-                    Nyonya Lunch
-                  </h3>
-                </div>
-                <p class="font-body-md text-body-md text-on-surface-variant">
-                  Conclude the journey with a curated lunch experience featuring
-                  authentic Peranakan dishes in a restored heritage home.
                 </p>
               </div>
             </div>
@@ -413,6 +419,7 @@
             <div class="mb-6">
               <span
                 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider"
+                data-i18n="startingFrom"
                 >STARTING FROM</span
               >
               <div
@@ -425,6 +432,7 @@
                   >
                   <span
                     class="font-body-md text-body-md text-on-primary-container opacity-80"
+                    data-i18n="perPerson"
                     >/ person</span
                   >
                 </div>
@@ -438,11 +446,13 @@
             <div class="flex bg-surface-container-high p-1 rounded-xl mb-6">
               <button
                 class="flex-1 py-2 rounded-lg font-label-md text-label-md bg-white shadow-sm text-primary"
+                data-i18n="toggleBudget"
               >
                 Budget
               </button>
               <button
                 class="flex-1 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all"
+                data-i18n="togglePrivate"
               >
                 Private
               </button>
@@ -450,6 +460,7 @@
             <div class="mb-6">
               <label
                 class="block font-label-md text-label-md text-on-surface-variant mb-2"
+                data-i18n="selectDate"
                 >Select Date</label
               >
               <div
@@ -466,6 +477,7 @@
             <div class="mb-8">
               <label
                 class="block font-label-md text-label-md text-on-surface-variant mb-2"
+                data-i18n="participants"
                 >Participants</label
               >
               <div
@@ -491,7 +503,9 @@
             <div
               class="flex justify-between items-center mb-8 pt-6 border-t border-outline-variant"
             >
-              <span class="font-headline-md text-headline-md text-on-surface"
+              <span
+                class="font-headline-md text-headline-md text-on-surface"
+                data-i18n="totalLabel"
                 >Total</span
               >
               <span
@@ -504,12 +518,14 @@
             <button
               onclick="window.location.href = 'paymentinterface.html'"
               class="w-full bg-secondary-container hover:bg-secondary text-white py-4 rounded-xl font-headline-md text-headline-md transition-all active:scale-95 shadow-md mb-4"
+              data-i18n="bookBtn"
             >
               Book Heritage Walk
             </button>
             <button
               onclick="window.location.href = 'aiassistant.html'"
               class="w-full flex items-center justify-center gap-2 border-2 border-primary text-primary py-3 rounded-xl font-label-md text-label-md hover:bg-primary-fixed-dim transition-all"
+              data-i18n="askAi"
             >
               <span class="material-symbols-outlined" data-icon="smart_toy"
                 >smart_toy</span
@@ -531,49 +547,13 @@
           >
             Jom Teroka
           </div>
-          <p class="font-body-md text-body-md opacity-80">
+          <p
+            class="font-body-md text-body-md opacity-80"
+            data-i18n="footerDesc"
+          >
             Discover the soul of Malaysia through curated heritage walks and
             cultural adventures.
           </p>
-        </div>
-        <div class="grid grid-cols-2 gap-x-12 gap-y-4">
-          <a
-            class="font-label-md text-label-md text-on-tertiary-fixed-variant hover:text-primary transition-colors"
-            href="#"
-            >About Us</a
-          >
-          <a
-            class="font-label-md text-label-md text-on-tertiary-fixed-variant hover:text-primary transition-colors"
-            href="#"
-            >Contact</a
-          >
-          <a
-            class="font-label-md text-label-md text-on-tertiary-fixed-variant hover:text-primary transition-colors"
-            href="#"
-            >Terms</a
-          >
-          <a
-            class="font-label-md text-label-md text-on-tertiary-fixed-variant hover:text-primary transition-colors"
-            href="#"
-            >Privacy</a
-          >
-        </div>
-        <div class="text-right">
-          <p class="font-label-sm text-label-sm mb-2 opacity-60">
-            © 2024 Jom Teroka. Malaysian Hospitality Redefined.
-          </p>
-          <div class="flex gap-4 justify-end">
-            <span
-              class="material-symbols-outlined opacity-60 hover:opacity-100 cursor-pointer"
-              data-icon="share"
-              >share</span
-            >
-            <span
-              class="material-symbols-outlined opacity-60 hover:opacity-100 cursor-pointer"
-              data-icon="public"
-              >public</span
-            >
-          </div>
         </div>
       </div>
     </footer>
@@ -601,16 +581,97 @@
         totalEl.innerText = `MYR ${count * pricePerPerson}`;
       }
 
-      window.onscroll = function () {
-        const nav = document.querySelector("nav");
-        if (window.scrollY > 20) {
-          nav.classList.add("shadow-md", "h-16");
-          nav.classList.remove("h-20");
-        } else {
-          nav.classList.remove("shadow-md", "h-16");
-          nav.classList.add("h-20");
-        }
+      // Complete Full Page Translation Dictionary Map
+      const translations = {
+        en: {
+          brand: "Jom Teroka",
+          discover: "Discover",
+          bookings: "My Bookings",
+          dashboard: "Dashboard",
+          aiHelper: "AI Helper",
+          currency: "MYR",
+          langToggle: "EN | BM",
+          galleryBadge: "Main Heritage Site",
+          cityBadge: "MELAKA CITY",
+          tourTitle: "Heritage Walk in Melaka: A Journey Through Time",
+          duration: "4 Hours",
+          pax: "Up to 10 pax",
+          languages: "English, Malay, Mandarin",
+          itineraryTitle: "Tour Itinerary",
+          item1Desc:
+            "Start the morning at the iconic Red Square. Learn about the Dutch architecture and the early colonial history of the Straits.",
+          item2Desc:
+            "A light hike up the hill to visit the ruins of St. Paul's Church and the A'Famosa fort, offering panoramic views of the city coastline.",
+          item3Desc:
+            "Walk through the 'Millionaire's Row' and discover the stunning residential architecture of the Baba Nyonya community.",
+          startingFrom: "STARTING FROM",
+          perPerson: "/ person",
+          toggleBudget: "Budget",
+          togglePrivate: "Private",
+          selectDate: "Select Date",
+          participants: "Participants",
+          totalLabel: "Total",
+          bookBtn: "Book Heritage Walk",
+          askAi: "Ask AI Assistant",
+          footerDesc:
+            "Discover the soul of Malaysia through curated heritage walks and cultural adventures.",
+        },
+        bm: {
+          brand: "Jom Teroka",
+          discover: "Teroka",
+          bookings: "Tempahan Saya",
+          dashboard: "Papan Pemuka",
+          aiHelper: "Pembantu AI",
+          currency: "MYR",
+          langToggle: "BM | EN",
+          galleryBadge: "Tapak Warisan Utama",
+          cityBadge: "BANDAR MELAKA",
+          tourTitle: "Jejak Warisan Melaka: Perjalanan Merentasi Masa",
+          duration: "4 Jam",
+          pax: "Sehingga 10 orang",
+          languages: "Inggeris, Melayu, Mandarin",
+          itineraryTitle: "Tentatif Lawatan",
+          item1Desc:
+            "Mulakan pagi di Red Square yang ikonik. Pelajari seni bina Belanda dan sejarah awal kolonial Selat.",
+          item2Desc:
+            "Trekking santai mendaki bukit untuk melawat runtuhan Gereja St. Paul dan kubu A'Famosa dengan pemandangan persisiran pantai.",
+          item3Desc:
+            "Berjalan melalui 'Millionaire's Row' dan saksikan keindahan seni bina kediaman komuniti Baba Nyonya.",
+          startingFrom: "BERMULA DARI",
+          perPerson: "/ seorang",
+          toggleBudget: "Bajet",
+          togglePrivate: "Peribadi",
+          selectDate: "Pilih Tarikh",
+          participants: "Peserta",
+          totalLabel: "Jumlah",
+          bookBtn: "Tempah Jejak Warisan",
+          askAi: "Tanya Pembantu AI",
+          footerDesc:
+            "Kenali keunikan Malaysia melalui jejak warisan terpilih dan pengembaraan budaya.",
+        },
       };
+
+      function toggleLanguage() {
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        let nextLang = currentLang === "en" ? "bm" : "en";
+        localStorage.setItem("selectedLang", nextLang);
+        applyTranslations(nextLang);
+      }
+
+      function applyTranslations(lang) {
+        const t = translations[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t[key]) {
+            el.innerText = t[key];
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem("selectedLang") || "en";
+        applyTranslations(savedLang);
+      });
     </script>
   </body>
 </html>
