@@ -1,0 +1,1487 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tour Guide Module | Jom Teroka</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#e4e2de",
+              "outline-variant": "#c0c9bf",
+              "on-primary-fixed-variant": "#0b5131",
+              background: "#f4fafd",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              "primary-container": "#1a5c3a",
+              "on-secondary-container": "#5c1f00",
+              "on-surface-variant": "#404942",
+              "surface-bright": "#f4fafd",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-background": "#161d1f",
+              "secondary-fixed": "#ffdbcd",
+              "on-primary-fixed": "#002110",
+              "on-surface": "#161d1f",
+              "surface-container-highest": "#dde4e6",
+              "on-error-container": "#93000a",
+              "surface-tint": "#2a6a47",
+              "surface-container": "#e8eff1",
+              "secondary-fixed-dim": "#ffb596",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#93d5aa",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d4dbdd",
+              tertiary: "#3a3a38",
+              "primary-fixed-dim": "#93d5aa",
+              "surface-container-low": "#eef5f7",
+              "primary-fixed": "#aff2c4",
+              "on-tertiary-container": "#c5c4c0",
+              surface: "#f4fafd",
+              "on-secondary-fixed": "#360f00",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#ebf2f4",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "on-tertiary-fixed": "#1b1c1a",
+              outline: "#707971",
+              "inverse-surface": "#2b3234",
+              "on-primary-container": "#91d2a7",
+              secondary: "#a43e00",
+              "surface-container-high": "#e2e9ec",
+              "tertiary-container": "#51514e",
+              "surface-variant": "#dde4e6",
+              primary: "#004326",
+              "secondary-container": "#fd712a",
+              "on-secondary": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              "3xl": "1.5rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              gutter: "24px",
+              base: "8px",
+              "margin-desktop": "40px",
+            },
+            fontFamily: {
+              "display-lg": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "1.2", fontWeight: "700" },
+              ],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+
+      .hero-bg {
+        background:
+          radial-gradient(circle at top left, rgba(175, 242, 196, 0.45), transparent 35%),
+          radial-gradient(circle at bottom right, rgba(253, 113, 42, 0.18), transparent 35%),
+          linear-gradient(135deg, #f4fafd 0%, #eef5f7 100%);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+
+      .guide-card {
+        transition: all 0.25s ease;
+      }
+
+      .guide-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 40px rgba(0, 67, 38, 0.12);
+      }
+
+      .tab-active {
+        background: #004326;
+        color: white;
+        box-shadow: 0 8px 20px rgba(0, 67, 38, 0.2);
+      }
+    </style>
+  </head>
+
+  <body class="bg-background text-on-surface font-body-md">
+    <!-- Navbar -->
+    <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center">
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full"
+      >
+        <!-- Left Side -->
+        <div class="flex items-center gap-8">
+          <a
+            href="homepage.html"
+            class="text-headline-md font-headline-md font-bold text-primary hover:opacity-90 transition-opacity"
+          >
+            Jom Teroka
+          </a>
+
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="homepage.html"
+            >
+              Discover
+            </a>
+
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="landingpage.html"
+            >
+              Destinations
+            </a>
+
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="booking.html"
+            >
+              My Bookings
+            </a>
+
+            <a
+              class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md"
+              href="guide.html"
+            >
+              Tour Guide
+            </a>
+
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="aiAssistant.html"
+            >
+              AI Helper
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-4">
+          <div
+            class="hidden sm:flex items-center gap-3 text-label-md font-label-md text-on-surface-variant"
+          >
+            <span>EN | BM</span>
+            <span class="w-px h-4 bg-outline-variant"></span>
+            <span>MYR</span>
+          </div>
+
+          <!-- Mini Profile Dropdown -->
+          <div class="relative">
+            <button
+              onclick="toggleProfileMenu()"
+              class="flex items-center gap-2 p-2 rounded-full hover:bg-surface-container transition-colors active:scale-95"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl">
+                account_circle
+              </span>
+              <span class="hidden lg:block text-sm font-semibold text-on-surface-variant">
+                Ariff
+              </span>
+              <span class="material-symbols-outlined text-primary text-xl">
+                expand_more
+              </span>
+            </button>
+
+            <div
+              id="profileMenu"
+              class="hidden absolute right-0 top-14 w-72 bg-white rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden z-[999]"
+            >
+              <div class="p-5 bg-primary text-white">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="picture/random.jpg"
+                    alt="Guide Profile"
+                    class="w-12 h-12 rounded-full object-cover border-2 border-white/40"
+                  />
+                  <div>
+                    <h3 class="font-bold text-base leading-tight">
+                      Ariff Rahman
+                    </h3>
+                    <p class="text-xs text-white/80">
+                      Verified Tour Guide
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 space-y-3">
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    mail
+                  </span>
+                  <span>ariff.guide@email.com</span>
+                </div>
+
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    workspace_premium
+                  </span>
+                  <span>Licensed Guide</span>
+                </div>
+
+                <div class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="material-symbols-outlined text-primary text-xl">
+                    location_on
+                  </span>
+                  <span>Melaka, Malaysia</span>
+                </div>
+              </div>
+
+              <div class="h-px bg-outline-variant/40"></div>
+
+              <div class="p-2">
+                <a
+                  href="#guide-profile"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    badge
+                  </span>
+                  Guide Profile
+                </a>
+
+                <a
+                  href="#bookings"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    confirmation_number
+                  </span>
+                  Assigned Bookings
+                </a>
+
+                <a
+                  href="#earnings"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    payments
+                  </span>
+                  Earnings
+                </a>
+
+                <a
+                  href="aiAssistant.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    smart_toy
+                  </span>
+                  AI Helper
+                </a>
+              </div>
+
+              <div class="h-px bg-outline-variant/40"></div>
+
+              <div class="p-2">
+                <button
+                  onclick="logoutUser()"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all"
+                >
+                  <span class="material-symbols-outlined text-xl">
+                    logout
+                  </span>
+                  Log Out
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-bg border-b border-outline-variant/50">
+        <div class="max-w-container-max mx-auto px-margin-desktop py-12">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <div class="lg:col-span-7">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-primary-fixed text-primary rounded-full font-label-md text-label-md mb-5"
+              >
+                <span class="material-symbols-outlined text-[18px]">
+                  workspace_premium
+                </span>
+                <span>Verified Local Guide Module</span>
+              </div>
+
+              <h1 class="font-display-lg text-display-lg text-primary mb-4">
+                Tour Guide Portal
+              </h1>
+
+              <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                Manage tour packages, view assigned travellers, update
+                availability, track earnings, and communicate with visitors from
+                one organized dashboard.
+              </p>
+
+              <div class="flex flex-wrap gap-3 mt-8">
+                <button
+                  onclick="openCreateTourModal()"
+                  class="px-6 py-3 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95 flex items-center gap-2"
+                >
+                  <span class="material-symbols-outlined">
+                    add_circle
+                  </span>
+                  Create Tour Package
+                </button>
+
+                <button
+                  onclick="document.getElementById('bookings').scrollIntoView({behavior:'smooth'})"
+                  class="px-6 py-3 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all active:scale-95 flex items-center gap-2"
+                >
+                  <span class="material-symbols-outlined">
+                    event_available
+                  </span>
+                  View Today’s Bookings
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div
+                class="glass-card rounded-3xl border border-white/70 shadow-xl p-6"
+              >
+                <div class="flex items-center gap-4 mb-6">
+                  <img
+                    src="picture/random.jpg"
+                    alt="Guide Ariff Rahman"
+                    class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md"
+                  />
+
+                  <div>
+                    <h2 class="font-headline-md text-headline-md text-primary">
+                      Ariff Rahman
+                    </h2>
+
+                    <div class="flex items-center gap-1 text-secondary mt-1">
+                      <span
+                        class="material-symbols-outlined text-[18px]"
+                        style="font-variation-settings: 'FILL' 1"
+                      >
+                        star
+                      </span>
+                      <span class="font-label-md text-label-md">
+                        4.9 Rating
+                      </span>
+                    </div>
+
+                    <p class="text-label-sm text-on-surface-variant mt-1">
+                      Melaka Heritage Specialist
+                    </p>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="bg-white rounded-2xl border border-outline-variant/40 p-4">
+                    <span class="material-symbols-outlined text-primary">
+                      confirmation_number
+                    </span>
+                    <p class="text-label-sm text-on-surface-variant mt-2">
+                      Active Tours
+                    </p>
+                    <p class="font-headline-md text-headline-md text-primary">
+                      6
+                    </p>
+                  </div>
+
+                  <div class="bg-white rounded-2xl border border-outline-variant/40 p-4">
+                    <span class="material-symbols-outlined text-primary">
+                      group
+                    </span>
+                    <p class="text-label-sm text-on-surface-variant mt-2">
+                      Travellers
+                    </p>
+                    <p class="font-headline-md text-headline-md text-primary">
+                      124
+                    </p>
+                  </div>
+
+                  <div class="bg-white rounded-2xl border border-outline-variant/40 p-4">
+                    <span class="material-symbols-outlined text-primary">
+                      payments
+                    </span>
+                    <p class="text-label-sm text-on-surface-variant mt-2">
+                      This Month
+                    </p>
+                    <p class="font-headline-md text-headline-md text-primary">
+                      RM 3.2k
+                    </p>
+                  </div>
+
+                  <div class="bg-white rounded-2xl border border-outline-variant/40 p-4">
+                    <span class="material-symbols-outlined text-primary">
+                      verified
+                    </span>
+                    <p class="text-label-sm text-on-surface-variant mt-2">
+                      Status
+                    </p>
+                    <p class="font-label-md text-label-md text-primary">
+                      Verified
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Overview Cards -->
+      <section class="max-w-container-max mx-auto px-margin-desktop py-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-label-sm text-on-surface-variant mb-1">
+                  Today’s Bookings
+                </p>
+                <h3 class="font-headline-lg text-headline-lg text-primary">
+                  3
+                </h3>
+              </div>
+
+              <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">
+                  calendar_month
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-label-sm text-on-surface-variant mb-1">
+                  Pending Requests
+                </p>
+                <h3 class="font-headline-lg text-headline-lg text-primary">
+                  5
+                </h3>
+              </div>
+
+              <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary">
+                  pending_actions
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-label-sm text-on-surface-variant mb-1">
+                  Average Rating
+                </p>
+                <h3 class="font-headline-lg text-headline-lg text-primary">
+                  4.9
+                </h3>
+              </div>
+
+              <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+                <span
+                  class="material-symbols-outlined text-secondary"
+                  style="font-variation-settings: 'FILL' 1"
+                >
+                  star
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-label-sm text-on-surface-variant mb-1">
+                  Completion Rate
+                </p>
+                <h3 class="font-headline-lg text-headline-lg text-primary">
+                  98%
+                </h3>
+              </div>
+
+              <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">
+                  task_alt
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Dashboard Content -->
+      <section class="max-w-container-max mx-auto px-margin-desktop pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+          <!-- Left Content -->
+          <div class="lg:col-span-8 space-y-gutter">
+            <!-- Tour Packages -->
+            <section
+              class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-6"
+            >
+              <div class="flex flex-col md:flex-row justify-between gap-4 md:items-end mb-6">
+                <div>
+                  <span
+                    class="text-secondary font-label-sm text-label-sm uppercase tracking-widest"
+                  >
+                    Guide Management
+                  </span>
+                  <h2 class="font-headline-lg text-headline-lg text-primary mt-2">
+                    My Tour Packages
+                  </h2>
+                </div>
+
+                <button
+                  onclick="openCreateTourModal()"
+                  class="px-5 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all flex items-center gap-2"
+                >
+                  <span class="material-symbols-outlined">
+                    add
+                  </span>
+                  Add Package
+                </button>
+              </div>
+
+              <div class="space-y-4">
+                <!-- Package 1 -->
+                <div
+                  class="guide-card border border-outline-variant/40 rounded-2xl overflow-hidden bg-surface-container-low"
+                >
+                  <div class="grid grid-cols-1 md:grid-cols-12">
+                    <div class="md:col-span-4 relative min-h-[220px]">
+                      <img
+                        src="picture/melaka.jpg"
+                        alt="Melaka Heritage Walk"
+                        class="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <span
+                        class="absolute top-4 left-4 px-3 py-1 bg-primary text-white rounded-full text-label-sm font-label-sm"
+                      >
+                        Active
+                      </span>
+                    </div>
+
+                    <div class="md:col-span-8 p-5">
+                      <div class="flex flex-col md:flex-row md:justify-between gap-3 mb-3">
+                        <div>
+                          <p class="text-secondary text-label-sm font-label-sm uppercase tracking-wider mb-1">
+                            Heritage Tour
+                          </p>
+                          <h3 class="font-headline-md text-headline-md text-primary">
+                            Melaka Heritage Walk Session
+                          </h3>
+                        </div>
+
+                        <div class="text-left md:text-right">
+                          <p class="text-label-sm text-on-surface-variant">
+                            Price
+                          </p>
+                          <p class="font-headline-md text-headline-md text-secondary">
+                            RM 120
+                          </p>
+                        </div>
+                      </div>
+
+                      <p class="text-body-md text-on-surface-variant mb-5">
+                        A guided walk through Dutch Square, A Famosa, St. Paul
+                        Hill, and Jonker Street with local heritage storytelling.
+                      </p>
+
+                      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+                        <div class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-primary text-[20px]">
+                            schedule
+                          </span>
+                          <span class="text-label-sm text-on-surface-variant">
+                            4 Hours
+                          </span>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-primary text-[20px]">
+                            group
+                          </span>
+                          <span class="text-label-sm text-on-surface-variant">
+                            Max 10 pax
+                          </span>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-primary text-[20px]">
+                            language
+                          </span>
+                          <span class="text-label-sm text-on-surface-variant">
+                            BM / EN
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="flex flex-wrap gap-3">
+                        <button
+                          onclick="toggleTourDetails('tour-detail-1')"
+                          class="px-4 py-2 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all"
+                        >
+                          View Details
+                        </button>
+
+                        <button
+                          onclick="openEditTourModal()"
+                          class="px-4 py-2 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all"
+                        >
+                          Edit
+                        </button>
+
+                        <button
+                          onclick="pausePackage(this)"
+                          class="px-4 py-2 border border-secondary text-secondary rounded-xl font-label-md text-label-md hover:bg-secondary-fixed transition-all"
+                        >
+                          Pause
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    id="tour-detail-1"
+                    class="hidden border-t border-outline-variant/40 p-5 bg-white"
+                  >
+                    <h4 class="font-headline-md text-headline-md text-primary mb-3">
+                      Package Details
+                    </h4>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">
+                          Meeting Point
+                        </p>
+                        <p class="text-label-sm text-on-surface-variant">
+                          Dutch Square, Melaka
+                        </p>
+                      </div>
+
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">
+                          Included
+                        </p>
+                        <p class="text-label-sm text-on-surface-variant">
+                          Guided walk, storytelling, local food stop
+                        </p>
+                      </div>
+
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">
+                          Cancellation
+                        </p>
+                        <p class="text-label-sm text-on-surface-variant">
+                          Free cancellation 24 hours before tour
+                        </p>
+                      </div>
+
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">
+                          Next Available Slot
+                        </p>
+                        <p class="text-label-sm text-on-surface-variant">
+                          18 June 2026, 9:00 AM
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div
+                  class="guide-card border border-outline-variant/40 rounded-2xl overflow-hidden bg-surface-container-low"
+                >
+                  <div class="grid grid-cols-1 md:grid-cols-12">
+                    <div class="md:col-span-4 relative min-h-[220px]">
+                      <img
+                        src="picture/chickenrice.jpg"
+                        alt="Melaka Food Tour"
+                        class="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <span
+                        class="absolute top-4 left-4 px-3 py-1 bg-secondary-container text-white rounded-full text-label-sm font-label-sm"
+                      >
+                        Popular
+                      </span>
+                    </div>
+
+                    <div class="md:col-span-8 p-5">
+                      <div class="flex flex-col md:flex-row md:justify-between gap-3 mb-3">
+                        <div>
+                          <p class="text-secondary text-label-sm font-label-sm uppercase tracking-wider mb-1">
+                            Food Experience
+                          </p>
+                          <h3 class="font-headline-md text-headline-md text-primary">
+                            Melaka Local Food Trail
+                          </h3>
+                        </div>
+
+                        <div class="text-left md:text-right">
+                          <p class="text-label-sm text-on-surface-variant">
+                            Price
+                          </p>
+                          <p class="font-headline-md text-headline-md text-secondary">
+                            RM 95
+                          </p>
+                        </div>
+                      </div>
+
+                      <p class="text-body-md text-on-surface-variant mb-5">
+                        Introduce travellers to chicken rice balls, cendol,
+                        nyonya kuih, and hidden local eateries around Jonker.
+                      </p>
+
+                      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+                        <div class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-primary text-[20px]">
+                            schedule
+                          </span>
+                          <span class="text-label-sm text-on-surface-variant">
+                            3 Hours
+                          </span>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-primary text-[20px]">
+                            restaurant
+                          </span>
+                          <span class="text-label-sm text-on-surface-variant">
+                            Food stops
+                          </span>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                          <span class="material-symbols-outlined text-primary text-[20px]">
+                            group
+                          </span>
+                          <span class="text-label-sm text-on-surface-variant">
+                            Max 8 pax
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="flex flex-wrap gap-3">
+                        <button
+                          class="px-4 py-2 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all"
+                        >
+                          View Details
+                        </button>
+
+                        <button
+                          onclick="openEditTourModal()"
+                          class="px-4 py-2 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all"
+                        >
+                          Edit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Assigned Bookings -->
+            <section
+              id="bookings"
+              class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-6"
+            >
+              <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                <div>
+                  <span
+                    class="text-secondary font-label-sm text-label-sm uppercase tracking-widest"
+                  >
+                    Traveller Schedule
+                  </span>
+                  <h2 class="font-headline-lg text-headline-lg text-primary mt-2">
+                    Assigned Bookings
+                  </h2>
+                </div>
+
+                <div class="flex gap-2">
+                  <button
+                    onclick="filterBookings('all', this)"
+                    class="booking-tab tab-active px-4 py-2 rounded-full font-label-sm text-label-sm"
+                  >
+                    All
+                  </button>
+
+                  <button
+                    onclick="filterBookings('today', this)"
+                    class="booking-tab px-4 py-2 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface-variant"
+                  >
+                    Today
+                  </button>
+
+                  <button
+                    onclick="filterBookings('pending', this)"
+                    class="booking-tab px-4 py-2 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface-variant"
+                  >
+                    Pending
+                  </button>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div
+                  class="booking-item flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40"
+                  data-status="today"
+                >
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center"
+                    >
+                      <span class="material-symbols-outlined">
+                        person
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 class="font-label-md text-label-md text-primary">
+                        Muhammad Amirul
+                      </h3>
+                      <p class="text-label-sm text-on-surface-variant">
+                        Melaka Heritage Walk • 2 pax • 9:00 AM
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-2">
+                    <button
+                      onclick="window.location.href='aiAssistant.html'"
+                      class="px-4 py-2 bg-primary text-white rounded-xl text-label-sm font-label-sm"
+                    >
+                      Message
+                    </button>
+
+                    <button
+                      onclick="markComplete(this)"
+                      class="px-4 py-2 border border-primary text-primary rounded-xl text-label-sm font-label-sm hover:bg-primary-fixed"
+                    >
+                      Complete
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  class="booking-item flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40"
+                  data-status="pending"
+                >
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-secondary-container text-white flex items-center justify-center"
+                    >
+                      <span class="material-symbols-outlined">
+                        person
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 class="font-label-md text-label-md text-primary">
+                        Nur Aisyah
+                      </h3>
+                      <p class="text-label-sm text-on-surface-variant">
+                        Melaka Food Trail • 4 pax • Pending confirmation
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-2">
+                    <button
+                      onclick="acceptBooking(this)"
+                      class="px-4 py-2 bg-primary text-white rounded-xl text-label-sm font-label-sm"
+                    >
+                      Accept
+                    </button>
+
+                    <button
+                      onclick="declineBooking(this)"
+                      class="px-4 py-2 border border-error text-error rounded-xl text-label-sm font-label-sm hover:bg-error-container"
+                    >
+                      Decline
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Right Sidebar -->
+          <aside class="lg:col-span-4 space-y-gutter">
+            <!-- Guide Profile -->
+            <section
+              id="guide-profile"
+              class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-6"
+            >
+              <div class="flex items-center gap-4 mb-6">
+                <img
+                  src="picture/random.jpg"
+                  alt="Guide Profile"
+                  class="w-16 h-16 rounded-full object-cover border-4 border-primary-fixed"
+                />
+
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-primary">
+                    Guide Profile
+                  </h3>
+                  <p class="text-label-sm text-on-surface-variant">
+                    Public information shown to travellers
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <p class="text-label-sm text-on-surface-variant mb-1">
+                    Guide Name
+                  </p>
+                  <p class="font-label-md text-label-md">
+                    Ariff Rahman
+                  </p>
+                </div>
+
+                <div>
+                  <p class="text-label-sm text-on-surface-variant mb-1">
+                    Expertise
+                  </p>
+                  <p class="font-label-md text-label-md">
+                    Heritage, Food, Culture
+                  </p>
+                </div>
+
+                <div>
+                  <p class="text-label-sm text-on-surface-variant mb-1">
+                    Languages
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary-fixed text-primary rounded-full text-label-sm font-label-sm">
+                      English
+                    </span>
+                    <span class="px-3 py-1 bg-primary-fixed text-primary rounded-full text-label-sm font-label-sm">
+                      Bahasa Melayu
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="text-label-sm text-on-surface-variant mb-1">
+                    Verification
+                  </p>
+                  <div class="flex items-center gap-2 text-primary">
+                    <span class="material-symbols-outlined">
+                      verified
+                    </span>
+                    <span class="font-label-md text-label-md">
+                      Licensed & Verified
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onclick="openEditProfileModal()"
+                class="w-full h-12 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all mt-6"
+              >
+                Edit Profile
+              </button>
+            </section>
+
+            <!-- Availability -->
+            <section
+              class="bg-primary text-white rounded-3xl shadow-xl p-6"
+            >
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="font-headline-md text-headline-md">
+                  Availability
+                </h3>
+                <span class="material-symbols-outlined">
+                  event_available
+                </span>
+              </div>
+
+              <div class="space-y-4">
+                <label class="flex items-center justify-between gap-4">
+                  <span class="font-label-md text-label-md">Monday</span>
+                  <input checked type="checkbox" class="rounded text-secondary-container focus:ring-secondary-container" />
+                </label>
+
+                <label class="flex items-center justify-between gap-4">
+                  <span class="font-label-md text-label-md">Tuesday</span>
+                  <input checked type="checkbox" class="rounded text-secondary-container focus:ring-secondary-container" />
+                </label>
+
+                <label class="flex items-center justify-between gap-4">
+                  <span class="font-label-md text-label-md">Wednesday</span>
+                  <input checked type="checkbox" class="rounded text-secondary-container focus:ring-secondary-container" />
+                </label>
+
+                <label class="flex items-center justify-between gap-4">
+                  <span class="font-label-md text-label-md">Thursday</span>
+                  <input type="checkbox" class="rounded text-secondary-container focus:ring-secondary-container" />
+                </label>
+
+                <label class="flex items-center justify-between gap-4">
+                  <span class="font-label-md text-label-md">Friday</span>
+                  <input checked type="checkbox" class="rounded text-secondary-container focus:ring-secondary-container" />
+                </label>
+
+                <label class="flex items-center justify-between gap-4">
+                  <span class="font-label-md text-label-md">Weekend</span>
+                  <input checked type="checkbox" class="rounded text-secondary-container focus:ring-secondary-container" />
+                </label>
+              </div>
+
+              <button
+                onclick="saveAvailability()"
+                class="w-full h-12 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all mt-6"
+              >
+                Save Availability
+              </button>
+            </section>
+
+            <!-- Earnings -->
+            <section
+              id="earnings"
+              class="bg-white rounded-3xl border border-outline-variant/40 shadow-sm p-6"
+            >
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-primary">
+                    Earnings
+                  </h3>
+                  <p class="text-label-sm text-on-surface-variant">
+                    Monthly guide income
+                  </p>
+                </div>
+
+                <span class="material-symbols-outlined text-primary">
+                  payments
+                </span>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex justify-between">
+                  <span class="text-on-surface-variant">Completed Tours</span>
+                  <span class="font-bold text-primary">RM 3,240</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <span class="text-on-surface-variant">Pending Payout</span>
+                  <span class="font-bold text-primary">RM 680</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <span class="text-on-surface-variant">Platform Fee</span>
+                  <span class="font-bold text-secondary">- RM 320</span>
+                </div>
+
+                <div class="h-px bg-outline-variant/40"></div>
+
+                <div class="flex justify-between">
+                  <span class="font-bold text-primary">Total Balance</span>
+                  <span class="font-bold text-secondary text-xl">RM 3,600</span>
+                </div>
+              </div>
+
+              <button
+                onclick="alert('Payout request submitted successfully.')"
+                class="w-full h-12 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all mt-6"
+              >
+                Request Payout
+              </button>
+            </section>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- Create / Edit Tour Modal -->
+    <div
+      id="tourModal"
+      class="hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+    >
+      <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-6">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <h3
+              id="tourModalTitle"
+              class="font-headline-md text-headline-md text-primary"
+            >
+              Create Tour Package
+            </h3>
+            <p class="text-on-surface-variant text-label-md">
+              Add tour details for travellers to book.
+            </p>
+          </div>
+
+          <button
+            onclick="closeTourModal()"
+            class="w-10 h-10 rounded-full hover:bg-surface-container transition-colors"
+          >
+            <span class="material-symbols-outlined">
+              close
+            </span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              Tour Title
+            </label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+              type="text"
+              placeholder="Example: Melaka Heritage Walk"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              Category
+            </label>
+            <select
+              class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+            >
+              <option>Heritage</option>
+              <option>Food</option>
+              <option>Nature</option>
+              <option>Culture</option>
+              <option>Adventure</option>
+            </select>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              Price Per Person
+            </label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+              type="number"
+              placeholder="120"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              Maximum Guests
+            </label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+              type="number"
+              placeholder="10"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              Duration
+            </label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+              type="text"
+              placeholder="4 Hours"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              Meeting Point
+            </label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+              type="text"
+              placeholder="Dutch Square, Melaka"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-1.5 mt-4">
+          <label class="font-label-sm text-on-surface-variant">
+            Tour Description
+          </label>
+          <textarea
+            class="w-full min-h-28 px-4 py-3 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+            placeholder="Describe the tour experience..."
+          ></textarea>
+        </div>
+
+        <button
+          onclick="saveTourPackage()"
+          class="w-full h-12 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all mt-6"
+        >
+          Save Tour Package
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div
+      id="profileModal"
+      class="hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+    >
+      <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <h3 class="font-headline-md text-headline-md text-primary">
+              Edit Guide Profile
+            </h3>
+            <p class="text-on-surface-variant text-label-md">
+              Update your public guide information.
+            </p>
+          </div>
+
+          <button
+            onclick="closeEditProfileModal()"
+            class="w-10 h-10 rounded-full hover:bg-surface-container transition-colors"
+          >
+            <span class="material-symbols-outlined">
+              close
+            </span>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              Guide Name
+            </label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+              type="text"
+              value="Ariff Rahman"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              Expertise
+            </label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+              type="text"
+              value="Heritage, Food, Culture"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-label-sm text-on-surface-variant">
+              About Guide
+            </label>
+            <textarea
+              class="w-full min-h-28 px-4 py-3 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary"
+            >I am a local Melaka guide who enjoys sharing heritage stories, hidden food spots, and cultural history with travellers.</textarea>
+          </div>
+        </div>
+
+        <button
+          onclick="closeEditProfileModal(); alert('Guide profile updated successfully.')"
+          class="w-full h-12 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all mt-6"
+        >
+          Save Profile
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function toggleProfileMenu() {
+        const menu = document.getElementById("profileMenu");
+        menu.classList.toggle("hidden");
+      }
+
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("profileMenu");
+        const profileArea = event.target.closest(".relative");
+
+        if (!profileArea && menu && !menu.classList.contains("hidden")) {
+          menu.classList.add("hidden");
+        }
+      });
+
+      function logoutUser() {
+        const confirmLogout = confirm("Are you sure you want to log out?");
+
+        if (confirmLogout) {
+          alert("You have successfully logged out.");
+          window.location.href = "landingpage.html";
+        }
+      }
+
+      function openCreateTourModal() {
+        document.getElementById("tourModalTitle").innerText =
+          "Create Tour Package";
+        document.getElementById("tourModal").classList.remove("hidden");
+      }
+
+      function openEditTourModal() {
+        document.getElementById("tourModalTitle").innerText =
+          "Edit Tour Package";
+        document.getElementById("tourModal").classList.remove("hidden");
+      }
+
+      function closeTourModal() {
+        document.getElementById("tourModal").classList.add("hidden");
+      }
+
+      function saveTourPackage() {
+        closeTourModal();
+        alert("Tour package saved successfully.");
+      }
+
+      function openEditProfileModal() {
+        document.getElementById("profileModal").classList.remove("hidden");
+      }
+
+      function closeEditProfileModal() {
+        document.getElementById("profileModal").classList.add("hidden");
+      }
+
+      function toggleTourDetails(id) {
+        document.getElementById(id).classList.toggle("hidden");
+      }
+
+      function pausePackage(button) {
+        if (button.innerText.trim() === "Pause") {
+          button.innerText = "Resume";
+          alert("Tour package paused.");
+        } else {
+          button.innerText = "Pause";
+          alert("Tour package resumed.");
+        }
+      }
+
+      function filterBookings(status, button) {
+        document.querySelectorAll(".booking-tab").forEach((tab) => {
+          tab.classList.remove("tab-active");
+          tab.classList.add("bg-surface-container", "text-on-surface-variant");
+        });
+
+        button.classList.add("tab-active");
+        button.classList.remove("bg-surface-container", "text-on-surface-variant");
+
+        document.querySelectorAll(".booking-item").forEach((item) => {
+          if (status === "all" || item.dataset.status === status) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+        });
+      }
+
+      function acceptBooking(button) {
+        const card = button.closest(".booking-item");
+        card.dataset.status = "today";
+
+        const description = card.querySelector("p");
+        description.innerText =
+          "Melaka Food Trail • 4 pax • Confirmed for next session";
+
+        button.parentElement.innerHTML = `
+          <button
+            onclick="window.location.href='aiAssistant.html'"
+            class="px-4 py-2 bg-primary text-white rounded-xl text-label-sm font-label-sm"
+          >
+            Message
+          </button>
+
+          <button
+            onclick="markComplete(this)"
+            class="px-4 py-2 border border-primary text-primary rounded-xl text-label-sm font-label-sm hover:bg-primary-fixed"
+          >
+            Complete
+          </button>
+        `;
+
+        alert("Booking accepted.");
+      }
+
+      function declineBooking(button) {
+        const card = button.closest(".booking-item");
+        card.remove();
+        alert("Booking declined.");
+      }
+
+      function markComplete(button) {
+        const card = button.closest(".booking-item");
+        card.classList.add("opacity-60");
+        button.parentElement.innerHTML = `
+          <span class="px-4 py-2 bg-primary-fixed text-primary rounded-xl text-label-sm font-label-sm">
+            Completed
+          </span>
+        `;
+      }
+
+      function saveAvailability() {
+        alert("Availability updated successfully.");
+      }
+    </script>
+  </body>
+</html>
