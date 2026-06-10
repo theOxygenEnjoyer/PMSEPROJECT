@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html class="light" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -7,600 +6,179 @@
     <title>Earnings & Payouts | Jom Teroka</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(224, 224, 224, 0.5);
-      }
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 4px;
-        height: 4px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #c0c9bf;
-        border-radius: 10px;
-      }
-    </style>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-primary-container": "#91d2a7",
-              "on-secondary": "#ffffff",
-              "primary-container": "#1a5c3a",
-              "on-secondary-fixed-variant": "#7d2d00",
-              "on-primary-fixed": "#002110",
-              "outline-variant": "#c0c9bf",
-              "on-tertiary-fixed-variant": "#474744",
-              "on-surface-variant": "#404942",
-              "error-container": "#ffdad6",
-              "surface-tint": "#2a6a47",
-              "surface-container-highest": "#dde4e6",
-              background: "#f4fafd",
-              "on-tertiary-container": "#c5c4c0",
-              "on-surface": "#161d1f",
-              error: "#ba1a1a",
-              "tertiary-container": "#51514e",
-              "secondary-fixed": "#ffdbcd",
-              "secondary-container": "#fd712a",
-              "on-secondary-fixed": "#360f00",
-              tertiary: "#3a3a38",
-              "primary-fixed": "#aff2c4",
-              "on-primary-fixed-variant": "#0b5131",
-              primary: "#004326",
-              "surface-dim": "#d4dbdd",
-              "surface-bright": "#f4fafd",
-              "on-tertiary": "#ffffff",
-              "tertiary-fixed": "#e4e2de",
-              outline: "#707971",
-              "on-secondary-container": "#5c1f00",
-              "on-primary": "#ffffff",
-              "secondary-fixed-dim": "#ffb596",
-              "tertiary-fixed-dim": "#c8c6c3",
-              "surface-container-high": "#e2e9ec",
-              "inverse-on-surface": "#ebf2f4",
-              "surface-variant": "#dde4e6",
-              "surface-container-lowest": "#ffffff",
-              "on-background": "#161d1f",
-              "primary-fixed-dim": "#93d5aa",
-              "surface-container-low": "#eef5f7",
-              secondary: "#a43e00",
-              "on-error-container": "#93000a",
-              "surface-container": "#e8eff1",
-              surface: "#f4fafd",
-              "on-tertiary-fixed": "#1b1c1a",
-              "inverse-surface": "#2b3234",
-              "inverse-primary": "#93d5aa",
-              "on-error": "#ffffff",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "container-max": "1280px",
-              "margin-mobile": "16px",
-              "margin-desktop": "40px",
-              gutter: "24px",
-              base: "8px",
-            },
-            fontFamily: {
-              "headline-md": ["Plus Jakarta Sans"],
-              "headline-lg": ["Plus Jakarta Sans"],
-              "label-md": ["Inter"],
-              "display-lg": ["Plus Jakarta Sans"],
-              "label-sm": ["Inter"],
-              "body-md": ["Inter"],
-              "body-lg": ["Inter"],
-            },
-            fontSize: {
-              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
-              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
-              "label-md": [
-                "14px",
-                {
-                  lineHeight: "1.4",
-                  letterSpacing: "0.01em",
-                  fontWeight: "600",
-                },
-              ],
-              "display-lg": [
-                "48px",
-                {
-                  lineHeight: "1.1",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
-              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
-              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
-            },
-          },
-        },
-      };
-    </script>
   </head>
-  <body class="bg-background text-on-surface font-body-md min-h-screen flex">
-    <!-- SideNavBar (Predicted Component) -->
-    <aside
-      class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant py-6 z-50"
+  <body
+    class="bg-background text-on-surface font-body-md flex flex-col min-h-screen"
+  >
+    <nav
+      class="bg-white border-b border-outline-variant/30 h-20 flex items-center shadow-sm shrink-0 z-30"
     >
-      <div class="px-6 mb-10">
-        <h1
-          class="font-headline-md text-headline-md text-primary tracking-tight"
-        >
-          Jom Teroka
-        </h1>
-        <div class="mt-8 flex items-center gap-3">
-          <div
-            class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container"
-          >
-            <span class="material-symbols-outlined">person</span>
-          </div>
-          <div>
-            <p class="font-label-md text-on-surface">Guide Dashboard</p>
-            <p class="text-xs text-on-surface-variant">
-              Manage your experiences
-            </p>
-          </div>
-        </div>
-      </div>
-      <nav class="flex-grow space-y-1">
-        <a
-          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all rounded-xl"
-          href="#"
-        >
-          <span class="material-symbols-outlined">dashboard</span>
-          <span class="font-label-md">Overview</span>
-        </a>
-        <a
-          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all rounded-xl"
-          href="#"
-        >
-          <span class="material-symbols-outlined" data-weight="fill">map</span>
-          <span class="font-label-md">My Tours</span>
-        </a>
-        <a
-          class="flex items-center gap-3 bg-primary-container text-on-primary-container rounded-xl px-4 py-3 mx-2 translate-x-1 duration-200"
-          href="#"
-        >
-          <span class="material-symbols-outlined">payments</span>
-          <span class="font-label-md">Earnings</span>
-        </a>
-        <a
-          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all rounded-xl"
-          href="#"
-        >
-          <span class="material-symbols-outlined">star</span>
-          <span class="font-label-md">Reviews</span>
-        </a>
-        <a
-          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all rounded-xl"
-          href="#"
-        >
-          <span class="material-symbols-outlined">settings</span>
-          <span class="font-label-md">Settings</span>
-        </a>
-      </nav>
-      <div class="px-4 mt-auto">
-        <button
-          class="w-full py-3 bg-secondary text-on-secondary rounded-xl font-label-md flex items-center justify-center gap-2 hover:brightness-110 transition-all shadow-md"
-        >
-          <span class="material-symbols-outlined">add</span>
-          Add New Tour
-        </button>
-        <div class="mt-6 border-t border-outline-variant pt-4">
-          <a
-            class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:text-primary transition-colors"
-            href="#"
-          >
-            <span class="material-symbols-outlined">help</span>
-            <span class="font-label-sm">Help Center</span>
-          </a>
-        </div>
-      </div>
-    </aside>
-    <!-- Main Canvas -->
-    <main
-      class="flex-grow md:ml-64 p-margin-mobile md:p-margin-desktop bg-surface-bright"
-    >
-      <!-- Header -->
-      <header
-        class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4"
+      <div
+        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto"
       >
-        <div>
-          <h2 class="font-headline-lg text-headline-lg text-on-surface">
+        <div class="flex items-center gap-4">
+          <a
+            href="guideDashboard.html"
+            class="material-symbols-outlined text-primary p-2 hover:bg-gray-100 rounded-full"
+            >arrow_back</a
+          >
+          <h1 class="text-xl font-display font-bold text-primary">
             Earnings & Payouts
+          </h1>
+        </div>
+        <button
+          onclick="toggleLanguage()"
+          class="lang-switcher-btn font-bold text-primary px-4 py-2 border border-primary rounded-xl hover:bg-primary/5"
+        >
+          EN | BM
+        </button>
+      </div>
+    </nav>
+
+    <main
+      class="flex-1 max-w-4xl w-full mx-auto px-margin-desktop py-12 space-y-6"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+          class="bg-white border border-outline-variant/40 rounded-2xl p-6 shadow-sm"
+        >
+          <p
+            class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-1"
+          >
+            Withdrawable Balance
+          </p>
+          <h2 id="wallet-display-value" class="text-4xl font-bold text-primary">
+            RM 3,600
           </h2>
-          <p class="text-on-surface-variant">
-            Track your revenue and manage your bank withdrawals.
-          </p>
         </div>
-        <div class="flex gap-3">
-          <button
-            class="flex items-center gap-2 px-4 py-2 border border-outline text-on-surface rounded-lg font-label-md hover:bg-surface-container transition-colors"
-          >
-            <span class="material-symbols-outlined">file_download</span>
-            Export CSV
-          </button>
-          <button
-            class="flex items-center gap-2 px-4 py-2 border border-outline text-on-surface rounded-lg font-label-md hover:bg-surface-container transition-colors"
-          >
-            <span class="material-symbols-outlined">picture_as_pdf</span>
-            Statement
-          </button>
-        </div>
-      </header>
-      <!-- Summary Cards Grid -->
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-12">
-        <!-- This Month -->
         <div
-          class="glass-card p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+          class="bg-white border border-outline-variant/40 rounded-2xl p-6 shadow-sm"
         >
-          <div class="flex justify-between items-start mb-4">
-            <div class="p-2 bg-primary-container rounded-lg">
-              <span class="material-symbols-outlined text-on-primary-container"
-                >calendar_month</span
-              >
-            </div>
-            <span
-              class="text-xs font-bold text-primary bg-primary-fixed px-2 py-1 rounded-full"
-              >+12.5%</span
-            >
-          </div>
-          <p class="text-on-surface-variant font-label-md mb-1">
-            This Month's Earnings
-          </p>
-          <h3 class="font-headline-md text-headline-md text-on-surface">
-            MYR 3,240.00
-          </h3>
-        </div>
-        <!-- Lifetime -->
-        <div
-          class="glass-card p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div class="flex justify-between items-start mb-4">
-            <div class="p-2 bg-tertiary-container rounded-lg">
-              <span class="material-symbols-outlined text-tertiary-fixed"
-                >account_balance_wallet</span
-              >
-            </div>
-          </div>
-          <p class="text-on-surface-variant font-label-md mb-1">
-            Lifetime Earnings
-          </p>
-          <h3 class="font-headline-md text-headline-md text-on-surface">
-            MYR 12,450.00
-          </h3>
-        </div>
-        <!-- Pending Payout -->
-        <div
-          class="bg-primary text-on-primary p-6 rounded-2xl shadow-lg relative overflow-hidden group"
-        >
-          <div class="relative z-10">
-            <p class="text-on-primary/70 font-label-md mb-1">Pending Payout</p>
-            <h3 class="font-display-lg text-3xl font-bold mb-4">
-              MYR 1,280.40
-            </h3>
-            <button
-              class="w-full py-3 bg-secondary text-on-secondary rounded-xl font-label-md hover:scale-[1.02] active:scale-95 transition-all shadow-lg flex items-center justify-center gap-2"
-            >
-              Request Withdrawal
-              <span class="material-symbols-outlined text-sm"
-                >arrow_forward</span
-              >
-            </button>
-          </div>
-          <!-- Abstract Malaysian Pattern Overlay -->
-          <div
-            class="absolute -right-12 -bottom-12 opacity-10 group-hover:rotate-12 transition-transform duration-700 pointer-events-none"
+          <p
+            class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-1"
           >
-            <span class="material-symbols-outlined text-[160px]"
-              >filter_vintage</span
-            >
-          </div>
+            Pending Payouts
+          </p>
+          <h2
+            id="pending-display-value"
+            class="text-4xl font-bold text-on-surface-variant"
+          >
+            RM 680
+          </h2>
         </div>
-      </section>
-      <!-- Earnings Table Section -->
-      <section
-        class="glass-card rounded-2xl shadow-sm border border-outline-variant overflow-hidden mb-12"
+        <div
+          class="bg-white border border-outline-variant/40 rounded-2xl p-6 shadow-sm"
+        >
+          <p
+            class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-1"
+          >
+            Platform Fees Paid
+          </p>
+          <h2 class="text-4xl font-bold text-error">RM 320</h2>
+        </div>
+      </div>
+
+      <div
+        class="bg-white border border-outline-variant/40 rounded-3xl p-8 shadow-sm flex flex-col items-center text-center max-w-md mx-auto"
       >
         <div
-          class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-low"
+          class="w-16 h-16 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-4"
         >
-          <h4 class="font-headline-md text-headline-md text-on-surface">
-            Recent Transactions
-          </h4>
-          <div class="flex items-center gap-2 text-on-surface-variant">
-            <span class="material-symbols-outlined text-sm">filter_list</span>
-            <span class="font-label-sm">Filter</span>
-          </div>
-        </div>
-        <div class="overflow-x-auto custom-scrollbar">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="bg-surface-container-low/50">
-                <th
-                  class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs"
-                >
-                  ID
-                </th>
-                <th
-                  class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs"
-                >
-                  Tour Name
-                </th>
-                <th
-                  class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs"
-                >
-                  Date
-                </th>
-                <th
-                  class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs"
-                >
-                  Participants
-                </th>
-                <th
-                  class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs"
-                >
-                  Gross
-                </th>
-                <th
-                  class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs text-center"
-                >
-                  Fee (10%)
-                </th>
-                <th
-                  class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs"
-                >
-                  Earnings
-                </th>
-                <th
-                  class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs"
-                >
-                  Status
-                </th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-outline-variant">
-              <!-- Row 1 -->
-              <tr class="hover:bg-surface-container-high/30 transition-colors">
-                <td class="px-6 py-5 font-label-md text-on-surface">
-                  #TRX-8821
-                </td>
-                <td class="px-6 py-5">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0"
-                    >
-                      <img
-                        class="w-full h-full object-cover"
-                        data-alt="A cinematic, sun-drenched close-up of a historic colonial building in Melaka, Malaysia. The warm golden hour lighting highlights the rich red terracotta bricks and intricate architectural details. The atmosphere is nostalgic and inviting, capturing the cultural heritage of a tropical historical site in a modern travel platform style."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDBeliSjJyVL3DS2RvFl-FOBJ2bjtyTPJNiWDrc18D4JyUgeQIoUrAnZHRLXZLR695SYLgoTVZLG3qK3NGHtLKXT_fZ82BEgCq1BQAR1Zh5uFyiJUNJ5Ok5GSQbPUXN1SXlD2_p2s6tam_N1ZBYVfOj7F_uow4_Mq1f7HEeDo8DX8J7OiECitXUA2T4wUDVOFrSV5z_od8oaLKT_Gmh69gmTlBAxfZXDbe3bd8HsQcCZlnsqhJuph9nyNWKO7-XDGh7EG99QsCfDBk"
-                      />
-                    </div>
-                    <span class="font-label-md">Heritage Walk Melaka</span>
-                  </div>
-                </td>
-                <td class="px-6 py-5 text-on-surface-variant text-sm">
-                  Oct 24, 2024
-                </td>
-                <td class="px-6 py-5 text-on-surface-variant text-sm">4 Pax</td>
-                <td class="px-6 py-5 font-label-md">MYR 480.00</td>
-                <td class="px-6 py-5 text-error text-center">- MYR 48.00</td>
-                <td class="px-6 py-5 font-bold text-primary">MYR 432.00</td>
-                <td class="px-6 py-5">
-                  <span
-                    class="px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full text-xs font-bold flex items-center gap-1 w-fit"
-                  >
-                    <span class="material-symbols-outlined text-[14px]"
-                      >check_circle</span
-                    >
-                    Paid
-                  </span>
-                </td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="hover:bg-surface-container-high/30 transition-colors">
-                <td class="px-6 py-5 font-label-md text-on-surface">
-                  #TRX-8845
-                </td>
-                <td class="px-6 py-5">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0"
-                    >
-                      <img
-                        class="w-full h-full object-cover"
-                        data-alt="A lush, misty morning in the Mossy Forest of Cameron Highlands, Malaysia. The scene is dominated by vibrant green moss-covered ancient trees and ethereal fog rolling through the canopy. Soft, diffused natural light creates a serene and adventurous atmosphere, perfectly framed for a high-end eco-tourism interface."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuChr1nkYUOS335lDCTXbpEjoQv_KpBSVFO6eSoJWMaghTByDxVgpShNGnGq9UmjmVyMjhXI_dUwG2nm4W0wA7gs3xTU0810l00DW6MbeFZS1fgxMQAEa7V293kUWp4WK-ogyi89UwV3BCFMMrLViBWXP2EtzWM4QeW8vx_dwmXKDh2s3ub8OXh3Ocwf4mW_WLmKk86iZCAjGAlJODfHA4CjGLqGOrngl8wtkb0Ifi7HG3ztSirpIbKsLwqo9BaGWUKMUKIkz7LMNycO"
-                      />
-                    </div>
-                    <span class="font-label-md">Mossy Forest</span>
-                  </div>
-                </td>
-                <td class="px-6 py-5 text-on-surface-variant text-sm">
-                  Oct 26, 2024
-                </td>
-                <td class="px-6 py-5 text-on-surface-variant text-sm">2 Pax</td>
-                <td class="px-6 py-5 font-label-md">MYR 220.00</td>
-                <td class="px-6 py-5 text-error text-center">- MYR 22.00</td>
-                <td class="px-6 py-5 font-bold text-primary">MYR 198.00</td>
-                <td class="px-6 py-5">
-                  <span
-                    class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full text-xs font-bold flex items-center gap-1 w-fit"
-                  >
-                    <span class="material-symbols-outlined text-[14px]"
-                      >schedule</span
-                    >
-                    Pending
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div
-          class="p-4 bg-surface-container-low/30 border-t border-outline-variant flex justify-center"
-        >
-          <button
-            class="text-primary font-label-md hover:underline flex items-center gap-1"
+          <span class="material-symbols-outlined text-3xl"
+            >account_balance</span
           >
-            View All Activity
-            <span class="material-symbols-outlined">expand_more</span>
-          </button>
         </div>
-      </section>
-      <!-- Payout History Section -->
-      <section>
-        <h4 class="font-headline-md text-headline-md text-on-surface mb-4">
-          Payout History
-        </h4>
-        <div class="space-y-3">
-          <div
-            class="glass-card flex items-center justify-between p-4 rounded-xl"
-          >
-            <div class="flex items-center gap-4">
-              <div
-                class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant"
-              >
-                <span class="material-symbols-outlined">book</span>
-              </div>
-              <div>
-                <p class="font-label-md">Withdrawal to Maybank (**** 4291)</p>
-                <p class="text-xs text-on-surface-variant">
-                  Completed on Oct 15, 2024 • ID: PAY-2910
-                </p>
-              </div>
-            </div>
-            <div class="text-right">
-              <p class="font-bold text-on-surface">MYR 4,120.00</p>
-              <span
-                class="text-[10px] uppercase font-bold text-primary tracking-widest"
-                >SUCCESSFUL</span
-              >
-            </div>
-          </div>
-          <div
-            class="glass-card flex items-center justify-between p-4 rounded-xl"
-          >
-            <div class="flex items-center gap-4">
-              <div
-                class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant"
-              >
-                <span class="material-symbols-outlined">book</span>
-              </div>
-              <div>
-                <p class="font-label-md">Withdrawal to CIMB (**** 8820)</p>
-                <p class="text-xs text-on-surface-variant">
-                  Completed on Sep 30, 2024 • ID: PAY-2877
-                </p>
-              </div>
-            </div>
-            <div class="text-right">
-              <p class="font-bold text-on-surface">MYR 2,850.50</p>
-              <span
-                class="text-[10px] uppercase font-bold text-primary tracking-widest"
-                >SUCCESSFUL</span
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <!-- Footer (Predicted Component) -->
-    <footer
-      class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter bg-tertiary-fixed md:fixed md:bottom-0 md:left-64 md:right-0 md:max-w-none md:z-10 mt-auto md:mt-0"
-    >
-      <div class="space-y-4">
-        <h2 class="font-headline-md text-headline-md text-primary">
-          Jom Teroka
-        </h2>
-        <p class="font-body-md text-on-tertiary-fixed-variant max-w-xs">
-          © 2024 Jom Teroka. Malaysian Hospitality Redefined. Empowering local
-          guides through seamless financial tools.
+        <h3 class="font-headline-md font-bold text-primary mb-2">
+          Transfer to Bank Account
+        </h3>
+        <p class="text-sm text-on-surface-variant mb-6">
+          Disburse your available funds securely into your verified bank account
+          link instantly.
         </p>
+        <button
+          id="payoutDisbursementBtn"
+          onclick="executeWalletPayoutDisbursement()"
+          class="w-full h-12 bg-secondary text-white font-bold rounded-xl shadow-lg hover:bg-secondary-container transition-all active:scale-95"
+        >
+          Request Payout Withdrawal
+        </button>
       </div>
-      <div class="grid grid-cols-2 gap-12">
-        <div class="flex flex-col gap-2">
-          <p class="font-label-md text-on-tertiary-fixed mb-2">Company</p>
-          <a
-            class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm"
-            href="#"
-            >About Us</a
-          >
-          <a
-            class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm"
-            href="#"
-            >Contact</a
-          >
-        </div>
-        <div class="flex flex-col gap-2">
-          <p class="font-label-md text-on-tertiary-fixed mb-2">Legal</p>
-          <a
-            class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm"
-            href="#"
-            >Terms</a
-          >
-          <a
-            class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm"
-            href="#"
-            >Privacy</a
-          >
-        </div>
-      </div>
-    </footer>
+    </main>
+
     <script>
-      // Micro-interactions for withdrawal button
-      const withdrawBtn = document.querySelector("button.bg-secondary");
-      if (withdrawBtn) {
-        withdrawBtn.addEventListener("click", () => {
-          const originalText = withdrawBtn.innerHTML;
-          withdrawBtn.innerHTML =
-            '<span class="material-symbols-outlined animate-spin">sync</span> Processing...';
-          withdrawBtn.classList.add("opacity-80");
-
-          setTimeout(() => {
-            withdrawBtn.innerHTML =
-              '<span class="material-symbols-outlined">check</span> Success';
-            withdrawBtn.classList.remove("bg-secondary");
-            withdrawBtn.classList.add("bg-primary");
-
-            setTimeout(() => {
-              withdrawBtn.innerHTML = originalText;
-              withdrawBtn.classList.add("bg-secondary");
-              withdrawBtn.classList.remove("bg-primary", "opacity-80");
-            }, 2000);
-          }, 1500);
-        });
+      function toggleLanguage() {
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        let nextLang = currentLang === "en" ? "bm" : "en";
+        localStorage.setItem("selectedLang", nextLang);
+        location.reload();
       }
+
+      function executeWalletPayoutDisbursement() {
+        const currentBalance = Number(
+          localStorage.getItem("guideWalletBalance") || "3600",
+        );
+        if (currentBalance <= 0) {
+          alert(
+            "Your available withdrawable balance value context layer is empty!",
+          );
+          return;
+        }
+
+        const confirmWithdrawal = confirm(
+          `Confirm processing withdrawal payout disbursement tracking for RM ${currentBalance.toLocaleString()}?`,
+        );
+        if (!confirmWithdrawal) return;
+
+        const btn = document.getElementById("payoutDisbursementBtn");
+        btn.disabled = true;
+        btn.innerHTML = "Processing...";
+
+        setTimeout(() => {
+          // Telegraph updates back to database arrays variables context directly
+          localStorage.setItem("guideWalletBalance", "0");
+          document.getElementById("wallet-display-value").innerText = "RM 0";
+
+          // Shift metrics data properties directly matching assignment criteria logic specs loop elements summary parameters
+          document.getElementById("pending-display-value").innerText =
+            `RM ${(680 + currentBalance).toLocaleString()}`;
+
+          btn.innerHTML = "Success!";
+          btn.className =
+            "w-full h-12 bg-primary text-white font-bold rounded-xl shadow-lg cursor-not-allowed";
+          alert(
+            "Disbursement process initiated successfully! Balances shifted and synchronized cleanly across dashboard telemetry ports.",
+          );
+        }, 1200);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem("selectedLang") || "en";
+        document.querySelector(".lang-switcher-btn").innerText =
+          savedLang === "en" ? "EN | BM" : "BM | EN";
+
+        // Pull active wallet states from local cache dynamically upon initialization routines loop triggers safely
+        const currentBalance = Number(
+          localStorage.getItem("guideWalletBalance") || "3600",
+        );
+        document.getElementById("wallet-display-value").innerText =
+          `RM ${currentBalance.toLocaleString()}`;
+        if (currentBalance === 0) {
+          const btn = document.getElementById("payoutDisbursementBtn");
+          btn.disabled = true;
+          btn.innerHTML = "No Available Balance";
+          btn.className =
+            "w-full h-12 bg-gray-300 text-gray-500 font-bold rounded-xl cursor-not-allowed";
+          document.getElementById("pending-display-value").innerText =
+            "RM 4,280";
+        }
+      });
     </script>
   </body>
 </html>

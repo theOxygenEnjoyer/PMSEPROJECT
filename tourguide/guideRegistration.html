@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html class="light" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -14,538 +13,192 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-      .form-focus:focus {
-        outline: none;
-        border-color: #004326;
-        ring: 2px;
-        ring-color: #004326;
-      }
-    </style>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-primary-container": "#91d2a7",
-              "on-secondary": "#ffffff",
-              "primary-container": "#1a5c3a",
-              "on-secondary-fixed-variant": "#7d2d00",
-              "on-primary-fixed": "#002110",
-              "outline-variant": "#c0c9bf",
-              "on-tertiary-fixed-variant": "#474744",
-              "on-surface-variant": "#404942",
-              "error-container": "#ffdad6",
-              "surface-tint": "#2a6a47",
-              "surface-container-highest": "#dde4e6",
-              background: "#f4fafd",
-              "on-tertiary-container": "#c5c4c0",
-              "on-surface": "#161d1f",
-              error: "#ba1a1a",
-              "tertiary-container": "#51514e",
-              "secondary-fixed": "#ffdbcd",
-              "secondary-container": "#fd712a",
-              "on-secondary-fixed": "#360f00",
-              tertiary: "#3a3a38",
-              "primary-fixed": "#aff2c4",
-              "on-primary-fixed-variant": "#0b5131",
-              primary: "#004326",
-              "surface-dim": "#d4dbdd",
-              "surface-bright": "#f4fafd",
-              "on-tertiary": "#ffffff",
-              "tertiary-fixed": "#e4e2de",
-              outline: "#707971",
-              "on-secondary-container": "#5c1f00",
-              "on-primary": "#ffffff",
-              "secondary-fixed-dim": "#ffb596",
-              "tertiary-fixed-dim": "#c8c6c3",
-              "surface-container-high": "#e2e9ec",
-              "inverse-on-surface": "#ebf2f4",
-              "surface-variant": "#dde4e6",
-              "surface-container-lowest": "#ffffff",
-              "on-background": "#161d1f",
-              "primary-fixed-dim": "#93d5aa",
-              "surface-container-low": "#eef5f7",
-              secondary: "#a43e00",
-              "on-error-container": "#93000a",
-              "surface-container": "#e8eff1",
-              surface: "#f4fafd",
-              "on-tertiary-fixed": "#1b1c1a",
-              "inverse-surface": "#2b3234",
-              "inverse-primary": "#93d5aa",
-              "on-error": "#ffffff",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "container-max": "1280px",
-              "margin-mobile": "16px",
-              "margin-desktop": "40px",
-              gutter: "24px",
-              base: "8px",
-            },
-            fontFamily: {
-              "headline-md": ["Plus Jakarta Sans"],
-              "headline-lg": ["Plus Jakarta Sans"],
-              "label-md": ["Inter"],
-              "display-lg": ["Plus Jakarta Sans"],
-              "label-sm": ["Inter"],
-              "body-md": ["Inter"],
-              "body-lg": ["Inter"],
-            },
-            fontSize: {
-              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
-              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
-              "label-md": [
-                "14px",
-                {
-                  lineHeight: "1.4",
-                  letterSpacing: "0.01em",
-                  fontWeight: "600",
-                },
-              ],
-              "display-lg": [
-                "48px",
-                {
-                  lineHeight: "1.1",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
-              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
-              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
-            },
-          },
-        },
-      };
-    </script>
   </head>
   <body
-    class="bg-background font-body-md text-on-background min-h-screen flex flex-col"
+    class="bg-background text-on-surface font-body-md flex flex-col justify-between min-h-screen p-4 md:p-8"
   >
-    <!-- TopNavBar -->
-    <nav
-      class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center w-full"
+    <header
+      class="w-full max-w-6xl mx-auto flex justify-between items-center h-16 mb-6"
     >
-      <div
-        class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto"
+      <a
+        href="homepage.html"
+        class="text-headline-md font-headline-md font-bold text-primary"
+        data-i18n="brand"
+        >Jom Teroka</a
       >
-        <div class="flex items-center gap-8">
-          <span class="text-headline-md font-headline-md font-bold text-primary"
-            >Jom Teroka</span
-          >
-          <div class="hidden md:flex gap-6">
-            <a
-              class="text-on-surface-variant font-medium hover:text-primary transition-colors"
-              href="#"
-              >Discover</a
-            >
-            <a
-              class="text-on-surface-variant font-medium hover:text-primary transition-colors"
-              href="#"
-              >My Bookings</a
-            >
-            <a
-              class="text-on-surface-variant font-medium hover:text-primary transition-colors"
-              href="#"
-              >Dashboard</a
-            >
-            <a
-              class="text-on-surface-variant font-medium hover:text-primary transition-colors"
-              href="#"
-              >AI Helper</a
-            >
-          </div>
-        </div>
-        <div class="flex items-center gap-4">
-          <span class="font-label-md text-label-md text-on-surface-variant"
-            >EN | BM</span
-          >
-          <span class="font-label-md text-label-md text-on-surface-variant"
-            >MYR</span
-          >
-          <span
-            class="material-symbols-outlined text-primary text-2xl cursor-pointer"
-            data-icon="account_circle"
-            >account_circle</span
-          >
-        </div>
-      </div>
-    </nav>
+      <button
+        onclick="toggleLanguage()"
+        class="lang-switcher-btn text-primary font-bold border border-primary px-4 py-2 rounded-xl hover:bg-primary/5 transition-all"
+      >
+        EN | BM
+      </button>
+    </header>
+
     <main
-      class="flex-grow flex flex-col items-center pt-12 pb-24 px-margin-mobile md:px-margin-desktop"
+      class="w-full max-w-3xl bg-white rounded-3xl shadow-xl border border-outline-variant/30 p-8 md:p-12 mx-auto my-auto"
     >
-      <!-- Progress Indicator -->
-      <div class="w-full max-w-3xl mb-12">
-        <div class="flex justify-between items-center relative">
-          <!-- Line background -->
-          <div
-            class="absolute top-1/2 left-0 w-full h-1 bg-outline-variant -translate-y-1/2 z-0"
-          ></div>
-          <!-- Active Line -->
-          <div
-            class="absolute top-1/2 left-0 w-[25%] h-1 bg-primary -translate-y-1/2 z-0 transition-all duration-500"
-          ></div>
-          <!-- Step 1: Active -->
-          <div class="relative z-10 flex flex-col items-center gap-2">
-            <div
-              class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold shadow-lg ring-4 ring-background"
-            >
-              1
-            </div>
-            <span class="font-label-md text-label-md text-primary"
-              >Account Info</span
-            >
-          </div>
-          <!-- Step 2: Inactive -->
-          <div class="relative z-10 flex flex-col items-center gap-2">
-            <div
-              class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold ring-4 ring-background"
-            >
-              2
-            </div>
-            <span class="font-label-md text-label-md text-on-surface-variant"
-              >Guide Profile</span
-            >
-          </div>
-          <!-- Step 3: Inactive -->
-          <div class="relative z-10 flex flex-col items-center gap-2">
-            <div
-              class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold ring-4 ring-background"
-            >
-              3
-            </div>
-            <span class="font-label-md text-label-md text-on-surface-variant"
-              >Verification</span
-            >
-          </div>
-          <!-- Step 4: Inactive -->
-          <div class="relative z-10 flex flex-col items-center gap-2">
-            <div
-              class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold ring-4 ring-background"
-            >
-              4
-            </div>
-            <span class="font-label-md text-label-md text-on-surface-variant"
-              >Review</span
-            >
-          </div>
-        </div>
-      </div>
-      <div class="flex flex-col lg:flex-row gap-12 w-full max-w-6xl">
-        <!-- Left Side: Atmospheric Visual -->
-        <div class="hidden lg:flex flex-col justify-center w-1/3">
-          <div
-            class="rounded-3xl overflow-hidden relative h-[500px] shadow-2xl group"
-          >
-            <img
-              alt="Malaysian Rainforest"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              data-alt="A cinematic, sun-drenched wide shot of a lush Malaysian tropical rainforest canopy during golden hour. Warm, amber light filters through massive teak and fern trees, creating a soft, misty atmosphere that feels inviting and adventurous. The color palette is dominated by deep forest greens and vibrant oranges, reflecting the Jom Teroka brand identity and the rich natural heritage of Southeast Asia."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGsxeQ3P2IwkcG0TMKLsp4kgy8f0flB8tFMYHrZ5928WG29qf0wyPrAeLL7oca0TV3SlSd2VGaPnUlRogMG6EvNumJq0Z1JwPdTBp-Rbb7vmlra89hXs_3OGFRGmpk6kAhAjNNSwxv8t9skfMbs919chSPFshm5D6fXjya02lNN_47bRz8bZwzTgmBma95ldnAp33cfXiuXiAZOoduczvtKA91aldKl91BBj1JBVieYn1mjYZaZFfLJvBPgQyEQU7pVQ5_wtEOEfV8"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-8"
-            >
-              <h2 class="text-headline-lg text-white font-headline-lg mb-2">
-                Share the beauty of Malaysia
-              </h2>
-              <p class="text-body-md text-white/90">
-                Join our community of expert guides and showcase the hidden gems
-                of our homeland.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Right Side: Form Card -->
-        <div class="flex-1">
-          <div
-            class="bg-surface-container-lowest rounded-3xl p-8 md:p-12 shadow-xl border border-outline-variant/30 max-w-2xl mx-auto w-full"
-          >
-            <div class="flex items-center justify-between mb-8">
-              <h1 class="text-headline-lg font-headline-lg text-primary">
-                Create Your Guide Account
-              </h1>
-              <span
-                class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full font-label-md text-label-md"
-                >Tour Guide</span
-              >
-            </div>
-            <form class="space-y-6">
-              <!-- Full Name -->
-              <div class="space-y-2">
-                <label
-                  class="font-label-md text-label-md text-on-surface-variant block"
-                  >Full Name (As per MyKad)</label
-                >
-                <div class="relative">
-                  <span
-                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline"
-                    data-icon="person"
-                    >person</span
-                  >
-                  <input
-                    class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-md"
-                    placeholder="Ahmad Bin Ismail"
-                    type="text"
-                  />
-                </div>
-              </div>
-              <!-- Email -->
-              <div class="space-y-2">
-                <label
-                  class="font-label-md text-label-md text-on-surface-variant block"
-                  >Email Address</label
-                >
-                <div class="relative">
-                  <span
-                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline"
-                    data-icon="mail"
-                    >mail</span
-                  >
-                  <input
-                    class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-md"
-                    placeholder="example@jomteroka.my"
-                    type="email"
-                  />
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Phone Number -->
-                <div class="space-y-2">
-                  <label
-                    class="font-label-md text-label-md text-on-surface-variant block"
-                    >Phone Number</label
-                  >
-                  <div class="relative">
-                    <span
-                      class="absolute left-4 top-1/2 -translate-y-1/2 font-label-md text-label-md text-outline"
-                      >+60</span
-                    >
-                    <input
-                      class="w-full pl-14 pr-4 py-3.5 rounded-xl border border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-md"
-                      placeholder="12-345 6789"
-                      type="tel"
-                    />
-                  </div>
-                </div>
-                <!-- Dummy Col for Balance -->
-                <div class="hidden md:block"></div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Password -->
-                <div class="space-y-2">
-                  <label
-                    class="font-label-md text-label-md text-on-surface-variant block"
-                    >Password</label
-                  >
-                  <div class="relative">
-                    <span
-                      class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline"
-                      data-icon="lock"
-                      >lock</span
-                    >
-                    <input
-                      class="w-full pl-12 pr-12 py-3.5 rounded-xl border border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-md"
-                      placeholder="••••••••"
-                      type="password"
-                    />
-                    <span
-                      class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline cursor-pointer"
-                      data-icon="visibility"
-                      >visibility</span
-                    >
-                  </div>
-                </div>
-                <!-- Confirm Password -->
-                <div class="space-y-2">
-                  <label
-                    class="font-label-md text-label-md text-on-surface-variant block"
-                    >Confirm Password</label
-                  >
-                  <div class="relative">
-                    <span
-                      class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline"
-                      data-icon="lock_clock"
-                      >lock_clock</span
-                    >
-                    <input
-                      class="w-full pl-12 pr-12 py-3.5 rounded-xl border border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-md"
-                      placeholder="••••••••"
-                      type="password"
-                    />
-                  </div>
-                </div>
-              </div>
-              <!-- Terms -->
-              <div class="flex items-start gap-3 pt-2">
-                <input
-                  class="mt-1 w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary"
-                  id="terms"
-                  type="checkbox"
-                />
-                <label
-                  class="text-label-md text-on-surface-variant"
-                  for="terms"
-                >
-                  I agree to the
-                  <a class="text-primary font-bold hover:underline" href="#"
-                    >Terms of Service</a
-                  >
-                  and
-                  <a class="text-primary font-bold hover:underline" href="#"
-                    >Privacy Policy</a
-                  >. I certify that the information provided is accurate for
-                  registration.
-                </label>
-              </div>
-              <!-- Submit Button -->
-              <button
-                class="w-full bg-secondary hover:bg-secondary-container text-white py-4 px-6 rounded-2xl font-bold text-lg shadow-lg shadow-secondary/20 flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] active:scale-95 group"
-                type="button"
-              >
-                Continue to Guide Profile
-                <span
-                  class="material-symbols-outlined transition-transform group-hover:translate-x-1"
-                  data-icon="arrow_forward"
-                  >arrow_forward</span
-                >
-              </button>
-              <!-- Timeline Helper -->
-              <div
-                class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant/20 mt-4"
-              >
-                <div class="flex gap-4">
-                  <div
-                    class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0"
-                  >
-                    <span
-                      class="material-symbols-outlined text-green-700"
-                      data-icon="verified_user"
-                      style="font-variation-settings: &quot;FILL&quot; 1"
-                      >verified_user</span
-                    >
-                  </div>
-                  <div class="space-y-1">
-                    <p class="text-label-md font-bold text-on-surface">
-                      Verification Timeline
-                    </p>
-                    <p class="text-label-sm text-on-surface-variant">
-                      Profile reviews typically take 3-5 business days once all
-                      documentation is submitted.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </main>
-    <!-- Footer -->
-    <footer class="bg-tertiary-fixed dark:bg-tertiary-container mt-auto">
-      <div
-        class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
+      <h1
+        class="font-display-lg text-headline-lg md:text-display-lg text-primary mb-2"
+        data-i18n="regTitle"
       >
-        <div class="space-y-4">
-          <span class="font-headline-md text-headline-md text-primary"
-            >Jom Teroka</span
-          >
-          <p class="text-on-tertiary-fixed-variant font-body-md max-w-xs">
-            Malaysian Hospitality Redefined. Connecting explorers with authentic
-            local experiences.
-          </p>
-        </div>
-        <div class="grid grid-cols-2 gap-12">
-          <div class="flex flex-col gap-3">
-            <h4
-              class="font-label-md text-label-md text-on-tertiary-fixed uppercase tracking-wider"
+        Become a Verified Guide
+      </h1>
+      <p
+        class="text-on-surface-variant text-body-md mb-8"
+        data-i18n="regSubtitle"
+      >
+        Share local stories, preserve heritage, and earn doing what you love.
+      </p>
+
+      <form onsubmit="handleRegistration(event)" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label
+              class="font-label-sm text-on-surface-variant"
+              data-i18n="labelFullName"
+              >Full Name</label
             >
-              Company
-            </h4>
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors"
-              href="#"
-              >About Us</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors"
-              href="#"
-              >Contact</a
-            >
+            <input
+              type="text"
+              required
+              class="w-full h-12 px-4 rounded-xl border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary"
+              placeholder="e.g. Ariff Rahman"
+            />
           </div>
-          <div class="flex flex-col gap-3">
-            <h4
-              class="font-label-md text-label-md text-on-tertiary-fixed uppercase tracking-wider"
+          <div class="space-y-1.5">
+            <label
+              class="font-label-sm text-on-surface-variant"
+              data-i18n="labelEmail"
+              >Email Address</label
             >
-              Legal
-            </h4>
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors"
-              href="#"
-              >Terms</a
-            >
-            <a
-              class="text-on-tertiary-fixed-variant hover:text-primary transition-colors"
-              href="#"
-              >Privacy</a
-            >
+            <input
+              type="email"
+              required
+              class="w-full h-12 px-4 rounded-xl border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary"
+              placeholder="name@email.com"
+            />
           </div>
         </div>
-        <div
-          class="w-full md:w-auto pt-8 md:pt-0 border-t border-on-tertiary-fixed-variant/10 md:border-none flex flex-col items-end"
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label
+              class="font-label-sm text-on-surface-variant"
+              data-i18n="labelLicense"
+              >Motac License No.</label
+            >
+            <input
+              type="text"
+              required
+              class="w-full h-12 px-4 rounded-xl border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary"
+              placeholder="TG-XXXXX"
+            />
+          </div>
+          <div class="space-y-1.5">
+            <label
+              class="font-label-sm text-on-surface-variant"
+              data-i18n="labelCity"
+              >Base City</label
+            >
+            <input
+              type="text"
+              required
+              class="w-full h-12 px-4 rounded-xl border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary"
+              placeholder="e.g. Melaka"
+            />
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full h-12 bg-secondary-container hover:bg-secondary text-white font-headline-md rounded-xl shadow-md transition-all active:scale-98"
+          data-i18n="btnSubmit"
         >
-          <p class="text-label-sm text-on-tertiary-fixed-variant">
-            © 2024 Jom Teroka. Malaysian Hospitality Redefined.
-          </p>
-        </div>
+          Submit Application
+        </button>
+      </form>
+
+      <p class="text-center text-sm text-on-surface-variant mt-8">
+        <span data-i18n="hasAccount">Already have an account? </span>
+        <a
+          href="tourguidelogin.html"
+          class="text-primary font-bold hover:underline"
+          data-i18n="lnkLogin"
+          >Log In Here</a
+        >
+      </p>
+    </main>
+
+    <footer class="py-6 mt-12 border-t border-outline-variant/20">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center"
+      >
+        <p class="text-label-sm text-on-surface-variant">
+          © 2026 Jom Teroka. Malaysian Hospitality Redefined.
+        </p>
       </div>
     </footer>
-    <script>
-      // Simple micro-interaction for password toggle
-      document
-        .querySelector('[data-icon="visibility"]')
-        .addEventListener("click", function () {
-          const input = this.parentElement.querySelector("input");
-          if (input.type === "password") {
-            input.type = "text";
-            this.innerText = "visibility_off";
-          } else {
-            input.type = "password";
-            this.innerText = "visibility";
-          }
-        });
 
-      // Add focus effect class dynamically if needed
-      const inputs = document.querySelectorAll("input");
-      inputs.forEach((input) => {
-        input.addEventListener("focus", () => {
-          input.parentElement
-            .querySelector(".material-symbols-outlined")
-            .classList.add("text-primary");
+    <script>
+      function handleRegistration(event) {
+        event.preventDefault();
+        alert(
+          localStorage.getItem("selectedLang") === "bm"
+            ? "Pendaftaran Berjaya! Sila log masuk."
+            : "Registration Application Received! Redirecting to Login.",
+        );
+        window.location.href = "tourguidelogin.html";
+      }
+
+      const translations = {
+        en: {
+          brand: "Jom Teroka",
+          regTitle: "Become a Verified Guide",
+          regSubtitle:
+            "Share local stories, preserve heritage, and earn doing what you love.",
+          labelFullName: "Full Name",
+          labelEmail: "Email Address",
+          labelLicense: "Motac License No.",
+          labelCity: "Base City",
+          btnSubmit: "Submit Application",
+          hasAccount: "Already have an account? ",
+          lnkLogin: "Log In Here",
+        },
+        bm: {
+          brand: "Jom Teroka",
+          regTitle: "Menjadi Pemandu Pelancong Berlesen",
+          regSubtitle:
+            "Kongsi kisah tempatan, pelihara warisan, dan jana pendapatan melakukan perkara yang anda minati.",
+          labelFullName: "Nama Penuh",
+          labelEmail: "Alamat E-mel",
+          labelLicense: "No. Lesen MOTAC",
+          labelCity: "Bandar Operasi",
+          btnSubmit: "Hantar Permohonan",
+          hasAccount: "Sudah mempunyai akaun? ",
+          lnkLogin: "Log Masuk Di Sini",
+        },
+      };
+
+      function toggleLanguage() {
+        let currentLang = localStorage.getItem("selectedLang") || "en";
+        let nextLang = currentLang === "en" ? "bm" : "en";
+        localStorage.setItem("selectedLang", nextLang);
+        applyTranslations(nextLang);
+      }
+
+      function applyTranslations(lang) {
+        const t = translations[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t && t[key]) el.innerText = t[key];
         });
-        input.addEventListener("blur", () => {
-          input.parentElement
-            .querySelector(".material-symbols-outlined")
-            .classList.remove("text-primary");
-        });
+        document.querySelector(".lang-switcher-btn").innerText =
+          lang === "en" ? "EN | BM" : "BM | EN";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let savedLang = localStorage.getItem("selectedLang") || "en";
+        applyTranslations(savedLang);
       });
     </script>
   </body>
