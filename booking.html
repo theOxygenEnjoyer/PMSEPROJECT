@@ -140,8 +140,16 @@
 
       .hero-pattern {
         background:
-          radial-gradient(circle at top left, rgba(175, 242, 196, 0.45), transparent 35%),
-          radial-gradient(circle at bottom right, rgba(253, 113, 42, 0.18), transparent 35%),
+          radial-gradient(
+            circle at top left,
+            rgba(175, 242, 196, 0.45),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(253, 113, 42, 0.18),
+            transparent 35%
+          ),
           linear-gradient(135deg, #f4fafd 0%, #eef5f7 100%);
       }
 
@@ -223,8 +231,8 @@
               data-i18n="discover"
             >
               Discover
-            </a>            
-            
+            </a>
+
             <a
               class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
               href="landingpage.html"
@@ -239,6 +247,13 @@
               data-i18n="bookings"
             >
               My Bookings
+            </a>
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-md text-label-md"
+              href="tourguide.html"
+              data-i18n="tourGuideNav"
+            >
+              Tour Guide Portal
             </a>
 
             <a
@@ -275,7 +290,9 @@
                 account_circle
               </span>
 
-              <span class="hidden lg:block text-sm font-semibold text-on-surface-variant">
+              <span
+                class="hidden lg:block text-sm font-semibold text-on-surface-variant"
+              >
                 Amirul
               </span>
 
@@ -362,9 +379,7 @@
                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-primary transition-all"
                   data-i18n="menuExplore"
                 >
-                  <span class="material-symbols-outlined text-xl">
-                    map
-                  </span>
+                  <span class="material-symbols-outlined text-xl"> map </span>
                   Explore Map
                 </a>
 
@@ -408,17 +423,28 @@
               <div
                 class="inline-flex items-center gap-2 px-4 py-2 bg-primary-fixed text-primary rounded-full font-label-md text-label-md mb-5"
               >
-                <span class="material-symbols-outlined text-[18px]">travel_explore</span>
-                <span data-i18n="heroBadge">Manage your Malaysian experiences</span>
+                <span class="material-symbols-outlined text-[18px]"
+                  >travel_explore</span
+                >
+                <span data-i18n="heroBadge"
+                  >Manage your Malaysian experiences</span
+                >
               </div>
 
-              <h1 class="font-display-lg text-display-lg text-primary mb-4" data-i18n="heroTitle">
+              <h1
+                class="font-display-lg text-display-lg text-primary mb-4"
+                data-i18n="heroTitle"
+              >
                 My Bookings
               </h1>
 
-              <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl" data-i18n="heroDesc">
-                View your upcoming tours, check payment status, contact your local
-                guide, and manage your Jom Teroka travel plans in one place.
+              <p
+                class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl"
+                data-i18n="heroDesc"
+              >
+                View your upcoming tours, check payment status, contact your
+                local guide, and manage your Jom Teroka travel plans in one
+                place.
               </p>
             </div>
 
@@ -428,10 +454,16 @@
               >
                 <div class="flex items-start justify-between mb-5">
                   <div>
-                    <p class="text-label-sm font-label-sm text-on-surface-variant mb-1" data-i18n="nextTripLabel">
+                    <p
+                      class="text-label-sm font-label-sm text-on-surface-variant mb-1"
+                      data-i18n="nextTripLabel"
+                    >
                       Next Trip
                     </p>
-                    <h2 class="font-headline-md text-headline-md text-primary" data-i18n="nextTripTitle">
+                    <h2
+                      class="font-headline-md text-headline-md text-primary"
+                      data-i18n="nextTripTitle"
+                    >
                       Melaka Heritage Walk
                     </h2>
                   </div>
@@ -445,22 +477,42 @@
                 </div>
 
                 <div class="grid grid-cols-2 gap-4 mb-5">
-                  <div class="p-4 rounded-2xl bg-white border border-outline-variant/40">
+                  <div
+                    class="p-4 rounded-2xl bg-white border border-outline-variant/40"
+                  >
                     <span class="material-symbols-outlined text-primary mb-2">
                       calendar_month
                     </span>
-                    <p class="text-label-sm text-on-surface-variant" data-i18n="dateLabel">Date</p>
-                    <p class="font-label-md text-label-md text-on-surface" data-i18n="nextTripDate">
+                    <p
+                      class="text-label-sm text-on-surface-variant"
+                      data-i18n="dateLabel"
+                    >
+                      Date
+                    </p>
+                    <p
+                      class="font-label-md text-label-md text-on-surface"
+                      data-i18n="nextTripDate"
+                    >
                       18 June 2026
                     </p>
                   </div>
 
-                  <div class="p-4 rounded-2xl bg-white border border-outline-variant/40">
+                  <div
+                    class="p-4 rounded-2xl bg-white border border-outline-variant/40"
+                  >
                     <span class="material-symbols-outlined text-primary mb-2">
                       schedule
                     </span>
-                    <p class="text-label-sm text-on-surface-variant" data-i18n="timeLabel">Time</p>
-                    <p class="font-label-md text-label-md text-on-surface" data-i18n="nextTripTime">
+                    <p
+                      class="text-label-sm text-on-surface-variant"
+                      data-i18n="timeLabel"
+                    >
+                      Time
+                    </p>
+                    <p
+                      class="font-label-md text-label-md text-on-surface"
+                      data-i18n="nextTripTime"
+                    >
                       9:00 AM
                     </p>
                   </div>
@@ -482,15 +534,24 @@
 
       <section class="max-w-container-max mx-auto px-margin-desktop py-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
-          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+          <div
+            class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm"
+          >
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-label-sm text-on-surface-variant mb-1" data-i18n="statTotal">
+                <p
+                  class="text-label-sm text-on-surface-variant mb-1"
+                  data-i18n="statTotal"
+                >
                   Total Bookings
                 </p>
-                <h3 class="font-headline-lg text-headline-lg text-primary">4</h3>
+                <h3 class="font-headline-lg text-headline-lg text-primary">
+                  4
+                </h3>
               </div>
-              <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+              <div
+                class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center"
+              >
                 <span class="material-symbols-outlined text-primary">
                   confirmation_number
                 </span>
@@ -498,15 +559,24 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+          <div
+            class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm"
+          >
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-label-sm text-on-surface-variant mb-1" data-i18n="statActive">
+                <p
+                  class="text-label-sm text-on-surface-variant mb-1"
+                  data-i18n="statActive"
+                >
                   Active Tours
                 </p>
-                <h3 class="font-headline-lg text-headline-lg text-primary">2</h3>
+                <h3 class="font-headline-lg text-headline-lg text-primary">
+                  2
+                </h3>
               </div>
-              <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+              <div
+                class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center"
+              >
                 <span class="material-symbols-outlined text-primary">
                   hiking
                 </span>
@@ -514,15 +584,24 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+          <div
+            class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm"
+          >
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-label-sm text-on-surface-variant mb-1" data-i18n="statPending">
+                <p
+                  class="text-label-sm text-on-surface-variant mb-1"
+                  data-i18n="statPending"
+                >
                   Pending Payment
                 </p>
-                <h3 class="font-headline-lg text-headline-lg text-primary">1</h3>
+                <h3 class="font-headline-lg text-headline-lg text-primary">
+                  1
+                </h3>
               </div>
-              <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+              <div
+                class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center"
+              >
                 <span class="material-symbols-outlined text-secondary">
                   payments
                 </span>
@@ -530,15 +609,24 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm">
+          <div
+            class="bg-white rounded-2xl border border-outline-variant/40 p-5 shadow-sm"
+          >
             <div class="flex items-center justify-between">
               <div>
-                <p class="text-label-sm text-on-surface-variant mb-1" data-i18n="statCompleted">
+                <p
+                  class="text-label-sm text-on-surface-variant mb-1"
+                  data-i18n="statCompleted"
+                >
                   Completed
                 </p>
-                <h3 class="font-headline-lg text-headline-lg text-primary">1</h3>
+                <h3 class="font-headline-lg text-headline-lg text-primary">
+                  1
+                </h3>
               </div>
-              <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+              <div
+                class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center"
+              >
                 <span class="material-symbols-outlined text-primary">
                   task_alt
                 </span>
@@ -573,7 +661,7 @@
                 </div>
 
                 <button
-                  onclick="window.location.href='tourpage.html'"
+                  onclick="window.location.href = 'tourpage.html'"
                   class="h-12 px-6 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2"
                   data-i18n="newBookingBtn"
                 >
@@ -647,22 +735,39 @@
                 </div>
 
                 <div class="md:col-span-8 p-6">
-                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+                  <div
+                    class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5"
+                  >
                     <div>
-                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2" data-i18n="card1Badge">
+                      <p
+                        class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2"
+                        data-i18n="card1Badge"
+                      >
                         Heritage Tour
                       </p>
-                      <h2 class="font-headline-lg text-headline-lg text-primary mb-2" data-i18n="card1Title">
+                      <h2
+                        class="font-headline-lg text-headline-lg text-primary mb-2"
+                        data-i18n="card1Title"
+                      >
                         Melaka Heritage Walk Session
                       </h2>
-                      <p class="text-body-md text-on-surface-variant" data-i18n="card1Desc">
+                      <p
+                        class="text-body-md text-on-surface-variant"
+                        data-i18n="card1Desc"
+                      >
                         Explore Jonker Street, Dutch Square, A Famosa, and
-                        traditional Peranakan stories with a certified local guide.
+                        traditional Peranakan stories with a certified local
+                        guide.
                       </p>
                     </div>
 
                     <div class="text-left md:text-right">
-                      <p class="text-label-sm text-on-surface-variant" data-i18n="bookingIdLabel">Booking ID</p>
+                      <p
+                        class="text-label-sm text-on-surface-variant"
+                        data-i18n="bookingIdLabel"
+                      >
+                        Booking ID
+                      </p>
                       <p class="font-label-md text-label-md text-primary">
                         JT-MEL-24018
                       </p>
@@ -671,38 +776,77 @@
 
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary text-[20px]">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center"
+                      >
+                        <span
+                          class="material-symbols-outlined text-primary text-[20px]"
+                        >
                           calendar_month
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="dateLabel">Date</p>
-                        <p class="font-label-md text-label-md" data-i18n="nextTripDate">18 June 2026</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="dateLabel"
+                        >
+                          Date
+                        </p>
+                        <p
+                          class="font-label-md text-label-md"
+                          data-i18n="nextTripDate"
+                        >
+                          18 June 2026
+                        </p>
                       </div>
                     </div>
 
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary text-[20px]">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center"
+                      >
+                        <span
+                          class="material-symbols-outlined text-primary text-[20px]"
+                        >
                           schedule
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="timeLabel">Time</p>
-                        <p class="font-label-md text-label-md">9:00 AM - 1:00 PM</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="timeLabel"
+                        >
+                          Time
+                        </p>
+                        <p class="font-label-md text-label-md">
+                          9:00 AM - 1:00 PM
+                        </p>
                       </div>
                     </div>
 
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary text-[20px]">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center"
+                      >
+                        <span
+                          class="material-symbols-outlined text-primary text-[20px]"
+                        >
                           group
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="guestsLabel">Guests</p>
-                        <p class="font-label-md text-label-md" data-i18n="guestsCount1">2 Adults</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="guestsLabel"
+                        >
+                          Guests
+                        </p>
+                        <p
+                          class="font-label-md text-label-md"
+                          data-i18n="guestsCount1"
+                        >
+                          2 Adults
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -723,11 +867,14 @@
                         <div class="flex items-center gap-1 text-secondary">
                           <span
                             class="material-symbols-outlined text-[16px]"
-                            style="font-variation-settings: 'FILL' 1"
+                            style="font-variation-settings: &quot;FILL&quot; 1"
                           >
                             star
                           </span>
-                          <span class="text-label-sm font-label-sm" data-i18n="guideBadge">
+                          <span
+                            class="text-label-sm font-label-sm"
+                            data-i18n="guideBadge"
+                          >
                             4.9 • Licensed Guide
                           </span>
                         </div>
@@ -735,7 +882,7 @@
                     </div>
 
                     <button
-                      onclick="window.location.href='aiAssistant.html'"
+                      onclick="window.location.href = 'aiAssistant.html'"
                       class="px-4 py-2 rounded-xl border border-primary text-primary font-label-md text-label-md hover:bg-primary-fixed transition-all"
                       data-i18n="chatGuideBtn"
                     >
@@ -753,7 +900,7 @@
                     </button>
 
                     <button
-                      onclick="window.location.href='paymentinterface.html'"
+                      onclick="window.location.href = 'paymentinterface.html'"
                       class="px-5 py-3 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95"
                       data-i18n="btnReceipt"
                     >
@@ -775,19 +922,34 @@
                 id="details-melaka"
                 class="hidden border-t border-outline-variant/40 bg-surface-container-low p-6"
               >
-                <h3 class="font-headline-md text-headline-md text-primary mb-5" data-i18n="itineraryTitle">
+                <h3
+                  class="font-headline-md text-headline-md text-primary mb-5"
+                  data-i18n="itineraryTitle"
+                >
                   Tour Itinerary
                 </h3>
 
                 <div class="space-y-5">
                   <div class="relative flex gap-4">
                     <div class="timeline-line"></div>
-                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10">
-                      <span class="material-symbols-outlined text-[20px]">flag</span>
+                    <div
+                      class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >flag</span
+                      >
                     </div>
                     <div>
-                      <p class="font-label-md text-label-md" data-i18n="itin1Time">9:00 AM — Meet at Dutch Square</p>
-                      <p class="text-label-sm text-on-surface-variant" data-i18n="itin1Desc">
+                      <p
+                        class="font-label-md text-label-md"
+                        data-i18n="itin1Time"
+                      >
+                        9:00 AM — Meet at Dutch Square
+                      </p>
+                      <p
+                        class="text-label-sm text-on-surface-variant"
+                        data-i18n="itin1Desc"
+                      >
                         Meet your guide and receive a short safety briefing.
                       </p>
                     </div>
@@ -795,12 +957,24 @@
 
                   <div class="relative flex gap-4">
                     <div class="timeline-line"></div>
-                    <div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center z-10">
-                      <span class="material-symbols-outlined text-[20px]">museum</span>
+                    <div
+                      class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center z-10"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >museum</span
+                      >
                     </div>
                     <div>
-                      <p class="font-label-md text-label-md" data-i18n="itin2Time">10:00 AM — A Famosa & St. Paul Hill</p>
-                      <p class="text-label-sm text-on-surface-variant" data-i18n="itin2Desc">
+                      <p
+                        class="font-label-md text-label-md"
+                        data-i18n="itin2Time"
+                      >
+                        10:00 AM — A Famosa & St. Paul Hill
+                      </p>
+                      <p
+                        class="text-label-sm text-on-surface-variant"
+                        data-i18n="itin2Desc"
+                      >
                         Learn about Portuguese and Dutch historical influence.
                       </p>
                     </div>
@@ -808,24 +982,49 @@
 
                   <div class="relative flex gap-4">
                     <div class="timeline-line"></div>
-                    <div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center z-10">
-                      <span class="material-symbols-outlined text-[20px]">restaurant</span>
+                    <div
+                      class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center z-10"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >restaurant</span
+                      >
                     </div>
                     <div>
-                      <p class="font-label-md text-label-md" data-i18n="itin3Time">12:00 PM — Local Food Stop</p>
-                      <p class="text-label-sm text-on-surface-variant" data-i18n="itin3Desc">
-                        Try chicken rice balls and local kuih around Jonker Street.
+                      <p
+                        class="font-label-md text-label-md"
+                        data-i18n="itin3Time"
+                      >
+                        12:00 PM — Local Food Stop
+                      </p>
+                      <p
+                        class="text-label-sm text-on-surface-variant"
+                        data-i18n="itin3Desc"
+                      >
+                        Try chicken rice balls and local kuih around Jonker
+                        Street.
                       </p>
                     </div>
                   </div>
 
                   <div class="relative flex gap-4">
-                    <div class="w-10 h-10 rounded-full bg-secondary-container text-white flex items-center justify-center z-10">
-                      <span class="material-symbols-outlined text-[20px]">check</span>
+                    <div
+                      class="w-10 h-10 rounded-full bg-secondary-container text-white flex items-center justify-center z-10"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >check</span
+                      >
                     </div>
                     <div>
-                      <p class="font-label-md text-label-md" data-i18n="itin4Time">1:00 PM — Tour Ends</p>
-                      <p class="text-label-sm text-on-surface-variant" data-i18n="itin4Desc">
+                      <p
+                        class="font-label-md text-label-md"
+                        data-i18n="itin4Time"
+                      >
+                        1:00 PM — Tour Ends
+                      </p>
+                      <p
+                        class="text-label-sm text-on-surface-variant"
+                        data-i18n="itin4Desc"
+                      >
                         End point near Jonker Walk entrance.
                       </p>
                     </div>
@@ -855,22 +1054,38 @@
                 </div>
 
                 <div class="md:col-span-8 p-6">
-                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+                  <div
+                    class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5"
+                  >
                     <div>
-                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2" data-i18n="card2Badge">
+                      <p
+                        class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2"
+                        data-i18n="card2Badge"
+                      >
                         City Escape
                       </p>
-                      <h2 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="card2Title">
+                      <h2
+                        class="font-headline-md text-headline-md text-primary mb-2"
+                        data-i18n="card2Title"
+                      >
                         Kuala Lumpur City Night Tour
                       </h2>
-                      <p class="text-body-md text-on-surface-variant" data-i18n="card2Desc">
-                        Visit KLCC, Merdeka Square, Saloma Bridge, and local night
-                        market attractions.
+                      <p
+                        class="text-body-md text-on-surface-variant"
+                        data-i18n="card2Desc"
+                      >
+                        Visit KLCC, Merdeka Square, Saloma Bridge, and local
+                        night market attractions.
                       </p>
                     </div>
 
                     <div class="text-left md:text-right">
-                      <p class="text-label-sm text-on-surface-variant" data-i18n="bookingIdLabel">Booking ID</p>
+                      <p
+                        class="text-label-sm text-on-surface-variant"
+                        data-i18n="bookingIdLabel"
+                      >
+                        Booking ID
+                      </p>
                       <p class="font-label-md text-label-md text-primary">
                         JT-KUL-24021
                       </p>
@@ -879,37 +1094,64 @@
 
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary text-[20px]">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center"
+                      >
+                        <span
+                          class="material-symbols-outlined text-primary text-[20px]"
+                        >
                           calendar_month
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="dateLabel">Date</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="dateLabel"
+                        >
+                          Date
+                        </p>
                         <p class="font-label-md text-label-md">24 June 2026</p>
                       </div>
                     </div>
 
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary text-[20px]">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center"
+                      >
+                        <span
+                          class="material-symbols-outlined text-primary text-[20px]"
+                        >
                           schedule
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="timeLabel">Time</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="timeLabel"
+                        >
+                          Time
+                        </p>
                         <p class="font-label-md text-label-md">7:30 PM</p>
                       </div>
                     </div>
 
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center">
-                        <span class="material-symbols-outlined text-secondary text-[20px]">
+                      <div
+                        class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center"
+                      >
+                        <span
+                          class="material-symbols-outlined text-secondary text-[20px]"
+                        >
                           payments
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="balanceLabel">Balance</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="balanceLabel"
+                        >
+                          Balance
+                        </p>
                         <p class="font-label-md text-label-md">RM 168.00</p>
                       </div>
                     </div>
@@ -917,7 +1159,7 @@
 
                   <div class="flex flex-wrap gap-3">
                     <button
-                      onclick="window.location.href='paymentinterface.html'"
+                      onclick="window.location.href = 'paymentinterface.html'"
                       class="px-5 py-3 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95"
                       data-i18n="btnCompletePay"
                     >
@@ -925,7 +1167,7 @@
                     </button>
 
                     <button
-                      onclick="window.location.href='aiAssistant.html'"
+                      onclick="window.location.href = 'aiAssistant.html'"
                       class="px-5 py-3 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all active:scale-95"
                       data-i18n="btnAskAi"
                     >
@@ -957,22 +1199,38 @@
                 </div>
 
                 <div class="md:col-span-8 p-6">
-                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+                  <div
+                    class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5"
+                  >
                     <div>
-                      <p class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2" data-i18n="card3Badge">
+                      <p
+                        class="text-label-sm text-secondary font-label-sm uppercase tracking-wider mb-2"
+                        data-i18n="card3Badge"
+                      >
                         Food Experience
                       </p>
-                      <h2 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="card3Title">
+                      <h2
+                        class="font-headline-md text-headline-md text-primary mb-2"
+                        data-i18n="card3Title"
+                      >
                         George Town Food Trail
                       </h2>
-                      <p class="text-body-md text-on-surface-variant" data-i18n="card3Desc">
+                      <p
+                        class="text-body-md text-on-surface-variant"
+                        data-i18n="card3Desc"
+                      >
                         A completed food walking tour around Penang street food,
                         murals, and heritage lanes.
                       </p>
                     </div>
 
                     <div class="text-left md:text-right">
-                      <p class="text-label-sm text-on-surface-variant" data-i18n="bookingIdLabel">Booking ID</p>
+                      <p
+                        class="text-label-sm text-on-surface-variant"
+                        data-i18n="bookingIdLabel"
+                      >
+                        Booking ID
+                      </p>
                       <p class="font-label-md text-label-md text-primary">
                         JT-PEN-23980
                       </p>
@@ -981,56 +1239,91 @@
 
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary text-[20px]">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center"
+                      >
+                        <span
+                          class="material-symbols-outlined text-primary text-[20px]"
+                        >
                           event_available
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="visitedLabel">Visited</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="visitedLabel"
+                        >
+                          Visited
+                        </p>
                         <p class="font-label-md text-label-md">2 May 2026</p>
                       </div>
                     </div>
 
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
-                        <span class="material-symbols-outlined text-primary text-[20px]">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center"
+                      >
+                        <span
+                          class="material-symbols-outlined text-primary text-[20px]"
+                        >
                           group
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="guestsLabel">Guests</p>
-                        <p class="font-label-md text-label-md" data-i18n="guestsCount2">4 Guests</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="guestsLabel"
+                        >
+                          Guests
+                        </p>
+                        <p
+                          class="font-label-md text-label-md"
+                          data-i18n="guestsCount2"
+                        >
+                          4 Guests
+                        </p>
                       </div>
                     </div>
 
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center">
+                      <div
+                        class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center"
+                      >
                         <span
                           class="material-symbols-outlined text-secondary text-[20px]"
-                          style="font-variation-settings: 'FILL' 1"
+                          style="font-variation-settings: &quot;FILL&quot; 1"
                         >
                           star
                         </span>
                       </div>
                       <div>
-                        <p class="text-label-sm text-on-surface-variant" data-i18n="ratingLabel">Rating</p>
-                        <p class="font-label-md text-label-md" data-i18n="noReviewText">Not reviewed</p>
+                        <p
+                          class="text-label-sm text-on-surface-variant"
+                          data-i18n="ratingLabel"
+                        >
+                          Rating
+                        </p>
+                        <p
+                          class="font-label-md text-label-md"
+                          data-i18n="noReviewText"
+                        >
+                          Not reviewed
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <div class="flex flex-wrap gap-3">
                     <button
-  onclick="window.location.href='reviewRating.html'"
-  class="px-5 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95"
-  data-i18n="btnReview"
->
-  Leave Review
-</button>
+                      onclick="window.location.href = 'reviewRating.html'"
+                      class="px-5 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95"
+                      data-i18n="btnReview"
+                    >
+                      Leave Review
+                    </button>
 
                     <button
-                      onclick="window.location.href='homepage.html'"
+                      onclick="window.location.href = 'homepage.html'"
                       class="px-5 py-3 border border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-fixed transition-all active:scale-95"
                       data-i18n="btnBookAgain"
                     >
@@ -1052,7 +1345,10 @@
                   search_off
                 </span>
               </div>
-              <h3 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="emptyTitle">
+              <h3
+                class="font-headline-md text-headline-md text-primary mb-2"
+                data-i18n="emptyTitle"
+              >
                 No bookings found
               </h3>
               <p class="text-on-surface-variant mb-6" data-i18n="emptyDesc">
@@ -1082,7 +1378,10 @@
                 </div>
 
                 <div>
-                  <h3 class="font-headline-md text-headline-md text-primary" data-i18n="sideProfileTitle">
+                  <h3
+                    class="font-headline-md text-headline-md text-primary"
+                    data-i18n="sideProfileTitle"
+                  >
                     Traveller Profile
                   </h3>
                   <p class="text-label-sm text-on-surface-variant">
@@ -1093,22 +1392,36 @@
 
               <div class="space-y-4 mb-6">
                 <div class="flex justify-between gap-4">
-                  <span class="text-on-surface-variant text-label-md" data-i18n="sideEmail">Email</span>
+                  <span
+                    class="text-on-surface-variant text-label-md"
+                    data-i18n="sideEmail"
+                    >Email</span
+                  >
                   <span class="font-label-md text-label-md text-right">
                     amirul.haziq@email.com
                   </span>
                 </div>
 
                 <div class="flex justify-between gap-4">
-                  <span class="text-on-surface-variant text-label-md" data-i18n="sidePhone">Phone</span>
+                  <span
+                    class="text-on-surface-variant text-label-md"
+                    data-i18n="sidePhone"
+                    >Phone</span
+                  >
                   <span class="font-label-md text-label-md text-right">
                     +60 12-345 6789
                   </span>
                 </div>
 
                 <div class="flex justify-between gap-4">
-                  <span class="text-on-surface-variant text-label-md" data-i18n="sideCurrency">Currency</span>
-                  <span class="font-label-md text-label-md text-right">MYR</span>
+                  <span
+                    class="text-on-surface-variant text-label-md"
+                    data-i18n="sideCurrency"
+                    >Currency</span
+                  >
+                  <span class="font-label-md text-label-md text-right"
+                    >MYR</span
+                  >
                 </div>
               </div>
 
@@ -1122,7 +1435,10 @@
 
             <div class="bg-primary text-white rounded-3xl shadow-xl p-6">
               <div class="flex items-center justify-between mb-6">
-                <h3 class="font-headline-md text-headline-md" data-i18n="sidePayTitle">
+                <h3
+                  class="font-headline-md text-headline-md"
+                  data-i18n="sidePayTitle"
+                >
                   Payment Summary
                 </h3>
                 <span class="material-symbols-outlined">receipt_long</span>
@@ -1130,28 +1446,36 @@
 
               <div class="space-y-4">
                 <div class="flex justify-between">
-                  <span class="text-white/75" data-i18n="sidePayPaid">Paid Tours</span>
+                  <span class="text-white/75" data-i18n="sidePayPaid"
+                    >Paid Tours</span
+                  >
                   <span class="font-bold">RM 496.00</span>
                 </div>
 
                 <div class="flex justify-between">
-                  <span class="text-white/75" data-i18n="sidePayPending">Pending Payment</span>
+                  <span class="text-white/75" data-i18n="sidePayPending"
+                    >Pending Payment</span
+                  >
                   <span class="font-bold">RM 168.00</span>
                 </div>
 
                 <div class="flex justify-between">
-                  <span class="text-white/75" data-i18n="sidePayDiscount">Discount Used</span>
+                  <span class="text-white/75" data-i18n="sidePayDiscount"
+                    >Discount Used</span
+                  >
                   <span class="font-bold">RM 25.00</span>
                 </div>
 
                 <div class="border-t border-white/20 pt-4 flex justify-between">
-                  <span class="font-bold" data-i18n="sidePayTotal">Total Value</span>
+                  <span class="font-bold" data-i18n="sidePayTotal"
+                    >Total Value</span
+                  >
                   <span class="font-bold text-secondary-fixed">RM 664.00</span>
                 </div>
               </div>
 
               <button
-                onclick="window.location.href='paymentinterface.html'"
+                onclick="window.location.href = 'paymentinterface.html'"
                 class="w-full h-12 bg-secondary-container text-white rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95 mt-6"
                 data-i18n="sidePayBtn"
               >
@@ -1170,17 +1494,23 @@
                 </span>
               </div>
 
-              <h3 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="sideHelpTitle">
+              <h3
+                class="font-headline-md text-headline-md text-primary mb-2"
+                data-i18n="sideHelpTitle"
+              >
                 Need help with your trip?
               </h3>
 
-              <p class="text-body-md text-on-surface-variant mb-5" data-i18n="sideHelpDesc">
+              <p
+                class="text-body-md text-on-surface-variant mb-5"
+                data-i18n="sideHelpDesc"
+              >
                 Ask the AI Helper for itinerary changes, food suggestions,
                 transport tips, or guide-related questions.
               </p>
 
               <button
-                onclick="window.location.href='aiAssistant.html'"
+                onclick="window.location.href = 'aiAssistant.html'"
                 class="w-full h-12 bg-primary-fixed text-primary rounded-xl font-label-md text-label-md hover:bg-primary hover:text-white transition-all active:scale-95"
                 data-i18n="sideHelpBtn"
               >
@@ -1199,10 +1529,16 @@
       <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6">
         <div class="flex items-start justify-between mb-5">
           <div>
-            <h3 class="font-headline-md text-headline-md text-primary" data-i18n="modalTitle">
+            <h3
+              class="font-headline-md text-headline-md text-primary"
+              data-i18n="modalTitle"
+            >
               Leave a Review
             </h3>
-            <p class="text-on-surface-variant text-label-md" data-i18n="modalDesc">
+            <p
+              class="text-on-surface-variant text-label-md"
+              data-i18n="modalDesc"
+            >
               Share your experience with other travellers.
             </p>
           </div>
@@ -1216,10 +1552,26 @@
         </div>
 
         <div class="flex gap-2 text-secondary mb-5">
-          <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
-          <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
-          <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
-          <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">star</span>
+          <span
+            class="material-symbols-outlined text-3xl"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >star</span
+          >
+          <span
+            class="material-symbols-outlined text-3xl"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >star</span
+          >
+          <span
+            class="material-symbols-outlined text-3xl"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >star</span
+          >
+          <span
+            class="material-symbols-outlined text-3xl"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >star</span
+          >
           <span class="material-symbols-outlined text-3xl">star</span>
         </div>
 
@@ -1258,7 +1610,8 @@
           menuLogout: "Log Out",
           heroBadge: "Manage your Malaysian experiences",
           heroTitle: "My Bookings",
-          heroDesc: "View your upcoming tours, check payment status, contact your local guide, and manage your Jom Teroka travel plans in one place.",
+          heroDesc:
+            "View your upcoming tours, check payment status, contact your local guide, and manage your Jom Teroka travel plans in one place.",
           nextTripLabel: "Next Trip",
           nextTripTitle: "Melaka Heritage Walk",
           statusConfirmed: "Confirmed",
@@ -1281,7 +1634,8 @@
           tabCancelled: "Cancelled",
           card1Badge: "Heritage Tour",
           card1Title: "Melaka Heritage Walk Session",
-          card1Desc: "Explore Jonker Street, Dutch Square, A Famosa, and traditional Peranakan stories with a certified local guide.",
+          card1Desc:
+            "Explore Jonker Street, Dutch Square, A Famosa, and traditional Peranakan stories with a certified local guide.",
           bookingIdLabel: "Booking ID",
           guestsLabel: "Guests",
           guestsCount1: "2 Adults",
@@ -1297,25 +1651,29 @@
           itin2Time: "10:00 AM — A Famosa & St. Paul Hill",
           itin2Desc: "Learn about Portuguese and Dutch historical influence.",
           itin3Time: "12:00 PM — Local Food Stop",
-          itin3Desc: "Try chicken rice balls and local kuih around Jonker Street.",
+          itin3Desc:
+            "Try chicken rice balls and local kuih around Jonker Street.",
           itin4Time: "1:00 PM — Tour Ends",
           itin4Desc: "End point near Jonker Walk entrance.",
           card2Badge: "City Escape",
           card2Title: "Kuala Lumpur City Night Tour",
-          card2Desc: "Visit KLCC, Merdeka Square, Saloma Bridge, and local night market attractions.",
+          card2Desc:
+            "Visit KLCC, Merdeka Square, Saloma Bridge, and local night market attractions.",
           balanceLabel: "Balance",
           btnCompletePay: "Complete Payment",
           btnAskAi: "Ask AI Helper",
           card3Badge: "Food Experience",
           card3Title: "George Town Food Trail",
-          card3Desc: "A completed food walking tour around Penang street food, murals, and heritage lanes.",
+          card3Desc:
+            "A completed food walking tour around Penang street food, murals, and heritage lanes.",
           visitedLabel: "Visited",
           ratingLabel: "Rating",
           noReviewText: "Not reviewed",
           btnReview: "Leave Review",
           btnBookAgain: "Book Again",
           emptyTitle: "No bookings found",
-          emptyDesc: "Try another keyword or choose a different booking status.",
+          emptyDesc:
+            "Try another keyword or choose a different booking status.",
           emptyBtn: "Show All Bookings",
           sideProfileTitle: "Traveller Profile",
           sideEmail: "Email",
@@ -1329,12 +1687,13 @@
           sidePayTotal: "Total Value",
           sidePayBtn: "Pay Pending Booking",
           sideHelpTitle: "Need help with your trip?",
-          sideHelpDesc: "Ask the AI Helper for itinerary changes, food suggestions, transport tips, or guide-related questions.",
+          sideHelpDesc:
+            "Ask the AI Helper for itinerary changes, food suggestions, transport tips, or guide-related questions.",
           sideHelpBtn: "Open AI Helper",
           modalTitle: "Leave a Review",
           modalDesc: "Share your experience with other travellers.",
           modalBtn: "Submit Review",
-          reviewPlaceholder: "Write your review here..."
+          reviewPlaceholder: "Write your review here...",
         },
         bm: {
           brand: "Jom Teroka",
@@ -1353,7 +1712,8 @@
           menuLogout: "Log Keluar",
           heroBadge: "Uruskan pengalaman percutian Malaysia anda",
           heroTitle: "Tempahan Saya",
-          heroDesc: "Lihat lawatan akan datang, semak status pembayaran, hubungi pemandu pelancong tempatan anda, dan urus pelan percutian Jom Teroka anda di satu tempat.",
+          heroDesc:
+            "Lihat lawatan akan datang, semak status pembayaran, hubungi pemandu pelancong tempatan anda, dan urus pelan percutian Jom Teroka anda di satu tempat.",
           nextTripLabel: "Trip Seterusnya",
           nextTripTitle: "Jejak Warisan Melaka",
           statusConfirmed: "Disahkan",
@@ -1376,7 +1736,8 @@
           tabCancelled: "Dibatalkan",
           card1Badge: "Lawatan Warisan",
           card1Title: "Sesi Jejak Warisan Melaka",
-          card1Desc: "Terokai Jonker Street, Dutch Square, A Famosa, dan kisah tradisional Peranakan bersama pemandu pelancong tempatan berlesen.",
+          card1Desc:
+            "Terokai Jonker Street, Dutch Square, A Famosa, dan kisah tradisional Peranakan bersama pemandu pelancong tempatan berlesen.",
           bookingIdLabel: "ID Tempahan",
           guestsLabel: "Pelawat",
           guestsCount1: "2 Dewasa",
@@ -1388,29 +1749,34 @@
           btnCancel: "Batalkan Tempahan",
           itineraryTitle: "Tentatif Lawatan",
           itin1Time: "9:00 AM — Berkumpul di Dutch Square",
-          itin1Desc: "Berjumpa dengan pemandu pelancong anda dan dengar taklimat keselamatan ringkas.",
+          itin1Desc:
+            "Berjumpa dengan pemandu pelancong anda dan dengar taklimat keselamatan ringkas.",
           itin2Time: "10:00 AM — A Famosa & Bukit St. Paul",
           itin2Desc: "Pelajari pengaruh sejarah Portugis dan Belanda.",
           itin3Time: "12:00 PM — Hentian Makanan Tempatan",
-          itin3Desc: "Cuba nasi ayam bebola dan kuih-muih tempatan di sekitar Jonker Street.",
+          itin3Desc:
+            "Cuba nasi ayam bebola dan kuih-muih tempatan di sekitar Jonker Street.",
           itin4Time: "1:00 PM — Lawatan Tamat",
           itin4Desc: "Titik penamat berhampiran pintu masuk Jonker Walk.",
           card2Badge: " some escape",
           card2Title: "Lawatan Malam Bandar Raya Kuala Lumpur",
-          card2Desc: "Melawat KLCC, Dataran Merdeka, Pintasan Saloma, dan tarikan pasar malam tempatan.",
+          card2Desc:
+            "Melawat KLCC, Dataran Merdeka, Pintasan Saloma, dan tarikan pasar malam tempatan.",
           balanceLabel: "Baki",
           btnCompletePay: "Selesaikan Pembayaran",
           btnAskAi: "Tanya Pembantu AI",
           card3Badge: "Pengalaman Makanan",
           card3Title: "Jejak Makanan George Town",
-          card3Desc: "Sesi jalan-jalan makan di sekitar makanan jalanan Pulau Pinang, lukisan dinding, dan lorong warisan.",
+          card3Desc:
+            "Sesi jalan-jalan makan di sekitar makanan jalanan Pulau Pinang, lukisan dinding, dan lorong warisan.",
           visitedLabel: "Dilawati",
           ratingLabel: "Penilaian",
           noReviewText: "Belum dinilai",
           btnReview: "Tinggalkan Ulasan",
           btnBookAgain: "Tempah Lagi",
           emptyTitle: "Tiada tempahan ditemui",
-          emptyDesc: "Cuba kata kunci lain atau pilih status tempahan yang berbeza.",
+          emptyDesc:
+            "Cuba kata kunci lain atau pilih status tempahan yang berbeza.",
           emptyBtn: "Tunjukkan Semua Tempahan",
           sideProfileTitle: "Profil Pengembara",
           sideEmail: "E-mel",
@@ -1424,13 +1790,14 @@
           sidePayTotal: "Jumlah Nilai",
           sidePayBtn: "Bayar Tempahan Tertunggak",
           sideHelpTitle: "Perlukan bantuan trip?",
-          sideHelpDesc: "Tanya Pembantu AI untuk perubahan jadual, cadangan makanan, tip pengangkutan, atau soalan pemandu pelancong.",
+          sideHelpDesc:
+            "Tanya Pembantu AI untuk perubahan jadual, cadangan makanan, tip pengangkutan, atau soalan pemandu pelancong.",
           sideHelpBtn: "Buka Pembantu AI",
           modalTitle: "Tinggalkan Ulasan",
           modalDesc: "Kongsi pengalaman anda bersama pengembara yang lain.",
           modalBtn: "Hantar Ulasan",
-          reviewPlaceholder: "Tulis ulasan anda di sini..."
-        }
+          reviewPlaceholder: "Tulis ulasan anda di sini...",
+        },
       };
 
       function toggleLanguage() {
@@ -1448,10 +1815,10 @@
             el.innerText = t[key];
           }
         });
-        
+
         // Handle unique properties like text placeholders separately
         const textArea = document.getElementById("reviewTextArea");
-        if(textArea) {
+        if (textArea) {
           textArea.placeholder = t.reviewPlaceholder;
         }
       }
@@ -1474,7 +1841,7 @@
             "bg-surface-container",
             "text-on-surface-variant",
             "hover:bg-primary-fixed",
-            "hover:text-primary"
+            "hover:text-primary",
           );
         });
 
@@ -1483,7 +1850,7 @@
           "bg-surface-container",
           "text-on-surface-variant",
           "hover:bg-primary-fixed",
-          "hover:text-primary"
+          "hover:text-primary",
         );
 
         applyFilters();
@@ -1506,7 +1873,8 @@
           const status = card.dataset.status;
           const searchText = card.dataset.search.toLowerCase();
 
-          const matchStatus = currentFilter === "all" || status === currentFilter;
+          const matchStatus =
+            currentFilter === "all" || status === currentFilter;
           const matchKeyword = searchText.includes(keyword);
 
           if (matchStatus && matchKeyword) {
@@ -1547,7 +1915,7 @@
 
       function cancelBooking(button) {
         const confirmCancel = confirm(
-          "Are you sure you want to cancel this booking?"
+          "Are you sure you want to cancel this booking?",
         );
 
         if (!confirmCancel) return;
