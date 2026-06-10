@@ -1,0 +1,740 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Tour Packages - Jom Teroka</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#91d2a7",
+              "on-secondary": "#ffffff",
+              "primary-container": "#1a5c3a",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "on-primary-fixed": "#002110",
+              "outline-variant": "#c0c9bf",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-surface-variant": "#404942",
+              "error-container": "#ffdad6",
+              "surface-tint": "#2a6a47",
+              "surface-container-highest": "#dde4e6",
+              background: "#f4fafd",
+              "on-tertiary-container": "#c5c4c0",
+              "on-surface": "#161d1f",
+              error: "#ba1a1a",
+              "tertiary-container": "#51514e",
+              "secondary-fixed": "#ffdbcd",
+              "secondary-container": "#fd712a",
+              "on-secondary-fixed": "#360f00",
+              tertiary: "#3a3a38",
+              "primary-fixed": "#aff2c4",
+              "on-primary-fixed-variant": "#0b5131",
+              primary: "#004326",
+              "surface-dim": "#d4dbdd",
+              "surface-bright": "#f4fafd",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#e4e2de",
+              outline: "#707971",
+              "on-secondary-container": "#5c1f00",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#ffb596",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "surface-container-high": "#e2e9ec",
+              "inverse-on-surface": "#ebf2f4",
+              "surface-variant": "#dde4e6",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#161d1f",
+              "primary-fixed-dim": "#93d5aa",
+              "surface-container-low": "#eef5f7",
+              secondary: "#a43e00",
+              "on-error-container": "#93000a",
+              "surface-container": "#e8eff1",
+              surface: "#f4fafd",
+              "on-tertiary-fixed": "#1b1c1a",
+              "inverse-surface": "#2b3234",
+              "inverse-primary": "#93d5aa",
+              "on-error": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              "margin-desktop": "40px",
+              gutter: "24px",
+              base: "8px",
+            },
+            fontFamily: {
+              "headline-md": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "display-lg": ["Plus Jakarta Sans"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"],
+              "body-lg": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      .filled-icon {
+        font-variation-settings: "FILL" 1;
+      }
+      .tour-card-shadow {
+        box-shadow: 0 10px 30px -10px rgba(26, 92, 58, 0.08);
+      }
+      .glass-header {
+        backdrop-filter: blur(8px);
+        background: rgba(244, 250, 253, 0.85);
+      }
+      body {
+        background-color: #f4fafd;
+        color: #161d1f;
+      }
+    </style>
+  </head>
+  <body class="font-body-md overflow-x-hidden">
+    <!-- SideNavBar (Authority Source: JSON) -->
+    <aside
+      class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low flex flex-col py-6 border-r border-outline-variant z-50 hidden md:flex"
+    >
+      <div class="px-6 mb-8">
+        <h1 class="font-headline-md text-headline-md text-primary">
+          Jom Teroka
+        </h1>
+        <p class="font-label-sm text-on-surface-variant mt-1">
+          Guide Dashboard
+        </p>
+      </div>
+      <div class="flex-1 flex flex-col gap-1">
+        <!-- Navigation Mapping: "My Tours" is Active for "My Tour Packages" -->
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          >
+          <span class="font-label-md">Overview</span>
+        </a>
+        <a
+          class="flex items-center gap-3 bg-primary-container text-on-primary-container rounded-xl px-4 py-3 mx-2 translate-x-1 duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined filled-icon" data-icon="map"
+            >map</span
+          >
+          <span class="font-label-md">My Tours</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="payments"
+            >payments</span
+          >
+          <span class="font-label-md">Earnings</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="star">star</span>
+          <span class="font-label-md">Reviews</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="settings"
+            >settings</span
+          >
+          <span class="font-label-md">Settings</span>
+        </a>
+      </div>
+      <div class="mt-auto px-2">
+        <button
+          class="w-full bg-secondary text-on-secondary rounded-full py-3 px-4 font-label-md flex items-center justify-center gap-2 mb-4 hover:opacity-90 transition-opacity"
+        >
+          <span class="material-symbols-outlined" data-icon="add_circle"
+            >add_circle</span
+          >
+          Add New Tour
+        </button>
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="help">help</span>
+          <span class="font-label-md">Help Center</span>
+        </a>
+      </div>
+    </aside>
+    <!-- Main Canvas -->
+    <main class="md:ml-64 min-h-screen pb-20">
+      <!-- TopAppBar (authority Source: JSON) -->
+      <header
+        class="h-20 glass-header sticky top-0 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop z-40"
+      >
+        <div class="md:hidden">
+          <h1 class="font-headline-md font-bold text-primary">Jom Teroka</h1>
+        </div>
+        <div class="hidden md:block">
+          <div class="flex items-center gap-gutter">
+            <!-- Nav links from JSON -->
+            <a
+              class="font-label-md text-on-surface-variant hover:text-primary transition-colors"
+              href="#"
+              >Discover</a
+            >
+            <a
+              class="font-label-md text-on-surface-variant hover:text-primary transition-colors"
+              href="#"
+              >My Bookings</a
+            >
+            <a
+              class="font-label-md text-on-surface-variant hover:text-primary transition-colors"
+              href="#"
+              >Dashboard</a
+            >
+            <a
+              class="font-label-md text-on-surface-variant hover:text-primary transition-colors"
+              href="#"
+              >AI Helper</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span
+            class="font-label-md text-on-surface-variant cursor-pointer hover:text-primary transition-colors"
+            >EN | BM</span
+          >
+          <span
+            class="font-label-md text-on-surface-variant cursor-pointer hover:text-primary transition-colors"
+            >MYR</span
+          >
+          <span
+            class="material-symbols-outlined text-on-surface-variant text-3xl cursor-pointer"
+            data-icon="account_circle"
+            >account_circle</span
+          >
+        </div>
+      </header>
+      <!-- Content Area -->
+      <div
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-base md:py-12"
+      >
+        <!-- Page Header -->
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10"
+        >
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-background">
+              My Tour Packages
+            </h2>
+            <p class="font-body-md text-on-surface-variant mt-1">
+              Manage and optimize your curated travel experiences.
+            </p>
+          </div>
+          <button
+            class="bg-secondary text-on-secondary rounded-full py-4 px-8 font-label-md flex items-center justify-center gap-2 self-start md:self-auto shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-200"
+          >
+            <span class="material-symbols-outlined" data-icon="add">add</span>
+            + Create New Package
+          </button>
+        </div>
+        <!-- Filter Tabs -->
+        <div
+          class="flex items-center gap-2 mb-10 overflow-x-auto pb-2 scrollbar-hide"
+        >
+          <button
+            class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-md whitespace-nowrap"
+          >
+            All
+          </button>
+          <button
+            class="px-6 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md whitespace-nowrap"
+          >
+            Active
+          </button>
+          <button
+            class="px-6 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md whitespace-nowrap"
+          >
+            Draft
+          </button>
+          <button
+            class="px-6 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md whitespace-nowrap"
+          >
+            Disabled
+          </button>
+        </div>
+        <!-- Package Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+          <!-- Card 1: Active -->
+          <div
+            class="bg-surface-container-lowest rounded-3xl overflow-hidden border border-outline-variant/30 tour-card-shadow flex flex-col md:flex-row group"
+          >
+            <div class="md:w-2/5 relative h-56 md:h-auto overflow-hidden">
+              <img
+                alt="Penang Street Art"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="A vibrant landscape photograph of a narrow historical alleyway in George Town, Penang, featuring famous street art on weathered brick walls. The lighting is warm late-afternoon sun filtering through tropical trees. The style is professional travel photography with deep greens, earthy brick tones, and bright pops of mural colors, capturing the warm Malaysian heritage aesthetic."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB71kRsHpUuQEq8L8QV1HklmY7MEW4kpPKSFm2AdrVjk3ZBzUa88edc38YEIydJ0UpioPbBQQbq4PbQ2u-WVm8qDSHeueN863UB0hxzomExJKdPfmWs8_pchXALbbeklAZczheNzweUbwD5RcV3Vn6_tLcUNtPCT5SX5vgUVjiUdFvo3kbmKQWaBXQgpCrcLhXDyMqzrc6uWVteO1rTVRGzHXJOXBliSI9kuro7odBvguf9a_HsBLCxjtecyOJWkNUevbZsdU0WJqCf"
+              />
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-primary-container text-on-primary-container px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider"
+                  >Active</span
+                >
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-secondary text-on-secondary px-3 py-1 rounded-lg font-bold text-sm"
+              >
+                MYR 95/person
+              </div>
+            </div>
+            <div class="p-6 md:w-3/5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-secondary mb-2">
+                  <span
+                    class="material-symbols-outlined filled-icon text-sm"
+                    data-icon="star"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >star</span
+                  >
+                  <span class="font-label-md">4.9</span>
+                </div>
+                <h3 class="font-headline-md text-on-surface mb-2">
+                  Penang Street Art &amp; Food Walk
+                </h3>
+                <div
+                  class="flex flex-wrap gap-4 text-on-surface-variant font-label-sm mb-6"
+                >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="material-symbols-outlined text-base"
+                      data-icon="location_on"
+                      >location_on</span
+                    >
+                    George Town</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="material-symbols-outlined text-base"
+                      data-icon="schedule"
+                      >schedule</span
+                    >
+                    4 Hours</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="material-symbols-outlined text-base"
+                      data-icon="group"
+                      >group</span
+                    >
+                    10 pax</span
+                  >
+                </div>
+              </div>
+              <div class="flex items-center gap-2 mt-auto">
+                <button
+                  class="flex-1 bg-surface-container-high text-on-surface px-4 py-2.5 rounded-xl font-label-md hover:bg-outline-variant transition-colors"
+                >
+                  Edit
+                </button>
+                <button
+                  class="flex-1 bg-primary text-on-primary px-4 py-2.5 rounded-xl font-label-md hover:opacity-90 transition-colors"
+                >
+                  View Bookings
+                </button>
+                <button
+                  class="w-12 h-10 flex items-center justify-center rounded-xl border border-outline-variant text-error hover:bg-error-container transition-colors"
+                  title="Disable"
+                >
+                  <span class="material-symbols-outlined" data-icon="block"
+                    >block</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2: Placeholder for Grid Balance -->
+          <div
+            class="bg-surface-container-lowest rounded-3xl overflow-hidden border border-outline-variant/30 tour-card-shadow flex flex-col md:flex-row group"
+          >
+            <div class="md:w-2/5 relative h-56 md:h-auto overflow-hidden">
+              <img
+                alt="Island Tour"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="A professional aerial shot of clear turquoise waters surrounding a lush green island in Langkawi. The morning sun creates sparkling highlights on the sea surface. The image reflects a serene, luxurious tropical mood with a color palette of vibrant emerald green, deep blues, and soft white sand, fitting the high-end Malaysian hospitality theme."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2kLkye4uLde8_K22y4Z-blKB-SLQhscIS0O9Fy4NvfhSFCnKuqT4N5CzEEDLUQF8LihCSSEO01936iKZ2_jHo_w6eY0QC9VYhilGUB9GynzgcQbRPyva8fGiiD4nMy7tvN70zDjk33D73uRXT5A2JTc36DPzIPeDTsBgITiM1J1IgRXSwkgI89ww6DfczIQJVE2ddIrda8pLcIRj3KIv7HRsWsQGea2UC94unWFmA34GsSFptSRxjlNTTZ0uqk60PQzvCQJI2Fe1N"
+              />
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-primary-container text-on-primary-container px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider"
+                  >Active</span
+                >
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-secondary text-on-secondary px-3 py-1 rounded-lg font-bold text-sm"
+              >
+                MYR 150/person
+              </div>
+            </div>
+            <div class="p-6 md:w-3/5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-secondary mb-2">
+                  <span
+                    class="material-symbols-outlined filled-icon text-sm"
+                    data-icon="star"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >star</span
+                  >
+                  <span class="font-label-md">4.8</span>
+                </div>
+                <h3 class="font-headline-md text-on-surface mb-2">
+                  Langkawi Mangrove Boat Safari
+                </h3>
+                <div
+                  class="flex flex-wrap gap-4 text-on-surface-variant font-label-sm mb-6"
+                >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="material-symbols-outlined text-base"
+                      data-icon="location_on"
+                      >location_on</span
+                    >
+                    Langkawi</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="material-symbols-outlined text-base"
+                      data-icon="schedule"
+                      >schedule</span
+                    >
+                    6 Hours</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="material-symbols-outlined text-base"
+                      data-icon="group"
+                      >group</span
+                    >
+                    8 pax</span
+                  >
+                </div>
+              </div>
+              <div class="flex items-center gap-2 mt-auto">
+                <button
+                  class="flex-1 bg-surface-container-high text-on-surface px-4 py-2.5 rounded-xl font-label-md hover:bg-outline-variant transition-colors"
+                >
+                  Edit
+                </button>
+                <button
+                  class="flex-1 bg-primary text-on-primary px-4 py-2.5 rounded-xl font-label-md hover:opacity-90 transition-colors"
+                >
+                  View Bookings
+                </button>
+                <button
+                  class="w-12 h-10 flex items-center justify-center rounded-xl border border-outline-variant text-error hover:bg-error-container transition-colors"
+                  title="Disable"
+                >
+                  <span class="material-symbols-outlined" data-icon="block"
+                    >block</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3: Draft -->
+          <div
+            class="bg-surface-container-lowest rounded-3xl overflow-hidden border border-outline-variant/30 tour-card-shadow flex flex-col md:flex-row group opacity-85"
+          >
+            <div
+              class="md:w-2/5 relative h-56 md:h-auto overflow-hidden grayscale-[50%]"
+            >
+              <img
+                alt="Hawker Food"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="A close-up, high-detail food photography shot of sizzling Malaysian street food on a large wok, with steam rising gracefully under glowing neon night lights. The setting is a bustling night market in Penang. The mood is energetic and authentic, featuring rich warm oranges from the flames and deep moody blues in the shadows of the evening market."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHYeP3n6d69lWBgcEkKNHUqeVTNU3ImTkpI-42crKMH9h4kfNxWftX_i1VAdx7MTE2t1mf1lEhk_2C2CDgUPztaS-kCMuwOYzrST0GmtBrNEJJyHZeie8g4K_ZFGGxGdLewGY5-surBrnslBfkCQgrWZRDH4LfiN8qJNAI2SsYDZwQGCsHm0lx2niEVT4IlEyfYnZMbKYX5liKzT0v8d_oXxjLo0F7CjhxqQcz4HuajhoiN5JaLWHFWF4-uFqaOrMinbGaj6lOzrKo"
+              />
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider"
+                  >Draft</span
+                >
+              </div>
+            </div>
+            <div class="p-6 md:w-3/5 flex flex-col justify-between">
+              <div>
+                <div
+                  class="flex items-center gap-1 text-on-surface-variant mb-2"
+                >
+                  <span
+                    class="material-symbols-outlined text-sm"
+                    data-icon="pending"
+                    >pending</span
+                  >
+                  <span class="font-label-md">Pending Review</span>
+                </div>
+                <h3 class="font-headline-md text-on-surface mb-2">
+                  Penang Hawker Night Food Tour
+                </h3>
+                <div
+                  class="flex flex-wrap gap-4 text-on-surface-variant font-label-sm mb-6"
+                >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="material-symbols-outlined text-base"
+                      data-icon="location_on"
+                      >location_on</span
+                    >
+                    George Town</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="material-symbols-outlined text-base"
+                      data-icon="schedule"
+                      >schedule</span
+                    >
+                    3 Hours</span
+                  >
+                </div>
+              </div>
+              <div class="flex items-center gap-2 mt-auto">
+                <button
+                  class="flex-1 bg-surface-container-high text-on-surface px-4 py-2.5 rounded-xl font-label-md hover:bg-outline-variant transition-colors"
+                >
+                  Edit
+                </button>
+                <button
+                  class="flex-1 bg-secondary text-on-secondary px-4 py-2.5 rounded-xl font-label-md hover:opacity-90 transition-colors"
+                >
+                  Publish
+                </button>
+                <button
+                  class="w-12 h-10 flex items-center justify-center rounded-xl border border-outline-variant text-error hover:bg-error-container transition-colors"
+                  title="Delete"
+                >
+                  <span class="material-symbols-outlined" data-icon="delete"
+                    >delete</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Add Another Package: Dash-border card -->
+          <button
+            class="group relative bg-transparent rounded-3xl border-2 border-dashed border-outline-variant hover:border-primary hover:bg-primary/5 transition-all duration-300 flex flex-col items-center justify-center gap-4 min-h-[250px] p-8"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-surface-container-high group-hover:bg-primary-container flex items-center justify-center transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl"
+                data-icon="add_circle"
+                >add_circle</span
+              >
+            </div>
+            <div class="text-center">
+              <p class="font-headline-md text-on-surface">
+                + Add Another Package
+              </p>
+              <p class="font-body-md text-on-surface-variant mt-2">
+                Expand your portfolio and offer more unique experiences to
+                travelers.
+              </p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </main>
+    <!-- Footer (Authority Source: JSON) -->
+    <footer
+      class="md:ml-64 bg-tertiary-fixed py-12 px-margin-mobile md:px-margin-desktop"
+    >
+      <div
+        class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
+      >
+        <div class="max-w-xs">
+          <h2 class="font-headline-md text-primary mb-4">Jom Teroka</h2>
+          <p class="font-body-md text-on-tertiary-fixed-variant">
+            Authentic Malaysian experiences curated by locals for the modern
+            adventurer.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-x-12 gap-y-4">
+          <a
+            class="font-label-sm text-on-tertiary-fixed-variant hover:text-primary transition-colors"
+            href="#"
+            >About Us</a
+          >
+          <a
+            class="font-label-sm text-on-tertiary-fixed-variant hover:text-primary transition-colors"
+            href="#"
+            >Contact</a
+          >
+          <a
+            class="font-label-sm text-on-tertiary-fixed-variant hover:text-primary transition-colors"
+            href="#"
+            >Terms</a
+          >
+          <a
+            class="font-label-sm text-on-tertiary-fixed-variant hover:text-primary transition-colors"
+            href="#"
+            >Privacy</a
+          >
+        </div>
+      </div>
+      <div
+        class="max-w-container-max mx-auto mt-12 pt-8 border-t border-outline-variant/30 flex justify-between items-center"
+      >
+        <p class="font-label-sm text-on-tertiary-fixed-variant">
+          © 2024 Jom Teroka. Malaysian Hospitality Redefined.
+        </p>
+        <div class="flex gap-4">
+          <span
+            class="material-symbols-outlined text-on-tertiary-fixed-variant cursor-pointer hover:text-primary transition-colors"
+            data-icon="facebook"
+            >face_nod</span
+          >
+          <span
+            class="material-symbols-outlined text-on-tertiary-fixed-variant cursor-pointer hover:text-primary transition-colors"
+            data-icon="instagram"
+            >infrared</span
+          >
+        </div>
+      </div>
+    </footer>
+    <!-- Mobile Nav Bar (Authority Source: Filter logic) -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest border-t border-outline-variant flex md:hidden z-50"
+    >
+      <a
+        class="flex-1 flex flex-col items-center justify-center text-on-surface-variant"
+        href="#"
+      >
+        <span class="material-symbols-outlined" data-icon="dashboard"
+          >dashboard</span
+        >
+        <span class="text-[10px] font-label-md">Overview</span>
+      </a>
+      <a
+        class="flex-1 flex flex-col items-center justify-center text-primary"
+        href="#"
+      >
+        <span class="material-symbols-outlined filled-icon" data-icon="map"
+          >map</span
+        >
+        <span class="text-[10px] font-label-md">My Tours</span>
+      </a>
+      <a
+        class="flex-1 flex flex-col items-center justify-center text-on-surface-variant"
+        href="#"
+      >
+        <span class="material-symbols-outlined" data-icon="payments"
+          >payments</span
+        >
+        <span class="text-[10px] font-label-md">Earnings</span>
+      </a>
+      <a
+        class="flex-1 flex flex-col items-center justify-center text-on-surface-variant"
+        href="#"
+      >
+        <span class="material-symbols-outlined" data-icon="settings"
+          >settings</span
+        >
+        <span class="text-[10px] font-label-md">Settings</span>
+      </a>
+    </nav>
+    <script>
+      // Micro-interaction for buttons
+      document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("mousedown", () => {
+          button.classList.add("scale-95");
+        });
+        button.addEventListener("mouseup", () => {
+          button.classList.remove("scale-95");
+        });
+        button.addEventListener("mouseleave", () => {
+          button.classList.remove("scale-95");
+        });
+      });
+
+      // Filter tab switching
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => {
+            b.classList.remove("bg-primary", "text-on-primary");
+            b.classList.add(
+              "border",
+              "border-outline-variant",
+              "text-on-surface-variant",
+            );
+          });
+          btn.classList.remove(
+            "border",
+            "border-outline-variant",
+            "text-on-surface-variant",
+          );
+          btn.classList.add("bg-primary", "text-on-primary");
+        });
+      });
+    </script>
+  </body>
+</html>

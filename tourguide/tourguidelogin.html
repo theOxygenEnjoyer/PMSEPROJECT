@@ -1,0 +1,336 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Guide Portal Login | Jom Teroka</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .batik-pattern {
+        background-color: #004326;
+        background-image: url("https://www.transparenttextures.com/patterns/batik-fractal.png");
+        background-blend-mode: overlay;
+        opacity: 0.95;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 40px rgba(0, 33, 16, 0.2);
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#91d2a7",
+              "on-secondary": "#ffffff",
+              "primary-container": "#1a5c3a",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "on-primary-fixed": "#002110",
+              "outline-variant": "#c0c9bf",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-surface-variant": "#404942",
+              "error-container": "#ffdad6",
+              "surface-tint": "#2a6a47",
+              "surface-container-highest": "#dde4e6",
+              background: "#f4fafd",
+              "on-tertiary-container": "#c5c4c0",
+              "on-surface": "#161d1f",
+              error: "#ba1a1a",
+              "tertiary-container": "#51514e",
+              "secondary-fixed": "#ffdbcd",
+              "secondary-container": "#fd712a",
+              "on-secondary-fixed": "#360f00",
+              tertiary: "#3a3a38",
+              "primary-fixed": "#aff2c4",
+              "on-primary-fixed-variant": "#0b5131",
+              primary: "#004326",
+              "surface-dim": "#d4dbdd",
+              "surface-bright": "#f4fafd",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#e4e2de",
+              outline: "#707971",
+              "on-secondary-container": "#5c1f00",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#ffb596",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "surface-container-high": "#e2e9ec",
+              "inverse-on-surface": "#ebf2f4",
+              "surface-variant": "#dde4e6",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#161d1f",
+              "primary-fixed-dim": "#93d5aa",
+              "surface-container-low": "#eef5f7",
+              secondary: "#a43e00",
+              "on-error-container": "#93000a",
+              "surface-container": "#e8eff1",
+              surface: "#f4fafd",
+              "on-tertiary-fixed": "#1b1c1a",
+              "inverse-surface": "#2b3234",
+              "inverse-primary": "#93d5aa",
+              "on-error": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              "margin-desktop": "40px",
+              gutter: "24px",
+              base: "8px",
+            },
+            fontFamily: {
+              "headline-md": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-primary batik-pattern min-h-screen flex flex-col items-center justify-center p-6"
+  >
+    <main class="w-full max-w-lg">
+      <!-- Brand Header (Outside card for impact) -->
+      <div class="text-center mb-base-8 py-8">
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <span
+            class="font-headline-lg text-headline-lg font-bold text-primary-fixed tracking-tight"
+            >Jom Teroka</span
+          >
+          <span
+            class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-md font-label-md"
+            >Guide Portal</span
+          >
+        </div>
+      </div>
+      <!-- Login Card -->
+      <div class="glass-card rounded-xl p-margin-desktop shadow-xl">
+        <div class="mb-10">
+          <h1 class="font-headline-lg text-headline-lg text-primary mb-2">
+            Welcome Back, Guide
+          </h1>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Sign in to manage your tours and bookings
+          </p>
+        </div>
+        <form class="space-y-6" onsubmit="event.preventDefault()">
+          <!-- Email Input -->
+          <div class="space-y-2">
+            <label
+              class="font-label-md text-label-md text-on-surface"
+              for="email"
+              >Email Address</label
+            >
+            <div class="relative group">
+              <div
+                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined">mail</span>
+              </div>
+              <input
+                class="w-full pl-11 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-body-md transition-all outline-none"
+                id="email"
+                name="email"
+                placeholder="guide@jomteroka.my"
+                required=""
+                type="email"
+              />
+            </div>
+          </div>
+          <!-- Password Input -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label
+                class="font-label-md text-label-md text-on-surface"
+                for="password"
+                >Password</label
+              >
+              <a
+                class="font-label-md text-label-md text-secondary hover:underline"
+                href="#"
+                >Forgot Password?</a
+              >
+            </div>
+            <div class="relative group">
+              <div
+                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined">lock</span>
+              </div>
+              <input
+                class="w-full pl-11 pr-12 py-3 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-body-md transition-all outline-none"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                required=""
+                type="password"
+              />
+              <button
+                class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-on-surface transition-colors"
+                onclick="togglePassword()"
+                type="button"
+              >
+                <span class="material-symbols-outlined" id="password-icon"
+                  >visibility</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Primary Action -->
+          <button
+            class="w-full h-12 bg-secondary text-on-secondary font-headline-md text-headline-md rounded-xl hover:bg-on-secondary-container transition-all active:scale-[0.98] shadow-md"
+            type="submit"
+          >
+            Sign In to Guide Portal
+          </button>
+          <!-- Divider -->
+          <div class="relative flex items-center py-4">
+            <div class="flex-grow border-t border-outline-variant"></div>
+            <span
+              class="flex-shrink mx-4 font-label-md text-label-md text-outline"
+              >or</span
+            >
+            <div class="flex-grow border-t border-outline-variant"></div>
+          </div>
+          <!-- Secondary Action -->
+          <button
+            class="w-full h-12 border-2 border-primary text-primary font-headline-md text-headline-md rounded-xl hover:bg-primary-fixed transition-all active:scale-[0.98]"
+            type="button"
+          >
+            Register as a New Guide
+          </button>
+        </form>
+        <div class="mt-8 text-center">
+          <a
+            class="inline-flex items-center gap-1 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+            href="#"
+          >
+            Are you a tourist?
+            <span class="text-secondary font-semibold">Sign in here →</span>
+          </a>
+        </div>
+      </div>
+      <!-- Trust Badges -->
+      <div class="mt-12 grid grid-cols-3 gap-gutter">
+        <div class="flex flex-col items-center text-center space-y-2">
+          <div
+            class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary"
+          >
+            <span
+              class="material-symbols-outlined"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >verified_user</span
+            >
+          </div>
+          <span
+            class="font-label-sm text-label-sm text-primary-fixed opacity-90"
+            >Secure Login</span
+          >
+        </div>
+        <div class="flex flex-col items-center text-center space-y-2">
+          <div
+            class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary"
+          >
+            <span
+              class="material-symbols-outlined"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >approval_delegation</span
+            >
+          </div>
+          <span
+            class="font-label-sm text-label-sm text-primary-fixed opacity-90"
+            >Ministry Verified</span
+          >
+        </div>
+        <div class="flex flex-col items-center text-center space-y-2">
+          <div
+            class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary"
+          >
+            <span
+              class="material-symbols-outlined"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >nature_people</span
+            >
+          </div>
+          <span
+            class="font-label-sm text-label-sm text-primary-fixed opacity-90"
+            >Malaysian Guides</span
+          >
+        </div>
+      </div>
+    </main>
+    <!-- Footer Copyright -->
+    <footer class="mt-auto py-8">
+      <p class="font-label-sm text-label-sm text-primary-fixed opacity-60">
+        © 2024 Jom Teroka. Malaysian Hospitality Redefined.
+      </p>
+    </footer>
+    <script>
+      function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const icon = document.getElementById("password-icon");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          icon.textContent = "visibility_off";
+        } else {
+          passwordInput.type = "password";
+          icon.textContent = "visibility";
+        }
+      }
+
+      // Simple subtle interaction for trust badges
+      document.querySelectorAll(".grid > div").forEach((badge) => {
+        badge.addEventListener("mouseenter", () => {
+          badge.classList.add("scale-105");
+          badge.style.transition = "all 0.3s ease";
+        });
+        badge.addEventListener("mouseleave", () => {
+          badge.classList.remove("scale-105");
+        });
+      });
+    </script>
+  </body>
+</html>

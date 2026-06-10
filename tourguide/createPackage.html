@@ -1,0 +1,814 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Create New Tour Package | Jom Teroka</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        display: inline-block;
+        line-height: 1;
+        vertical-align: middle;
+      }
+      .step-active {
+        position: relative;
+      }
+      .step-active::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #004326;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#91d2a7",
+              "on-secondary": "#ffffff",
+              "primary-container": "#1a5c3a",
+              "on-secondary-fixed-variant": "#7d2d00",
+              "on-primary-fixed": "#002110",
+              "outline-variant": "#c0c9bf",
+              "on-tertiary-fixed-variant": "#474744",
+              "on-surface-variant": "#404942",
+              "error-container": "#ffdad6",
+              "surface-tint": "#2a6a47",
+              "surface-container-highest": "#dde4e6",
+              background: "#f4fafd",
+              "on-tertiary-container": "#c5c4c0",
+              "on-surface": "#161d1f",
+              error: "#ba1a1a",
+              "tertiary-container": "#51514e",
+              "secondary-fixed": "#ffdbcd",
+              "secondary-container": "#fd712a",
+              "on-secondary-fixed": "#360f00",
+              tertiary: "#3a3a38",
+              "primary-fixed": "#aff2c4",
+              "on-primary-fixed-variant": "#0b5131",
+              primary: "#004326",
+              "surface-dim": "#d4dbdd",
+              "surface-bright": "#f4fafd",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#e4e2de",
+              outline: "#707971",
+              "on-secondary-container": "#5c1f00",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#ffb596",
+              "tertiary-fixed-dim": "#c8c6c3",
+              "surface-container-high": "#e2e9ec",
+              "inverse-on-surface": "#ebf2f4",
+              "surface-variant": "#dde4e6",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#161d1f",
+              "primary-fixed-dim": "#93d5aa",
+              "surface-container-low": "#eef5f7",
+              secondary: "#a43e00",
+              "on-error-container": "#93000a",
+              "surface-container": "#e8eff1",
+              surface: "#f4fafd",
+              "on-tertiary-fixed": "#1b1c1a",
+              "inverse-surface": "#2b3234",
+              "inverse-primary": "#93d5aa",
+              "on-error": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "margin-mobile": "16px",
+              "margin-desktop": "40px",
+              gutter: "24px",
+              base: "8px",
+            },
+            fontFamily: {
+              "headline-md": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "display-lg": ["Plus Jakarta Sans"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"],
+              "body-lg": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed"
+  >
+    <!-- Professional Side Navigation (Authority: SideNavBar JSON) -->
+    <aside
+      class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant py-6 z-50"
+    >
+      <div class="px-6 mb-8">
+        <h1
+          class="font-headline-md text-headline-md text-primary tracking-tight"
+        >
+          Jom Teroka
+        </h1>
+        <p class="font-label-sm text-on-surface-variant mt-1">
+          Guide Dashboard
+        </p>
+      </div>
+      <nav class="flex-1 space-y-1">
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all rounded-xl font-label-md"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          >
+          <span>Overview</span>
+        </a>
+        <a
+          class="flex items-center gap-3 bg-primary-container text-on-primary-container rounded-xl px-4 py-3 mx-2 translate-x-1 duration-200 font-label-md"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="map">map</span>
+          <span>My Tours</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all rounded-xl font-label-md"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="payments"
+            >payments</span
+          >
+          <span>Earnings</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all rounded-xl font-label-md"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="star">star</span>
+          <span>Reviews</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-all rounded-xl font-label-md"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="settings"
+            >settings</span
+          >
+          <span>Settings</span>
+        </a>
+      </nav>
+      <div class="mt-auto px-2 space-y-1">
+        <a
+          class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-xl font-label-md"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="help">help</span>
+          <span>Help Center</span>
+        </a>
+        <div class="px-4 py-6 border-t border-outline-variant mt-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold"
+            >
+              AZ
+            </div>
+            <div>
+              <p class="font-label-md text-on-surface">Azwan Rahim</p>
+              <p class="text-xs text-on-surface-variant">Senior Naturalist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="md:ml-64 min-h-screen pb-20">
+      <!-- Sticky Top Header -->
+      <header
+        class="bg-surface shadow-sm sticky top-0 z-40 h-20 flex items-center px-margin-mobile md:px-margin-desktop justify-between"
+      >
+        <div class="flex items-center gap-4">
+          <button class="md:hidden p-2 rounded-full hover:bg-surface-container">
+            <span class="material-symbols-outlined" data-icon="menu">menu</span>
+          </button>
+          <h2 class="font-headline-md text-headline-md text-primary">
+            Create New Tour Package
+          </h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="hidden md:inline font-label-md text-on-surface-variant"
+            >Draft saved 2m ago</span
+          >
+          <button
+            class="bg-surface-container-high text-on-surface px-6 py-2.5 rounded-full font-label-md hover:bg-surface-container-highest transition-all"
+          >
+            Cancel
+          </button>
+        </div>
+      </header>
+      <!-- Form Container -->
+      <div class="max-w-4xl mx-auto mt-base md:mt-10 px-margin-mobile md:px-0">
+        <!-- Step Tabs -->
+        <div
+          class="flex border-b border-outline-variant mb-10 overflow-x-auto whitespace-nowrap scrollbar-hide"
+        >
+          <button
+            class="px-8 py-4 font-label-md text-primary border-b-2 border-primary active:scale-95 transition-all"
+          >
+            1. Basic Info
+          </button>
+          <button
+            class="px-8 py-4 font-label-md text-on-surface-variant opacity-60 cursor-not-allowed"
+          >
+            2. Itinerary
+          </button>
+          <button
+            class="px-8 py-4 font-label-md text-on-surface-variant opacity-60 cursor-not-allowed"
+          >
+            3. Media & Gallery
+          </button>
+          <button
+            class="px-8 py-4 font-label-md text-on-surface-variant opacity-60 cursor-not-allowed"
+          >
+            4. Pricing & Availability
+          </button>
+        </div>
+        <!-- Form Body -->
+        <form class="space-y-12">
+          <!-- Section: Core Identity -->
+          <section
+            class="bg-surface-container-lowest p-6 md:p-10 rounded-2xl shadow-sm border border-outline-variant/30"
+          >
+            <h3
+              class="font-headline-md text-primary mb-6 flex items-center gap-2"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container"
+                data-icon="info"
+                >info</span
+              >
+              Core Identity
+            </h3>
+            <div class="space-y-8">
+              <!-- Tour Title -->
+              <div class="group">
+                <label
+                  class="block font-label-md text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors"
+                  >Tour Title</label
+                >
+                <input
+                  class="w-full h-14 bg-surface-bright border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all px-4 font-body-md text-on-surface"
+                  placeholder="e.g. Hidden Waterfalls of Taman Negara"
+                  required=""
+                  type="text"
+                />
+                <p class="mt-2 text-xs text-on-surface-variant">
+                  Keep it catchy and descriptive (max 80 characters).
+                </p>
+              </div>
+              <!-- Category Pills -->
+              <div>
+                <label class="block font-label-md text-on-surface-variant mb-3"
+                  >Tour Category</label
+                >
+                <div class="flex flex-wrap gap-3">
+                  <label class="cursor-pointer">
+                    <input checked="" class="hidden peer" type="checkbox" />
+                    <span
+                      class="px-5 py-2.5 rounded-full border border-outline-variant text-on-surface-variant font-label-md peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:border-primary transition-all flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-sm"
+                        data-icon="forest"
+                        >forest</span
+                      >
+                      Nature
+                    </span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="hidden peer" type="checkbox" />
+                    <span
+                      class="px-5 py-2.5 rounded-full border border-outline-variant text-on-surface-variant font-label-md peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:border-primary transition-all flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-sm"
+                        data-icon="hiking"
+                        >hiking</span
+                      >
+                      Adventure
+                    </span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="hidden peer" type="checkbox" />
+                    <span
+                      class="px-5 py-2.5 rounded-full border border-outline-variant text-on-surface-variant font-label-md peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:border-primary transition-all flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-sm"
+                        data-icon="temple_hindu"
+                        >temple_hindu</span
+                      >
+                      Culture
+                    </span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="hidden peer" type="checkbox" />
+                    <span
+                      class="px-5 py-2.5 rounded-full border border-outline-variant text-on-surface-variant font-label-md peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:border-primary transition-all flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-sm"
+                        data-icon="restaurant"
+                        >restaurant</span
+                      >
+                      Foodie
+                    </span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="hidden peer" type="checkbox" />
+                    <span
+                      class="px-5 py-2.5 rounded-full border border-outline-variant text-on-surface-variant font-label-md peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:border-primary transition-all flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-sm"
+                        data-icon="beach_access"
+                        >beach_access</span
+                      >
+                      Island
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Section: Location & Logistics -->
+          <section
+            class="bg-surface-container-lowest p-6 md:p-10 rounded-2xl shadow-sm border border-outline-variant/30"
+          >
+            <h3
+              class="font-headline-md text-primary mb-6 flex items-center gap-2"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container"
+                data-icon="location_on"
+                >location_on</span
+              >
+              Location & Logistics
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div>
+                  <label
+                    class="block font-label-md text-on-surface-variant mb-2"
+                    >State</label
+                  >
+                  <select
+                    class="w-full h-12 bg-surface-bright border-outline-variant rounded-xl focus:ring-primary focus:border-primary font-body-md"
+                  >
+                    <option>Select State</option>
+                    <option>Pahang</option>
+                    <option>Selangor</option>
+                    <option>Sabah</option>
+                    <option>Sarawak</option>
+                    <option>Penang</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    class="block font-label-md text-on-surface-variant mb-2"
+                    >Area / City</label
+                  >
+                  <select
+                    class="w-full h-12 bg-surface-bright border-outline-variant rounded-xl focus:ring-primary focus:border-primary font-body-md"
+                  >
+                    <option>Select City</option>
+                    <option>Kuala Tahan</option>
+                    <option>Cameron Highlands</option>
+                    <option>Bentong</option>
+                  </select>
+                </div>
+              </div>
+              <div class="space-y-6">
+                <div>
+                  <label
+                    class="block font-label-md text-on-surface-variant mb-2"
+                    >Duration</label
+                  >
+                  <div class="relative">
+                    <input
+                      class="w-full h-12 bg-surface-bright border-outline-variant rounded-xl focus:ring-primary focus:border-primary font-body-md pr-16"
+                      placeholder="4"
+                      type="number"
+                    />
+                    <span
+                      class="absolute right-4 top-3 text-on-surface-variant font-label-sm"
+                      >Hours</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <label
+                    class="block font-label-md text-on-surface-variant mb-2"
+                    >Max Group Size</label
+                  >
+                  <input
+                    class="w-full h-12 bg-surface-bright border-outline-variant rounded-xl focus:ring-primary focus:border-primary font-body-md"
+                    placeholder="12"
+                    type="number"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Meeting Point & Map -->
+            <div class="mt-8 space-y-4">
+              <label class="block font-label-md text-on-surface-variant"
+                >Meeting Point Description</label
+              >
+              <div class="relative">
+                <input
+                  class="w-full h-14 bg-surface-bright border-outline-variant rounded-xl focus:ring-primary focus:border-primary px-4 font-body-md"
+                  placeholder="e.g. In front of the main jetty entrance"
+                  type="text"
+                />
+                <button
+                  class="absolute right-2 top-2 h-10 px-4 bg-primary text-on-primary rounded-lg font-label-md flex items-center gap-2 hover:bg-primary-container transition-colors"
+                  type="button"
+                >
+                  <span
+                    class="material-symbols-outlined text-sm"
+                    data-icon="map"
+                    >map</span
+                  >
+                  Pin on Map
+                </button>
+              </div>
+              <div
+                class="w-full h-48 rounded-xl bg-surface-container-high relative overflow-hidden group"
+              >
+                <img
+                  class="w-full h-full object-cover opacity-60"
+                  data-alt="A detailed overhead satellite view of a lush green Malaysian landscape with marked roads and a clear pin indicator for a meeting point. The map is presented in a clean, modern digital interface style with soft ambient lighting and high contrast for legibility."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4HDz3YckFtZ_akv9zwEnEKpNCgGRVK6lrPIgq7jEbX7VzM5TKRQvOFJRa3DqiXHaZDRRia7QrW4RsxdWb6MtghG1wbP2a94pft-jdAqKY1pqqVR1rWHtImUWQbaA_ijz-wrdl8njpu5blHCrlPQVukGg5fKaPcaakPMiasPNx6OA_4gbh9fN8_7sJIhRYjNLMvZhwQUcAmPhdMPYuOLOqimN0Ils7Zl3d7c_lYmpwezrtgFxqaXjbKMpqattDK2iIWUz2JkWIYyNh"
+                />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="bg-primary text-on-primary px-4 py-2 rounded-full shadow-lg flex items-center gap-2 animate-bounce"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      data-icon="location_on"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >location_on</span
+                    >
+                    <span class="font-label-md">Meeting Point Set</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Section: Experience Details -->
+          <section
+            class="bg-surface-container-lowest p-6 md:p-10 rounded-2xl shadow-sm border border-outline-variant/30"
+          >
+            <h3
+              class="font-headline-md text-primary mb-6 flex items-center gap-2"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container"
+                data-icon="description"
+                >description</span
+              >
+              Experience Details
+            </h3>
+            <div class="space-y-8">
+              <div>
+                <label class="block font-label-md text-on-surface-variant mb-2"
+                  >Description</label
+                >
+                <textarea
+                  class="w-full bg-surface-bright border-outline-variant rounded-xl focus:ring-primary focus:border-primary p-4 font-body-md leading-relaxed"
+                  placeholder="Describe the magical experience travelers will have. What makes it unique? Mention the sights, sounds, and local secrets..."
+                  rows="6"
+                ></textarea>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <label
+                    class="block font-label-md text-on-surface-variant mb-3"
+                    >Languages Offered</label
+                  >
+                  <div class="grid grid-cols-2 gap-2">
+                    <label
+                      class="flex items-center gap-3 p-3 bg-surface-bright border border-outline-variant rounded-xl cursor-pointer hover:border-primary transition-colors"
+                    >
+                      <input
+                        checked=""
+                        class="w-5 h-5 rounded text-primary focus:ring-primary"
+                        type="checkbox"
+                      />
+                      <span class="font-label-md">English</span>
+                    </label>
+                    <label
+                      class="flex items-center gap-3 p-3 bg-surface-bright border border-outline-variant rounded-xl cursor-pointer hover:border-primary transition-colors"
+                    >
+                      <input
+                        checked=""
+                        class="w-5 h-5 rounded text-primary focus:ring-primary"
+                        type="checkbox"
+                      />
+                      <span class="font-label-md">Bahasa Melayu</span>
+                    </label>
+                    <label
+                      class="flex items-center gap-3 p-3 bg-surface-bright border border-outline-variant rounded-xl cursor-pointer hover:border-primary transition-colors"
+                    >
+                      <input
+                        class="w-5 h-5 rounded text-primary focus:ring-primary"
+                        type="checkbox"
+                      />
+                      <span class="font-label-md">Mandarin</span>
+                    </label>
+                    <label
+                      class="flex items-center gap-3 p-3 bg-surface-bright border border-outline-variant rounded-xl cursor-pointer hover:border-primary transition-colors"
+                    >
+                      <input
+                        class="w-5 h-5 rounded text-primary focus:ring-primary"
+                        type="checkbox"
+                      />
+                      <span class="font-label-md">Tamil</span>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <label
+                    class="block font-label-md text-on-surface-variant mb-3"
+                    >Transport Included?</label
+                  >
+                  <div
+                    class="flex items-center justify-between p-4 bg-surface-bright border border-outline-variant rounded-xl"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="material-symbols-outlined text-on-surface-variant"
+                        data-icon="directions_bus"
+                        >directions_bus</span
+                      >
+                      <span class="font-label-md">Pick-up & Drop-off</span>
+                    </div>
+                    <button
+                      class="w-12 h-6 bg-outline-variant rounded-full relative transition-colors"
+                      id="transport-toggle"
+                      type="button"
+                    >
+                      <div
+                        class="w-4 h-4 bg-white rounded-full absolute top-1 left-1 transition-all transform"
+                        id="toggle-circle"
+                      ></div>
+                    </button>
+                  </div>
+                  <p class="mt-2 text-xs text-on-surface-variant">
+                    Toggle on if you provide transportation to the meeting
+                    point.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <label class="block font-label-md text-on-surface-variant mb-4"
+                  >Included Services</label
+                >
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <label
+                    class="flex flex-col items-center gap-2 p-4 rounded-xl border border-outline-variant bg-surface-bright hover:border-primary hover:bg-primary-fixed/20 transition-all cursor-pointer text-center group"
+                  >
+                    <input class="hidden peer" type="checkbox" />
+                    <span
+                      class="material-symbols-outlined text-3xl text-on-surface-variant peer-checked:text-primary"
+                      data-icon="restaurant"
+                      >restaurant</span
+                    >
+                    <span class="font-label-sm peer-checked:text-primary"
+                      >Meals</span
+                    >
+                  </label>
+                  <label
+                    class="flex flex-col items-center gap-2 p-4 rounded-xl border border-outline-variant bg-surface-bright hover:border-primary hover:bg-primary-fixed/20 transition-all cursor-pointer text-center group"
+                  >
+                    <input class="hidden peer" type="checkbox" />
+                    <span
+                      class="material-symbols-outlined text-3xl text-on-surface-variant peer-checked:text-primary"
+                      data-icon="water_drop"
+                      >water_drop</span
+                    >
+                    <span class="font-label-sm peer-checked:text-primary"
+                      >Drinks</span
+                    >
+                  </label>
+                  <label
+                    class="flex flex-col items-center gap-2 p-4 rounded-xl border border-outline-variant bg-surface-bright hover:border-primary hover:bg-primary-fixed/20 transition-all cursor-pointer text-center group"
+                  >
+                    <input class="hidden peer" type="checkbox" />
+                    <span
+                      class="material-symbols-outlined text-3xl text-on-surface-variant peer-checked:text-primary"
+                      data-icon="confirmation_number"
+                      >confirmation_number</span
+                    >
+                    <span class="font-label-sm peer-checked:text-primary"
+                      >Entrance Fees</span
+                    >
+                  </label>
+                  <label
+                    class="flex flex-col items-center gap-2 p-4 rounded-xl border border-outline-variant bg-surface-bright hover:border-primary hover:bg-primary-fixed/20 transition-all cursor-pointer text-center group"
+                  >
+                    <input class="hidden peer" type="checkbox" />
+                    <span
+                      class="material-symbols-outlined text-3xl text-on-surface-variant peer-checked:text-primary"
+                      data-icon="medical_services"
+                      >medical_services</span
+                    >
+                    <span class="font-label-sm peer-checked:text-primary"
+                      >Insurance</span
+                    >
+                  </label>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Form Action -->
+          <div class="flex justify-end pt-10 border-t border-outline-variant">
+            <button
+              class="w-full md:w-auto px-10 py-5 bg-secondary-container text-on-secondary-container font-headline-md rounded-2xl shadow-lg hover:shadow-xl active:scale-[0.98] transition-all flex items-center justify-center gap-3"
+              type="submit"
+            >
+              Save & Continue to Itinerary
+              <span class="material-symbols-outlined" data-icon="arrow_forward"
+                >arrow_forward</span
+              >
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- Footer (Authority: Footer JSON) -->
+    <footer class="md:ml-64 bg-tertiary-fixed text-on-tertiary-fixed-variant">
+      <div
+        class="w-full py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter"
+      >
+        <div class="max-w-xs">
+          <h4 class="font-headline-md text-primary mb-4">Jom Teroka</h4>
+          <p class="font-body-md">
+            Authentic Malaysian experiences delivered with heart. Supporting
+            local guides and sustainable tourism since 2024.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-10 md:gap-20">
+          <div class="space-y-3">
+            <p class="font-label-md text-primary uppercase tracking-wider">
+              Company
+            </p>
+            <ul class="space-y-2 font-label-md">
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Terms</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Privacy</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <p class="font-label-md text-primary uppercase tracking-wider">
+              Support
+            </p>
+            <ul class="space-y-2 font-label-md">
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Guide Resources</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Safety Standards</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Help Center</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full py-6 px-margin-mobile md:px-margin-desktop border-t border-outline-variant/30 flex justify-between items-center text-label-sm"
+      >
+        <span>© 2024 Jom Teroka. Malaysian Hospitality Redefined.</span>
+        <div class="flex gap-4">
+          <span class="material-symbols-outlined text-lg" data-icon="public"
+            >public</span
+          >
+          <span>MYR (RM)</span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Custom Transport Toggle Interaction
+      const toggleBtn = document.getElementById("transport-toggle");
+      const toggleCircle = document.getElementById("toggle-circle");
+      let isActive = false;
+
+      toggleBtn.addEventListener("click", () => {
+        isActive = !isActive;
+        if (isActive) {
+          toggleBtn.classList.replace("bg-outline-variant", "bg-primary");
+          toggleCircle.classList.replace("left-1", "left-7");
+        } else {
+          toggleBtn.classList.replace("bg-primary", "bg-outline-variant");
+          toggleCircle.classList.replace("left-7", "left-1");
+        }
+      });
+
+      // Add visual feedback to category pills
+      document
+        .querySelectorAll('input[type="checkbox"]')
+        .forEach((checkbox) => {
+          checkbox.addEventListener("change", (e) => {
+            const span = e.target.nextElementSibling;
+            if (
+              span &&
+              span.classList.contains("peer-checked:bg-primary-fixed")
+            ) {
+              // Visual logic handled by Tailwind peer-checked classes
+            }
+          });
+        });
+
+      // Form Submission - Simple prevent default for demo
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Progress saved! Moving to Step 2: Itinerary.");
+      });
+    </script>
+  </body>
+</html>
